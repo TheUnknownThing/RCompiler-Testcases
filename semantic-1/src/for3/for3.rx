@@ -1,0 +1,17 @@
+fn main() {
+    const N: usize = 30;
+    let mut is_prime = [true; N];
+    is_prime[0] = false;
+    is_prime[1] = false;
+ 
+    for p in 2..N {
+        if is_prime[p] {
+            let mut multiple = p * p;
+            while multiple < N {
+                is_prime[multiple] = false;
+                multiple += p;
+            }
+        }
+    }
+    let _ = is_prime;
+}

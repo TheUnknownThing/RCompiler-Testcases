@@ -1,0 +1,6 @@
+fn main() {
+    let mut total = 0;
+    for i 0..10 {
+        total += i;
+    }
+}

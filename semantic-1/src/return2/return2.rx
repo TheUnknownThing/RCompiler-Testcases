@@ -1,0 +1,5 @@
+fn main() {
+    let a = 3.to_string();
+    let b = 3 + 1;
+    _exit(b);
+}

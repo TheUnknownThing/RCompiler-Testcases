@@ -1,0 +1,10 @@
+fn main() {
+    let temperature = 25;
+    if temperature > 30 {
+        let _status = "hot";
+    } else if temperature < 10 {
+        let _status = "cold";
+    } else {
+        let _status = "mild";
+    }
+}

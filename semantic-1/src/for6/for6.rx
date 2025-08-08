@@ -1,0 +1,8 @@
+fn main() {
+    for i in 0..5 {
+        let tmp = i * 2;
+        let _ = tmp;
+    }
+    let result = tmp + 1;
+    let _ = result;
+}

@@ -1,0 +1,10 @@
+fn main() {
+    let mut total = 0u32;
+    for n in 0..20 {
+        if n % 2 == 0 {
+            continue;
+        }
+        total += n;
+    }
+    let _ = total;
+}
