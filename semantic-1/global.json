@@ -570,7 +570,7 @@
   {
     "name": "for4",
     "name_visible": true,
-    "active": true,
+    "active": false,
     "source": ["src/for4/for4.rx", "visible"],
     "input": ["src/for4/for4.in", "visible"],
     "output": ["src/for4/for4.out", "visible"],
