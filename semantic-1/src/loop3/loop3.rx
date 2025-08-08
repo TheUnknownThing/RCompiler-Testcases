@@ -4,7 +4,8 @@ fn main() {
     is_prime[0] = false;
     is_prime[1] = false;
  
-    for p in 2..N {
+    let mut p = 2usize;
+    while p < N {
         if is_prime[p] {
             let mut multiple = p * p;
             while multiple < N {
@@ -12,6 +13,7 @@ fn main() {
                 multiple += p;
             }
         }
+        p += 1;
     }
     let _ = is_prime;
 }

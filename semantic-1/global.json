@@ -505,12 +505,12 @@
     }
   },
   {
-    "name": "for1",
+    "name": "loop1",
     "name_visible": true,
     "active": true,
-    "source": ["src/for1/for1.rx", "visible"],
-    "input": ["src/for1/for1.in", "visible"],
-    "output": ["src/for1/for1.out", "visible"],
+    "source": ["src/loop1/loop1.rx", "visible"],
+    "input": ["src/loop1/loop1.in", "visible"],
+    "output": ["src/loop1/loop1.out", "visible"],
     "exitcode": 0,
     "compileexitcode": 0,
     "compiletimelimit": 15,
@@ -522,16 +522,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, basic for loop with continue statement"
+      "comment": "loop test, basic while loop with continue statement"
     }
   },
   {
-    "name": "for2",
+    "name": "loop2",
     "name_visible": true,
     "active": true,
-    "source": ["src/for2/for2.rx", "visible"],
-    "input": ["src/for2/for2.in", "visible"],
-    "output": ["src/for2/for2.out", "visible"],
+    "source": ["src/loop2/loop2.rx", "visible"],
+    "input": ["src/loop2/loop2.in", "visible"],
+    "output": ["src/loop2/loop2.out", "visible"],
     "exitcode": 0,
     "compileexitcode": 0,
     "compiletimelimit": 15,
@@ -543,16 +543,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, nested for loops with conditional logic"
+      "comment": "loop test, nested while loops with conditional logic"
     }
   },
   {
-    "name": "for3",
+    "name": "loop3",
     "name_visible": true,
     "active": true,
-    "source": ["src/for3/for3.rx", "visible"],
-    "input": ["src/for3/for3.in", "visible"],
-    "output": ["src/for3/for3.out", "visible"],
+    "source": ["src/loop3/loop3.rx", "visible"],
+    "input": ["src/loop3/loop3.in", "visible"],
+    "output": ["src/loop3/loop3.out", "visible"],
     "exitcode": 0,
     "compileexitcode": 0,
     "compiletimelimit": 15,
@@ -564,16 +564,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, sieve of Eratosthenes algorithm with array operations"
+      "comment": "loop test, sieve of Eratosthenes algorithm with while loops and array operations"
     }
   },
   {
-    "name": "for4",
+    "name": "loop4",
     "name_visible": true,
     "active": false,
-    "source": ["src/for4/for4.rx", "visible"],
-    "input": ["src/for4/for4.in", "visible"],
-    "output": ["src/for4/for4.out", "visible"],
+    "source": ["src/loop4/loop4.rx", "visible"],
+    "input": ["src/loop4/loop4.in", "visible"],
+    "output": ["src/loop4/loop4.out", "visible"],
     "exitcode": 0,
     "compileexitcode": 0,
     "compiletimelimit": 15,
@@ -585,16 +585,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, labeled loops with break and continue"
+      "comment": "loop test, nested infinite loops with break condition using flag variable"
     }
   },
   {
-    "name": "for5",
+    "name": "loop5",
     "name_visible": true,
     "active": true,
-    "source": ["src/for5/for5.rx", "visible"],
-    "input": ["src/for5/for5.in", "visible"],
-    "output": ["src/for5/for5.out", "visible"],
+    "source": ["src/loop5/loop5.rx", "visible"],
+    "input": ["src/loop5/loop5.in", "visible"],
+    "output": ["src/loop5/loop5.out", "visible"],
     "exitcode": 0,
     "compileexitcode": 0,
     "compiletimelimit": 15,
@@ -606,16 +606,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, Fibonacci sequence calculation with array indexing"
+      "comment": "loop test, Fibonacci sequence calculation with while loop and array indexing"
     }
   },
   {
-    "name": "for6",
+    "name": "loop6",
     "name_visible": true,
     "active": true,
-    "source": ["src/for6/for6.rx", "visible"],
-    "input": ["src/for6/for6.in", "visible"],
-    "output": ["src/for6/for6.out", "visible"],
+    "source": ["src/loop6/loop6.rx", "visible"],
+    "input": ["src/loop6/loop6.in", "visible"],
+    "output": ["src/loop6/loop6.out", "visible"],
     "exitcode": 0,
     "compileexitcode": -1,
     "compiletimelimit": 15,
@@ -627,16 +627,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, variable scope error - using loop variable outside scope"
+      "comment": "loop test, variable scope error - using loop variable outside scope"
     }
   },
   {
-    "name": "for7",
+    "name": "loop7",
     "name_visible": true,
     "active": true,
-    "source": ["src/for7/for7.rx", "visible"],
-    "input": ["src/for7/for7.in", "visible"],
-    "output": ["src/for7/for7.out", "visible"],
+    "source": ["src/loop7/loop7.rx", "visible"],
+    "input": ["src/loop7/loop7.in", "visible"],
+    "output": ["src/loop7/loop7.out", "visible"],
     "exitcode": 0,
     "compileexitcode": -1,
     "compiletimelimit": 15,
@@ -648,16 +648,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, break statement outside of loop context"
+      "comment": "loop test, break statement outside of loop context"
     }
   },
   {
-    "name": "for8",
+    "name": "loop8",
     "name_visible": true,
     "active": true,
-    "source": ["src/for8/for8.rx", "visible"],
-    "input": ["src/for8/for8.in", "visible"],
-    "output": ["src/for8/for8.out", "visible"],
+    "source": ["src/loop8/loop8.rx", "visible"],
+    "input": ["src/loop8/loop8.in", "visible"],
+    "output": ["src/loop8/loop8.out", "visible"],
     "exitcode": 0,
     "compileexitcode": -1,
     "compiletimelimit": 15,
@@ -669,16 +669,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, invalid negative array indexing"
+      "comment": "loop test, syntax error - missing opening brace for while loop body"
     }
   },
   {
-    "name": "for9",
+    "name": "loop9",
     "name_visible": true,
     "active": true,
-    "source": ["src/for9/for9.rx", "visible"],
-    "input": ["src/for9/for9.in", "visible"],
-    "output": ["src/for9/for9.out", "visible"],
+    "source": ["src/loop9/loop9.rx", "visible"],
+    "input": ["src/loop9/loop9.in", "visible"],
+    "output": ["src/loop9/loop9.out", "visible"],
     "exitcode": 0,
     "compileexitcode": -1,
     "compiletimelimit": 15,
@@ -690,16 +690,16 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, syntax error - missing 'in' keyword in loop"
+      "comment": "loop test, syntax error - invalid tuple pattern in while condition"
     }
   },
   {
-    "name": "for10",
+    "name": "loop10",
     "name_visible": true,
     "active": true,
-    "source": ["src/for10/for10.rx", "visible"],
-    "input": ["src/for10/for10.in", "visible"],
-    "output": ["src/for10/for10.out", "visible"],
+    "source": ["src/loop10/loop10.rx", "visible"],
+    "input": ["src/loop10/loop10.in", "visible"],
+    "output": ["src/loop10/loop10.out", "visible"],
     "exitcode": 0,
     "compileexitcode": -1,
     "compiletimelimit": 15,
@@ -711,7 +711,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "for loop test, syntax error - missing 'in' keyword in loop"
+      "comment": "loop test, syntax error - malformed while condition"
     }
   },
   {
