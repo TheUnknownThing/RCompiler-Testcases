@@ -17,7 +17,28 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-03",
-      "comment": "basic case for this"
+      "comment": "Hello World case, basic test for RCompiler"
+    }
+  },
+  {
+    "name": "return1",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return1/return1.rx", "visible"],
+    "input": ["src/return1/return1.in", "visible"],
+    "output": ["src/return1/return1.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-07",
+      "comment": "_exit function test, string cannot be returned"
     }
   }
 ]
