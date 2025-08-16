@@ -8,8 +8,10 @@ fn main() {
     };
     let doubled = result * 2;
     let mut acc = 0;
-    for i in 0..doubled {
+    let mut i = 0;
+    while i < doubled {
         acc += i;
+        i += 1;
     }
     let _final_score = acc / 3;
 }
@@ -29,8 +31,10 @@ fn pick_operator(value: i32) -> Op {
 
 fn compute(x: i32, y: i32, op: Op) -> i32 {
     let mut accumulator = 0;
-    for i in 0..y {
+    let mut i = 0;
+    while i < y {
         accumulator = accumulator + x + i;
+        i += 1;
     }
     match op {
         Op::Add => accumulator + y,

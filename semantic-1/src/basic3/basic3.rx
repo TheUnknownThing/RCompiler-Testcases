@@ -21,8 +21,10 @@ fn main() {
 
 fn sum_slice(slice: &[i32]) -> i32 {
     let mut subtotal = 0;
-    for v in slice {
-        subtotal += *v;
+    let mut i = 0;
+    while i < slice.len() {
+        subtotal += slice[i];
+        i += 1;
     }
     subtotal
 }

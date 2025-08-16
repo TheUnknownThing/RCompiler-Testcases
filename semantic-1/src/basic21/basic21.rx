@@ -5,12 +5,16 @@ fn partition(arr: &mut [i32]) -> usize {
     let mut j = 0usize;
     while j + 1 < len {
         if arr[j] < pivot {
-            arr.swap(i, j);
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
             i += 1;
         }
         j += 1;
     }
-    arr.swap(i, len - 1);
+    let temp = arr[i];
+    arr[i] = arr[len - 1];
+    arr[len - 1] = temp;
     i
 }
 fn quicksort(arr: &mut [i32]) {

@@ -1,5 +1,5 @@
-type Board = [[u8; 4]; 4];
-fn is_safe(b: &Board, row: usize, col: usize, num: u8) -> bool {
+type Board = [[u32; 4]; 4];
+fn is_safe(b: &Board, row: usize, col: usize, num: u32) -> bool {
     let mut i = 0;
     while i < 4 {
         if b[row][i] == num || b[i][col] == num {
@@ -31,7 +31,7 @@ fn solve(b: &mut Board, row: usize, col: usize) -> bool {
     if b[row][col] != 0 {
         return solve(b, next_row, next_col);
     }
-    let mut num = 1u8;
+    let mut num = 1u32;
     while num <= 4 {
         if is_safe(b, row, col, num) {
             b[row][col] = num;

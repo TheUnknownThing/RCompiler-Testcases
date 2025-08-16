@@ -11,11 +11,13 @@ fn climb(n: i32) -> i32 {
     let mut ways = 0;
     let mut first = 1;
     let mut second = 1;
-    for _ in 2..=n {
+    let mut i = 2;
+    while i <= n {
         let next = first + second;
         first = second;
         second = next;
         ways = next;
+        i += 1;
     }
-    break 'outer with ways;
+    ways
 }
