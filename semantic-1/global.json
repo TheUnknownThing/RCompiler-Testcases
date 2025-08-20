@@ -2813,6 +2813,426 @@
       "lastmodified": "2025-08-08",
       "comment": "Aho-Corasick string matching algorithm with uninitialized struct field error"
     }
+  },
+  {
+    "name": "type1",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type1/type1.rx", "visible"],
+    "input": ["src/type1/type1.in", "visible"],
+    "output": ["src/type1/type1.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: boolean cannot be assigned to integer"
+    }
+  },
+  {
+    "name": "type2",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type2/type2.rx", "visible"],
+    "input": ["src/type2/type2.in", "visible"],
+    "output": ["src/type2/type2.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: string cannot be used in arithmetic operation"
+    }
+  },
+  {
+    "name": "type3",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type3/type3.rx", "visible"],
+    "input": ["src/type3/type3.in", "visible"],
+    "output": ["src/type3/type3.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: array element type mismatch"
+    }
+  },
+  {
+    "name": "type4",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type4/type4.rx", "visible"],
+    "input": ["src/type4/type4.in", "visible"],
+    "output": ["src/type4/type4.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: struct field type mismatch"
+    }
+  },
+  {
+    "name": "type5",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type5/type5.rx", "visible"],
+    "input": ["src/type5/type5.in", "visible"],
+    "output": ["src/type5/type5.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: function return type mismatch"
+    }
+  },
+  {
+    "name": "type6",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type6/type6.rx", "visible"],
+    "input": ["src/type6/type6.in", "visible"],
+    "output": ["src/type6/type6.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: pointer dereference type mismatch"
+    }
+  },
+  {
+    "name": "type7",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type7/type7.rx", "visible"],
+    "input": ["src/type7/type7.in", "visible"],
+    "output": ["src/type7/type7.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: enum variant type mismatch"
+    }
+  },
+  {
+    "name": "type8",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type8/type8.rx", "visible"],
+    "input": ["src/type8/type8.in", "visible"],
+    "output": ["src/type8/type8.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: unit type cannot be used in comparison"
+    }
+  },
+  {
+    "name": "type9",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type9/type9.rx", "visible"],
+    "input": ["src/type9/type9.in", "visible"],
+    "output": ["src/type9/type9.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: boolean cannot be used as array index"
+    }
+  },
+  {
+    "name": "type10",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type10/type10.rx", "visible"],
+    "input": ["src/type10/type10.in", "visible"],
+    "output": ["src/type10/type10.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: incompatible numeric types"
+    }
+  },
+  {
+    "name": "type11",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type11/type11.rx", "visible"],
+    "input": ["src/type11/type11.in", "visible"],
+    "output": ["src/type11/type11.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: function parameter type mismatch in distance calculation"
+    }
+  },
+  {
+    "name": "type12",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type12/type12.rx", "visible"],
+    "input": ["src/type12/type12.in", "visible"],
+    "output": ["src/type12/type12.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: array element type mismatch with enum and boolean"
+    }
+  },
+  {
+    "name": "type13",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type13/type13.rx", "visible"],
+    "input": ["src/type13/type13.in", "visible"],
+    "output": ["src/type13/type13.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: string assigned to pointer field in linked list structure"
+    }
+  },
+  {
+    "name": "type14",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type14/type14.rx", "visible"],
+    "input": ["src/type14/type14.in", "visible"],
+    "output": ["src/type14/type14.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: inconsistent return types in conditional function"
+    }
+  },
+  {
+    "name": "type15",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type15/type15.rx", "visible"],
+    "input": ["src/type15/type15.in", "visible"],
+    "output": ["src/type15/type15.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: string used as array index in matrix operations"
+    }
+  },
+  {
+    "name": "type16",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type16/type16.rx", "visible"],
+    "input": ["src/type16/type16.in", "visible"],
+    "output": ["src/type16/type16.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: conditional expression branches with different types"
+    }
+  },
+  {
+    "name": "type17",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type17/type17.rx", "visible"],
+    "input": ["src/type17/type17.in", "visible"],
+    "output": ["src/type17/type17.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: accessing non-existent field on struct type"
+    }
+  },
+  {
+    "name": "type18",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type18/type18.rx", "visible"],
+    "input": ["src/type18/type18.in", "visible"],
+    "output": ["src/type18/type18.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: comparing struct with numeric value in vector operations"
+    }
+  },
+  {
+    "name": "type19",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type19/type19.rx", "visible"],
+    "input": ["src/type19/type19.in", "visible"],
+    "output": ["src/type19/type19.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: using unit type return value in arithmetic expression"
+    }
+  },
+  {
+    "name": "type20",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/type20/type20.rx", "visible"],
+    "input": ["src/type20/type20.in", "visible"],
+    "output": ["src/type20/type20.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Type error: array size mismatch in task queue assignment"
+    }
   }
 
 ]
