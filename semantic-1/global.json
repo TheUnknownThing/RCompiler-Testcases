@@ -1553,6 +1553,111 @@
       "lastmodified": "2025-08-08",
       "comment": "basic test, knight's tour problem with recursive backtracking"
     }
+  },
+  {
+    "name": "misc1",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc1/misc1.rx", "visible"],
+    "input": ["src/misc1/misc1.in", "visible"],
+    "output": ["src/misc1/misc1.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, simple sum calculation with function"
+    }
+  },
+  {
+    "name": "misc2",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc2/misc2.rx", "visible"],
+    "input": ["src/misc2/misc2.in", "visible"],
+    "output": ["src/misc2/misc2.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, array operations with maximum finding"
+    }
+  },
+  {
+    "name": "misc3",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc3/misc3.rx", "visible"],
+    "input": ["src/misc3/misc3.in", "visible"],
+    "output": ["src/misc3/misc3.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, Fibonacci sequence calculation using struct"
+    }
+  },
+  {
+    "name": "misc4",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc4/misc4.rx", "visible"],
+    "input": ["src/misc4/misc4.in", "visible"],
+    "output": ["src/misc4/misc4.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, factorial calculation using recursion"
+    }
+  },
+  {
+    "name": "misc5",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc5/misc5.rx", "visible"],
+    "input": ["src/misc5/misc5.in", "visible"],
+    "output": ["src/misc5/misc5.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, simple sorting and processing with structs"
+    }
   }
 
 ]
