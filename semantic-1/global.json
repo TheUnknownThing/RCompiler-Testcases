@@ -2498,6 +2498,216 @@
       "lastmodified": "2025-08-08",
       "comment": "Solovay-Strassen primality test with Jacobi symbol computation"
     }
+  },
+  {
+    "name": "misc46",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc46/misc46.rx", "visible"],
+    "input": ["src/misc46/misc46.in", "visible"],
+    "output": ["src/misc46/misc46.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Ackermann function implementation using pure recursion"
+    }
+  },
+  {
+    "name": "misc47",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc47/misc47.rx", "visible"],
+    "input": ["src/misc47/misc47.in", "visible"],
+    "output": ["src/misc47/misc47.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Collatz conjecture recursive implementation with iterative analysis"
+    }
+  },
+  {
+    "name": "misc48",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc48/misc48.rx", "visible"],
+    "input": ["src/misc48/misc48.in", "visible"],
+    "output": ["src/misc48/misc48.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Hofstadter Q-sequence self-referential recursive computation"
+    }
+  },
+  {
+    "name": "misc49",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc49/misc49.rx", "visible"],
+    "input": ["src/misc49/misc49.in", "visible"],
+    "output": ["src/misc49/misc49.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Josephus problem recursive solution with iterative variations"
+    }
+  },
+  {
+    "name": "misc50",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc50/misc50.rx", "visible"],
+    "input": ["src/misc50/misc50.in", "visible"],
+    "output": ["src/misc50/misc50.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Integer partition recursive counting with iterative summation"
+    }
+  },
+  {
+    "name": "misc51",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc51/misc51.rx", "visible"],
+    "input": ["src/misc51/misc51.in", "visible"],
+    "output": ["src/misc51/misc51.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Catalan numbers recursive computation with iterative verification"
+    }
+  },
+  {
+    "name": "misc52",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc52/misc52.rx", "visible"],
+    "input": ["src/misc52/misc52.in", "visible"],
+    "output": ["src/misc52/misc52.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Tower of Hanoi recursive solution with iterative move counting"
+    }
+  },
+  {
+    "name": "misc53",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc53/misc53.rx", "visible"],
+    "input": ["src/misc53/misc53.in", "visible"],
+    "output": ["src/misc53/misc53.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Digital root recursive calculation with iterative pattern search"
+    }
+  },
+  {
+    "name": "misc54",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc54/misc54.rx", "visible"],
+    "input": ["src/misc54/misc54.in", "visible"],
+    "output": ["src/misc54/misc54.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Moser circle problem with recursive combinations and iterative analysis"
+    }
+  },
+  {
+    "name": "misc55",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc55/misc55.rx", "visible"],
+    "input": ["src/misc55/misc55.in", "visible"],
+    "output": ["src/misc55/misc55.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Stern-Brocot tree generation with recursive sequence analysis"
+    }
   }
 
 ]
