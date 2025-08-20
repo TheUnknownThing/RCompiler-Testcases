@@ -1,0 +1,13 @@
+fn main() {
+    let a = 10;
+    let b = 20;
+    let c = {
+        let temp = a + b;
+        temp * 2
+    }
+    if c > 50 {
+        printInt(c);
+    } else {
+        printInt(-c);
+    }
+}

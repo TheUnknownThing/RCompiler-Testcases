@@ -1,0 +1,12 @@
+fn main() {
+    let mut counter = 0;
+    let result = loop {
+        counter = counter + 1;
+        if counter >= 5 {
+            break counter * 2;
+        }
+    };
+    let arr = [result, result + 1];
+    let index = if result > 10  0 } else { 1 };
+    printInt(arr[index]);
+}
