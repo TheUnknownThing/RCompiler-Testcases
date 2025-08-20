@@ -1868,6 +1868,426 @@
       "lastmodified": "2025-08-08",
       "comment": "misc test, simple hash table simulation"
     }
+  },
+  {
+    "name": "misc16",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc16/misc16.rx", "visible"],
+    "input": ["src/misc16/misc16.in", "visible"],
+    "output": ["src/misc16/misc16.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Binary Search Tree implementation using arrays"
+    }
+  },
+  {
+    "name": "misc17",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc17/misc17.rx", "visible"],
+    "input": ["src/misc17/misc17.in", "visible"],
+    "output": ["src/misc17/misc17.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Min Heap implementation using array"
+    }
+  },
+  {
+    "name": "misc18",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc18/misc18.rx", "visible"],
+    "input": ["src/misc18/misc18.in", "visible"],
+    "output": ["src/misc18/misc18.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Quick Sort implementation"
+    }
+  },
+  {
+    "name": "misc19",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc19/misc19.rx", "visible"],
+    "input": ["src/misc19/misc19.in", "visible"],
+    "output": ["src/misc19/misc19.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Merge Sort implementation"
+    }
+  },
+  {
+    "name": "misc20",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc20/misc20.rx", "visible"],
+    "input": ["src/misc20/misc20.in", "visible"],
+    "output": ["src/misc20/misc20.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "KMP string matching algorithm"
+    }
+  },
+  {
+    "name": "misc21",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc21/misc21.rx", "visible"],
+    "input": ["src/misc21/misc21.in", "visible"],
+    "output": ["src/misc21/misc21.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Linked List implementation using arrays"
+    }
+  },
+  {
+    "name": "misc22",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc22/misc22.rx", "visible"],
+    "input": ["src/misc22/misc22.in", "visible"],
+    "output": ["src/misc22/misc22.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Stack implementation with dynamic resizing simulation"
+    }
+  },
+  {
+    "name": "misc23",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc23/misc23.rx", "visible"],
+    "input": ["src/misc23/misc23.in", "visible"],
+    "output": ["src/misc23/misc23.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Queue implementation using circular array"
+    }
+  },
+  {
+    "name": "misc24",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc24/misc24.rx", "visible"],
+    "input": ["src/misc24/misc24.in", "visible"],
+    "output": ["src/misc24/misc24.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "AVL Tree implementation (self-balancing binary search tree)"
+    }
+  },
+  {
+    "name": "misc25",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc25/misc25.rx", "visible"],
+    "input": ["src/misc25/misc25.in", "visible"],
+    "output": ["src/misc25/misc25.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Graph implementation with DFS and BFS traversal"
+    }
+  },
+  {
+    "name": "misc26",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc26/misc26.rx", "visible"],
+    "input": ["src/misc26/misc26.in", "visible"],
+    "output": ["src/misc26/misc26.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Union-Find (Disjoint Set Union) data structure"
+    }
+  },
+  {
+    "name": "misc27",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc27/misc27.rx", "visible"],
+    "input": ["src/misc27/misc27.in", "visible"],
+    "output": ["src/misc27/misc27.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Segment Tree implementation for range queries and updates"
+    }
+  },
+  {
+    "name": "misc28",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc28/misc28.rx", "visible"],
+    "input": ["src/misc28/misc28.in", "visible"],
+    "output": ["src/misc28/misc28.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Trie (Prefix Tree) implementation for string operations"
+    }
+  },
+  {
+    "name": "misc29",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc29/misc29.rx", "visible"],
+    "input": ["src/misc29/misc29.in", "visible"],
+    "output": ["src/misc29/misc29.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Fenwick Tree (Binary Indexed Tree) for efficient range queries"
+    }
+  },
+  {
+    "name": "misc30",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc30/misc30.rx", "visible"],
+    "input": ["src/misc30/misc30.in", "visible"],
+    "output": ["src/misc30/misc30.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Red-Black Tree implementation (self-balancing BST)"
+    }
+  },
+  {
+    "name": "misc31",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc31/misc31.rx", "visible"],
+    "input": ["src/misc31/misc31.in", "visible"],
+    "output": ["src/misc31/misc31.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Dijkstra's shortest path algorithm implementation"
+    }
+  },
+  {
+    "name": "misc32",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc32/misc32.rx", "visible"],
+    "input": ["src/misc32/misc32.in", "visible"],
+    "output": ["src/misc32/misc32.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Topological Sort using Kahn's algorithm (BFS-based)"
+    }
+  },
+  {
+    "name": "misc33",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc33/misc33.rx", "visible"],
+    "input": ["src/misc33/misc33.in", "visible"],
+    "output": ["src/misc33/misc33.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Strongly Connected Components using Kosaraju's Algorithm"
+    }
+  },
+  {
+    "name": "misc34",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc34/misc34.rx", "visible"],
+    "input": ["src/misc34/misc34.in", "visible"],
+    "output": ["src/misc34/misc34.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Minimum Spanning Tree using Kruskal's Algorithm with Union-Find"
+    }
+  },
+  {
+    "name": "misc35",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc35/misc35.rx", "visible"],
+    "input": ["src/misc35/misc35.in", "visible"],
+    "output": ["src/misc35/misc35.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Bellman-Ford Algorithm for Single Source Shortest Path with negative weights"
+    }
   }
 
 ]
