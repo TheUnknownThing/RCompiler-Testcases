@@ -2288,6 +2288,216 @@
       "lastmodified": "2025-08-08",
       "comment": "Bellman-Ford Algorithm for Single Source Shortest Path with negative weights"
     }
+  },
+  {
+    "name": "misc36",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc36/misc36.rx", "visible"],
+    "input": ["src/misc36/misc36.in", "visible"],
+    "output": ["src/misc36/misc36.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Pollard's rho algorithm for integer factorization with recursive optimization"
+    }
+  },
+  {
+    "name": "misc37",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc37/misc37.rx", "visible"],
+    "input": ["src/misc37/misc37.in", "visible"],
+    "output": ["src/misc37/misc37.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Miller-Rabin primality test with recursive witness checking"
+    }
+  },
+  {
+    "name": "misc38",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc38/misc38.rx", "visible"],
+    "input": ["src/misc38/misc38.in", "visible"],
+    "output": ["src/misc38/misc38.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Quadratic sieve algorithm for factorization using continued fractions"
+    }
+  },
+  {
+    "name": "misc39",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc39/misc39.rx", "visible"],
+    "input": ["src/misc39/misc39.in", "visible"],
+    "output": ["src/misc39/misc39.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Schönhage-Strassen multiplication algorithm with recursive FFT approach"
+    }
+  },
+  {
+    "name": "misc40",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc40/misc40.rx", "visible"],
+    "input": ["src/misc40/misc40.in", "visible"],
+    "output": ["src/misc40/misc40.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Continued fraction expansion for square roots and Pell equation solver"
+    }
+  },
+  {
+    "name": "misc41",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc41/misc41.rx", "visible"],
+    "input": ["src/misc41/misc41.in", "visible"],
+    "output": ["src/misc41/misc41.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Baby-step Giant-step algorithm for discrete logarithm computation"
+    }
+  },
+  {
+    "name": "misc42",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc42/misc42.rx", "visible"],
+    "input": ["src/misc42/misc42.in", "visible"],
+    "output": ["src/misc42/misc42.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Tonelli-Shanks algorithm for computing modular square roots"
+    }
+  },
+  {
+    "name": "misc43",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc43/misc43.rx", "visible"],
+    "input": ["src/misc43/misc43.in", "visible"],
+    "output": ["src/misc43/misc43.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Elliptic curve point addition and scalar multiplication over finite fields"
+    }
+  },
+  {
+    "name": "misc44",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc44/misc44.rx", "visible"],
+    "input": ["src/misc44/misc44.in", "visible"],
+    "output": ["src/misc44/misc44.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Lenstra elliptic curve factorization method for composite numbers"
+    }
+  },
+  {
+    "name": "misc45",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc45/misc45.rx", "visible"],
+    "input": ["src/misc45/misc45.in", "visible"],
+    "output": ["src/misc45/misc45.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Solovay-Strassen primality test with Jacobi symbol computation"
+    }
   }
 
 ]
