@@ -2708,6 +2708,111 @@
       "lastmodified": "2025-08-08",
       "comment": "Stern-Brocot tree generation with recursive sequence analysis"
     }
+  },
+  {
+    "name": "misc56",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc56/misc56.rx", "visible"],
+    "input": ["src/misc56/misc56.in", "visible"],
+    "output": ["src/misc56/misc56.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Pollard's Rho factorization algorithm with struct-integer comparison error"
+    }
+  },
+  {
+    "name": "misc57",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc57/misc57.rx", "visible"],
+    "input": ["src/misc57/misc57.in", "visible"],
+    "output": ["src/misc57/misc57.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Brent's cycle detection algorithm with variable redefinition error"
+    }
+  },
+  {
+    "name": "misc58",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc58/misc58.rx", "visible"],
+    "input": ["src/misc58/misc58.in", "visible"],
+    "output": ["src/misc58/misc58.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Tarjan's strongly connected components algorithm with function redefinition error"
+    }
+  },
+  {
+    "name": "misc59",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc59/misc59.rx", "visible"],
+    "input": ["src/misc59/misc59.in", "visible"],
+    "output": ["src/misc59/misc59.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Miller-Rabin primality test with generic type parameter mismatch error"
+    }
+  },
+  {
+    "name": "misc60",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc60/misc60.rx", "visible"],
+    "input": ["src/misc60/misc60.in", "visible"],
+    "output": ["src/misc60/misc60.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Aho-Corasick string matching algorithm with uninitialized struct field error"
+    }
   }
 
 ]
