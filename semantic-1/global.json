@@ -1658,6 +1658,216 @@
       "lastmodified": "2025-08-08",
       "comment": "misc test, simple sorting and processing with structs"
     }
+  },
+  {
+    "name": "misc6",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc6/misc6.rx", "visible"],
+    "input": ["src/misc6/misc6.in", "visible"],
+    "output": ["src/misc6/misc6.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, prime number checker"
+    }
+  },
+  {
+    "name": "misc7",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc7/misc7.rx", "visible"],
+    "input": ["src/misc7/misc7.in", "visible"],
+    "output": ["src/misc7/misc7.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, binary search algorithm"
+    }
+  },
+  {
+    "name": "misc8",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc8/misc8.rx", "visible"],
+    "input": ["src/misc8/misc8.in", "visible"],
+    "output": ["src/misc8/misc8.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, matrix transpose operation"
+    }
+  },
+  {
+    "name": "misc9",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc9/misc9.rx", "visible"],
+    "input": ["src/misc9/misc9.in", "visible"],
+    "output": ["src/misc9/misc9.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, GCD and LCM calculation"
+    }
+  },
+  {
+    "name": "misc10",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc10/misc10.rx", "visible"],
+    "input": ["src/misc10/misc10.in", "visible"],
+    "output": ["src/misc10/misc10.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, stack implementation with array"
+    }
+  },
+  {
+    "name": "misc11",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc11/misc11.rx", "visible"],
+    "input": ["src/misc11/misc11.in", "visible"],
+    "output": ["src/misc11/misc11.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, simple calculator with enums"
+    }
+  },
+  {
+    "name": "misc12",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc12/misc12.rx", "visible"],
+    "input": ["src/misc12/misc12.in", "visible"],
+    "output": ["src/misc12/misc12.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, palindrome number checker"
+    }
+  },
+  {
+    "name": "misc13",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc13/misc13.rx", "visible"],
+    "input": ["src/misc13/misc13.in", "visible"],
+    "output": ["src/misc13/misc13.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, simple linked list node operations"
+    }
+  },
+  {
+    "name": "misc14",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc14/misc14.rx", "visible"],
+    "input": ["src/misc14/misc14.in", "visible"],
+    "output": ["src/misc14/misc14.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, power calculation with iterative and recursive methods"
+    }
+  },
+  {
+    "name": "misc15",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc15/misc15.rx", "visible"],
+    "input": ["src/misc15/misc15.in", "visible"],
+    "output": ["src/misc15/misc15.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "misc test, simple hash table simulation"
+    }
   }
 
 ]
