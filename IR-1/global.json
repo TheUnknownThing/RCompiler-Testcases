@@ -1,0 +1,23 @@
+[
+  {
+    "name": "misc1",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc1/misc1.rx", "invisible"],
+    "input": ["src/misc1/misc1.in", "invisible"],
+    "output": ["src/misc1/misc1.out", "invisible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-17",
+      "comment": ""
+    }
+  }
+]

@@ -4073,6 +4073,111 @@
       "lastmodified": "2025-08-08",
       "comment": "Complex expression error: Missing closing parenthesis in expression - Graham scan convex hull algorithm with polar angle sorting, geometric computations, and stress testing"
     }
+  },
+  {
+    "name": "misc61",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc61/misc61.rx", "visible"],
+    "input": ["src/misc61/misc61.in", "visible"],
+    "output": ["src/misc61/misc61.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Hybrid Z-algorithm and Manacher's algorithm with struct-int comparison error in complex string analysis"
+    }
+  },
+  {
+    "name": "misc62",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc62/misc62.rx", "visible"],
+    "input": ["src/misc62/misc62.in", "visible"],
+    "output": ["src/misc62/misc62.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Suffix Array with LCP array construction using Karp-Miller-Rosenberg algorithm with variable redeclaration error"
+    }
+  },
+  {
+    "name": "misc63",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc63/misc63.rx", "visible"],
+    "input": ["src/misc63/misc63.in", "visible"],
+    "output": ["src/misc63/misc63.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Persistent Segment Tree with lazy propagation and path copying with function name collision error"
+    }
+  },
+  {
+    "name": "misc64",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc64/misc64.rx", "visible"],
+    "input": ["src/misc64/misc64.in", "visible"],
+    "output": ["src/misc64/misc64.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Heavy-Light Decomposition with Link-Cut Tree operations with missing struct field initialization error"
+    }
+  },
+  {
+    "name": "misc65",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/misc65/misc65.rx", "visible"],
+    "input": ["src/misc65/misc65.in", "visible"],
+    "output": ["src/misc65/misc65.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-08",
+      "comment": "Fast Walsh-Hadamard Transform with subset sum convolution with recursive parameter type mismatch error"
+    }
   }
 
 ]
