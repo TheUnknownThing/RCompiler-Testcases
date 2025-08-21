@@ -1,12 +1,12 @@
 fn main() {
-    let mut bag = Bag::new();
-    let mut n = 1;
+    let mut bag: Bag = Bag::new();
+    let mut n: i32 = 1;
     while n <= 5 {
         bag.insert(n * n);
         n += 1;
     }
-    let check = bag.contains(9);
-    let _dummy = check;
+    let check: bool = bag.contains(9);
+    let dummy: bool = check;
 }
 
 trait Storage {
@@ -33,7 +33,7 @@ impl Storage for Bag {
     }
 
     fn contains(&self, value: i32) -> bool {
-        let mut idx = 0usize;
+        let mut idx: usize = 0usize;
         while idx < self.count {
             if self.items[idx] == value {
                 return true;

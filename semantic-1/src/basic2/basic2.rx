@@ -1,19 +1,19 @@
 fn main() {
-    let a = 10;
-    let b = 20;
-    let operator = pick_operator(a);
-    let result = match operator {
+    let a: i32 = 10;
+    let b: i32 = 20;
+    let operator: Op = pick_operator(a);
+    let result: i32 = match operator {
         Op::Add => compute(a, b, Op::Add),
         Op::Sub => compute(a, b, Op::Sub),
     };
-    let doubled = result * 2;
-    let mut acc = 0;
-    let mut i = 0;
+    let doubled: i32 = result * 2;
+    let mut acc: i32 = 0;
+    let mut i: i32 = 0;
     while i < doubled {
         acc += i;
         i += 1;
     }
-    let _final_score = acc / 3;
+    let final_score: i32 = acc / 3;
 }
 
 enum Op {
@@ -30,8 +30,8 @@ fn pick_operator(value: i32) -> Op {
 }
 
 fn compute(x: i32, y: i32, op: Op) -> i32 {
-    let mut accumulator = 0;
-    let mut i = 0;
+    let mut accumulator: i32 = 0;
+    let mut i: i32 = 0;
     while i < y {
         accumulator = accumulator + x + i;
         i += 1;

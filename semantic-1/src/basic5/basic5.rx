@@ -1,7 +1,9 @@
 fn main() {
-    let mut stack = Stack::new();
-    for i in 0..10 {
+    let mut stack: Stack = Stack::new();
+    let mut i: i32 = 0;
+    while i < 10 {
         stack.push(i);
+        i += 1;
     }
     while !stack.empty() {
         stack.pop();
@@ -10,7 +12,7 @@ fn main() {
 
 trait Container {
     fn push(&mut self, value: i32);
-    fn pop(&mut self) -> Option<i32>;
+    fn pop(&mut self) -> i32;
     fn empty(&self) -> bool;
 }
 
@@ -31,11 +33,11 @@ impl Container for Stack {
         self.top += 1;
     }
 
-    fn pop(&mut self) -> Option<i32> {
+    fn pop(&mut self) -> i32 {
         if self.top == 0 {
-            return None;
+            return 0;
         }
         self.top -= 1;
-        Some(self.data[self.top])
+        self.data[self.top]
     }
 }
