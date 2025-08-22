@@ -2,7 +2,7 @@ const SIZE: usize = 25;
 
 fn fibonacci() -> [i32; SIZE] {
     let mut fib: [i32; SIZE] = [0; SIZE];
-    let mut i = 0;
+    let mut i: usize = 0;
     while i < SIZE {
         if i == 0 {
             fib[i] = 0;
@@ -17,8 +17,8 @@ fn fibonacci() -> [i32; SIZE] {
 }
 
 fn even_sum(arr: [i32; SIZE]) -> i32 {
-    let mut s = 0;
-    let mut p = 0;
+    let mut s: i32 = 0;
+    let mut p: usize = 0;
     while p < SIZE {
         if arr[p] % 2 == 0 {
             s = s + arr[p];
@@ -29,8 +29,8 @@ fn even_sum(arr: [i32; SIZE]) -> i32 {
 }
 
 fn above_count(arr: [i32; SIZE], t: i32) -> i32 {
-    let mut c = 0;
-    let mut z = 0;
+    let mut c: i32 = 0;
+    let mut z: usize = 0;
     while z < SIZE {
         if arr[z] > t {
             c += 1;
@@ -41,8 +41,9 @@ fn above_count(arr: [i32; SIZE], t: i32) -> i32 {
 }
 
 fn main() {
-    let seq = fibonacci();
-    let es = even_sum(seq);
-    let ac = above_count(seq, 20);
-    let _metric = es * ac;
+    let seq: [i32; SIZE] = fibonacci();
+    let es: i32 = even_sum(seq);
+    let ac: i32 = above_count(seq, 20);
+    let metric: i32 = es * ac;
     seq[0] = 99;
+}

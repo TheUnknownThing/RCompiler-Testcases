@@ -1394,7 +1394,7 @@
     "input": ["src/basic33/basic33.in", "visible"],
     "output": ["src/basic33/basic33.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": 0,
+    "compileexitcode": -1,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1404,7 +1404,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, graph breadth-first search with connectivity check"
+      "comment": "basic test, graph breadth-first search with connectivity check; bfs return type mismatch ([usize; V] vs [i32; V])"
     }
   },
   {
