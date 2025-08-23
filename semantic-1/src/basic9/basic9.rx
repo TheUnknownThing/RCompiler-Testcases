@@ -8,7 +8,7 @@ fn main() {
         turn += 1;
     }
     let outcome: Cell = board.winner();
-    let _holder: Cell = outcome;
+    let holder: Cell = outcome;
 }
 
 enum Cell { Empty, X, O }

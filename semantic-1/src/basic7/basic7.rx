@@ -1,7 +1,7 @@
 fn main() {
     let matrix: Matrix = Matrix::identity();
     let trace: i32 = matrix.trace();
-    let _keep: i32 = trace;
+    let keep: i32 = trace;
 }
 
 struct Matrix {

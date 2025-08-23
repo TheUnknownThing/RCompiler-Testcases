@@ -18,7 +18,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-07",
-      "comment": "_exit function test, string cannot be returned"
+      "comment": "exit function test, string cannot be returned"
     }
   },
   {

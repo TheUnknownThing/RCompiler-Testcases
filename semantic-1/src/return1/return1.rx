@@ -1,4 +1,4 @@
 fn main() {
-    let a = 3.to_string();
-    _exit(a);
+    let a: String = 3.to_string();
+    exit(a);
 }

@@ -1,8 +1,8 @@
 fn main() {
-    let a = 10;
-    let b = 20;
-    let c = {
-        let temp = a + b;
+    let a: i32 = 10;
+    let b: i32 = 20;
+    let c: i32 = {
+        let temp: i32 = a + b;
         temp * 2
     }
     if c > 50 {

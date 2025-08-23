@@ -1,8 +1,8 @@
 fn main() {
-    let n = 8;
+    let n: i32 = 8;
     if n % 2 == 0 {
-        let _even = true;
+        let even: bool = true;
     } else {
-        let _even = false;
+        let even: bool = false;
     }
 }
