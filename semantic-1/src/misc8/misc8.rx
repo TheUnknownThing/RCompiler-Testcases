@@ -26,9 +26,9 @@ impl Matrix {
     fn transpose(&self) -> Matrix {
         let mut result = Matrix::new(self.cols, self.rows);
         let mut i = 0;
-        while i < self.rows {
+        while (i < self.rows) {
             let mut j = 0;
-            while j < self.cols {
+            while (j < self.cols) {
                 result.set(j, i, self.get(i, j));
                 j += 1;
             }
@@ -45,9 +45,9 @@ fn main() {
     
     // Read matrix elements
     let mut i = 0;
-    while i < rows {
+    while (i < rows) {
         let mut j = 0;
-        while j < cols {
+        while (j < cols) {
             let value = readInt();
             matrix.set(i, j, value);
             j += 1;
@@ -58,9 +58,9 @@ fn main() {
     // Transpose and output
     let transposed = matrix.transpose();
     i = 0;
-    while i < cols {
+    while (i < cols) {
         let mut j = 0;
-        while j < rows {
+        while (j < rows) {
             printInt(transposed.get(i, j));
             j += 1;
         }

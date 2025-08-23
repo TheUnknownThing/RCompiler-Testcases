@@ -18,7 +18,7 @@ impl Stack {
     }
     
     fn push(&mut self, value: i32) -> bool {
-        if self.top >= 49 {
+        if (self.top >= 49) {
             return false; // Stack overflow
         }
         self.top += 1;
@@ -27,7 +27,7 @@ impl Stack {
     }
     
     fn pop(&mut self) -> i32 {
-        if self.is_empty() {
+        if (self.is_empty()) {
             return -1; // Stack underflow
         }
         let value = self.data[self.top as usize];
@@ -36,7 +36,7 @@ impl Stack {
     }
     
     fn peek(&self) -> i32 {
-        if self.is_empty() {
+        if (self.is_empty()) {
             return -1;
         }
         return self.data[self.top as usize];
@@ -48,18 +48,18 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 {
+        if (operation == 1) {
             // Push operation
             let value = readInt();
             stack.push(value);
-        } else if operation == 2 {
+        } else if (operation == 2) {
             // Pop operation
             let value = stack.pop();
             printInt(value);
-        } else if operation == 3 {
+        } else if (operation == 3) {
             // Peek operation
             let value = stack.peek();
             printInt(value);

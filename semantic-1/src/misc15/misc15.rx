@@ -31,7 +31,7 @@ impl HashTable {
     
     fn hash_function(&self, key: i32) -> i32 {
         let mut hash_key = key;
-        if hash_key < 0 {
+        if (hash_key < 0) {
             hash_key = -hash_key;
         }
         return hash_key % self.size;
@@ -42,21 +42,21 @@ impl HashTable {
         let original_index = index;
         
         loop {
-            if !self.entries[index as usize].is_occupied {
+            if (!self.entries[index as usize].is_occupied) {
                 self.entries[index as usize].key = key;
                 self.entries[index as usize].value = value;
                 self.entries[index as usize].is_occupied = true;
                 return true;
             }
             
-            if self.entries[index as usize].key == key {
+            if (self.entries[index as usize].key == key) {
                 // Update existing key
                 self.entries[index as usize].value = value;
                 return true;
             }
             
             index = (index + 1) % self.size;
-            if index == original_index {
+            if (index == original_index) {
                 return false; // Table full
             }
         }
@@ -67,16 +67,16 @@ impl HashTable {
         let original_index = index;
         
         loop {
-            if !self.entries[index as usize].is_occupied {
+            if (!self.entries[index as usize].is_occupied) {
                 return -1; // Not found
             }
             
-            if self.entries[index as usize].key == key {
+            if (self.entries[index as usize].key == key) {
                 return self.entries[index as usize].value;
             }
             
             index = (index + 1) % self.size;
-            if index == original_index {
+            if (index == original_index) {
                 return -1; // Not found
             }
         }
@@ -88,15 +88,15 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 {
+        if (operation == 1) {
             // Insert operation
             let key = readInt();
             let value = readInt();
             hash_table.insert(key, value);
-        } else if operation == 2 {
+        } else if (operation == 2) {
             // Get operation
             let key = readInt();
             let result = hash_table.get(key);

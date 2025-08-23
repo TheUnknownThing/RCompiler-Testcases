@@ -16,15 +16,15 @@ impl Stack {
     }
     
     fn is_empty(&self) -> bool {
-        return self.top == -1;
+        return (self.top == -1);
     }
     
     fn is_full(&self) -> bool {
-        return self.top >= self.capacity - 1;
+        return (self.top >= self.capacity - 1);
     }
     
     fn push(&mut self, value: i32) -> bool {
-        if self.is_full() {
+        if (self.is_full()) {
             return false;
         }
         
@@ -34,7 +34,7 @@ impl Stack {
     }
     
     fn pop(&mut self) -> i32 {
-        if self.is_empty() {
+        if (self.is_empty()) {
             return -1; // Stack underflow
         }
         
@@ -44,7 +44,7 @@ impl Stack {
     }
     
     fn peek(&self) -> i32 {
-        if self.is_empty() {
+        if (self.is_empty()) {
             return -1;
         }
         return self.data[self.top as usize];
@@ -60,7 +60,7 @@ impl Stack {
     
     fn print_stack(&self) {
         let mut i = self.top;
-        while i >= 0 {
+        while (i >= 0) {
             printInt(self.data[i as usize]);
             i -= 1;
         }
@@ -71,20 +71,20 @@ impl Stack {
         self.clear();
         
         let mut i = 0;
-        while i < length {
+        while (i < length) {
             let ch = expr[i as usize];
             
-            if ch == 40 || ch == 91 || ch == 123 { // '(', '[', '{'
+            if ((ch == 40 || ch == 91 || ch == 123)) { // '(', '[', '{'
                 self.push(ch);
-            } else if ch == 41 || ch == 93 || ch == 125 { // ')', ']', '}'
-                if self.is_empty() {
+            } else if ((ch == 41 || ch == 93 || ch == 125)) { // ')', ']', '}'
+                if (self.is_empty()) {
                     return false;
                 }
                 
                 let last = self.pop();
-                if (ch == 41 && last != 40) ||
+                if ((ch == 41 && last != 40) ||
                    (ch == 93 && last != 91) ||
-                   (ch == 125 && last != 123) {
+                   (ch == 125 && last != 123)) {
                     return false;
                 }
             }
@@ -92,7 +92,7 @@ impl Stack {
             i += 1;
         }
         
-        return self.is_empty();
+        return (self.is_empty());
     }
     
     // Evaluate postfix expression
@@ -100,27 +100,27 @@ impl Stack {
         self.clear();
         
         let mut i = 0;
-        while i < length {
+        while (i < length) {
             let token = expr[i as usize];
             
-            if token >= 0 && token <= 9 { // Operand (single digit)
+            if ((token >= 0 && token <= 9)) { // Operand (single digit)
                 self.push(token);
-            } else if token == 43 || token == 45 || token == 42 || token == 47 { // +, -, *, /
-                if self.size() < 2 {
+            } else if ((token == 43 || token == 45 || token == 42 || token == 47)) { // +, -, *, /
+                if (self.size() < 2) {
                     return -1; // Invalid expression
                 }
                 
                 let b = self.pop();
                 let a = self.pop();
                 
-                let result = if token == 43 {
+                let result = if (token == 43) {
                     a + b
-                } else if token == 45 {
+                } else if (token == 45) {
                     a - b
-                } else if token == 42 {
+                } else if (token == 42) {
                     a * b
-                } else if token == 47 {
-                    if b == 0 {
+                } else if (token == 47) {
+                    if (b == 0) {
                         return -1; // Division by zero
                     }
                     a / b
@@ -134,7 +134,7 @@ impl Stack {
             i += 1;
         }
         
-        if self.size() == 1 {
+        if (self.size() == 1) {
             return self.pop();
         } else {
             return -1; // Invalid expression
@@ -147,28 +147,28 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 { // Push
+        if (operation == 1) { // Push
             let value = readInt();
             stack.push(value);
-        } else if operation == 2 { // Pop
+        } else if (operation == 2) { // Pop
             let value = stack.pop();
             printInt(value);
-        } else if operation == 3 { // Peek
+        } else if (operation == 3) { // Peek
             let value = stack.peek();
             printInt(value);
-        } else if operation == 4 { // Size
+        } else if (operation == 4) { // Size
             let size = stack.size();
             printInt(size);
-        } else if operation == 5 { // Is empty
-            if stack.is_empty() {
+        } else if (operation == 5) { // Is empty
+            if (stack.is_empty()) {
                 printInt(1);
             } else {
                 printInt(0);
             }
-        } else if operation == 6 { // Print stack
+        } else if (operation == 6) { // Print stack
             stack.print_stack();
         }
         

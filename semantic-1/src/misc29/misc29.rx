@@ -15,7 +15,7 @@ impl FenwickTree {
     
     fn update(&mut self, idx: i32, delta: i32) {
         let mut index = idx + 1; // Convert to 1-indexed
-        while index <= self.n {
+        while (index <= self.n) {
             self.tree[index as usize] += delta;
             index += index & (-index); // Add LSB
         }
@@ -25,7 +25,7 @@ impl FenwickTree {
         let mut sum = 0;
         let mut index = idx + 1; // Convert to 1-indexed
         
-        while index > 0 {
+        while (index > 0) {
             sum += self.tree[index as usize];
             index -= index & (-index); // Remove LSB
         }
@@ -34,11 +34,11 @@ impl FenwickTree {
     }
     
     fn range_sum(&self, left: i32, right: i32) -> i32 {
-        if left > right {
+        if (left > right) {
             return 0;
         }
         
-        if left == 0 {
+        if (left == 0) {
             return self.prefix_sum(right);
         } else {
             return self.prefix_sum(right) - self.prefix_sum(left - 1);
@@ -47,7 +47,7 @@ impl FenwickTree {
     
     fn init_from_array(&mut self, arr: &[i32]) {
         let mut i = 0;
-        while i < self.n {
+        while (i < self.n) {
             self.update(i, arr[i as usize]);
             i += 1;
         }
@@ -82,9 +82,9 @@ impl FenwickTree2D {
     
     fn update(&mut self, row: i32, col: i32, delta: i32) {
         let mut r = row + 1; // Convert to 1-indexed
-        while r <= self.rows {
+        while (r <= self.rows) {
             let mut c = col + 1;
-            while c <= self.cols {
+            while (c <= self.cols) {
                 self.tree[r as usize][c as usize] += delta;
                 c += c & (-c);
             }
@@ -96,9 +96,9 @@ impl FenwickTree2D {
         let mut sum = 0;
         let mut r = row + 1;
         
-        while r > 0 {
+        while (r > 0) {
             let mut c = col + 1;
-            while c > 0 {
+            while (c > 0) {
                 sum += self.tree[r as usize][c as usize];
                 c -= c & (-c);
             }
@@ -137,7 +137,7 @@ impl RangeUpdateFenwick {
     
     fn update_point(&mut self, idx: i32, delta: i32) {
         let mut index = idx + 1;
-        while index <= self.n {
+        while (index <= self.n) {
             self.tree[index as usize] += delta;
             index += index & (-index);
         }
@@ -147,7 +147,7 @@ impl RangeUpdateFenwick {
         let mut sum = 0;
         let mut index = idx + 1;
         
-        while index > 0 {
+        while (index > 0) {
             sum += self.tree[index as usize];
             index -= index & (-index);
         }
@@ -174,7 +174,7 @@ impl LazyFenwick {
     
     fn update_tree(&mut self, tree: &mut [i32; 1001], idx: i32, delta: i32) {
         let mut index = idx + 1;
-        while index <= self.n {
+        while (index <= self.n) {
             tree[index as usize] += delta;
             index += index & (-index);
         }
@@ -184,7 +184,7 @@ impl LazyFenwick {
         let mut sum = 0;
         let mut index = idx + 1;
         
-        while index > 0 {
+        while (index > 0) {
             sum += tree[index as usize];
             index -= index & (-index);
         }
@@ -215,7 +215,7 @@ fn main() {
     // Initialize array
     let mut arr: [i32; 1000] = [0; 1000];
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         arr[i as usize] = readInt();
         i += 1;
     }
@@ -224,23 +224,23 @@ fn main() {
     let queries = readInt();
     i = 0;
     
-    while i < queries {
+    while (i < queries) {
         let operation = readInt();
         
-        if operation == 1 { // Point update
+        if (operation == 1) { // Point update
             let idx = readInt();
             let val = readInt();
             fenwick.set_value(idx, val);
-        } else if operation == 2 { // Range sum query
+        } else if (operation == 2) { // Range sum query
             let left = readInt();
             let right = readInt();
             let sum = fenwick.range_sum(left, right);
             printInt(sum);
-        } else if operation == 3 { // Prefix sum query
+        } else if (operation == 3) { // Prefix sum query
             let idx = readInt();
             let sum = fenwick.prefix_sum(idx);
             printInt(sum);
-        } else if operation == 4 { // Point query
+        } else if (operation == 4) { // Point query
             let idx = readInt();
             let val = fenwick.point_query(idx);
             printInt(val);

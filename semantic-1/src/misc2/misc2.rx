@@ -6,7 +6,7 @@ fn main() {
     let mut i = 0;
     
     // Read array elements
-    while i < n {
+    while (i < n) {
         arr[i] = readInt();
         i += 1;
     }
@@ -14,8 +14,8 @@ fn main() {
     // Find maximum
     let mut max_val = arr[0];
     i = 1;
-    while i < n {
-        if arr[i] > max_val {
+    while (i < n) {
+        if (arr[i] > max_val) {
             max_val = arr[i];
         }
         i += 1;

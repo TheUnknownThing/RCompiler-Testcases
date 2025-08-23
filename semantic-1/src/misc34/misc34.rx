@@ -37,7 +37,7 @@ impl UnionFind {
         };
         
         let mut i = 0;
-        while i < vertices {
+        while (i < vertices) {
             uf.parent[i as usize] = i;
             uf.rank[i as usize] = 0;
             i += 1;
@@ -47,7 +47,7 @@ impl UnionFind {
     }
     
     fn find(&mut self, vertex: i32) -> i32 {
-        if self.parent[vertex as usize] != vertex {
+        if (self.parent[vertex as usize] != vertex) {
             self.parent[vertex as usize] = self.find(self.parent[vertex as usize]);
         }
         return self.parent[vertex as usize];
@@ -57,13 +57,13 @@ impl UnionFind {
         let root_x = self.find(x);
         let root_y = self.find(y);
         
-        if root_x == root_y {
+        if (root_x == root_y) {
             return false; // Already in same set
         }
         
-        if self.rank[root_x as usize] < self.rank[root_y as usize] {
+        if (self.rank[root_x as usize] < self.rank[root_y as usize]) {
             self.parent[root_x as usize] = root_y;
-        } else if self.rank[root_x as usize] > self.rank[root_y as usize] {
+        } else if (self.rank[root_x as usize] > self.rank[root_y as usize]) {
             self.parent[root_y as usize] = root_x;
         } else {
             self.parent[root_y as usize] = root_x;
@@ -81,8 +81,8 @@ impl UnionFind {
         let mut components = 0;
         let mut i = 0;
         
-        while i < self.vertex_count {
-            if self.parent[i as usize] == i {
+        while (i < self.vertex_count) {
+            if (self.parent[i as usize] == i) {
                 components += 1;
             }
             i += 1;
@@ -102,7 +102,7 @@ impl Graph {
     }
     
     fn add_edge(&mut self, src: i32, dest: i32, weight: i32) {
-        if self.edge_count < 1000 {
+        if (self.edge_count < 1000) {
             self.edges[self.edge_count as usize] = Edge::new(src, dest, weight);
             self.edge_count += 1;
         }
@@ -113,8 +113,8 @@ impl Graph {
         let mut i = low - 1;
         
         let mut j = low;
-        while j < high {
-            if self.edges[j as usize].weight <= pivot_weight {
+        while (j < high) {
+            if (self.edges[j as usize].weight <= pivot_weight) {
                 i += 1;
                 self.swap_edges(i, j);
             }
@@ -126,7 +126,7 @@ impl Graph {
     }
     
     fn quick_sort(&mut self, low: i32, high: i32) {
-        if low < high {
+        if (low < high) {
             let pi = self.partition(low, high);
             self.quick_sort(low, pi - 1);
             self.quick_sort(pi + 1, high);
@@ -140,7 +140,7 @@ impl Graph {
     }
     
     fn sort_edges(&mut self) {
-        if self.edge_count > 1 {
+        if (self.edge_count > 1) {
             self.quick_sort(0, self.edge_count - 1);
         }
     }
@@ -154,10 +154,10 @@ impl Graph {
         self.sort_edges();
         
         let mut i = 0;
-        while i < self.edge_count && result_count < self.vertex_count - 1 {
+        while (i < self.edge_count && result_count < self.vertex_count - 1) {
             let edge = self.edges[i as usize];
             
-            if uf.union(edge.src, edge.dest) {
+            if (uf.union(edge.src, edge.dest)) {
                 result[result_count as usize] = edge;
                 result_count += 1;
             }
@@ -173,7 +173,7 @@ impl Graph {
         let mut total_weight = 0;
         
         let mut i = 0;
-        while i < 100 && mst[i as usize].src != -1 {
+        while (i < 100 && mst[i as usize].src != -1) {
             total_weight += mst[i as usize].weight;
             i += 1;
         }
@@ -185,13 +185,13 @@ impl Graph {
         let mut uf = UnionFind::new(self.vertex_count);
         
         let mut i = 0;
-        while i < self.edge_count {
+        while (i < self.edge_count) {
             let edge = self.edges[i as usize];
             uf.union(edge.src, edge.dest);
             i += 1;
         }
         
-        return uf.count_components() == 1;
+        return (uf.count_components() == 1);
     }
     
     fn count_mst_edges(&mut self) -> i32 {
@@ -199,7 +199,7 @@ impl Graph {
         let mut count = 0;
         
         let mut i = 0;
-        while i < 100 && mst[i as usize].src != -1 {
+        while (i < 100 && mst[i as usize].src != -1) {
             count += 1;
             i += 1;
         }
@@ -214,7 +214,7 @@ fn main() {
     
     let edges = readInt();
     let mut i = 0;
-    while i < edges {
+    while (i < edges) {
         let src = readInt();
         let dest = readInt();
         let weight = readInt();
@@ -224,22 +224,22 @@ fn main() {
     
     let operation = readInt();
     
-    if operation == 1 { // Calculate MST weight
+    if (operation == 1) { // Calculate MST weight
         let mst_weight = graph.calculate_mst_weight();
         printInt(mst_weight);
-    } else if operation == 2 { // Check if graph is connected
-        if graph.is_connected_graph() {
+    } else if (operation == 2) { // Check if graph is connected
+        if (graph.is_connected_graph()) {
             printInt(1);
         } else {
             printInt(0);
         }
-    } else if operation == 3 { // Count MST edges
+    } else if (operation == 3) { // Count MST edges
         let edge_count = graph.count_mst_edges();
         printInt(edge_count);
-    } else if operation == 4 { // Print MST edges
+    } else if (operation == 4) { // Print MST edges
         let mst = graph.kruskal_mst();
         i = 0;
-        while i < 100 && mst[i as usize].src != -1 {
+        while (i < 100 && mst[i as usize].src != -1) {
             printInt(mst[i as usize].src);
             printInt(mst[i as usize].dest);
             printInt(mst[i as usize].weight);

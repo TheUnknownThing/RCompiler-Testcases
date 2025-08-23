@@ -4,8 +4,8 @@ fn power_mod(mut base: i32, mut exp: i32, modulus: i32) -> i32 {
     let mut result = 1;
     base = base % modulus;
     
-    while exp > 0 {
-        if exp % 2 == 1 {
+    while (exp > 0) {
+        if (exp % 2 == 1) {
             result = (result * base) % modulus;
         }
         exp = exp / 2;
@@ -17,7 +17,7 @@ fn power_mod(mut base: i32, mut exp: i32, modulus: i32) -> i32 {
 
 fn legendre_symbol(a: i32, p: i32) -> i32 {
     let result = power_mod(a, (p - 1) / 2, p);
-    if result == p - 1 {
+    if (result == p - 1) {
         return -1;
     }
     return result;
@@ -26,8 +26,8 @@ fn legendre_symbol(a: i32, p: i32) -> i32 {
 fn find_quadratic_nonresidue(p: i32) -> i32 {
     let mut z = 2;
     
-    while z < p {
-        if legendre_symbol(z, p) == -1 {
+    while (z < p) {
+        if (legendre_symbol(z, p) == -1) {
             return z;
         }
         z = z + 1;
@@ -38,11 +38,11 @@ fn find_quadratic_nonresidue(p: i32) -> i32 {
 
 fn tonelli_shanks_recursive(n: i32, p: i32, q: i32, s: i32, z: i32, 
                           m: i32, c: i32, t: i32, r: i32, iteration: i32) -> i32 {
-    if t == 1 {
+    if (t == 1) {
         return r;
     }
     
-    if iteration > 20 {
+    if (iteration > 20) {
         return -1; // Too many iterations
     }
     
@@ -50,12 +50,12 @@ fn tonelli_shanks_recursive(n: i32, p: i32, q: i32, s: i32, z: i32,
     let mut i = 1;
     let mut temp = (t * t) % p;
     
-    while temp != 1 && i < m {
+    while (temp != 1 && i < m) {
         temp = (temp * temp) % p;
         i = i + 1;
     }
     
-    if i >= m {
+    if (i >= m) {
         return -1; // No solution
     }
     
@@ -69,15 +69,15 @@ fn tonelli_shanks_recursive(n: i32, p: i32, q: i32, s: i32, z: i32,
 }
 
 fn modular_sqrt(n: i32, p: i32) -> i32 {
-    if p == 2 {
+    if (p == 2) {
         return n % 2;
     }
     
-    if legendre_symbol(n, p) != 1 {
+    if (legendre_symbol(n, p) != 1) {
         return -1; // n is not a quadratic residue
     }
     
-    if p % 4 == 3 {
+    if (p % 4 == 3) {
         return power_mod(n, (p + 1) / 4, p);
     }
     
@@ -85,12 +85,12 @@ fn modular_sqrt(n: i32, p: i32) -> i32 {
     let mut q = p - 1;
     let mut s = 0;
     
-    while q % 2 == 0 {
+    while (q % 2 == 0) {
         q = q / 2;
         s = s + 1;
     }
     
-    if s == 1 {
+    if (s == 1) {
         return power_mod(n, (p + 1) / 4, p);
     }
     
@@ -104,7 +104,7 @@ fn modular_sqrt(n: i32, p: i32) -> i32 {
 }
 
 fn quadratic_reciprocity_test(a: i32, b: i32) -> i32 {
-    if a <= 1 || b <= 1 {
+    if (a <= 1 || b <= 1) {
         return 0;
     }
     
@@ -112,7 +112,7 @@ fn quadratic_reciprocity_test(a: i32, b: i32) -> i32 {
     let leg_b_a = legendre_symbol(b, a);
     
     // Quadratic reciprocity law
-    if (a - 1) % 4 == 0 || (b - 1) % 4 == 0 {
+    if ((a - 1) % 4 == 0 || (b - 1) % 4 == 0) {
         return leg_a_b * leg_b_a;
     } else {
         return -leg_a_b * leg_b_a;

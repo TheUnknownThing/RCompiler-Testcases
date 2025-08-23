@@ -18,7 +18,7 @@ impl UnionFind {
         
         // Initialize each element as its own parent
         let mut i = 0;
-        while i < n {
+        while (i < n) {
             uf.parent[i as usize] = i;
             uf.rank[i as usize] = 0;
             i += 1;
@@ -28,11 +28,11 @@ impl UnionFind {
     }
     
     fn find(&mut self, x: i32) -> i32 {
-        if x < 0 || x >= self.size {
+        if ((x < 0 || x >= self.size)) {
             return -1;
         }
         
-        if self.parent[x as usize] != x {
+        if ((self.parent[x as usize] != x)) {
             // Path compression: make parent point directly to root
             self.parent[x as usize] = self.find(self.parent[x as usize]);
         }
@@ -43,18 +43,18 @@ impl UnionFind {
         let root_x = self.find(x);
         let root_y = self.find(y);
         
-        if root_x == -1 || root_y == -1 {
+        if ((root_x == -1 || root_y == -1)) {
             return false;
         }
         
-        if root_x == root_y {
+        if ((root_x == root_y)) {
             return false; // Already in same set
         }
         
         // Union by rank: attach smaller rank tree under root of higher rank tree
-        if self.rank[root_x as usize] < self.rank[root_y as usize] {
+        if ((self.rank[root_x as usize] < self.rank[root_y as usize])) {
             self.parent[root_x as usize] = root_y;
-        } else if self.rank[root_x as usize] > self.rank[root_y as usize] {
+        } else if ((self.rank[root_x as usize] > self.rank[root_y as usize])) {
             self.parent[root_y as usize] = root_x;
         } else {
             self.parent[root_y as usize] = root_x;
@@ -68,7 +68,7 @@ impl UnionFind {
     fn is_connected(&mut self, x: i32, y: i32) -> bool {
         let root_x = self.find(x);
         let root_y = self.find(y);
-        return root_x != -1 && root_y != -1 && root_x == root_y;
+        return (root_x != -1 && root_y != -1 && root_x == root_y);
     }
     
     fn get_component_count(&self) -> i32 {
@@ -77,14 +77,14 @@ impl UnionFind {
     
     fn get_component_size(&mut self, x: i32) -> i32 {
         let root = self.find(x);
-        if root == -1 {
+        if (root == -1) {
             return 0;
         }
         
         let mut size = 0;
         let mut i = 0;
-        while i < self.size {
-            if self.find(i) == root {
+        while (i < self.size) {
+            if ((self.find(i) == root)) {
                 size += 1;
             }
             i += 1;
@@ -95,7 +95,7 @@ impl UnionFind {
     
     fn print_components(&mut self) {
         let mut i = 0;
-        while i < self.size {
+        while (i < self.size) {
             let root = self.find(i);
             printInt(root);
             i += 1;
@@ -146,7 +146,7 @@ impl KruskalMST {
     }
     
     fn add_edge(&mut self, src: i32, dest: i32, weight: i32) {
-        if self.edge_count < 1000 {
+        if ((self.edge_count < 1000)) {
             self.edges[self.edge_count as usize] = Edge::new(src, dest, weight);
             self.edge_count += 1;
         }
@@ -155,10 +155,10 @@ impl KruskalMST {
     // Simple bubble sort for edges by weight
     fn sort_edges(&mut self) {
         let mut i = 0;
-        while i < self.edge_count - 1 {
+        while (i < self.edge_count - 1) {
             let mut j = 0;
-            while j < self.edge_count - i - 1 {
-                if self.edges[j as usize].weight > self.edges[(j + 1) as usize].weight {
+            while (j < self.edge_count - i - 1) {
+                if ((self.edges[j as usize].weight > self.edges[(j + 1) as usize].weight)) {
                     // Swap edges
                     let temp_src = self.edges[j as usize].src;
                     let temp_dest = self.edges[j as usize].dest;
@@ -185,10 +185,10 @@ impl KruskalMST {
         let mut edges_added = 0;
         
         let mut i = 0;
-        while i < self.edge_count && edges_added < self.vertex_count - 1 {
+        while ((i < self.edge_count && edges_added < self.vertex_count - 1)) {
             let edge = &self.edges[i as usize];
             
-            if !uf.is_connected(edge.src, edge.dest) {
+            if (!uf.is_connected(edge.src, edge.dest)) {
                 uf.union(edge.src, edge.dest);
                 mst_weight += edge.weight;
                 edges_added += 1;
@@ -208,29 +208,29 @@ fn main() {
     let operations = readInt();
     let mut i = 0;
     
-    while i < operations {
+    while (i < operations) {
         let operation = readInt();
         
-        if operation == 1 { // Union
+        if (operation == 1) { // Union
             let x = readInt();
             let y = readInt();
             uf.union(x, y);
-        } else if operation == 2 { // Find
+        } else if (operation == 2) { // Find
             let x = readInt();
             let root = uf.find(x);
             printInt(root);
-        } else if operation == 3 { // Is connected
+        } else if (operation == 3) { // Is connected
             let x = readInt();
             let y = readInt();
-            if uf.is_connected(x, y) {
+            if (uf.is_connected(x, y)) {
                 printInt(1);
             } else {
                 printInt(0);
             }
-        } else if operation == 4 { // Component count
+        } else if (operation == 4) { // Component count
             let count = uf.get_component_count();
             printInt(count);
-        } else if operation == 5 { // Component size
+        } else if (operation == 5) { // Component size
             let x = readInt();
             let size = uf.get_component_size(x);
             printInt(size);

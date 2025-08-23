@@ -1,14 +1,14 @@
 // Quadratic sieve algorithm for factorization
 // Uses continued fractions and recursive sieve optimization
 fn isqrt(n: i32) -> i32 {
-    if n < 2 {
+    if (n < 2) {
         return n;
     }
     
     let mut x = n;
     let mut y = (x + 1) / 2;
     
-    while y < x {
+    while (y < x) {
         x = y;
         y = (x + n / x) / 2;
     }
@@ -17,21 +17,21 @@ fn isqrt(n: i32) -> i32 {
 }
 
 fn sieve_recursive(base: i32, limit: i32, primes: &mut [i32; 100], count: &mut i32, current: i32) {
-    if current > limit {
+    if (current > limit) {
         return;
     }
     
     let mut is_prime = true;
     let mut i = 0;
     
-    while i < *count && primes[i] * primes[i] <= current {
-        if current % primes[i] == 0 {
+    while (i < *count && primes[i] * primes[i] <= current) {
+        if (current % primes[i] == 0) {
             is_prime = false;
         }
         i = i + 1;
     }
     
-    if is_prime && current > 1 {
+    if (is_prime && current > 1) {
         primes[*count] = current;
         *count = *count + 1;
     }
@@ -44,8 +44,8 @@ fn quadratic_residue(a: i32, p: i32) -> i32 {
     let mut base = a % p;
     let mut exp = (p - 1) / 2;
     
-    while exp > 0 {
-        if exp % 2 == 1 {
+    while (exp > 0) {
+        if (exp % 2 == 1) {
             result = (result * base) % p;
         }
         base = (base * base) % p;
@@ -63,14 +63,14 @@ fn quadratic_sieve(n: i32) -> i32 {
     sieve_recursive(2, sqrt_n, &mut primes, &mut prime_count, 2);
     
     let mut x = sqrt_n + 1;
-    while x < sqrt_n + 100 {
+    while (x < sqrt_n + 100) {
         let y_squared = x * x - n;
         
-        if y_squared > 0 {
+        if (y_squared > 0) {
             let y = isqrt(y_squared);
-            if y * y == y_squared {
-                let factor = if x > y { x - y } else { y - x };
-                if factor > 1 && factor < n {
+            if (y * y == y_squared) {
+                let factor = if (x > y) { x - y } else { y - x };
+                if (factor > 1 && factor < n) {
                     return factor;
                 }
             }

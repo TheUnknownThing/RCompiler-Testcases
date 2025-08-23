@@ -34,7 +34,7 @@ impl AVLTree {
     }
     
     fn create_node(&mut self, value: i32) -> i32 {
-        if self.node_count >= 1000 {
+        if (self.node_count >= 1000) {
             return -1;
         }
         
@@ -45,24 +45,24 @@ impl AVLTree {
     }
     
     fn get_height(&self, node_index: i32) -> i32 {
-        if node_index == -1 {
+        if (node_index == -1) {
             return 0;
         }
         return self.nodes[node_index as usize].height;
     }
     
     fn update_height(&mut self, node_index: i32) {
-        if node_index == -1 {
+        if (node_index == -1) {
             return;
         }
         
         let left_height = self.get_height(self.nodes[node_index as usize].left);
         let right_height = self.get_height(self.nodes[node_index as usize].right);
-        self.nodes[node_index as usize].height = 1 + if left_height > right_height { left_height } else { right_height };
+        self.nodes[node_index as usize].height = 1 + if (left_height > right_height) { left_height } else { right_height };
     }
     
     fn get_balance(&self, node_index: i32) -> i32 {
-        if node_index == -1 {
+        if (node_index == -1) {
             return 0;
         }
         
@@ -103,13 +103,13 @@ impl AVLTree {
     
     fn insert_recursive(&mut self, node_index: i32, value: i32) -> i32 {
         // Standard BST insertion
-        if node_index == -1 {
+        if (node_index == -1) {
             return self.create_node(value);
         }
         
-        if value < self.nodes[node_index as usize].value {
+        if (value < self.nodes[node_index as usize].value) {
             self.nodes[node_index as usize].left = self.insert_recursive(self.nodes[node_index as usize].left, value);
-        } else if value > self.nodes[node_index as usize].value {
+        } else if (value > self.nodes[node_index as usize].value) {
             self.nodes[node_index as usize].right = self.insert_recursive(self.nodes[node_index as usize].right, value);
         } else {
             return node_index; // Duplicate values not allowed
@@ -122,23 +122,23 @@ impl AVLTree {
         let balance = self.get_balance(node_index);
         
         // Left Left Case
-        if balance > 1 && value < self.nodes[self.nodes[node_index as usize].left as usize].value {
+        if ((balance > 1 && value < self.nodes[self.nodes[node_index as usize].left as usize].value)) {
             return self.rotate_right(node_index);
         }
         
         // Right Right Case
-        if balance < -1 && value > self.nodes[self.nodes[node_index as usize].right as usize].value {
+        if ((balance < -1 && value > self.nodes[self.nodes[node_index as usize].right as usize].value)) {
             return self.rotate_left(node_index);
         }
         
         // Left Right Case
-        if balance > 1 && value > self.nodes[self.nodes[node_index as usize].left as usize].value {
+        if ((balance > 1 && value > self.nodes[self.nodes[node_index as usize].left as usize].value)) {
             self.nodes[node_index as usize].left = self.rotate_left(self.nodes[node_index as usize].left);
             return self.rotate_right(node_index);
         }
         
         // Right Left Case
-        if balance < -1 && value < self.nodes[self.nodes[node_index as usize].right as usize].value {
+        if ((balance < -1 && value < self.nodes[self.nodes[node_index as usize].right as usize].value)) {
             self.nodes[node_index as usize].right = self.rotate_right(self.nodes[node_index as usize].right);
             return self.rotate_left(node_index);
         }
@@ -151,13 +151,13 @@ impl AVLTree {
     }
     
     fn search_recursive(&self, node_index: i32, value: i32) -> bool {
-        if node_index == -1 {
+        if (node_index == -1) {
             return false;
         }
         
-        if value == self.nodes[node_index as usize].value {
+        if (value == self.nodes[node_index as usize].value) {
             return true;
-        } else if value < self.nodes[node_index as usize].value {
+        } else if (value < self.nodes[node_index as usize].value) {
             return self.search_recursive(self.nodes[node_index as usize].left, value);
         } else {
             return self.search_recursive(self.nodes[node_index as usize].right, value);
@@ -169,7 +169,7 @@ impl AVLTree {
     }
     
     fn inorder_recursive(&self, node_index: i32) {
-        if node_index == -1 {
+        if (node_index == -1) {
             return;
         }
         
@@ -192,22 +192,22 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 { // Insert
+        if (operation == 1) { // Insert
             let value = readInt();
             avl.insert(value);
-        } else if operation == 2 { // Search
+        } else if (operation == 2) { // Search
             let value = readInt();
-            if avl.search(value) {
+            if (avl.search(value)) {
                 printInt(1);
             } else {
                 printInt(0);
             }
-        } else if operation == 3 { // Inorder traversal
+        } else if (operation == 3) { // Inorder traversal
             avl.inorder_traversal();
-        } else if operation == 4 { // Get height
+        } else if (operation == 4) { // Get height
             let height = avl.get_tree_height();
             printInt(height);
         }

@@ -47,7 +47,7 @@ impl RedBlackTree {
     }
     
     fn create_node(&mut self, value: i32) -> i32 {
-        if self.node_count >= 1000 {
+        if (self.node_count >= 1000) {
             return -1;
         }
         
@@ -61,14 +61,14 @@ impl RedBlackTree {
     }
     
     fn is_red(&self, node: i32) -> bool {
-        if node == -1 || node == self.nil_node {
+        if (node == -1 || node == self.nil_node) {
             return false;
         }
         return self.nodes[node as usize].color;
     }
     
     fn set_color(&mut self, node: i32, color: bool) {
-        if node != -1 && node != self.nil_node {
+        if (node != -1 && node != self.nil_node) {
             self.nodes[node as usize].color = color;
         }
     }
@@ -77,15 +77,15 @@ impl RedBlackTree {
         let y = self.nodes[x as usize].right;
         self.nodes[x as usize].right = self.nodes[y as usize].left;
         
-        if self.nodes[y as usize].left != self.nil_node {
+    if (self.nodes[y as usize].left != self.nil_node) {
             self.nodes[self.nodes[y as usize].left as usize].parent = x;
         }
         
         self.nodes[y as usize].parent = self.nodes[x as usize].parent;
         
-        if self.nodes[x as usize].parent == self.nil_node {
+    if (self.nodes[x as usize].parent == self.nil_node) {
             self.root = y;
-        } else if x == self.nodes[self.nodes[x as usize].parent as usize].left {
+    } else if (x == self.nodes[self.nodes[x as usize].parent as usize].left) {
             self.nodes[self.nodes[x as usize].parent as usize].left = y;
         } else {
             self.nodes[self.nodes[x as usize].parent as usize].right = y;
@@ -99,15 +99,15 @@ impl RedBlackTree {
         let x = self.nodes[y as usize].left;
         self.nodes[y as usize].left = self.nodes[x as usize].right;
         
-        if self.nodes[x as usize].right != self.nil_node {
+    if (self.nodes[x as usize].right != self.nil_node) {
             self.nodes[self.nodes[x as usize].right as usize].parent = y;
         }
         
         self.nodes[x as usize].parent = self.nodes[y as usize].parent;
         
-        if self.nodes[y as usize].parent == self.nil_node {
+    if (self.nodes[y as usize].parent == self.nil_node) {
             self.root = x;
-        } else if y == self.nodes[self.nodes[y as usize].parent as usize].right {
+    } else if (y == self.nodes[self.nodes[y as usize].parent as usize].right) {
             self.nodes[self.nodes[y as usize].parent as usize].right = x;
         } else {
             self.nodes[self.nodes[y as usize].parent as usize].left = x;
@@ -118,17 +118,17 @@ impl RedBlackTree {
     }
     
     fn insert_fixup(&mut self, mut z: i32) {
-        while self.is_red(self.nodes[z as usize].parent) {
-            if self.nodes[z as usize].parent == self.nodes[self.nodes[self.nodes[z as usize].parent as usize].parent as usize].left {
+        while (self.is_red(self.nodes[z as usize].parent)) {
+            if (self.nodes[z as usize].parent == self.nodes[self.nodes[self.nodes[z as usize].parent as usize].parent as usize].left) {
                 let y = self.nodes[self.nodes[self.nodes[z as usize].parent as usize].parent as usize].right;
                 
-                if self.is_red(y) {
+                if (self.is_red(y)) {
                     self.set_color(self.nodes[z as usize].parent, false);
                     self.set_color(y, false);
                     self.set_color(self.nodes[self.nodes[z as usize].parent as usize].parent, true);
                     z = self.nodes[self.nodes[z as usize].parent as usize].parent;
                 } else {
-                    if z == self.nodes[self.nodes[z as usize].parent as usize].right {
+                    if (z == self.nodes[self.nodes[z as usize].parent as usize].right) {
                         z = self.nodes[z as usize].parent;
                         self.left_rotate(z);
                     }
@@ -139,13 +139,13 @@ impl RedBlackTree {
             } else {
                 let y = self.nodes[self.nodes[self.nodes[z as usize].parent as usize].parent as usize].left;
                 
-                if self.is_red(y) {
+                if (self.is_red(y)) {
                     self.set_color(self.nodes[z as usize].parent, false);
                     self.set_color(y, false);
                     self.set_color(self.nodes[self.nodes[z as usize].parent as usize].parent, true);
                     z = self.nodes[self.nodes[z as usize].parent as usize].parent;
                 } else {
-                    if z == self.nodes[self.nodes[z as usize].parent as usize].left {
+                    if (z == self.nodes[self.nodes[z as usize].parent as usize].left) {
                         z = self.nodes[z as usize].parent;
                         self.right_rotate(z);
                     }
@@ -160,16 +160,16 @@ impl RedBlackTree {
     
     fn insert(&mut self, value: i32) {
         let z = self.create_node(value);
-        if z == -1 {
+        if (z == -1) {
             return;
         }
         
         let mut y = self.nil_node;
         let mut x = self.root;
         
-        while x != self.nil_node && x != -1 {
+        while (x != self.nil_node && x != -1) {
             y = x;
-            if self.nodes[z as usize].value < self.nodes[x as usize].value {
+            if (self.nodes[z as usize].value < self.nodes[x as usize].value) {
                 x = self.nodes[x as usize].left;
             } else {
                 x = self.nodes[x as usize].right;
@@ -178,9 +178,9 @@ impl RedBlackTree {
         
         self.nodes[z as usize].parent = y;
         
-        if y == self.nil_node {
+    if (y == self.nil_node) {
             self.root = z;
-        } else if self.nodes[z as usize].value < self.nodes[y as usize].value {
+    } else if (self.nodes[z as usize].value < self.nodes[y as usize].value) {
             self.nodes[y as usize].left = z;
         } else {
             self.nodes[y as usize].right = z;
@@ -190,13 +190,13 @@ impl RedBlackTree {
     }
     
     fn search_recursive(&self, node: i32, value: i32) -> bool {
-        if node == self.nil_node || node == -1 {
+    if (node == self.nil_node || node == -1) {
             return false;
         }
         
-        if value == self.nodes[node as usize].value {
+    if (value == self.nodes[node as usize].value) {
             return true;
-        } else if value < self.nodes[node as usize].value {
+    } else if (value < self.nodes[node as usize].value) {
             return self.search_recursive(self.nodes[node as usize].left, value);
         } else {
             return self.search_recursive(self.nodes[node as usize].right, value);
@@ -208,7 +208,7 @@ impl RedBlackTree {
     }
     
     fn inorder_recursive(&self, node: i32) {
-        if node != self.nil_node && node != -1 {
+    if (node != self.nil_node && node != -1) {
             self.inorder_recursive(self.nodes[node as usize].left);
             printInt(self.nodes[node as usize].value);
             self.inorder_recursive(self.nodes[node as usize].right);
@@ -220,22 +220,22 @@ impl RedBlackTree {
     }
     
     fn get_black_height(&self, node: i32) -> i32 {
-        if node == self.nil_node || node == -1 {
+    if (node == self.nil_node || node == -1) {
             return 0;
         }
         
         let left_height = self.get_black_height(self.nodes[node as usize].left);
-        let adjustment = if self.is_red(node) { 0 } else { 1 };
+        let adjustment = if (self.is_red(node)) { 0 } else { 1 };
         return left_height + adjustment;
     }
     
     fn validate_rb_properties(&self) -> bool {
         // Check if root is black and tree satisfies RB properties
-        if self.root == -1 {
+    if (self.root == -1) {
             return true;
         }
         
-        if self.is_red(self.root) {
+    if (self.is_red(self.root)) {
             return false;
         }
         
@@ -248,26 +248,26 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 { // Insert
+        if (operation == 1) { // Insert
             let value = readInt();
             rb_tree.insert(value);
-        } else if operation == 2 { // Search
+        } else if (operation == 2) { // Search
             let value = readInt();
-            if rb_tree.search(value) {
+            if (rb_tree.search(value)) {
                 printInt(1);
             } else {
                 printInt(0);
             }
-        } else if operation == 3 { // Inorder traversal
+        } else if (operation == 3) { // Inorder traversal
             rb_tree.inorder_traversal();
-        } else if operation == 4 { // Get black height
+        } else if (operation == 4) { // Get black height
             let height = rb_tree.get_black_height(rb_tree.root);
             printInt(height);
-        } else if operation == 5 { // Validate RB properties
-            if rb_tree.validate_rb_properties() {
+        } else if (operation == 5) { // Validate RB properties
+            if (rb_tree.validate_rb_properties()) {
                 printInt(1);
             } else {
                 printInt(0);

@@ -32,7 +32,7 @@ impl SimpleList {
     }
     
     fn push_front(&mut self, value: i32) -> bool {
-        if self.size >= self.capacity {
+        if (self.size >= self.capacity) {
             return false;
         }
         
@@ -45,7 +45,7 @@ impl SimpleList {
     }
     
     fn pop_front(&mut self) -> i32 {
-        if self.head == -1 {
+        if (self.head == -1) {
             return -1;
         }
         
@@ -65,18 +65,18 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 {
+        if (operation == 1) {
             // Push operation
             let value = readInt();
             list.push_front(value);
-        } else if operation == 2 {
+        } else if (operation == 2) {
             // Pop operation
             let value = list.pop_front();
             printInt(value);
-        } else if operation == 3 {
+        } else if (operation == 3) {
             // Get size
             let size = list.get_size();
             printInt(size);

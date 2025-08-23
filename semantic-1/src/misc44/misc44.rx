@@ -7,7 +7,7 @@ struct ECPoint {
 }
 
 fn gcd(mut a: i32, mut b: i32) -> i32 {
-    while b != 0 {
+    while (b != 0) {
         let temp = b;
         b = a % b;
         a = temp;
@@ -16,7 +16,7 @@ fn gcd(mut a: i32, mut b: i32) -> i32 {
 }
 
 fn extended_gcd(a: i32, b: i32, x: &mut i32, y: &mut i32) -> i32 {
-    if a == 0 {
+    if (a == 0) {
         *x = 0;
         *y = 1;
         return b;
@@ -37,29 +37,29 @@ fn mod_inverse_safe(a: i32, m: i32) -> i32 {
     let mut y = 0;
     let g = extended_gcd(a, m, &mut x, &mut y);
     
-    if g != 1 {
+    if (g != 1) {
         return -1; // No modular inverse exists
     }
     
-    return if x < 0 { x + m } else { x };
+    return if (x < 0) { x + m } else { x };
 }
 
 fn ec_point_add_lenstra(p1: ECPoint, p2: ECPoint, a: i32, n: i32) -> (ECPoint, i32) {
-    if p1.is_infinity {
+    if (p1.is_infinity) {
         return (p2, 1);
     }
-    if p2.is_infinity {
+    if (p2.is_infinity) {
         return (p1, 1);
     }
     
-    if p1.x == p2.x {
-        if p1.y == p2.y {
+    if (p1.x == p2.x) {
+        if (p1.y == p2.y) {
             // Point doubling
             let numerator = (3 * p1.x * p1.x + a) % n;
             let denominator = (2 * p1.y) % n;
             let inv = mod_inverse_safe(denominator, n);
             
-            if inv == -1 {
+            if (inv == -1) {
                 return (ECPoint { x: 0, y: 0, is_infinity: true }, 
                        gcd(denominator, n));
             }
@@ -69,8 +69,8 @@ fn ec_point_add_lenstra(p1: ECPoint, p2: ECPoint, a: i32, n: i32) -> (ECPoint, i
             let y3 = (slope * (p1.x - x3) - p1.y) % n;
             
             return (ECPoint {
-                x: if x3 < 0 { x3 + n } else { x3 },
-                y: if y3 < 0 { y3 + n } else { y3 },
+                x: if (x3 < 0) { x3 + n } else { x3 },
+                y: if (y3 < 0) { y3 + n } else { y3 },
                 is_infinity: false,
             }, 1);
         } else {
@@ -82,7 +82,7 @@ fn ec_point_add_lenstra(p1: ECPoint, p2: ECPoint, a: i32, n: i32) -> (ECPoint, i
     let denominator = (p2.x - p1.x) % n;
     let inv = mod_inverse_safe(denominator, n);
     
-    if inv == -1 {
+    if (inv == -1) {
         return (ECPoint { x: 0, y: 0, is_infinity: true }, 
                gcd(denominator, n));
     }
@@ -92,8 +92,8 @@ fn ec_point_add_lenstra(p1: ECPoint, p2: ECPoint, a: i32, n: i32) -> (ECPoint, i
     let y3 = (slope * (p1.x - x3) - p1.y) % n;
     
     return (ECPoint {
-        x: if x3 < 0 { x3 + n } else { x3 },
-        y: if y3 < 0 { y3 + n } else { y3 },
+        x: if (x3 < 0) { x3 + n } else { x3 },
+        y: if (y3 < 0) { y3 + n } else { y3 },
         is_infinity: false,
     }, 1);
 }
@@ -102,18 +102,18 @@ fn ec_scalar_multiply(mut k: i32, point: ECPoint, a: i32, n: i32) -> (ECPoint, i
     let mut result = ECPoint { x: 0, y: 0, is_infinity: true };
     let mut addend = point;
     
-    while k > 0 {
-        if k % 2 == 1 {
+    while (k > 0) {
+        if (k % 2 == 1) {
             let (new_result, factor) = ec_point_add_lenstra(result, addend, a, n);
             result = new_result;
-            if factor > 1 && factor < n {
+            if (factor > 1 && factor < n) {
                 return (result, factor);
             }
         }
         
         let (doubled, factor) = ec_point_add_lenstra(addend, addend, a, n);
         addend = doubled;
-        if factor > 1 && factor < n {
+        if (factor > 1 && factor < n) {
             return (addend, factor);
         }
         
@@ -124,7 +124,7 @@ fn ec_scalar_multiply(mut k: i32, point: ECPoint, a: i32, n: i32) -> (ECPoint, i
 }
 
 fn lenstra_factorization_recursive(n: i32, attempts: i32, max_attempts: i32) -> i32 {
-    if attempts >= max_attempts {
+    if (attempts >= max_attempts) {
         return n;
     }
     
@@ -134,14 +134,14 @@ fn lenstra_factorization_recursive(n: i32, attempts: i32, max_attempts: i32) -> 
     
     // Simple check if y_squared is a perfect square
     let mut y = 1;
-    while y * y <= y_squared {
-        if y * y == y_squared {
+    while (y * y <= y_squared) {
+        if (y * y == y_squared) {
             break;
         }
         y = y + 1;
     }
     
-    if y * y != y_squared {
+    if (y * y != y_squared) {
         return lenstra_factorization_recursive(n, attempts + 1, max_attempts);
     }
     
@@ -149,10 +149,10 @@ fn lenstra_factorization_recursive(n: i32, attempts: i32, max_attempts: i32) -> 
     
     // Try small factorial multiplications
     let mut k = 2;
-    while k <= 20 {
+    while (k <= 20) {
         let (_, factor) = ec_scalar_multiply(k, point, a, n);
         
-        if factor > 1 && factor < n {
+        if (factor > 1 && factor < n) {
             return factor;
         }
         

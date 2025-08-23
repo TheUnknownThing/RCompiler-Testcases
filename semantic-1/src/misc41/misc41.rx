@@ -10,8 +10,8 @@ fn power_mod(mut base: i32, mut exp: i32, modulus: i32) -> i32 {
     let mut result = 1;
     base = base % modulus;
     
-    while exp > 0 {
-        if exp % 2 == 1 {
+    while (exp > 0) {
+        if (exp % 2 == 1) {
             result = (result * base) % modulus;
         }
         exp = exp / 2;
@@ -24,8 +24,8 @@ fn power_mod(mut base: i32, mut exp: i32, modulus: i32) -> i32 {
 fn hash_insert(table: &mut [HashEntry; 100], key: i32, value: i32, size: i32) {
     let mut index = key % size;
     
-    while table[index].used {
-        if table[index].key == key {
+    while (table[index].used) {
+        if (table[index].key == key) {
             return; // Already exists
         }
         index = (index + 1) % size;
@@ -39,8 +39,8 @@ fn hash_insert(table: &mut [HashEntry; 100], key: i32, value: i32, size: i32) {
 fn hash_lookup(table: &[HashEntry; 100], key: i32, size: i32) -> i32 {
     let mut index = key % size;
     
-    while table[index].used {
-        if table[index].key == key {
+    while (table[index].used) {
+        if (table[index].key == key) {
             return table[index].value;
         }
         index = (index + 1) % size;
@@ -50,14 +50,14 @@ fn hash_lookup(table: &[HashEntry; 100], key: i32, size: i32) -> i32 {
 }
 
 fn isqrt(n: i32) -> i32 {
-    if n < 2 {
+    if (n < 2) {
         return n;
     }
     
     let mut x = n;
     let mut y = (x + 1) / 2;
     
-    while y < x {
+    while (y < x) {
         x = y;
         y = (x + n / x) / 2;
     }
@@ -73,7 +73,7 @@ fn baby_step_giant_step(g: i32, h: i32, p: i32) -> i32 {
     let mut gamma = 1;
     let mut j = 0;
     
-    while j < m && j < 100 {
+    while (j < m && j < 100) {
         hash_insert(&mut baby_steps, gamma, j, 100);
         gamma = (gamma * g) % p;
         j = j + 1;
@@ -84,9 +84,9 @@ fn baby_step_giant_step(g: i32, h: i32, p: i32) -> i32 {
     let mut y = h;
     let mut i = 0;
     
-    while i < m && i < 100 {
+    while (i < m && i < 100) {
         let lookup_result = hash_lookup(&baby_steps, y, 100);
-        if lookup_result != -1 {
+        if (lookup_result != -1) {
             return i * m + lookup_result;
         }
         y = (y * g_inv_m) % p;
@@ -97,7 +97,7 @@ fn baby_step_giant_step(g: i32, h: i32, p: i32) -> i32 {
 }
 
 fn discrete_log_recursive(g: i32, h: i32, p: i32, depth: i32) -> i32 {
-    if depth > 3 {
+    if (depth > 3) {
         return baby_step_giant_step(g, h, p);
     }
     
@@ -105,8 +105,8 @@ fn discrete_log_recursive(g: i32, h: i32, p: i32, depth: i32) -> i32 {
     let mut x = 1;
     let mut g_power = g;
     
-    while x < 10 {
-        if g_power == h {
+    while (x < 10) {
+        if (g_power == h) {
             return x;
         }
         g_power = (g_power * g) % p;

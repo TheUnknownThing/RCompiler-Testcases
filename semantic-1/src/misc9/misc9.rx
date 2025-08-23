@@ -1,7 +1,7 @@
 // GCD and LCM calculation
 // Calculate greatest common divisor and least common multiple
 fn gcd(a: i32, b: i32) -> i32 {
-    if b == 0 {
+    if (b == 0) {
         return a;
     }
     return gcd(b, a % b);
@@ -12,7 +12,7 @@ fn lcm(a: i32, b: i32) -> i32 {
 }
 
 fn absolute(x: i32) -> i32 {
-    if x < 0 {
+    if (x < 0) {
         return -x;
     }
     return x;

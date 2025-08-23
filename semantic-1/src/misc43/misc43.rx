@@ -7,7 +7,7 @@ struct EllipticPoint {
 }
 
 fn mod_inverse(mut a: i32, mut m: i32) -> i32 {
-    if m == 1 {
+    if (m == 1) {
         return 0;
     }
     
@@ -15,7 +15,7 @@ fn mod_inverse(mut a: i32, mut m: i32) -> i32 {
     let mut x0 = 0;
     let mut x1 = 1;
     
-    while a > 1 {
+    while (a > 1) {
         let q = a / m;
         let mut t = m;
         
@@ -27,7 +27,7 @@ fn mod_inverse(mut a: i32, mut m: i32) -> i32 {
         x1 = t;
     }
     
-    if x1 < 0 {
+    if (x1 < 0) {
         x1 = x1 + m0;
     }
     
@@ -35,15 +35,15 @@ fn mod_inverse(mut a: i32, mut m: i32) -> i32 {
 }
 
 fn point_add(p1: EllipticPoint, p2: EllipticPoint, a: i32, prime: i32) -> EllipticPoint {
-    if p1.is_infinity {
+    if (p1.is_infinity) {
         return p2;
     }
-    if p2.is_infinity {
+    if (p2.is_infinity) {
         return p1;
     }
     
-    if p1.x == p2.x {
-        if p1.y == p2.y {
+    if (p1.x == p2.x) {
+        if (p1.y == p2.y) {
             // Point doubling
             let numerator = (3 * p1.x * p1.x + a) % prime;
             let denominator = (2 * p1.y) % prime;
@@ -53,8 +53,8 @@ fn point_add(p1: EllipticPoint, p2: EllipticPoint, a: i32, prime: i32) -> Ellipt
             let y3 = (slope * (p1.x - x3) - p1.y) % prime;
             
             return EllipticPoint {
-                x: if x3 < 0 { x3 + prime } else { x3 },
-                y: if y3 < 0 { y3 + prime } else { y3 },
+                x: if (x3 < 0) { x3 + prime } else { x3 },
+                y: if (y3 < 0) { y3 + prime } else { y3 },
                 is_infinity: false,
             };
         } else {
@@ -74,15 +74,15 @@ fn point_add(p1: EllipticPoint, p2: EllipticPoint, a: i32, prime: i32) -> Ellipt
     let y3 = (slope * (p1.x - x3) - p1.y) % prime;
     
     return EllipticPoint {
-        x: if x3 < 0 { x3 + prime } else { x3 },
-        y: if y3 < 0 { y3 + prime } else { y3 },
+        x: if (x3 < 0) { x3 + prime } else { x3 },
+        y: if (y3 < 0) { y3 + prime } else { y3 },
         is_infinity: false,
     };
 }
 
 fn scalar_multiply_recursive(k: i32, point: EllipticPoint, a: i32, prime: i32, 
                            depth: i32) -> EllipticPoint {
-    if k == 0 || depth > 20 {
+    if (k == 0 || depth > 20) {
         return EllipticPoint {
             x: 0,
             y: 0,
@@ -90,11 +90,11 @@ fn scalar_multiply_recursive(k: i32, point: EllipticPoint, a: i32, prime: i32,
         };
     }
     
-    if k == 1 {
+    if (k == 1) {
         return point;
     }
     
-    if k % 2 == 0 {
+    if (k % 2 == 0) {
         let half_point = scalar_multiply_recursive(k / 2, point, a, prime, depth + 1);
         return point_add(half_point, half_point, a, prime);
     } else {
@@ -107,11 +107,11 @@ fn elliptic_curve_order(base_point: EllipticPoint, a: i32, prime: i32) -> i32 {
     let mut current = base_point;
     let mut order = 1;
     
-    while order < prime + 1 {
+    while (order < prime + 1) {
         current = point_add(current, base_point, a, prime);
         order = order + 1;
         
-        if current.is_infinity {
+        if (current.is_infinity) {
             return order;
         }
     }
@@ -134,7 +134,7 @@ fn main() {
     
     let result = scalar_multiply_recursive(k, point, a, prime, 0);
     
-    if result.is_infinity {
+    if (result.is_infinity) {
         printInt(-1);
     } else {
         printInt(result.x);

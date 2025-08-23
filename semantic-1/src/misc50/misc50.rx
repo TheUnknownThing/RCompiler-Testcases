@@ -1,9 +1,9 @@
 // Integer partition problem: count ways to write n as sum of positive integers
 // Classic number theory problem using recursion with memoization-like approach
 fn partition_recursive(n: i32, max_val: i32) -> i32 {
-    if n == 0 {
+    if (n == 0) {
         return 1; // One way to partition 0 (empty partition)
-    } else if n < 0 || max_val <= 0 {
+    } else if (n < 0 || max_val <= 0) {
         return 0; // No valid partitions
     } else {
         // Include max_val in partition or exclude it
@@ -16,7 +16,7 @@ fn calculate_partition_sum(limit: i32) -> i32 {
     let mut total = 0;
     let mut n = 1;
     
-    while n <= limit {
+    while (n <= limit) {
         let partitions = partition_recursive(n, n);
         total += partitions;
         n += 1;

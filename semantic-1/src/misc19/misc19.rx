@@ -22,14 +22,14 @@ impl MergeSort {
         
         // Copy elements to temporary array for merging
         let mut idx = left;
-        while idx <= right {
+        while (idx <= right) {
             self.temp[idx as usize] = self.data[idx as usize];
             idx += 1;
         }
         
         // Merge the two halves
-        while i <= mid && j <= right {
-            if self.temp[i as usize] <= self.temp[j as usize] {
+        while (i <= mid && j <= right) {
+            if (self.temp[i as usize] <= self.temp[j as usize]) {
                 self.data[k as usize] = self.temp[i as usize];
                 i += 1;
             } else {
@@ -40,14 +40,14 @@ impl MergeSort {
         }
         
         // Copy remaining elements from left half
-        while i <= mid {
+        while (i <= mid) {
             self.data[k as usize] = self.temp[i as usize];
             i += 1;
             k += 1;
         }
         
         // Copy remaining elements from right half
-        while j <= right {
+        while (j <= right) {
             self.data[k as usize] = self.temp[j as usize];
             j += 1;
             k += 1;
@@ -55,7 +55,7 @@ impl MergeSort {
     }
     
     fn merge_sort_recursive(&mut self, left: i32, right: i32) {
-        if left < right {
+        if (left < right) {
             let mid = left + (right - left) / 2;
             self.merge_sort_recursive(left, mid);
             self.merge_sort_recursive(mid + 1, right);
@@ -64,14 +64,14 @@ impl MergeSort {
     }
     
     fn sort(&mut self) {
-        if self.size <= 1 {
+        if (self.size <= 1) {
             return;
         }
         self.merge_sort_recursive(0, self.size - 1);
     }
     
     fn insert(&mut self, value: i32) {
-        if self.size < 1000 {
+        if (self.size < 1000) {
             self.data[self.size as usize] = value;
             self.size += 1;
         }
@@ -79,7 +79,7 @@ impl MergeSort {
     
     fn print_array(&self) {
         let mut i = 0;
-        while i < self.size {
+        while (i < self.size) {
             printInt(self.data[i as usize]);
             i += 1;
         }
@@ -91,7 +91,7 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let value = readInt();
         sorter.insert(value);
         i += 1;

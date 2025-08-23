@@ -20,12 +20,12 @@ impl FibState {
 fn main() {
     let n = readInt();
     
-    if n <= 0 {
+    if (n <= 0) {
         printInt(0);
         return;
     }
     
-    if n == 1 {
+    if (n == 1) {
         printInt(1);
         return;
     }
@@ -33,7 +33,7 @@ fn main() {
     let mut fib = FibState::new();
     let mut i = 2;
     
-    while i <= n {
+    while (i <= n) {
         fib.next();
         i += 1;
     }

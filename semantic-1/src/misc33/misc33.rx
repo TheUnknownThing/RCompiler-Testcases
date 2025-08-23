@@ -21,9 +21,9 @@ impl Graph {
     }
     
     fn add_edge(&mut self, src: i32, dest: i32) {
-        if src >= 0 && src < self.vertex_count && dest >= 0 && dest < self.vertex_count {
+        if (src >= 0 && src < self.vertex_count && dest >= 0 && dest < self.vertex_count) {
             let count = self.edge_counts[src as usize];
-            if count < 100 {
+            if (count < 100) {
                 self.adjacency_list[src as usize][count as usize] = dest;
                 self.edge_counts[src as usize] += 1;
             }
@@ -34,9 +34,9 @@ impl Graph {
         let mut transposed = Graph::new(self.vertex_count);
         
         let mut i = 0;
-        while i < self.vertex_count {
+        while (i < self.vertex_count) {
             let mut j = 0;
-            while j < self.edge_counts[i as usize] {
+            while (j < self.edge_counts[i as usize]) {
                 let dest = self.adjacency_list[i as usize][j as usize];
                 transposed.add_edge(dest, i);
                 j += 1;
@@ -51,9 +51,9 @@ impl Graph {
         visited[vertex as usize] = true;
         
         let mut i = 0;
-        while i < self.edge_counts[vertex as usize] {
+        while (i < self.edge_counts[vertex as usize]) {
             let neighbor = self.adjacency_list[vertex as usize][i as usize];
-            if !visited[neighbor as usize] {
+            if (!visited[neighbor as usize]) {
                 self.dfs_fill_order(neighbor, visited, stack);
             }
             i += 1;
@@ -68,9 +68,9 @@ impl Graph {
         *comp_size += 1;
         
         let mut i = 0;
-        while i < self.edge_counts[vertex as usize] {
+        while (i < self.edge_counts[vertex as usize]) {
             let neighbor = self.adjacency_list[vertex as usize][i as usize];
-            if !visited[neighbor as usize] {
+            if (!visited[neighbor as usize]) {
                 self.dfs_component(neighbor, visited, component, comp_size);
             }
             i += 1;
@@ -84,8 +84,8 @@ impl Graph {
         
         // Fill vertices in stack according to their finishing times
         let mut i = 0;
-        while i < self.vertex_count {
-            if !visited[i as usize] {
+        while (i < self.vertex_count) {
+            if (!visited[i as usize]) {
                 self.dfs_fill_order(i, &mut visited, &mut stack);
             }
             i += 1;
@@ -99,9 +99,9 @@ impl Graph {
         let mut component_count = 0;
         
         // Process vertices in order defined by stack
-        while !stack.is_empty() {
+        while (!stack.is_empty()) {
             let vertex = stack.pop();
-            if !visited[vertex as usize] && component_count < 50 {
+            if (!visited[vertex as usize] && component_count < 50) {
                 let mut component: [i32; 100] = [-1; 100];
                 let mut comp_size = 0;
                 transposed.dfs_component(vertex, &mut visited, &mut component, &mut comp_size);
@@ -118,8 +118,8 @@ impl Graph {
         let mut count = 0;
         
         let mut i = 0;
-        while i < 50 {
-            if components[i as usize][0] != -1 {
+        while (i < 50) {
+            if (components[i as usize][0] != -1) {
                 count += 1;
             }
             i += 1;
@@ -142,14 +142,14 @@ impl Stack {
     }
     
     fn push(&mut self, value: i32) {
-        if self.top < 999 {
+        if (self.top < 999) {
             self.top += 1;
             self.data[self.top as usize] = value;
         }
     }
     
     fn pop(&mut self) -> i32 {
-        if self.top >= 0 {
+        if (self.top >= 0) {
             let value = self.data[self.top as usize];
             self.top -= 1;
             return value;
@@ -158,7 +158,7 @@ impl Stack {
     }
     
     fn is_empty(&self) -> bool {
-        return self.top == -1;
+        return (self.top == -1);
     }
 }
 
@@ -168,7 +168,7 @@ fn main() {
     
     let edges = readInt();
     let mut i = 0;
-    while i < edges {
+    while (i < edges) {
         let src = readInt();
         let dest = readInt();
         graph.add_edge(src, dest);
@@ -177,11 +177,11 @@ fn main() {
     
     let operation = readInt();
     
-    if operation == 1 { // Count strongly connected components
+    if (operation == 1) { // Count strongly connected components
         let scc_count = graph.count_strongly_connected_components();
         printInt(scc_count);
     } else if operation == 2 { // Check if graph is strongly connected
-        if graph.is_strongly_connected() {
+        if (graph.is_strongly_connected()) {
             printInt(1);
         } else {
             printInt(0);
@@ -189,10 +189,10 @@ fn main() {
     } else if operation == 3 { // Print all strongly connected components
         let components = graph.find_strongly_connected_components();
         i = 0;
-        while i < 50 && components[i as usize][0] != -1 {
+        while (i < 50 && components[i as usize][0] != -1) {
             printInt(-1); // Component separator
             let mut j = 0;
-            while j < 100 && components[i as usize][j as usize] != -1 {
+            while (j < 100 && components[i as usize][j as usize] != -1) {
                 printInt(components[i as usize][j as usize]);
                 j += 1;
             }

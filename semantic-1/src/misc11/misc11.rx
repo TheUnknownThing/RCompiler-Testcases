@@ -14,13 +14,13 @@ fn perform_operation(a: i32, b: i32, op: Operation) -> i32 {
         Operation::Subtract => return a - b,
         Operation::Multiply => return a * b,
         Operation::Divide => {
-            if b != 0 {
+            if (b != 0) {
                 return a / b;
             }
             return 0; // Division by zero
         },
         Operation::Modulo => {
-            if b != 0 {
+            if (b != 0) {
                 return a % b;
             }
             return 0; // Modulo by zero
@@ -29,13 +29,13 @@ fn perform_operation(a: i32, b: i32, op: Operation) -> i32 {
 }
 
 fn get_operation(op_code: i32) -> Operation {
-    if op_code == 1 {
+    if (op_code == 1) {
         return Operation::Add;
-    } else if op_code == 2 {
+    } else if (op_code == 2) {
         return Operation::Subtract;
-    } else if op_code == 3 {
+    } else if (op_code == 3) {
         return Operation::Multiply;
-    } else if op_code == 4 {
+    } else if (op_code == 4) {
         return Operation::Divide;
     } else {
         return Operation::Modulo;

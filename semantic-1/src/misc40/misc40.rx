@@ -6,7 +6,7 @@ struct Convergent {
 }
 
 fn gcd(mut a: i32, mut b: i32) -> i32 {
-    while b != 0 {
+    while (b != 0) {
         let temp = b;
         b = a % b;
         a = temp;
@@ -17,14 +17,14 @@ fn gcd(mut a: i32, mut b: i32) -> i32 {
 fn continued_fraction_sqrt_recursive(n: i32, m: i32, d: i32, a0: i32, 
                                    convergents: &mut [Convergent; 50], 
                                    depth: i32) -> i32 {
-    if depth >= 48 {
+    if (depth >= 48) {
         return depth;
     }
     
     let m_new = d * convergents[depth].denominator - m;
     let d_new = (n - m_new * m_new) / d;
     
-    if d_new == 0 {
+    if (d_new == 0) {
         return depth;
     }
     
@@ -32,16 +32,16 @@ fn continued_fraction_sqrt_recursive(n: i32, m: i32, d: i32, a0: i32,
     
     // Check for period
     let mut period_start = 0;
-    while period_start < depth {
-        if convergents[period_start].numerator == a_new && 
-           convergents[period_start].denominator == d_new {
+    while (period_start < depth) {
+        if (convergents[period_start].numerator == a_new && 
+           convergents[period_start].denominator == d_new) {
             return depth - period_start;
         }
         period_start = period_start + 1;
     }
     
     // Calculate new convergent
-    if depth == 0 {
+    if (depth == 0) {
         convergents[depth + 1].numerator = a_new * a0 + 1;
         convergents[depth + 1].denominator = a_new;
     } else {
@@ -57,8 +57,8 @@ fn continued_fraction_sqrt_recursive(n: i32, m: i32, d: i32, a0: i32,
 fn sqrt_continued_fraction(n: i32) -> i32 {
     // Check if n is perfect square
     let mut i = 1;
-    while i * i <= n {
-        if i * i == n {
+    while (i * i <= n) {
+        if (i * i == n) {
             return 0; // Period is 0 for perfect squares
         }
         i = i + 1;
@@ -78,7 +78,7 @@ fn sqrt_continued_fraction(n: i32) -> i32 {
 fn pell_equation_solver(n: i32) -> i32 {
     let period = sqrt_continued_fraction(n);
     
-    if period == 0 {
+    if (period == 0) {
         return -1; // No solution for perfect squares
     }
     
@@ -89,7 +89,7 @@ fn pell_equation_solver(n: i32) -> i32 {
     let mut q_curr = 1;
     
     let mut step = 0;
-    while step < period {
+    while (step < period) {
         let temp_p = p_curr;
         let temp_q = q_curr;
         

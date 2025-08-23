@@ -34,7 +34,7 @@ impl LinkedList {
         
         // Initialize free list
         let mut i = 0;
-        while i < 999 {
+        while (i < 999) {
             list.nodes[i as usize].next = i + 1;
             i += 1;
         }
@@ -44,7 +44,7 @@ impl LinkedList {
     }
     
     fn allocate_node(&mut self) -> i32 {
-        if self.free_list == -1 {
+        if (self.free_list == -1) {
             return -1; // No free nodes
         }
         
@@ -62,7 +62,7 @@ impl LinkedList {
     
     fn insert_front(&mut self, value: i32) -> bool {
         let new_node_index = self.allocate_node();
-        if new_node_index == -1 {
+        if (new_node_index == -1) {
             return false;
         }
         
@@ -75,18 +75,18 @@ impl LinkedList {
     
     fn insert_back(&mut self, value: i32) -> bool {
         let new_node_index = self.allocate_node();
-        if new_node_index == -1 {
+    if (new_node_index == -1) {
             return false;
         }
         
         self.nodes[new_node_index as usize].value = value;
         self.nodes[new_node_index as usize].next = -1;
         
-        if self.head == -1 {
+        if (self.head == -1) {
             self.head = new_node_index;
         } else {
             let mut current = self.head;
-            while self.nodes[current as usize].next != -1 {
+            while (self.nodes[current as usize].next != -1) {
                 current = self.nodes[current as usize].next;
             }
             self.nodes[current as usize].next = new_node_index;
@@ -97,12 +97,12 @@ impl LinkedList {
     }
     
     fn delete_value(&mut self, value: i32) -> bool {
-        if self.head == -1 {
+        if (self.head == -1) {
             return false;
         }
         
         // Delete from head
-        if self.nodes[self.head as usize].value == value {
+        if (self.nodes[self.head as usize].value == value) {
             let old_head = self.head;
             self.head = self.nodes[self.head as usize].next;
             self.deallocate_node(old_head);
@@ -112,9 +112,9 @@ impl LinkedList {
         
         // Search and delete
         let mut current = self.head;
-        while self.nodes[current as usize].next != -1 {
+        while (self.nodes[current as usize].next != -1) {
             let next_node = self.nodes[current as usize].next;
-            if self.nodes[next_node as usize].value == value {
+            if (self.nodes[next_node as usize].value == value) {
                 self.nodes[current as usize].next = self.nodes[next_node as usize].next;
                 self.deallocate_node(next_node);
                 self.size -= 1;
@@ -128,8 +128,8 @@ impl LinkedList {
     
     fn search(&self, value: i32) -> bool {
         let mut current = self.head;
-        while current != -1 {
-            if self.nodes[current as usize].value == value {
+        while (current != -1) {
+            if (self.nodes[current as usize].value == value) {
                 return true;
             }
             current = self.nodes[current as usize].next;
@@ -139,7 +139,7 @@ impl LinkedList {
     
     fn print_list(&self) {
         let mut current = self.head;
-        while current != -1 {
+        while (current != -1) {
             printInt(self.nodes[current as usize].value);
             current = self.nodes[current as usize].next;
         }
@@ -155,26 +155,26 @@ fn main() {
     let n = readInt();
     
     let mut i = 0;
-    while i < n {
+    while (i < n) {
         let operation = readInt();
         
-        if operation == 1 { // Insert front
+        if (operation == 1) { // Insert front
             let value = readInt();
             list.insert_front(value);
-        } else if operation == 2 { // Insert back
+        } else if (operation == 2) { // Insert back
             let value = readInt();
             list.insert_back(value);
-        } else if operation == 3 { // Delete value
+        } else if (operation == 3) { // Delete value
             let value = readInt();
             list.delete_value(value);
-        } else if operation == 4 { // Search
+        } else if (operation == 4) { // Search
             let value = readInt();
-            if list.search(value) {
+            if (list.search(value)) {
                 printInt(1);
             } else {
                 printInt(0);
             }
-        } else if operation == 5 { // Print list
+        } else if (operation == 5) { // Print list
             list.print_list();
         }
         
