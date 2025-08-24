@@ -1,7 +1,7 @@
 fn main() {
     let mut index: usize = 0;
     let mut total: usize = 0;
-    while index < data.len() {
+    while (index < data.len()) {
         total = add(total, data[index]);
         index += 1
     }

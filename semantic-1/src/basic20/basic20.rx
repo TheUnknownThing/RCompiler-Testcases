@@ -2,12 +2,12 @@ const N: usize = 3;
 fn mul(a: &[[i32; N]; N], b: &[[i32; N]; N]) -> [[i32; N]; N] {
     let mut out: [[i32; N]; N] = [[0i32; N]; N];
     let mut i: usize = 0usize;
-    while i < N {
+    while (i < N) {
         let mut j: usize = 0usize;
-        while j < N {
+        while (j < N) {
             let mut k: usize = 0usize;
             let mut cell: i32 = 0i32;
-            while k < N {
+            while (k < N) {
                 cell += a[i][k] * b[k][j];
                 k += 1;
             }
@@ -26,7 +26,7 @@ fn main() {
     let e: [[i32; N]; N] = mul(&d, &b);
     let mut trace: i32 = 0i32;
     let mut idx: usize = 0usize;
-    while idx < N {
+    while (idx < N) {
         trace += e[idx][idx];
         idx += 1;
     }

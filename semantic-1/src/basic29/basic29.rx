@@ -6,9 +6,9 @@ fn det3(m: &[[i32; 3]; 3]) -> i32 {
 }
 fn transpose(src: &[[i32; 3]; 3], dst: &mut [[i32; 3]; 3]) {
     let mut r: usize = 0;
-    while r < 3 {
+    while (r < 3) {
         let mut c: usize = 0;
-        while c < 3 {
+        while (c < 3) {
             dst[r][c] = src[c][r];
             c += 1;
         }

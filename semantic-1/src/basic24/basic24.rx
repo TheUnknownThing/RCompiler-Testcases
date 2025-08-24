@@ -7,14 +7,14 @@ fn bfs(g: &[[u32; N]; N], root: usize, visited: &mut [bool; N], order: &mut [usi
     tail += 1;
     visited[root] = true;
     let mut pos: usize = 0usize;
-    while head < tail {
+    while (head < tail) {
         let v = queue[head];
         order[pos] = v;
         pos += 1;
         head += 1;
         let mut i: usize = 0usize;
-        while i < N {
-            if g[v][i] != 0 && !visited[i] {
+        while (i < N) {
+            if (g[v][i] != 0 && !visited[i]) {
                 queue[tail] = i;
                 tail += 1;
                 visited[i] = true;

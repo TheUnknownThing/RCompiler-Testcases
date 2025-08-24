@@ -5,14 +5,14 @@ fn main() {
 }
 
 fn climb(n: i32) -> i32 {
-    if n <= 1 {
+    if (n <= 1) {
         return 1;
     }
     let mut ways: i32 = 0;
     let mut first: i32 = 1;
     let mut second: i32 = 1;
     let mut i: i32 = 2;
-    while i <= n {
+    while (i <= n) {
         let next: i32 = first + second;
         first = second;
         second = next;

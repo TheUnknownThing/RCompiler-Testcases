@@ -1,7 +1,7 @@
 fn main() {
     let mut game: Board = Board::fresh();
     let mut step: usize = 0;
-    while step < 9 {
+    while (step < 9) {
         game.place(step / 3, step % 3, step as i32);
         step += 1;
     }
@@ -30,8 +30,8 @@ impl Board {
 
     fn evaluate(&self) -> i32 {
         let mut i: usize = 0;
-        while i < 3 {
-            if self.grid[i][0] == self.grid[i][1] && self.grid[i][1] == self.grid[i][2] {
+        while (i < 3) {
+            if (self.grid[i][0] == self.grid[i][1] && self.grid[i][1] == self.grid[i][2]) {
                 return self.grid[i][0]
             }
             i += 1;

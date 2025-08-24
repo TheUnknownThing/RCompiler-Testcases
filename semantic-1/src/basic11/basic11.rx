@@ -4,11 +4,11 @@ fn main() {
 }
 
 fn fib(n: i32) -> i32 {
-    if n <= 1 { return n as i32; }
+    if (n <= 1) { return n as i32; }
     let mut prev: i32 = 0i32;
     let mut curr: i32 = 1i32;
     let mut idx: i32 = 2;
-    while idx <= n {
+    while (idx <= n) {
         let next: i32 = prev + curr;
         prev = curr;
         curr = next;

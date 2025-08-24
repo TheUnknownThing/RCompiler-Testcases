@@ -25,7 +25,7 @@ impl Deck {
 
     fn shuffle(&mut self) {
         self.idx = 0;
-        while self.idx < 52 {
+        while (self.idx < 52) {
             let swap: usize = (self.idx * 31) % 52;
             let temp: Card = self.pile[self.idx];
             self.pile[self.idx] = self.pile[swap];
@@ -36,7 +36,7 @@ impl Deck {
     }
 
     fn draw(&mut self) -> Card {
-        if self.idx >= 52 {
+        if (self.idx >= 52) {
             return 0;
         }
         let card = self.pile[self.idx];

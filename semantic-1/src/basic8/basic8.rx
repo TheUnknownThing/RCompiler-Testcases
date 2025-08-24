@@ -7,9 +7,9 @@ fn main() {
 fn make_table(n: usize) -> [[i32; n]; n] {
     let mut arr: [[i32; n]; n] = [[0; n]; n];
     let mut row: usize = 0usize;
-    while row < n {
+    while (row < n) {
         let mut col: usize = 0usize;
-        while col < n {
+        while (col < n) {
             arr[row][col] = (row * col) as i32;
             col += 1;
         }

@@ -9,7 +9,7 @@ fn main() {
     let doubled: i32 = result * 2;
     let mut acc: i32 = 0;
     let mut i: i32 = 0;
-    while i < doubled {
+    while (i < doubled) {
         acc += i;
         i += 1;
     }
@@ -22,7 +22,7 @@ enum Op {
 }
 
 fn pick_operator(value: i32) -> Op {
-    if value > 5 {
+    if (value > 5) {
         Op::Add
     } else {
         Op::Sub
@@ -32,7 +32,7 @@ fn pick_operator(value: i32) -> Op {
 fn compute(x: i32, y: i32, op: Op) -> i32 {
     let mut accumulator: i32 = 0;
     let mut i: i32 = 0;
-    while i < y {
+    while (i < y) {
         accumulator = accumulator + x + i;
         i += 1;
     }

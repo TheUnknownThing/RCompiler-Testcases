@@ -5,7 +5,7 @@ fn main() {
 
     let len: i32 = segment.length();
     let mut counter: i32 = 0;
-    while counter < len as i32 {
+    while (counter < len as i32) {
         counter += 1;
     }
 

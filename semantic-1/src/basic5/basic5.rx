@@ -1,11 +1,11 @@
 fn main() {
     let mut stack: Stack = Stack::new();
     let mut i: i32 = 0;
-    while i < 10 {
+    while (i < 10) {
         stack.push(i);
         i += 1;
     }
-    while !stack.empty() {
+    while (!stack.empty()) {
         stack.pop();
     }
 }
@@ -34,7 +34,7 @@ impl Container for Stack {
     }
 
     fn pop(&mut self) -> i32 {
-        if self.top == 0 {
+        if (self.top == 0) {
             return 0;
         }
         self.top -= 1;

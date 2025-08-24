@@ -4,10 +4,10 @@ fn main() {
     is_prime[0] = false;
     is_prime[1] = false;
     let mut p: usize = 2usize;
-    while p * p <= LIMIT {
-        if is_prime[p] {
+    while (p * p <= LIMIT) {
+        if (is_prime[p]) {
             let mut k: usize = p * p;
-            while k <= LIMIT {
+            while (k <= LIMIT) {
                 is_prime[k] = false;
                 k += p;
             }
@@ -16,8 +16,8 @@ fn main() {
     }
     let mut total: usize = 0usize;
     let mut n: usize = 2usize;
-    while n <= LIMIT {
-        if is_prime[n] {
+    while (n <= LIMIT) {
+        if (is_prime[n]) {
             total += n;
         }
         n += 1;

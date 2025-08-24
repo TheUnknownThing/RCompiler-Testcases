@@ -11,11 +11,11 @@ fn multiply_matrices() -> [[i32; 3]; 3] {
     ];
     let result: [[i32; 3]; 3] = [[0; 3]; 3];
     let mut i: usize = 0;
-    while i < 3 {
+    while (i < 3) {
         let mut j: usize = 0;
-        while j < 3 {
+        while (j < 3) {
             let mut k: usize = 0;
-            while k < 3 {
+            while (k < 3) {
                 let value: i32 = a[i][k] * b[k][j];
                 result[i][j] = result[i][j] + value;
                 k += 1;
@@ -30,7 +30,7 @@ fn multiply_matrices() -> [[i32; 3]; 3] {
 fn trace_diagonal(m: [[i32; 3]; 3]) -> i32 {
     let mut s: i32 = 0;
     let mut n: usize = 0;
-    while n < 3 {
+    while (n < 3) {
         s = s + m[n][n];
         n += 1;
     }
@@ -40,13 +40,13 @@ fn trace_diagonal(m: [[i32; 3]; 3]) -> i32 {
 fn accumulate_edges(m: [[i32; 3]; 3]) -> i32 {
     let mut t: i32 = 0;
     let mut r: usize = 0;
-    while r < 3 {
+    while (r < 3) {
         t = t + m[r][0];
         t = t + m[r][2];
         r += 1;
     }
     let mut c: usize = 0;
-    while c < 3 {
+    while (c < 3) {
         t = t + m[0][c];
         t = t + m[2][c];
         c += 1;
@@ -59,7 +59,7 @@ fn main() {
     let d: i32 = trace_diagonal(m);
     let e: i32 = accumulate_edges(m);
     let c: i32 = d + e;
-    if c > 0 {
+    if (c > 0) {
         let s: i32 = 1;
     } else {
         let s: i32 = 0;
