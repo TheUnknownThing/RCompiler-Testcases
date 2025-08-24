@@ -22,6 +22,69 @@
     }
   },
   {
+    "name": "return2",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return2/return2.rx", "visible"],
+    "input": ["src/return2/return2.in", "visible"],
+    "output": ["src/return2/return2.out", "visible"],
+    "exitcode": 4,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-07",
+      "comment": "exit function test, only `i32` can be returned"
+    }
+  },
+  {
+    "name": "return3",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return3/return3.rx", "visible"],
+    "input": ["src/return3/return3.in", "visible"],
+    "output": ["src/return3/return3.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Bohan Zhang",
+      "lastmodified": "2025-08-24",
+      "comment": "exit function test, the main function must have an exit function call as a final statement"
+    }
+  },
+  {
+    "name": "return4",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return4/return4.rx", "visible"],
+    "input": ["src/return4/return4.in", "visible"],
+    "output": ["src/return4/return4.out", "visible"],
+    "exitcode": -1,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Bohan Zhang",
+      "lastmodified": "2025-08-24",
+      "comment": "exit function test, the main function should not return any type but `()`"
+    }
+  },
+  {
     "name": "array1",
     "name_visible": true,
     "active": true,

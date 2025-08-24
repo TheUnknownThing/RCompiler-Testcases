@@ -1,0 +1,7 @@
+fn main() {
+    println(r#"Why is there no exit in main?
+Look in my eyes!
+Tell me!
+WHY!"#
+    );
+}
