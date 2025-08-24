@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: expr
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Fail
+Comment: Expression error: Missing comma in array literal - combines array, operator, if, literal, and grouped expressions
+*/
+
 fn main() {
     let arr = [1, 2 3, 4];
     let x = arr[0] + 5;

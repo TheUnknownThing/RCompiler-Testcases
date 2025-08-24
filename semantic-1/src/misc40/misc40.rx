@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: misc
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Success
+Comment: Continued fraction expansion for square roots and Pell equation solver
+*/
+
 // Continued fraction expansion for square roots
 // Recursive computation of convergents and periodic patterns
 struct Convergent {

@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: misc
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Fail
+Comment: Persistent Segment Tree with lazy propagation and path copying with function name collision error
+*/
+
 // Persistent Segment Tree with Lazy Propagation for Range Updates
 // Supports historical queries with path copying and efficient memory management
 

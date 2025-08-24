@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: expr
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Fail
+Comment: Expression error: Trailing comma in function call - combines call, literal, operator, and grouped expressions
+*/
+
 fn add(a: i32, b: i32) -> i32 {
     a + b
 }
