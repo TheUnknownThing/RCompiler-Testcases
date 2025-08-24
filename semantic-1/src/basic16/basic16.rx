@@ -8,6 +8,7 @@ fn main() {
     let avg: usize = total / data.len();
     let answer: () = report(avg);
     let keep: () = answer
+    exit(0);
 }
 
 fn report(v: i32) -> () { v }

@@ -29,4 +29,5 @@ fn main() {
     } else {
         printInt(0); // Not prime
     }
+    exit(0);
 }

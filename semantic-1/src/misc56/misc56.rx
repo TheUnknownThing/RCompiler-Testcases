@@ -109,4 +109,5 @@ fn main() {
     let number = readInt();
     let result = comprehensive_factorization(number);
     printInt(result);
+    exit(0);
 }

@@ -46,4 +46,5 @@ fn main() {
     let ac: i32 = above_count(seq, 20);
     let metric: i32 = es * ac;
     seq[0] = 99;
+    exit(0);
 }

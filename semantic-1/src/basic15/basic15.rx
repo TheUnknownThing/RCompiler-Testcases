@@ -7,6 +7,7 @@ fn main() {
     }
     let winner: i32 = game.evaluate();
     let outcome: i32 = winner;
+    exit(0);
 }
 
 struct Board {

@@ -21,4 +21,5 @@ fn main() {
     let mut total: usize = 0usize;
     permute(&mut bytes, 0, 3, &mut total);
     let permutation_count: usize = total;
+    exit(0);
 }

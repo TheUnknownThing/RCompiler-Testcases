@@ -208,4 +208,5 @@ fn main() {
     let comparison_result = compare_primality_tests();
     let final_score = primality_result + comparison_result;
     printInt(final_score);
+    exit(0);
 }

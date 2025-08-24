@@ -33,4 +33,5 @@ fn main() {
     let mut values: [i32; 11] = [42, 7, 13, 99, 5, 8, 1, 77, 56, 23, 11];
     let median_index: usize = 5usize;
     let median: i32 = select_k(&mut values, 0, 10, median_index);
+    exit(0);
 }

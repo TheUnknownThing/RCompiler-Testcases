@@ -260,4 +260,5 @@ fn main() {
         let adjusted = default_result + performance_analysis % 100;
         printInt(adjusted);
     }
+    exit(0);
 }

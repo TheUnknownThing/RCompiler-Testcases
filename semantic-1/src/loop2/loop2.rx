@@ -16,4 +16,5 @@ fn main() {
         x += 1;
     }
     let _ = combos;
+    exit(0);
 }

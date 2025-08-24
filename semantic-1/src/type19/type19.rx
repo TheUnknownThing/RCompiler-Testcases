@@ -22,4 +22,5 @@ fn complex_calculation() -> i32 {
 fn main() {
     let final_result = complex_calculation();
     printInt(final_result);
+    exit(0);
 }

@@ -31,4 +31,5 @@ fn main() {
     let end = 10;
     let result = find_max_collatz_length(start, end);
     printInt(result);
+    exit(0);
 }

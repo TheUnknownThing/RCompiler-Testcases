@@ -205,4 +205,5 @@ fn main() {
             printInt(0);
         }
     }
+    exit(0);
 }

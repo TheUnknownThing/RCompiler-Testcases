@@ -144,4 +144,5 @@ fn main() {
     let floyd_result = verify_cycles_with_different_method();
     let final_result = brent_result + floyd_result;
     printInt(final_result);
+    exit(0);
 }

@@ -35,4 +35,5 @@ fn total_hanoi_moves() -> i32 {
 fn main() {
     let result = total_hanoi_moves();
     printInt(result);
+    exit(0);
 }

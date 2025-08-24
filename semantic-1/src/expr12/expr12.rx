@@ -3,5 +3,7 @@ fn main() {
     let x = 10;
     if x > 5  // Missing opening brace {
         printInt(x);
-    }
+    
+    exit(0);
+}
 }

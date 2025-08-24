@@ -8,6 +8,7 @@ fn main() {
     while (!stack.empty()) {
         stack.pop();
     }
+    exit(0);
 }
 
 trait Container {

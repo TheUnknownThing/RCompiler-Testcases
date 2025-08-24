@@ -99,4 +99,5 @@ fn main() {
     
     sorter.sort();
     sorter.print_array();
+    exit(0);
 }

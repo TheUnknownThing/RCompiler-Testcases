@@ -35,4 +35,5 @@ fn main() {
     let mut visited: [bool; 6] = [false; N];
     let mut order: [usize; 6] = [0usize; N];
     bfs(&graph, 0, &mut visited, &mut order);
+    exit(0);
 }

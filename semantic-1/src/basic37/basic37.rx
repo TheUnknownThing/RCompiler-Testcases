@@ -69,4 +69,5 @@ fn main() {
         j += 1;
     }
     let final_result: i32 = extra;
+    exit(0);
 }

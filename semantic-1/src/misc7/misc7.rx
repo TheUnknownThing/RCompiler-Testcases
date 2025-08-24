@@ -36,4 +36,5 @@ fn main() {
     
     let result = binary_search(&arr, target, n);
     printInt(result);
+    exit(0);
 }

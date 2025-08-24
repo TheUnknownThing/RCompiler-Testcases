@@ -37,4 +37,5 @@ fn main() {
     let small_queue: [Task; 2] = task_queue;
     
     printInt(1);
+    exit(0);
 }

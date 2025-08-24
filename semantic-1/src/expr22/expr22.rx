@@ -16,4 +16,5 @@ fn main() {
     if area > 10 {
         printInt(42);
     }
+    exit(0);
 }

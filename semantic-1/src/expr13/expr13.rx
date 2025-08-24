@@ -6,4 +6,5 @@ fn calculate() -> i32 {
 
 fn main() {
     printInt(calculate());
+    exit(0);
 }

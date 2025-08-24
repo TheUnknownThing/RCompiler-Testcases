@@ -17,4 +17,5 @@ fn main() {
     // Type error: passing string instead of Point
     let distance = calculate_distance(point1, "invalid");
     printInt(distance);
+    exit(0);
 }

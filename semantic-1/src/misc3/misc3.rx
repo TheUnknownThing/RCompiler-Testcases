@@ -39,4 +39,5 @@ fn main() {
     }
     
     printInt(fib.curr);
+    exit(0);
 }

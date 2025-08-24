@@ -54,4 +54,5 @@ fn main() {
     }
     
     printInt(result);
+    exit(0);
 }

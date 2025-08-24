@@ -423,4 +423,5 @@ fn main() {
         let rescue_calc = absolute_fallback + (comprehensive_analysis % 100);
         printInt(rescue_calc)
     }
+    exit(0);
 }

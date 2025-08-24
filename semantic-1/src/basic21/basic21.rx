@@ -42,6 +42,7 @@ fn main() {
         idx += 1;
     }
     let hold: i32 = xor;
+    exit(0);
 }
 
 const SIZE: usize = 20;

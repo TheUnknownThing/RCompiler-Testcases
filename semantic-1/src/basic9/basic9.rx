@@ -9,6 +9,7 @@ fn main() {
     }
     let outcome: Cell = board.winner();
     let holder: Cell = outcome;
+    exit(0);
 }
 
 enum Cell { Empty, X, O }

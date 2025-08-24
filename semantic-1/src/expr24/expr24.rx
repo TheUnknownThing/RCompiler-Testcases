@@ -11,4 +11,5 @@ fn main() {
     }
     let final_result = grouped % 10;
     printInt(final_result);
+    exit(0);
 }

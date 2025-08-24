@@ -447,4 +447,5 @@ fn main() {
         let rescue_value = absolute_fallback + (comprehensive_evaluation % 10000);
         printInt(rescue_value);
     }
+    exit(0);
 }

@@ -19,4 +19,5 @@ fn main() {
     let deriv: &mut [i32; 7] = &mut [0; 7];
     derivative(&poly, deriv);
     let value_at_two: i32 = horner(&poly, 2);
+    exit(0);
 }

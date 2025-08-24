@@ -4,4 +4,5 @@ fn main() {
                 else if score >= 80 { 'B' } 
                 else { 'C' };
     let _ = grade;
+    exit(0);
 }

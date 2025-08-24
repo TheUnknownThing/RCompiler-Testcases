@@ -295,4 +295,5 @@ fn main() {
         let backup = emergency_value + (performance_metrics % 1000);
         printInt(backup);
     }
+    exit(0);
 }

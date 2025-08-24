@@ -27,4 +27,5 @@ fn main() {
     } else {
         printInt(result); // Keep original if odd
     }
+    exit(0);
 }

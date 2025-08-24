@@ -23,4 +23,5 @@ fn main() {
         n += 1;
     }
     let prime_sum: usize = total;
+    exit(0);
 }

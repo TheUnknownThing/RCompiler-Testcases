@@ -6,4 +6,5 @@ struct Person {
 
 fn main() {
     let p = Person { age: "twenty", name: "John" };
+    exit(0);
 }

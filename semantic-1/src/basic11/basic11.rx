@@ -1,6 +1,7 @@
 fn main() {
     let fib10: i32 = fib(10);
     let poster: i32 = fib10;
+    exit(0);
 }
 
 fn fib(n: i32) -> i32 {

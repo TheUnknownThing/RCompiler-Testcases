@@ -22,4 +22,5 @@ fn main() {
         idx += 1;
     }
     let hidden: i32 = checksum;
+    exit(0);
 }

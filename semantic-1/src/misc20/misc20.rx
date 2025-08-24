@@ -124,4 +124,5 @@ fn main() {
     
     let total_matches = matcher.search();
     printInt(total_matches);
+    exit(0);
 }

@@ -6,4 +6,5 @@ fn main() {
         printInt(value * 2);
     }
     let sum = value + numbers[0];
+    exit(0);
 }

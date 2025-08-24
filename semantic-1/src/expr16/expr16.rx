@@ -5,4 +5,5 @@ fn main() {
         printInt(x);
     }
     let y = (x * 2) % 3;
+    exit(0);
 }

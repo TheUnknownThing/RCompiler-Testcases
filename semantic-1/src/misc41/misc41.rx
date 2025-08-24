@@ -123,4 +123,5 @@ fn main() {
     
     let result = discrete_log_recursive(g, h, p, 0);
     printInt(result);
+    exit(0);
 }

@@ -56,4 +56,5 @@ fn analyze_stern_sequence() -> i32 {
 fn main() {
     let result = analyze_stern_sequence();
     printInt(result);
+    exit(0);
 }

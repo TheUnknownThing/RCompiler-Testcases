@@ -10,4 +10,5 @@ fn main() {
         n += 1;
     }
     let _ = total;
+    exit(0);
 }

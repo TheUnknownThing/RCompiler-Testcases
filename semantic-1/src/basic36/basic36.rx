@@ -42,4 +42,5 @@ fn main() {
     let lone: bool = isolated(visited);
     let metric: i32 = component * if (lone) { 1 } else { 0 };
     visited = [1; SIZE];
+    exit(0);
 }

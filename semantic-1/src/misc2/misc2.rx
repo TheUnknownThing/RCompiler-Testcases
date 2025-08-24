@@ -22,4 +22,5 @@ fn main() {
     }
     
     printInt(max_val);
+    exit(0);
 }

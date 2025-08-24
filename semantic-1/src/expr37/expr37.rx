@@ -378,4 +378,5 @@ fn main() {
         let backup_calc = emergency + (final_benchmark % 100);
         printInt(backup_calc)
     }
+    exit(0);
 }

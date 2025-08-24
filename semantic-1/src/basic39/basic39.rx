@@ -55,4 +55,5 @@ fn main() {
     }
     let result: i32 = c + extra;
     let dummy: i32 = if (stack_is_empty(top)) { 0 } else { 1 };
+    exit(0);
 }

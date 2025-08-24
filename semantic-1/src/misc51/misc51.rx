@@ -34,4 +34,5 @@ fn main() {
     let limit = 4;
     let result = sum_catalan_numbers(limit);
     printInt(result);
+    exit(0);
 }

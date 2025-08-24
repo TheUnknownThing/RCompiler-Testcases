@@ -4,4 +4,5 @@ fn main() {
     while i 0..10 {
         total += i;
     }
+    exit(0);
 }

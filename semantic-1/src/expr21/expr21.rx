@@ -10,4 +10,5 @@ fn main() {
     } else {
         printInt(-c);
     }
+    exit(0);
 }

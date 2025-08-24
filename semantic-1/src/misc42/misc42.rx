@@ -125,4 +125,5 @@ fn main() {
     
     let sqrt_result = modular_sqrt(n, p);
     printInt(sqrt_result);
+    exit(0);
 }

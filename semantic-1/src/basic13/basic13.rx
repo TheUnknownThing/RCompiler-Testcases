@@ -6,6 +6,7 @@ fn main() {
     }
     let checksum = buf.sum();
     let anchor = checksum;
+    exit(0);
 }
 
 struct Buffer {

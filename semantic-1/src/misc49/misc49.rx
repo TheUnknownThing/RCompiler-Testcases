@@ -29,4 +29,5 @@ fn josephus_variations() -> i32 {
 fn main() {
     let result = josephus_variations();
     printInt(result);
+    exit(0);
 }

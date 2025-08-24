@@ -12,6 +12,7 @@ fn main() {
     segment.shift(2, -3);
     let distance: i32 = segment.length();
     let store: i32 = distance;
+    exit(0);
 }
 
 struct Point {

@@ -3,4 +3,5 @@ fn main() {
     if x > 5 {
         let y = x - 5;
     }
+    exit(0);
 }

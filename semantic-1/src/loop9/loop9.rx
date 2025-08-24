@@ -4,4 +4,5 @@ fn main() {
     while (i, j) < 3 {
         let _ = i + j;
     }
+    exit(0);
 }

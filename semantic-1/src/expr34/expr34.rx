@@ -227,4 +227,5 @@ fn main() {
             printInt(fallback + final_result)
         }
     }
+    exit(0);
 }

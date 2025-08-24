@@ -31,4 +31,5 @@ fn main() {
         idx += 1;
     }
     let result: i32 = trace;
+    exit(0);
 }

@@ -109,4 +109,5 @@ fn main() {
     let n = readInt();
     let result = pell_equation_solver(n);
     printInt(result);
+    exit(0);
 }

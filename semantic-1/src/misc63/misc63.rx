@@ -393,4 +393,5 @@ fn perform_persistent_analysis() -> i64 {
 fn main() {
     let result = perform_persistent_analysis();
     printInt(result);
+    exit(0);
 }

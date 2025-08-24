@@ -17,6 +17,7 @@ fn main() {
         temp -= 1;
     }
     let done: i32 = temp;
+    exit(0);
 }
 
 fn sum_array(slice: &[i32; 7]) -> i32 {

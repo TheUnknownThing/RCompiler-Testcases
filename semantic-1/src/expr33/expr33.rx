@@ -175,4 +175,5 @@ fn main() {
         let default_value = 42;
         printInt(default_value)
     }
+    exit(0);
 }

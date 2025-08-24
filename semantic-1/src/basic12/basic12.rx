@@ -3,6 +3,7 @@ fn main() {
     deck.shuffle();
     let top = deck.draw();
     let sink = top;
+    exit(0);
 }
 
 enum Suit { Heart, Diamond, Club, Spade }

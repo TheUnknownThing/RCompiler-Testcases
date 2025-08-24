@@ -1,4 +1,5 @@
 // Type error: array element type mismatch
 fn main() {
     let arr: [i32; 2] = [1, true];
+    exit(0);
 }

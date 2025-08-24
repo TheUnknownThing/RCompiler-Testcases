@@ -47,4 +47,5 @@ fn find_special_digital_roots() -> i32 {
 fn main() {
     let result = find_special_digital_roots();
     printInt(result);
+    exit(0);
 }

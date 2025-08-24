@@ -23,4 +23,5 @@ fn main() {
     // Type error: trying to assign string to pointer field
     let invalid_node = Node { value: 30, next: "not a pointer" };
     traverse_list(node1);
+    exit(0);
 }

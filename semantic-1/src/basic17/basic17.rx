@@ -26,4 +26,5 @@ fn main() {
         p += 1;
     }
     let final_value: usize = acc ^ even_sum;
+    exit(0);
 }

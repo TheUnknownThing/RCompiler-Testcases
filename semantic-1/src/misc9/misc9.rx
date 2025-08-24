@@ -30,4 +30,5 @@ fn main() {
     
     printInt(gcd_result);
     printInt(lcm_result);
+    exit(0);
 }

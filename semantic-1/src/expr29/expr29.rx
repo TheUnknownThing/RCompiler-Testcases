@@ -18,4 +18,5 @@ fn main() {
         printInt(processed);
     }
     let array_val = [processed][0;
+    exit(0);
 }

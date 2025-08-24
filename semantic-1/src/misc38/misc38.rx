@@ -86,4 +86,5 @@ fn main() {
     let n = readInt();
     let factor = quadratic_sieve(n);
     printInt(factor);
+    exit(0);
 }

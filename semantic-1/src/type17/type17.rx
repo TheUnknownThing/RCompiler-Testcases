@@ -28,4 +28,5 @@ fn main() {
     let invalid_access = circle.width;
     
     printInt(42);  // Placeholder output
+    exit(0);
 }

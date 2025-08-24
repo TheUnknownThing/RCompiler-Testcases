@@ -29,4 +29,5 @@ fn main() {
     let n = 6;
     let result = sum_q_sequence(n);
     printInt(result);
+    exit(0);
 }

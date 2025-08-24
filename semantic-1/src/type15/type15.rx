@@ -31,4 +31,5 @@ fn main() {
     // Type error: using string as array index
     let element = mat.data["invalid_index"];
     printInt(element);
+    exit(0);
 }

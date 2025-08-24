@@ -51,4 +51,5 @@ fn main() {
     let n = readInt();
     let factor = find_factor_recursive(n, 0);
     printInt(factor);
+    exit(0);
 }

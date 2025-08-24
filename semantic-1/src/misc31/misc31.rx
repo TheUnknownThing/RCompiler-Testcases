@@ -182,4 +182,5 @@ fn main() {
         printInt(distances[i as usize]);
         i += 1;
     }
+    exit(0);
 }

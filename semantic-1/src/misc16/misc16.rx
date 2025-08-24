@@ -100,4 +100,5 @@ fn main() {
     }
     
     bst.inorder_traversal();
+    exit(0);
 }

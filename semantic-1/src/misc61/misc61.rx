@@ -323,4 +323,5 @@ fn perform_hybrid_analysis() -> i32 {
 fn main() {
     let result = perform_hybrid_analysis();
     printInt(result);
+    exit(0);
 }

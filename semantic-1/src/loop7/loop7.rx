@@ -5,4 +5,5 @@ fn main() {
         i += 1;
     }
     break;
+    exit(0);
 }

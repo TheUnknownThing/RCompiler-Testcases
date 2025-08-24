@@ -122,4 +122,5 @@ fn main() {
     let y = readInt();
     let product = schonhage_multiply(x, y);
     printInt(product);
+    exit(0);
 }

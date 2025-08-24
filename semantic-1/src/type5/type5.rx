@@ -5,4 +5,5 @@ fn get_number() -> i32 {
 
 fn main() {
     let x = get_number();
+    exit(0);
 }

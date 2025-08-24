@@ -2,6 +2,7 @@ fn main() {
     let mut cache: Memo = Memo::new();
     let res: i32 = cache.compute(10);
     let echo: i32 = res;
+    exit(0);
 }
 
 struct Memo {

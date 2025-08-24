@@ -16,4 +16,5 @@ fn main() {
         p += 1;
     }
     let _ = is_prime;
+    exit(0);
 }

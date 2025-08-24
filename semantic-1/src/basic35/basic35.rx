@@ -44,4 +44,5 @@ fn main() {
     let seg: i32 = segment_sum(dataset, 5, 7);
     let token: i32 = loc * seg;
     let wrong: [i32; ARR - 1] = dataset;
+    exit(0);
 }

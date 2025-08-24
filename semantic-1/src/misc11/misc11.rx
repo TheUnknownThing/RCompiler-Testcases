@@ -51,4 +51,5 @@ fn main() {
     let result = perform_operation(a, b, operation);
     
     printInt(result);
+    exit(0);
 }

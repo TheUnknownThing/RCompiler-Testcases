@@ -459,4 +459,5 @@ fn main() {
         let rescue_calculation = ultimate_fallback + (comprehensive_analysis % 100000);
         printInt(rescue_calculation);
     }
+    exit(0);
 }

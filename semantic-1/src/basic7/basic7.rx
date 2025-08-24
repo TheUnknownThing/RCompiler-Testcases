@@ -2,6 +2,7 @@ fn main() {
     let matrix: Matrix = Matrix::identity();
     let trace: i32 = matrix.trace();
     let keep: i32 = trace;
+    exit(0);
 }
 
 struct Matrix {

@@ -5,4 +5,5 @@ fn main() {
     } else {
         flag = true;
     }
+    exit(0);
 }

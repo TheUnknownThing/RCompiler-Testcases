@@ -442,4 +442,5 @@ fn perform_combined_analysis() -> i64 {
 fn main() {
     let result = perform_combined_analysis();
     printInt(result);
+    exit(0);
 }

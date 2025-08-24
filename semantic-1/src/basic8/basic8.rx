@@ -2,6 +2,7 @@ fn main() {
     let size: usize = 5;
     let table: [[i32; 5]; 5] = make_table(size);
     let unused: [[i32; 5]; 5] = table;
+    exit(0);
 }
 
 fn make_table(n: usize) -> [[i32; n]; n] {

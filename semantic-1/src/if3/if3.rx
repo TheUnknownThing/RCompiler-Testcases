@@ -5,4 +5,5 @@ fn main() {
     } else {
         let even: bool = false;
     }
+    exit(0);
 }

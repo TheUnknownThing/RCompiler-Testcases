@@ -1,4 +1,5 @@
 fn main() {
     let x = _;
     printInt(x);
+    exit(0);
 }

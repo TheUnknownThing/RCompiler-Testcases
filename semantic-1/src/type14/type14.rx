@@ -20,4 +20,5 @@ fn main() {
     let input = readInt();
     let result = get_result(input > 0);
     printInt(result);
+    exit(0);
 }

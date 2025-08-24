@@ -29,4 +29,5 @@ fn main() {
     let limit = 5;
     let result = calculate_partition_sum(limit);
     printInt(result);
+    exit(0);
 }

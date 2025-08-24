@@ -22,4 +22,5 @@ fn main() {
         i += 1;
     }
     let _ = count;
+    exit(0);
 }

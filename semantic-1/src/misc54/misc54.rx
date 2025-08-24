@@ -44,4 +44,5 @@ fn sum_moser_numbers() -> i32 {
 fn main() {
     let result = sum_moser_numbers();
     printInt(result);
+    exit(0);
 }

@@ -1,4 +1,5 @@
 // Error: Invalid path expression - double colon without identifier
 fn main() {
     let x = std::;  // Invalid path - :: followed by semicolon
+    exit(0);
 }

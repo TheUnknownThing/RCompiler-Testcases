@@ -375,4 +375,5 @@ fn perform_complex_walsh_operations() -> i64 {
 fn main() {
     let result = perform_complex_walsh_operations();
     printInt(result);
+    exit(0);
 }

@@ -35,4 +35,5 @@ fn main() {
     };
     
     printInt(42);  // Placeholder since result can't be printed
+    exit(0);
 }

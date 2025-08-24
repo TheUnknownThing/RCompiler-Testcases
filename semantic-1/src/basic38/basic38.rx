@@ -68,4 +68,5 @@ fn main() {
     let s: i32 = checksum(arr);
     let ratio: i32 = mid / LEN;
     let final_value: i32 = s + ratio;
+    exit(0);
 }

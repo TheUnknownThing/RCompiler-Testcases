@@ -5,4 +5,5 @@ fn main() {
     } else {
         let vowel: bool = false;
     }
+    exit(0);
 }

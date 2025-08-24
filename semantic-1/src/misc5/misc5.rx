@@ -61,4 +61,5 @@ fn main() {
         printInt(processors[i].get_value());
         i += 1;
     }
+    exit(0);
 }

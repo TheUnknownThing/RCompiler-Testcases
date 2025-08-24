@@ -7,4 +7,5 @@ fn main() {
     } else {
         let status_ = "mild";
     }
+    exit(0);
 }

@@ -242,4 +242,5 @@ fn main() {
     let cycle_result = verify_with_cycle_detection();
     let final_result = scc_result + cycle_result;
     printInt(final_result);
+    exit(0);
 }

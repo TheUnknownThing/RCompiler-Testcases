@@ -72,4 +72,5 @@ fn main() {
     } else {
         let st: i32 = 0;
     }
+    exit(0);
 }

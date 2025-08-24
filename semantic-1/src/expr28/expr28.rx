@@ -18,4 +18,5 @@ fn main() {
     if distance > 20 {
         printInt(distance);
     }
+    exit(0);
 }

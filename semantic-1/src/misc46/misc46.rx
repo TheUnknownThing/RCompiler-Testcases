@@ -27,4 +27,5 @@ fn main() {
     let n = 3;
     let result = safe_ackermann(m, n);
     printInt(result);
+    exit(0);
 }

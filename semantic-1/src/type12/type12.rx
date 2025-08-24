@@ -17,4 +17,5 @@ fn main() {
     // Type error: mixing Status enum with boolean in array
     let status_array: [Status; 3] = [Status::Active, true, Status::Pending];
     process_statuses(status_array);
+    exit(0);
 }

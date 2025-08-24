@@ -166,4 +166,5 @@ fn main() {
     let n = readInt();
     let factor = lenstra_factorization_recursive(n, 1, 10);
     printInt(factor);
+    exit(0);
 }

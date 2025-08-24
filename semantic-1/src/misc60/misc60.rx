@@ -237,4 +237,5 @@ fn comprehensive_pattern_search() -> i32 {
 fn main() {
     let search_result = comprehensive_pattern_search();
     printInt(search_result);
+    exit(0);
 }

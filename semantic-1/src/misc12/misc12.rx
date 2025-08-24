@@ -45,4 +45,5 @@ fn main() {
         printInt(0); // Not palindrome
         printInt(-1);
     }
+    exit(0);
 }

@@ -4,4 +4,5 @@ fn main() {
         [40, 50, 60],
     ];
     let row: [i32; 2] = table[0];
+    exit(0);
 }
