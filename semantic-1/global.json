@@ -85,6 +85,237 @@
     }
   },
   {
+    "name": "return5",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return5/return5.rx", "visible"],
+    "input": ["src/return5/return5.in", "visible"],
+    "output": ["src/return5/return5.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, exit() cannot be used in non-main functions"
+    }
+  },
+  {
+    "name": "return6",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return6/return6.rx", "visible"],
+    "input": ["src/return6/return6.in", "visible"],
+    "output": ["src/return6/return6.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, exit() cannot be used in methods even if named 'main'"
+    }
+  },
+  {
+    "name": "return7",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return7/return7.rx", "visible"],
+    "input": ["src/return7/return7.in", "visible"],
+    "output": ["src/return7/return7.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, unreachable code after exit() should cause compile-time error"
+    }
+  },
+  {
+    "name": "return8",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return8/return8.rx", "visible"],
+    "input": ["src/return8/return8.in", "visible"],
+    "output": ["src/return8/return8.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return with complex expression"
+    }
+  },
+  {
+    "name": "return9",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return9/return9.rx", "visible"],
+    "input": ["src/return9/return9.in", "visible"],
+    "output": ["src/return9/return9.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return type mismatch - returning different types in if-else branches"
+    }
+  },
+  {
+    "name": "return10",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return10/return10.rx", "visible"],
+    "input": ["src/return10/return10.in", "visible"],
+    "output": ["src/return10/return10.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Missing return value for non-unit return type"
+    }
+  },
+  {
+    "name": "return11",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return11/return11.rx", "visible"],
+    "input": ["src/return11/return11.in", "visible"],
+    "output": ["src/return11/return11.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return statement missing in all code paths"
+    }
+  },
+  {
+    "name": "return12",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return12/return12.rx", "visible"],
+    "input": ["src/return12/return12.in", "visible"],
+    "output": ["src/return12/return12.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid nested return statements in different scopes"
+    }
+  },
+  {
+    "name": "return13",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return13/return13.rx", "visible"],
+    "input": ["src/return13/return13.in", "visible"],
+    "output": ["src/return13/return13.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return statement in expression context without semicolon"
+    }
+  },
+  {
+    "name": "return14",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return14/return14.rx", "visible"],
+    "input": ["src/return14/return14.in", "visible"],
+    "output": ["src/return14/return14.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return in if expression - early return does not affect if expression type"
+    }
+  },
+  {
+    "name": "return15",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return15/return15.rx", "visible"],
+    "input": ["src/return15/return15.in", "visible"],
+    "output": ["src/return15/return15.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return in while loop condition - early return does not affect loop semantics"
+    }
+  },
+  {
     "name": "array1",
     "name_visible": true,
     "active": true,
@@ -3544,9 +3775,9 @@
     "cmp": ["compileexitcode"],
     "provide": ["compilestderr", "compileexitcode"],
     "metainfo": {
-      "caseauthor": "Wenxin Zheng",
+      "caseauthor": "Ruitian Wang",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Invalid if expression - missing opening brace after condition"
+      "comment": "Expression error: while condition missing parentheses"
     }
   },
   {
@@ -3557,7 +3788,7 @@
     "input": ["src/expr13/expr13.in", "visible"],
     "output": ["src/expr13/expr13.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3565,9 +3796,9 @@
     "cmp": ["compileexitcode"],
     "provide": ["compilestderr", "compileexitcode"],
     "metainfo": {
-      "caseauthor": "Wenxin Zheng",
+      "caseauthor": "Ruitian Wang",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Invalid return expression - missing semicolon after return value"
+      "comment": "Valid return expression - return statement without semicolon is legal in Rust"
     }
   },
   {
