@@ -126,9 +126,9 @@ fn discrete_log_recursive(g: i32, h: i32, p: i32, depth: i32) -> i32 {
 }
 
 fn main() {
-    let g = readInt();
-    let h = readInt();
-    let p = readInt();
+    let g = getInt();
+    let h = getInt();
+    let p = getInt();
     
     let result = discrete_log_recursive(g, h, p, 0);
     printInt(result);

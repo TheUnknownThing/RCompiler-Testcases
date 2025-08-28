@@ -127,8 +127,8 @@ fn schonhage_multiply(x: i32, y: i32) -> i32 {
 }
 
 fn main() {
-    let x = readInt();
-    let y = readInt();
+    let x = getInt();
+    let y = getInt();
     let product = schonhage_multiply(x, y);
     printInt(product);
     exit(0);

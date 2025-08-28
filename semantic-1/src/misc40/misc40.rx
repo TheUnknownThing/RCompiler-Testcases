@@ -115,7 +115,7 @@ fn pell_equation_solver(n: i32) -> i32 {
 }
 
 fn main() {
-    let n = readInt();
+    let n = getInt();
     let result = pell_equation_solver(n);
     printInt(result);
     exit(0);

@@ -26,7 +26,7 @@ fn get_result(choice: bool) -> i32 {
 }
 
 fn main() {
-    let input = readInt();
+    let input = getInt();
     let result = get_result(input > 0);
     printInt(result);
     exit(0);

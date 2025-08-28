@@ -195,20 +195,20 @@ impl ShortestPathResult {
 }
 
 fn main() {
-    let vertices = readInt();
+    let vertices = getInt();
     let mut graph = Graph::new(vertices);
     
-    let edges = readInt();
+    let edges = getInt();
     let mut i = 0;
     while (i < edges) {
-        let src = readInt();
-        let dest = readInt();
-        let weight = readInt();
+        let src = getInt();
+        let dest = getInt();
+        let weight = getInt();
         graph.add_edge(src, dest, weight);
         i += 1;
     }
     
-    let operation = readInt();
+    let operation = getInt();
     
     if (operation == 1) { // Check for negative cycle
         if (graph.has_negative_cycle()) {
@@ -217,7 +217,7 @@ fn main() {
             printInt(0);
         }
     } else if (operation == 2) { // Single source shortest path
-        let source = readInt();
+        let source = getInt();
         let distances = graph.find_all_shortest_distances(source);
         i = 0;
         while (i < vertices) {
@@ -229,8 +229,8 @@ fn main() {
             i += 1;
         }
     } else if (operation == 3) { // Shortest distance between two vertices
-        let source = readInt();
-        let destination = readInt();
+        let source = getInt();
+        let destination = getInt();
         let distance = graph.get_shortest_distance(source, destination);
         if (distance == 2147483647) {
             printInt(-1); // No path
@@ -240,12 +240,12 @@ fn main() {
             printInt(distance);
         }
     } else if (operation == 4) { // Count reachable vertices
-        let source = readInt();
+        let source = getInt();
         let reachable_count = graph.count_reachable_vertices(source);
         printInt(reachable_count);
     } else if (operation == 5) { // Check if path exists
-        let source = readInt();
-        let destination = readInt();
+        let source = getInt();
+        let destination = getInt();
         if (graph.has_path(source, destination)) {
             printInt(1);
         } else {

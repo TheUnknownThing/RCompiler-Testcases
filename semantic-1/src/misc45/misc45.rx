@@ -157,7 +157,7 @@ fn factorization_check_recursive(n: i32, divisor: i32) -> i32 {
 }
 
 fn main() {
-    let n = readInt();
+    let n = getInt();
     
     if primality_test_with_precheck(n) {
         printInt(1); // Probably prime

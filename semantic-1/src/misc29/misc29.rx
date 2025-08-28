@@ -218,39 +218,39 @@ impl LazyFenwick {
 }
 
 fn main() {
-    let n = readInt();
+    let n = getInt();
     let mut fenwick = FenwickTree::new(n);
     
     // Initialize array
     let mut arr: [i32; 1000] = [0; 1000];
     let mut i = 0;
     while (i < n) {
-        arr[i as usize] = readInt();
+        arr[i as usize] = getInt();
         i += 1;
     }
     fenwick.init_from_array(&arr);
     
-    let queries = readInt();
+    let queries = getInt();
     i = 0;
     
     while (i < queries) {
-        let operation = readInt();
+        let operation = getInt();
         
         if (operation == 1) { // Point update
-            let idx = readInt();
-            let val = readInt();
+            let idx = getInt();
+            let val = getInt();
             fenwick.set_value(idx, val);
         } else if (operation == 2) { // Range sum query
-            let left = readInt();
-            let right = readInt();
+            let left = getInt();
+            let right = getInt();
             let sum = fenwick.range_sum(left, right);
             printInt(sum);
         } else if (operation == 3) { // Prefix sum query
-            let idx = readInt();
+            let idx = getInt();
             let sum = fenwick.prefix_sum(idx);
             printInt(sum);
         } else if (operation == 4) { // Point query
-            let idx = readInt();
+            let idx = getInt();
             let val = fenwick.point_query(idx);
             printInt(val);
         }

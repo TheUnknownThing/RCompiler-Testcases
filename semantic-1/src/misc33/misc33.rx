@@ -172,19 +172,19 @@ impl Stack {
 }
 
 fn main() {
-    let vertices = readInt();
+    let vertices = getInt();
     let mut graph = Graph::new(vertices);
     
-    let edges = readInt();
+    let edges = getInt();
     let mut i = 0;
     while (i < edges) {
-        let src = readInt();
-        let dest = readInt();
+        let src = getInt();
+        let dest = getInt();
         graph.add_edge(src, dest);
         i += 1;
     }
     
-    let operation = readInt();
+    let operation = getInt();
     
     if (operation == 1) { // Count strongly connected components
         let scc_count = graph.count_strongly_connected_components();

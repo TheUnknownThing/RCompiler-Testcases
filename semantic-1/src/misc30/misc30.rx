@@ -254,17 +254,17 @@ impl RedBlackTree {
 
 fn main() {
     let mut rb_tree = RedBlackTree::new();
-    let n = readInt();
+    let n = getInt();
     
     let mut i = 0;
     while (i < n) {
-        let operation = readInt();
+        let operation = getInt();
         
         if (operation == 1) { // Insert
-            let value = readInt();
+            let value = getInt();
             rb_tree.insert(value);
         } else if (operation == 2) { // Search
-            let value = readInt();
+            let value = getInt();
             if (rb_tree.search(value)) {
                 printInt(1);
             } else {

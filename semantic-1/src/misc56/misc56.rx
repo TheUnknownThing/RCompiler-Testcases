@@ -115,7 +115,7 @@ fn comprehensive_factorization(n: i32) -> i32 {
 }
 
 fn main() {
-    let number = readInt();
+    let number = getInt();
     let result = comprehensive_factorization(number);
     printInt(result);
     exit(0);

@@ -8,10 +8,10 @@ Comment: if statement test, if-else if-else chain
 */
 
 fn main() {
-    let temperature = 25;
-    if temperature > 30 {
+    let temperature: i32 = 25;
+    if (temperature > 30) {
         let status_ = "hot";
-    } else if temperature < 10 {
+    } else if (temperature < 10) {
         let status_ = "cold";
     } else {
         let status_ = "mild";

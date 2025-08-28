@@ -12,7 +12,7 @@ fn calculate(x: i32) -> i32 {
 }
 
 fn main() {
-    let input: i32 = readInt();
+    let input: i32 = getInt();
     let processed: i32 = calculate(input);
     let grouped: i32 = (processed + 5;
     if (grouped > 0) {

@@ -65,19 +65,14 @@ fn fenwick_tree_query(tree: &[FenwickTreeNode; 64], index: i32, query_type: i32)
         
         let node: &FenwickTreeNode = &tree[current_index as usize];
         
-        match query_type {
-            0 => {
-                result = result + node.prefix_sum;
-            },
-            1 => {
-                result = result + node.frequency;
-            },
-            2 => {
-                result = result + node.value;
-            },
-            _ => {
-                result = result + node.range_contribution;
-            },
+        if (query_type == 0){
+            result = result + node.prefix_sum;
+        } else if (query_type == 1) {
+            result = result + node.frequency;
+        } else if (query_type == 2) {
+            result = result + node.value;
+        } else {
+            result = result + node.range_contribution;
         }
         
         let lowbit: i32 = current_index & (-current_index);
@@ -88,7 +83,7 @@ fn fenwick_tree_query(tree: &[FenwickTreeNode; 64], index: i32, query_type: i32)
 }
 
 fn fenwick_tree_range_query(tree: &[FenwickTreeNode; 64], left: i32, right: i32, query_type: i32) -> i32 {
-    if ((left > right || left < 0 || right >= 64)) {
+    if (left > right || left < 0 || right >= 64) {
         return 0;
     }
     

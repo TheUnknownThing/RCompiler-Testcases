@@ -63,8 +63,8 @@ fn miller_rabin_test(n: i32, witness: i32) -> bool {
 }
 
 fn main() {
-    let n = readInt();
-    let witness = readInt();
+    let n = getInt();
+    let witness = getInt();
     
     if (miller_rabin_test(n, witness)) {
         printInt(1);

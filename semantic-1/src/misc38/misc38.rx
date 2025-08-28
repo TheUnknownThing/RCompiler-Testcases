@@ -92,7 +92,7 @@ fn quadratic_sieve(n: i32) -> i32 {
 }
 
 fn main() {
-    let n = readInt();
+    let n = getInt();
     let factor = quadratic_sieve(n);
     printInt(factor);
     exit(0);

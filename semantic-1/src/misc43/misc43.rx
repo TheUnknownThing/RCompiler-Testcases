@@ -129,11 +129,11 @@ fn elliptic_curve_order(base_point: EllipticPoint, a: i32, prime: i32) -> i32 {
 }
 
 fn main() {
-    let x = readInt();
-    let y = readInt();
-    let a = readInt();
-    let prime = readInt();
-    let k = readInt();
+    let x = getInt();
+    let y = getInt();
+    let a = getInt();
+    let prime = getInt();
+    let k = getInt();
     
     let point = EllipticPoint {
         x: x,
