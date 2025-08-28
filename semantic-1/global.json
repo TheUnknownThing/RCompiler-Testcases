@@ -3042,7 +3042,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Brent's cycle detection algorithm with variable redefinition error"
+      "comment": "Brent's cycle detection algorithm with integer literal overflow error"
     }
   },
   {
@@ -3872,7 +3872,7 @@
     "input": ["src/expr17/expr17.in", "visible"],
     "output": ["src/expr17/expr17.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3882,7 +3882,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Missing semicolon after break expression - combines loop, if, break, operator, and literal expressions"
+      "comment": "Combines loop, if, break, operator, and literal expressions"
     }
   },
   {
@@ -4208,7 +4208,7 @@
     "input": ["src/expr33/expr33.in", "visible"],
     "output": ["src/expr33/expr33.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4218,7 +4218,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - depth-first search algorithm with graph traversal, complex control flow, and nested data structures"
+      "comment": "Depth-first search algorithm with graph traversal, complex control flow, and nested data structures; printInt returns `()`"
     }
   },
   {
@@ -4229,7 +4229,7 @@
     "input": ["src/expr34/expr34.in", "visible"],
     "output": ["src/expr34/expr34.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4239,7 +4239,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - hash table with quadratic probing, collision resolution, and load factor analysis"
+      "comment": "Hash table with quadratic probing, collision resolution, and load factor analysis; printInt returns `()`"
     }
   },
   {
@@ -4260,7 +4260,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - AVL tree rebalancing simulation with height calculations, rotation detection, and tree complexity metrics"
+      "comment": "Complex expression error: Variable `current_node` not found - AVL tree rebalancing simulation with height calculations, rotation detection, and tree complexity metrics"
     }
   },
   {
@@ -4302,7 +4302,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - segment tree with lazy propagation, range updates, and complex query processing"
+      "comment": "Complex expression error: Array length mismatch - segment tree with lazy propagation, range updates, and complex query processing"
     }
   },
   {
@@ -4313,7 +4313,7 @@
     "input": ["src/expr38/expr38.in", "visible"],
     "output": ["src/expr38/expr38.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4323,7 +4323,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - Fenwick tree with coordinate compression, range frequency queries, and statistical analysis"
+      "comment": "Fenwick tree with coordinate compression, range frequency queries, and statistical analysis"
     }
   },
   {

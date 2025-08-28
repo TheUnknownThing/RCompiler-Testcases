@@ -9,7 +9,7 @@ Comment: Linked List implementation using arrays
 
 // Linked List implementation using arrays
 // Simulates pointer-based linked list with array indices
-#[derive(Copy, Clone)]
+
 struct ListNode {
     value: i32,
     next: i32, // Index to next node, -1 for null
