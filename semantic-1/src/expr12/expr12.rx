@@ -9,7 +9,7 @@ Comment: Expression error: while condition missing parentheses
 
 fn main() {
     let x: i32 = 10;
-    if x > 5 { // Error: while condition missing parentheses
+    if x > 5 { // Error: if condition missing parentheses
         printInt(x);
     }
     exit(0);
