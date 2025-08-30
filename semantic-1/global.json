@@ -1436,7 +1436,7 @@
     "input": ["src/basic21/basic21.in", "visible"],
     "output": ["src/basic21/basic21.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1446,7 +1446,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, quicksort implementation using Vec type (not supported)"
+      "comment": "basic test, quicksort implementation using array type"
     }
   },
   {
