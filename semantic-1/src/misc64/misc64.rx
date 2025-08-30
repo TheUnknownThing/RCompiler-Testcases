@@ -474,6 +474,6 @@ fn perform_combined_analysis() -> i32 {
 
 fn main() {
     let result: i32 = perform_combined_analysis();
-    printlnInt(result);
+    printInt(result);
     exit(0);
 }
