@@ -3,8 +3,8 @@ Test Package: Semantic-1
 Test Target: expr
 Author: Wenxin Zheng
 Time: 2025-08-08
-Verdict: Fail
-Comment: Expression error: Trailing comma in function call - combines call, literal, operator, and grouped expressions
+Verdict: Success
+Comment: Combines call, literal, operator, and grouped expressions; trailing comma in function call is allowed
 */
 
 fn add(a: i32, b: i32) -> i32 {

@@ -3914,7 +3914,7 @@
     "input": ["src/expr19/expr19.in", "visible"],
     "output": ["src/expr19/expr19.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3924,7 +3924,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Trailing comma in function call - combines call, literal, operator, and grouped expressions"
+      "comment": "Combines call, literal, operator, and grouped expressions; trailing comma in function call is allowed"
     }
   },
   {
