@@ -15,9 +15,9 @@
     "cmp": ["compileexitcode"],
     "provide": ["compilestderr", "compileexitcode"],
     "metainfo": {
-      "caseauthor": "Wenxin Zheng",
-      "lastmodified": "2025-08-17",
-      "comment": ""
+      "caseauthor": "venillalemon",
+      "lastmodified": "2025-09-04",
+      "comment": "Comprehensive test of segment tree merging"
     }
   },
   {
