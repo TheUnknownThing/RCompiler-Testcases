@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: misc
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Success
+Comment: misc test, simple hash table simulation
+*/
+
 // Simple hash table simulation using arrays
 // Basic hash table with linear probing for collision resolution
 struct HashEntry {
@@ -30,53 +39,53 @@ impl HashTable {
     }
     
     fn hash_function(&self, key: i32) -> i32 {
-        let mut hash_key = key;
-        if hash_key < 0 {
+        let mut hash_key: i32 = key;
+        if (hash_key < 0) {
             hash_key = -hash_key;
         }
         return hash_key % self.size;
     }
     
     fn insert(&mut self, key: i32, value: i32) -> bool {
-        let mut index = self.hash_function(key);
-        let original_index = index;
+        let mut index: i32 = self.hash_function(key);
+        let original_index: i32 = index;
         
         loop {
-            if !self.entries[index as usize].is_occupied {
+            if (!self.entries[index as usize].is_occupied) {
                 self.entries[index as usize].key = key;
                 self.entries[index as usize].value = value;
                 self.entries[index as usize].is_occupied = true;
                 return true;
             }
             
-            if self.entries[index as usize].key == key {
+            if (self.entries[index as usize].key == key) {
                 // Update existing key
                 self.entries[index as usize].value = value;
                 return true;
             }
             
             index = (index + 1) % self.size;
-            if index == original_index {
+            if (index == original_index) {
                 return false; // Table full
             }
         }
     }
     
     fn get(&self, key: i32) -> i32 {
-        let mut index = self.hash_function(key);
-        let original_index = index;
+        let mut index: i32 = self.hash_function(key);
+        let original_index: i32 = index;
         
         loop {
-            if !self.entries[index as usize].is_occupied {
+            if (!self.entries[index as usize].is_occupied) {
                 return -1; // Not found
             }
             
-            if self.entries[index as usize].key == key {
+            if (self.entries[index as usize].key == key) {
                 return self.entries[index as usize].value;
             }
             
             index = (index + 1) % self.size;
-            if index == original_index {
+            if (index == original_index) {
                 return -1; // Not found
             }
         }
@@ -84,25 +93,26 @@ impl HashTable {
 }
 
 fn main() {
-    let mut hash_table = HashTable::new();
-    let n = readInt();
+    let mut hash_table: HashTable = HashTable::new();
+    let n: i32 = getInt();
     
-    let mut i = 0;
-    while i < n {
-        let operation = readInt();
+    let mut i: i32 = 0;
+    while (i < n) {
+        let operation: i32 = getInt();
         
-        if operation == 1 {
+        if (operation == 1) {
             // Insert operation
-            let key = readInt();
-            let value = readInt();
+            let key: i32 = getInt();
+            let value: i32 = getInt();
             hash_table.insert(key, value);
-        } else if operation == 2 {
+        } else if (operation == 2) {
             // Get operation
-            let key = readInt();
-            let result = hash_table.get(key);
+            let key: i32 = getInt();
+            let result: i32 = hash_table.get(key);
             printInt(result);
         }
         
         i += 1;
     }
+    exit(0);
 }

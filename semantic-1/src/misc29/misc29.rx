@@ -1,3 +1,12 @@
+/*
+Test Package: Semantic-1
+Test Target: misc
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Success
+Comment: Fenwick Tree (Binary Indexed Tree) for efficient range queries
+*/
+
 // Fenwick Tree (Binary Indexed Tree) for efficient range queries
 // Supports point updates and prefix sum queries in O(log n) time
 struct FenwickTree {
@@ -14,18 +23,18 @@ impl FenwickTree {
     }
     
     fn update(&mut self, idx: i32, delta: i32) {
-        let mut index = idx + 1; // Convert to 1-indexed
-        while index <= self.n {
+        let mut index: i32 = idx + 1; // Convert to 1-indexed
+        while (index <= self.n) {
             self.tree[index as usize] += delta;
             index += index & (-index); // Add LSB
         }
     }
     
     fn prefix_sum(&self, idx: i32) -> i32 {
-        let mut sum = 0;
-        let mut index = idx + 1; // Convert to 1-indexed
+        let mut sum: i32 = 0;
+        let mut index: i32 = idx + 1; // Convert to 1-indexed
         
-        while index > 0 {
+        while (index > 0) {
             sum += self.tree[index as usize];
             index -= index & (-index); // Remove LSB
         }
@@ -34,11 +43,11 @@ impl FenwickTree {
     }
     
     fn range_sum(&self, left: i32, right: i32) -> i32 {
-        if left > right {
+        if (left > right) {
             return 0;
         }
         
-        if left == 0 {
+        if (left == 0) {
             return self.prefix_sum(right);
         } else {
             return self.prefix_sum(right) - self.prefix_sum(left - 1);
@@ -46,8 +55,8 @@ impl FenwickTree {
     }
     
     fn init_from_array(&mut self, arr: &[i32]) {
-        let mut i = 0;
-        while i < self.n {
+        let mut i: i32 = 0;
+        while (i < self.n) {
             self.update(i, arr[i as usize]);
             i += 1;
         }
@@ -58,8 +67,8 @@ impl FenwickTree {
     }
     
     fn set_value(&mut self, idx: i32, new_val: i32) {
-        let current_val = self.point_query(idx);
-        let delta = new_val - current_val;
+        let current_val: i32 = self.point_query(idx);
+        let delta: i32 = new_val - current_val;
         self.update(idx, delta);
     }
 }
@@ -81,10 +90,10 @@ impl FenwickTree2D {
     }
     
     fn update(&mut self, row: i32, col: i32, delta: i32) {
-        let mut r = row + 1; // Convert to 1-indexed
-        while r <= self.rows {
-            let mut c = col + 1;
-            while c <= self.cols {
+        let mut r: i32 = row + 1; // Convert to 1-indexed
+        while (r <= self.rows) {
+            let mut c: i32 = col + 1;
+            while (c <= self.cols) {
                 self.tree[r as usize][c as usize] += delta;
                 c += c & (-c);
             }
@@ -93,12 +102,12 @@ impl FenwickTree2D {
     }
     
     fn prefix_sum(&self, row: i32, col: i32) -> i32 {
-        let mut sum = 0;
-        let mut r = row + 1;
+        let mut sum: i32 = 0;
+        let mut r: i32 = row + 1;
         
-        while r > 0 {
-            let mut c = col + 1;
-            while c > 0 {
+        while (r > 0) {
+            let mut c: i32 = col + 1;
+            while (c > 0) {
                 sum += self.tree[r as usize][c as usize];
                 c -= c & (-c);
             }
@@ -136,18 +145,18 @@ impl RangeUpdateFenwick {
     }
     
     fn update_point(&mut self, idx: i32, delta: i32) {
-        let mut index = idx + 1;
-        while index <= self.n {
+        let mut index: i32 = idx + 1;
+        while (index <= self.n) {
             self.tree[index as usize] += delta;
             index += index & (-index);
         }
     }
     
     fn query(&self, idx: i32) -> i32 {
-        let mut sum = 0;
-        let mut index = idx + 1;
+        let mut sum: i32 = 0;
+        let mut index: i32 = idx + 1;
         
-        while index > 0 {
+        while (index > 0) {
             sum += self.tree[index as usize];
             index -= index & (-index);
         }
@@ -172,19 +181,19 @@ impl LazyFenwick {
         }
     }
     
-    fn update_tree(&mut self, tree: &mut [i32; 1001], idx: i32, delta: i32) {
+    fn update_tree(n:i32, tree: &mut [i32; 1001], idx: i32, delta: i32) {
         let mut index = idx + 1;
-        while index <= self.n {
+        while (index <= n) {
             tree[index as usize] += delta;
             index += index & (-index);
         }
     }
     
     fn query_tree(&self, tree: &[i32; 1001], idx: i32) -> i32 {
-        let mut sum = 0;
-        let mut index = idx + 1;
+        let mut sum: i32 = 0;
+        let mut index: i32 = idx + 1;
         
-        while index > 0 {
+        while (index > 0) {
             sum += tree[index as usize];
             index -= index & (-index);
         }
@@ -193,10 +202,10 @@ impl LazyFenwick {
     }
     
     fn range_update(&mut self, left: i32, right: i32, delta: i32) {
-        self.update_tree(&mut self.tree1, left, delta);
-        self.update_tree(&mut self.tree1, right + 1, -delta);
-        self.update_tree(&mut self.tree2, left, delta * (left - 1));
-        self.update_tree(&mut self.tree2, right + 1, -delta * right);
+        Self::update_tree(self.n, &mut self.tree1, left, delta);
+        Self::update_tree(self.n, &mut self.tree1, right + 1, -delta);
+        Self::update_tree(self.n, &mut self.tree2, left, delta * (left - 1));
+        Self::update_tree(self.n, &mut self.tree2, right + 1, -delta * right);
     }
     
     fn prefix_query(&self, idx: i32) -> i32 {
@@ -209,43 +218,43 @@ impl LazyFenwick {
 }
 
 fn main() {
-    let n = readInt();
-    let mut fenwick = FenwickTree::new(n);
+    let n: i32 = getInt();
+    let mut fenwick: FenwickTree = FenwickTree::new(n);
     
     // Initialize array
     let mut arr: [i32; 1000] = [0; 1000];
-    let mut i = 0;
-    while i < n {
-        arr[i as usize] = readInt();
+    let mut i: i32 = 0;
+    while (i < n) {
+        arr[i as usize] = getInt();
         i += 1;
     }
     fenwick.init_from_array(&arr);
     
-    let queries = readInt();
+    let queries: i32 = getInt();
     i = 0;
     
-    while i < queries {
-        let operation = readInt();
+    while (i < queries) {
+        let operation: i32 = getInt();
         
-        if operation == 1 { // Point update
-            let idx = readInt();
-            let val = readInt();
+        if (operation == 1) { // Point update
+            let idx: i32 = getInt();
+            let val: i32 = getInt();
             fenwick.set_value(idx, val);
-        } else if operation == 2 { // Range sum query
-            let left = readInt();
-            let right = readInt();
-            let sum = fenwick.range_sum(left, right);
+        } else if (operation == 2) { // Range sum query
+            let left: i32 = getInt();
+            let right: i32 = getInt();
+            let sum: i32 = fenwick.range_sum(left, right);
             printInt(sum);
-        } else if operation == 3 { // Prefix sum query
-            let idx = readInt();
-            let sum = fenwick.prefix_sum(idx);
+        } else if (operation == 3) { // Prefix sum query
+            let idx: i32 = getInt();
+            let sum: i32 = fenwick.prefix_sum(idx);
             printInt(sum);
-        } else if operation == 4 { // Point query
-            let idx = readInt();
-            let val = fenwick.point_query(idx);
+        } else if (operation == 4) { // Point query
+            let idx: i32 = getInt();
+            let val: i32 = fenwick.point_query(idx);
             printInt(val);
         }
-        
         i += 1;
     }
+    exit(0);
 }

@@ -1,7 +1,16 @@
+/*
+Test Package: Semantic-1
+Test Target: expr
+Author: Wenxin Zheng
+Time: 2025-08-08
+Verdict: Fail
+Comment: Expression error: Missing operand in division expression - combines loop, if, break, array, index, grouped, and operator expressions
+*/
+
 fn main() {
-    let base = 5;
-    let exponent = 3;
-    let result = loop {
+    let base: i32 = 5;
+    let exponent: i32 = 3;
+    let result: i32 = loop {
         if exponent == 0 {
             break 1;
         } else if exponent == 1 {
@@ -10,8 +19,9 @@ fn main() {
             break base * base;
         }
     };
-    let arr = [result, result * 2, result * 3];
-    let sum = arr[0] + arr[1] + arr[2];
-    let final_result = (sum + 10) / ;
+    let arr: [i32; 3] = [result, result * 2, result * 3];
+    let sum: i32 = arr[0] + arr[1] + arr[2];
+    let final_result: i32 = (sum + 10) / ;
     printInt(final_result);
+    exit(0);
 }

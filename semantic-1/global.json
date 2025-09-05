@@ -18,7 +18,301 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-07",
-      "comment": "_exit function test, string cannot be returned"
+      "comment": "exit function test, string cannot be returned"
+    }
+  },
+  {
+    "name": "return2",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return2/return2.rx", "visible"],
+    "input": ["src/return2/return2.in", "visible"],
+    "output": ["src/return2/return2.out", "visible"],
+    "exitcode": 4,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Wenxin Zheng",
+      "lastmodified": "2025-08-07",
+      "comment": "exit function test, only `i32` can be returned"
+    }
+  },
+  {
+    "name": "return3",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return3/return3.rx", "visible"],
+    "input": ["src/return3/return3.in", "visible"],
+    "output": ["src/return3/return3.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Bohan Zhang",
+      "lastmodified": "2025-08-24",
+      "comment": "exit function test, the main function must have an exit function call as a final statement"
+    }
+  },
+  {
+    "name": "return4",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return4/return4.rx", "visible"],
+    "input": ["src/return4/return4.in", "visible"],
+    "output": ["src/return4/return4.out", "visible"],
+    "exitcode": -1,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Bohan Zhang",
+      "lastmodified": "2025-08-24",
+      "comment": "exit function test, the main function should not return any type but `()`"
+    }
+  },
+  {
+    "name": "return5",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return5/return5.rx", "visible"],
+    "input": ["src/return5/return5.in", "visible"],
+    "output": ["src/return5/return5.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, exit() cannot be used in non-main functions"
+    }
+  },
+  {
+    "name": "return6",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return6/return6.rx", "visible"],
+    "input": ["src/return6/return6.in", "visible"],
+    "output": ["src/return6/return6.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, exit() cannot be used in methods even if named 'main'"
+    }
+  },
+  {
+    "name": "return7",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return7/return7.rx", "visible"],
+    "input": ["src/return7/return7.in", "visible"],
+    "output": ["src/return7/return7.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-26",
+      "comment": "exit function test, unreachable code after exit() should cause compile-time error"
+    }
+  },
+  {
+    "name": "return8",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return8/return8.rx", "visible"],
+    "input": ["src/return8/return8.in", "visible"],
+    "output": ["src/return8/return8.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return with complex expression"
+    }
+  },
+  {
+    "name": "return9",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return9/return9.rx", "visible"],
+    "input": ["src/return9/return9.in", "visible"],
+    "output": ["src/return9/return9.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return type mismatch - returning different types in if-else branches"
+    }
+  },
+  {
+    "name": "return10",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return10/return10.rx", "visible"],
+    "input": ["src/return10/return10.in", "visible"],
+    "output": ["src/return10/return10.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Missing return value for non-unit return type"
+    }
+  },
+  {
+    "name": "return11",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return11/return11.rx", "visible"],
+    "input": ["src/return11/return11.in", "visible"],
+    "output": ["src/return11/return11.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return statement missing in all code paths"
+    }
+  },
+  {
+    "name": "return12",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return12/return12.rx", "visible"],
+    "input": ["src/return12/return12.in", "visible"],
+    "output": ["src/return12/return12.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid nested return statements in different scopes"
+    }
+  },
+  {
+    "name": "return13",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return13/return13.rx", "visible"],
+    "input": ["src/return13/return13.in", "visible"],
+    "output": ["src/return13/return13.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Return statement in expression context without semicolon"
+    }
+  },
+  {
+    "name": "return14",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return14/return14.rx", "visible"],
+    "input": ["src/return14/return14.in", "visible"],
+    "output": ["src/return14/return14.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return in if expression - early return does not affect if expression type"
+    }
+  },
+  {
+    "name": "return15",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/return15/return15.rx", "visible"],
+    "input": ["src/return15/return15.in", "visible"],
+    "output": ["src/return15/return15.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-08-27",
+      "comment": "Valid return in while loop condition - early return does not affect loop semantics"
     }
   },
   {
@@ -1142,7 +1436,7 @@
     "input": ["src/basic21/basic21.in", "visible"],
     "output": ["src/basic21/basic21.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1152,7 +1446,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, quicksort implementation using Vec type (not supported)"
+      "comment": "basic test, quicksort implementation using array type"
     }
   },
   {
@@ -1394,7 +1688,7 @@
     "input": ["src/basic33/basic33.in", "visible"],
     "output": ["src/basic33/basic33.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": 0,
+    "compileexitcode": -1,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1404,7 +1698,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, graph breadth-first search with connectivity check"
+      "comment": "basic test, graph breadth-first search with connectivity check; bfs return type mismatch ([usize; V] vs [i32; V])"
     }
   },
   {
@@ -2748,7 +3042,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Brent's cycle detection algorithm with variable redefinition error"
+      "comment": "Brent's cycle detection algorithm with integer literal overflow error"
     }
   },
   {
@@ -3481,9 +3775,9 @@
     "cmp": ["compileexitcode"],
     "provide": ["compilestderr", "compileexitcode"],
     "metainfo": {
-      "caseauthor": "Wenxin Zheng",
+      "caseauthor": "Ruitian Wang",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Invalid if expression - missing opening brace after condition"
+      "comment": "Expression error: while condition missing parentheses"
     }
   },
   {
@@ -3494,7 +3788,7 @@
     "input": ["src/expr13/expr13.in", "visible"],
     "output": ["src/expr13/expr13.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3502,9 +3796,9 @@
     "cmp": ["compileexitcode"],
     "provide": ["compilestderr", "compileexitcode"],
     "metainfo": {
-      "caseauthor": "Wenxin Zheng",
+      "caseauthor": "Ruitian Wang",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Invalid return expression - missing semicolon after return value"
+      "comment": "Valid return expression - return statement without semicolon is legal in Rust"
     }
   },
   {
@@ -3578,7 +3872,7 @@
     "input": ["src/expr17/expr17.in", "visible"],
     "output": ["src/expr17/expr17.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3588,7 +3882,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Missing semicolon after break expression - combines loop, if, break, operator, and literal expressions"
+      "comment": "Combines loop, if, break, operator, and literal expressions"
     }
   },
   {
@@ -3620,7 +3914,7 @@
     "input": ["src/expr19/expr19.in", "visible"],
     "output": ["src/expr19/expr19.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3630,7 +3924,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Expression error: Trailing comma in function call - combines call, literal, operator, and grouped expressions"
+      "comment": "Combines call, literal, operator, and grouped expressions; trailing comma in function call is allowed"
     }
   },
   {
@@ -3914,7 +4208,7 @@
     "input": ["src/expr33/expr33.in", "visible"],
     "output": ["src/expr33/expr33.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3924,7 +4218,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - depth-first search algorithm with graph traversal, complex control flow, and nested data structures"
+      "comment": "Depth-first search algorithm with graph traversal, complex control flow, and nested data structures; printInt returns `()`"
     }
   },
   {
@@ -3935,7 +4229,7 @@
     "input": ["src/expr34/expr34.in", "visible"],
     "output": ["src/expr34/expr34.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -3945,7 +4239,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - hash table with quadratic probing, collision resolution, and load factor analysis"
+      "comment": "Hash table with quadratic probing, collision resolution, and load factor analysis; printInt returns `()`"
     }
   },
   {
@@ -3966,7 +4260,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - AVL tree rebalancing simulation with height calculations, rotation detection, and tree complexity metrics"
+      "comment": "Complex expression error: Variable `current_node` not found - AVL tree rebalancing simulation with height calculations, rotation detection, and tree complexity metrics"
     }
   },
   {
@@ -4008,7 +4302,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - segment tree with lazy propagation, range updates, and complex query processing"
+      "comment": "Complex expression error: Array length mismatch - segment tree with lazy propagation, range updates, and complex query processing"
     }
   },
   {
@@ -4019,7 +4313,7 @@
     "input": ["src/expr38/expr38.in", "visible"],
     "output": ["src/expr38/expr38.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4029,7 +4323,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - Fenwick tree with coordinate compression, range frequency queries, and statistical analysis"
+      "comment": "Fenwick tree with coordinate compression, range frequency queries, and statistical analysis"
     }
   },
   {
