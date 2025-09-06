@@ -83,9 +83,9 @@ fn initializeLargeArray(mut arr: [i32; 4096]) {
     let mut i: i32 = 0;
     let mut seed: i32 = 98765;
     
-    while i < 4096 {
+    while (i < 4096) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         arr[i] = seed % 1000;
@@ -99,7 +99,7 @@ fn sequentialAccess(arr: [i32; 4096]) -> i32 {
     let mut i: i32 = 0;
     
     // Access elements in order - cache friendly
-    while i < 4096 {
+    while (i < 4096) {
         sum = sum + arr[i];
         i = i + 1;
     }
@@ -113,7 +113,7 @@ fn stridedAccess(arr: [i32; 4096], stride: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Access elements with fixed stride
-    while i < 4096 {
+    while (i < 4096) {
         sum = sum + arr[i];
         i = i + stride;
     }
@@ -128,9 +128,9 @@ fn randomAccess(arr: [i32; 4096]) -> i32 {
     let mut iteration: i32 = 0;
     
     // Access elements in pseudo-random order - cache unfriendly
-    while iteration < 1000 {
+    while (iteration < 1000) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         let index: i32 = seed % 4096;
@@ -147,7 +147,7 @@ fn backwardAccess(arr: [i32; 4096]) -> i32 {
     let mut i: i32 = 4095;
     
     // Access elements in reverse order
-    while i >= 0 {
+    while (i >= 0) {
         sum = sum + arr[i];
         i = i - 1;
     }
@@ -184,9 +184,9 @@ fn testMultiDimensionalArrayAccess() {
 // Initialize 32x32 matrix
 fn initializeMatrix32x32(mut matrix: [i32; 1024]) {
     let mut i: i32 = 0;
-    while i < 32 {
+    while (i < 32) {
         let mut j: i32 = 0;
-        while j < 32 {
+        while (j < 32) {
             matrix[i * 32 + j] = (i + 1) * (j + 1);
             j = j + 1;
         }
@@ -199,9 +199,9 @@ fn rowMajorAccess(matrix: [i32; 1024]) -> i32 {
     let mut sum: i32 = 0;
     let mut i: i32 = 0;
     
-    while i < 32 {
+    while (i < 32) {
         let mut j: i32 = 0;
-        while j < 32 {
+        while (j < 32) {
             sum = sum + matrix[i * 32 + j];
             j = j + 1;
         }
@@ -216,9 +216,9 @@ fn columnMajorAccess(matrix: [i32; 1024]) -> i32 {
     let mut sum: i32 = 0;
     let mut j: i32 = 0;
     
-    while j < 32 {
+    while (j < 32) {
         let mut i: i32 = 0;
-        while i < 32 {
+        while (i < 32) {
             sum = sum + matrix[i * 32 + j];
             i = i + 1;
         }
@@ -234,14 +234,14 @@ fn diagonalAccess(matrix: [i32; 1024]) -> i32 {
     let mut i: i32 = 0;
     
     // Main diagonal
-    while i < 32 {
+    while (i < 32) {
         sum = sum + matrix[i * 32 + i];
         i = i + 1;
     }
     
     // Anti-diagonal
     i = 0;
-    while i < 32 {
+    while (i < 32) {
         sum = sum + matrix[i * 32 + (31 - i)];
         i = i + 1;
     }
@@ -255,16 +255,16 @@ fn blockAccess(matrix: [i32; 1024]) -> i32 {
     let block_size: i32 = 8;
     let mut block_i: i32 = 0;
     
-    while block_i < 32 {
+    while (block_i < 32) {
         let mut block_j: i32 = 0;
-        while block_j < 32 {
+        while (block_j < 32) {
             // Process 8x8 block
             let mut i: i32 = block_i;
             let end_i: i32 = block_i + block_size;
-            while i < end_i && i < 32 {
+            while (i < end_i && i < 32) {
                 let mut j: i32 = block_j;
                 let end_j: i32 = block_j + block_size;
-                while j < end_j && j < 32 {
+                while (j < end_j && j < 32) {
                     sum = sum + matrix[i * 32 + j];
                     j = j + 1;
                 }
@@ -305,7 +305,7 @@ fn testStructureOfArrays() -> i32 {
     
     // Initialize coordinates
     let mut i: i32 = 0;
-    while i < 1000 {
+    while (i < 1000) {
         x_coords[i] = i;
         y_coords[i] = i * 2;
         z_coords[i] = i * 3;
@@ -319,21 +319,21 @@ fn testStructureOfArrays() -> i32 {
     
     // Process all X coordinates (good cache locality)
     i = 0;
-    while i < 1000 {
+    while (i < 1000) {
         sum_x = sum_x + x_coords[i] * 2;
         i = i + 1;
     }
     
     // Process all Y coordinates (good cache locality)
     i = 0;
-    while i < 1000 {
+    while (i < 1000) {
         sum_y = sum_y + y_coords[i] * 3;
         i = i + 1;
     }
     
     // Process all Z coordinates (good cache locality)
     i = 0;
-    while i < 1000 {
+    while (i < 1000) {
         sum_z = sum_z + z_coords[i] * 4;
         i = i + 1;
     }
@@ -347,7 +347,7 @@ fn testArrayOfStructures() -> i32 {
     
     // Initialize AoS data (x, y, z, x, y, z, ...)
     let mut i: i32 = 0;
-    while i < 1000 {
+    while (i < 1000) {
         aos_data[i * 3] = i;         // x
         aos_data[i * 3 + 1] = i * 2; // y
         aos_data[i * 3 + 2] = i * 3; // z
@@ -359,7 +359,7 @@ fn testArrayOfStructures() -> i32 {
     
     // Process each structure (poor cache locality for single component operations)
     i = 0;
-    while i < 1000 {
+    while (i < 1000) {
         let x: i32 = aos_data[i * 3];
         let y: i32 = aos_data[i * 3 + 1];
         let z: i32 = aos_data[i * 3 + 2];
@@ -384,7 +384,7 @@ fn testHybridDataLayout() -> i32 {
     
     // Initialize hybrid layout
     let mut i: i32 = 0;
-    while i < 250 {
+    while (i < 250) {
         block1_x[i] = i;
         block1_y[i] = i * 2;
         block1_z[i] = i * 3;
@@ -400,14 +400,14 @@ fn testHybridDataLayout() -> i32 {
     
     // Process first block
     i = 0;
-    while i < 250 {
+    while (i < 250) {
         sum = sum + (block1_x[i] + block1_y[i] + block1_z[i]);
         i = i + 1;
     }
     
     // Process second block
     i = 0;
-    while i < 250 {
+    while (i < 250) {
         sum = sum + (block2_x[i] + block2_y[i] + block2_z[i]);
         i = i + 1;
     }
@@ -448,7 +448,7 @@ fn testMemoryStridePatterns() {
 // Initialize array for stride testing
 fn initializeStrideTestArray(mut arr: [i32; 2048]) {
     let mut i: i32 = 0;
-    while i < 2048 {
+    while (i < 2048) {
         arr[i] = (i % 100) + 1;
         i = i + 1;
     }
@@ -459,7 +459,7 @@ fn processWithStride(arr: [i32; 2048], stride: i32) -> i32 {
     let mut sum: i32 = 0;
     let mut i: i32 = 0;
     
-    while i < 2048 {
+    while (i < 2048) {
         sum = sum + arr[i] * (i + 1);
         i = i + stride;
     }
@@ -473,14 +473,14 @@ fn processWithComplexStride(arr: [i32; 2048]) -> i32 {
     let mut i: i32 = 0;
     let mut stride: i32 = 1;
     
-    while i < 2048 {
+    while (i < 2048) {
         sum = sum + arr[i];
         i = i + stride;
         
         // Change stride pattern
-        if stride == 1 {
+        if (stride == 1) {
             stride = 4;
-        } else if stride == 4 {
+        } else if (stride == 4) {
             stride = 2;
         } else {
             stride = 1;
@@ -521,7 +521,7 @@ fn cacheObliviousMatrixMultiplication() -> i32 {
     
     // Initialize matrices
     let mut i: i32 = 0;
-    while i < 64 {
+    while (i < 64) {
         matrix_a[i] = (i % 10) + 1;
         matrix_b[i] = ((i * 2) % 10) + 1;
         matrix_c[i] = 0;
@@ -534,7 +534,7 @@ fn cacheObliviousMatrixMultiplication() -> i32 {
     // Calculate sum
     let mut sum: i32 = 0;
     i = 0;
-    while i < 64 {
+    while (i < 64) {
         sum = sum + matrix_c[i];
         i = i + 1;
     }
@@ -546,14 +546,14 @@ fn cacheObliviousMatrixMultiplication() -> i32 {
 fn cacheObliviousMultiplyRecursive(a: [i32; 64], b: [i32; 64], mut c: [i32; 64], 
                                   size: i32, a_row: i32, a_col: i32, 
                                   b_row: i32, b_col: i32, c_row: i32, c_col: i32) {
-    if size <= 2 {
+    if (size <= 2) {
         // Base case: direct multiplication for small matrices
         let mut i: i32 = 0;
-        while i < size {
+        while (i < size) {
             let mut j: i32 = 0;
-            while j < size {
+            while (j < size) {
                 let mut k: i32 = 0;
-                while k < size {
+                while (k < size) {
                     c[(c_row + i) * 8 + (c_col + j)] = 
                         c[(c_row + i) * 8 + (c_col + j)] +
                         a[(a_row + i) * 8 + (a_col + k)] * 
@@ -592,9 +592,9 @@ fn initializeSortTestData(mut arr: [i32; 512]) {
     let mut seed: i32 = 13579;
     let mut i: i32 = 0;
     
-    while i < 512 {
+    while (i < 512) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         arr[i] = seed % 1000;
@@ -604,14 +604,14 @@ fn initializeSortTestData(mut arr: [i32; 512]) {
 
 // Cache-conscious merge sort
 fn cacheConsciousMergeSort(mut arr: [i32; 512], left: i32, right: i32) -> i32 {
-    if left >= right {
+    if (left >= right) {
         return 0;
     }
     
     let size: i32 = right - left + 1;
     
     // Use insertion sort for small arrays (cache-friendly)
-    if size <= 16 {
+    if (size <= 16) {
         return insertionSort(arr, left, right);
     }
     
@@ -628,17 +628,17 @@ fn insertionSort(mut arr: [i32; 512], left: i32, right: i32) -> i32 {
     let mut comparisons: i32 = 0;
     let mut i: i32 = left + 1;
     
-    while i <= right {
+    while (i <= right) {
         let key: i32 = arr[i];
         let mut j: i32 = i - 1;
         
-        while j >= left && arr[j] > key {
+        while (j >= left && arr[j] > key) {
             arr[j + 1] = arr[j];
             j = j - 1;
             comparisons = comparisons + 1;
         }
         
-        if j >= left {
+        if (j >= left) {
             comparisons = comparisons + 1; // Comparison that didn't result in move
         }
         
@@ -660,13 +660,13 @@ fn cacheFriendlyMerge(mut arr: [i32; 512], left: i32, mid: i32, right: i32) -> i
     
     // Copy data to temporary arrays
     let mut i: i32 = 0;
-    while i < left_size && i < 128 {
+    while (i < left_size && i < 128) {
         left_temp[i] = arr[left + i];
         i = i + 1;
     }
     
     let mut j: i32 = 0;
-    while j < right_size && j < 128 {
+    while (j < right_size && j < 128) {
         right_temp[j] = arr[mid + 1 + j];
         j = j + 1;
     }
@@ -677,9 +677,9 @@ fn cacheFriendlyMerge(mut arr: [i32; 512], left: i32, mid: i32, right: i32) -> i
     let mut k: i32 = left;
     let mut comparisons: i32 = 0;
     
-    while i < left_size && j < right_size && i < 128 && j < 128 {
+    while (i < left_size && j < right_size && i < 128 && j < 128) {
         comparisons = comparisons + 1;
-        if left_temp[i] <= right_temp[j] {
+        if (left_temp[i] <= right_temp[j]) {
             arr[k] = left_temp[i];
             i = i + 1;
         } else {
@@ -690,13 +690,13 @@ fn cacheFriendlyMerge(mut arr: [i32; 512], left: i32, mid: i32, right: i32) -> i
     }
     
     // Copy remaining elements
-    while i < left_size && i < 128 {
+    while (i < left_size && i < 128) {
         arr[k] = left_temp[i];
         i = i + 1;
         k = k + 1;
     }
     
-    while j < right_size && j < 128 {
+    while (j < right_size && j < 128) {
         arr[k] = right_temp[j];
         j = j + 1;
         k = k + 1;
@@ -719,7 +719,7 @@ fn cacheAwareDataProcessing() -> i32 {
 // Initialize data grid
 fn initializeDataGrid(mut grid: [i32; 1024]) {
     let mut i: i32 = 0;
-    while i < 1024 {
+    while (i < 1024) {
         grid[i] = (i % 50) + 1;
         i = i + 1;
     }
@@ -732,16 +732,16 @@ fn processDataInBlocks(mut grid: [i32; 1024]) -> i32 {
     let grid_size: i32 = 32;
     
     let mut block_row: i32 = 0;
-    while block_row < grid_size {
+    while (block_row < grid_size) {
         let mut block_col: i32 = 0;
-        while block_col < grid_size {
+        while (block_col < grid_size) {
             // Process 8x8 block
             let mut row: i32 = block_row;
             let end_row: i32 = block_row + block_size;
-            while row < end_row && row < grid_size {
+            while (row < end_row && row < grid_size) {
                 let mut col: i32 = block_col;
                 let end_col: i32 = block_col + block_size;
-                while col < end_col && col < grid_size {
+                while (col < end_col && col < grid_size) {
                     let index: i32 = row * grid_size + col;
                     grid[index] = grid[index] * 2 + 1;
                     total_sum = total_sum + grid[index];
@@ -766,7 +766,7 @@ fn temporalLocalityOptimization() -> i32 {
     let mut iteration: i32 = 0;
     
     // Perform multiple passes over the same data to exploit temporal locality
-    while iteration < 100 {
+    while (iteration < 100) {
         let pass_operations: i32 = processWorkingSet(working_set);
         total_operations = total_operations + pass_operations;
         iteration = iteration + 1;
@@ -778,7 +778,7 @@ fn temporalLocalityOptimization() -> i32 {
 // Initialize working set
 fn initializeWorkingSet(mut working_set: [i32; 256]) {
     let mut i: i32 = 0;
-    while i < 256 {
+    while (i < 256) {
         working_set[i] = i + 1;
         i = i + 1;
     }
@@ -790,7 +790,7 @@ fn processWorkingSet(mut working_set: [i32; 256]) -> i32 {
     let mut i: i32 = 0;
     
     // Multiple operations on the same data
-    while i < 256 {
+    while (i < 256) {
         working_set[i] = working_set[i] + 1;
         operations = operations + 1;
         i = i + 1;
@@ -798,7 +798,7 @@ fn processWorkingSet(mut working_set: [i32; 256]) -> i32 {
     
     // Second pass
     i = 0;
-    while i < 256 {
+    while (i < 256) {
         working_set[i] = working_set[i] * 2;
         operations = operations + 1;
         i = i + 1;
@@ -806,8 +806,8 @@ fn processWorkingSet(mut working_set: [i32; 256]) -> i32 {
     
     // Third pass
     i = 0;
-    while i < 256 {
-        if working_set[i] % 2 == 0 {
+    while (i < 256) {
+        if (working_set[i] % 2 == 0) {
             working_set[i] = working_set[i] / 2;
         }
         operations = operations + 1;

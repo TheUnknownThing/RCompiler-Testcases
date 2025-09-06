@@ -77,7 +77,7 @@ fn testDeepRecursiveAlgorithms() {
 
 // Tail recursive factorial (should be optimized to loop)
 fn tailRecursiveFactorial(n: i32, accumulator: i32) -> i32 {
-    if n <= 1 {
+    if (n <= 1) {
         return accumulator;
     }
     return tailRecursiveFactorial(n - 1, accumulator * n);
@@ -85,7 +85,7 @@ fn tailRecursiveFactorial(n: i32, accumulator: i32) -> i32 {
 
 // Deep recursive sum with accumulator
 fn deepRecursiveSum(n: i32, accumulator: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return accumulator;
     }
     return deepRecursiveSum(n - 1, accumulator + n);
@@ -93,7 +93,7 @@ fn deepRecursiveSum(n: i32, accumulator: i32) -> i32 {
 
 // Recursive countdown function
 fn recursiveCountdown(n: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return 0;
     }
     return 1 + recursiveCountdown(n - 1);
@@ -101,13 +101,13 @@ fn recursiveCountdown(n: i32) -> i32 {
 
 // Recursive power calculation
 fn recursivePower(base: i32, exponent: i32) -> i32 {
-    if exponent == 0 {
+    if (exponent == 0) {
         return 1;
     }
-    if exponent == 1 {
+    if (exponent == 1) {
         return base;
     }
-    if exponent % 2 == 0 {
+    if (exponent % 2 == 0) {
         let half_power: i32 = recursivePower(base, exponent / 2);
         return half_power * half_power;
     } else {
@@ -136,14 +136,14 @@ fn testMutualRecursion() {
 
 // Mutual recursion: even/odd checking
 fn isEvenMutual(n: i32) -> i32 {
-    if n == 0 {
+    if (n == 0) {
         return 1; // true
     }
     return isOddMutual(n - 1);
 }
 
 fn isOddMutual(n: i32) -> i32 {
-    if n == 0 {
+    if (n == 0) {
         return 0; // false
     }
     return isEvenMutual(n - 1);
@@ -153,8 +153,8 @@ fn countEvenOddMutual(limit: i32) -> i32 {
     let mut count: i32 = 0;
     let mut i: i32 = 0;
     
-    while i <= limit {
-        if isEvenMutual(i) == 1 {
+    while (i <= limit) {
+        if (isEvenMutual(i) == 1) {
             count = count + 1;
         }
         i = i + 1;
@@ -165,21 +165,21 @@ fn countEvenOddMutual(limit: i32) -> i32 {
 
 // Mutual recursion: ping-pong pattern
 fn pingMutual(n: i32, add_value: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return add_value;
     }
     return pongMutual(n - 1, add_value + 1);
 }
 
 fn pongMutual(n: i32, add_value: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return add_value;
     }
     return pingMutual(n - 1, add_value + 2);
 }
 
 fn pingPongMutual(n: i32, start_with_ping: bool) -> i32 {
-    if start_with_ping {
+    if (start_with_ping) {
         return pingMutual(n, 0);
     } else {
         return pongMutual(n, 0);
@@ -188,10 +188,10 @@ fn pingPongMutual(n: i32, start_with_ping: bool) -> i32 {
 
 // Mutual recursion: state machine pattern
 fn stateMachineA(n: i32, value: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return value;
     }
-    if n % 3 == 0 {
+    if (n % 3 == 0) {
         return stateMachineB(n - 1, value + 10);
     } else {
         return stateMachineC(n - 1, value + 1);
@@ -199,10 +199,10 @@ fn stateMachineA(n: i32, value: i32) -> i32 {
 }
 
 fn stateMachineB(n: i32, value: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return value;
     }
-    if n % 2 == 0 {
+    if (n % 2 == 0) {
         return stateMachineC(n - 1, value + 5);
     } else {
         return stateMachineA(n - 1, value + 2);
@@ -210,10 +210,10 @@ fn stateMachineB(n: i32, value: i32) -> i32 {
 }
 
 fn stateMachineC(n: i32, value: i32) -> i32 {
-    if n <= 0 {
+    if (n <= 0) {
         return value;
     }
-    if n % 5 == 0 {
+    if (n % 5 == 0) {
         return stateMachineA(n - 1, value + 20);
     } else {
         return stateMachineB(n - 1, value + 3);
@@ -252,7 +252,7 @@ fn testTreeTraversalAlgorithms() {
 // Build binary tree with values
 fn buildBinaryTree(mut tree: [i32; 127]) {
     let mut i: i32 = 0;
-    while i < 127 {
+    while (i < 127) {
         tree[i] = (i + 1) * 10; // Simple value assignment
         i = i + 1;
     }
@@ -260,7 +260,7 @@ fn buildBinaryTree(mut tree: [i32; 127]) {
 
 // Preorder traversal (root, left, right)
 fn preorderTraversal(tree: [i32; 127], index: i32) -> i32 {
-    if index >= 127 || tree[index] == 0 {
+    if (index >= 127 || tree[index] == 0) {
         return 0;
     }
     
@@ -273,7 +273,7 @@ fn preorderTraversal(tree: [i32; 127], index: i32) -> i32 {
 
 // Inorder traversal (left, root, right)
 fn inorderTraversal(tree: [i32; 127], index: i32) -> i32 {
-    if index >= 127 || tree[index] == 0 {
+    if (index >= 127 || tree[index] == 0) {
         return 0;
     }
     
@@ -286,7 +286,7 @@ fn inorderTraversal(tree: [i32; 127], index: i32) -> i32 {
 
 // Postorder traversal (left, right, root)
 fn postorderTraversal(tree: [i32; 127], index: i32) -> i32 {
-    if index >= 127 || tree[index] == 0 {
+    if (index >= 127 || tree[index] == 0) {
         return 0;
     }
     
@@ -299,16 +299,16 @@ fn postorderTraversal(tree: [i32; 127], index: i32) -> i32 {
 
 // Recursive tree search
 fn recursiveTreeSearch(tree: [i32; 127], index: i32, target: i32) -> i32 {
-    if index >= 127 || tree[index] == 0 {
+    if (index >= 127 || tree[index] == 0) {
         return 0; // Not found
     }
     
-    if tree[index] == target {
+    if (tree[index] == target) {
         return 1; // Found
     }
     
     let left_result: i32 = recursiveTreeSearch(tree, 2 * index + 1, target);
-    if left_result == 1 {
+    if (left_result == 1) {
         return 1;
     }
     
@@ -318,7 +318,7 @@ fn recursiveTreeSearch(tree: [i32; 127], index: i32, target: i32) -> i32 {
 
 // Calculate tree depth recursively
 fn calculateTreeDepth(tree: [i32; 127], index: i32) -> i32 {
-    if index >= 127 || tree[index] == 0 {
+    if (index >= 127 || tree[index] == 0) {
         return 0;
     }
     
@@ -326,7 +326,7 @@ fn calculateTreeDepth(tree: [i32; 127], index: i32) -> i32 {
     let right_depth: i32 = calculateTreeDepth(tree, 2 * index + 2);
     
     let max_depth: i32;
-    if left_depth > right_depth {
+    if (left_depth > right_depth) {
         max_depth = left_depth;
     } else {
         max_depth = right_depth;
@@ -366,9 +366,9 @@ fn initializeRandomArray(mut arr: [i32; 100], size: i32) {
     let mut seed: i32 = 12345;
     let mut i: i32 = 0;
     
-    while i < size {
+    while (i < size) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         arr[i] = seed % 1000;
@@ -378,7 +378,7 @@ fn initializeRandomArray(mut arr: [i32; 100], size: i32) {
 
 // Recursive merge sort
 fn recursiveMergeSort(mut arr: [i32; 100], left: i32, right: i32) -> i32 {
-    if left >= right {
+    if (left >= right) {
         return 0;
     }
     
@@ -401,13 +401,13 @@ fn recursiveMerge(mut arr: [i32; 100], left: i32, mid: i32, right: i32) -> i32 {
     
     // Copy data to temporary arrays
     let mut i: i32 = 0;
-    while i < left_size {
+    while (i < left_size) {
         left_arr[i] = arr[left + i];
         i = i + 1;
     }
     
     let mut j: i32 = 0;
-    while j < right_size {
+    while (j < right_size) {
         right_arr[j] = arr[mid + 1 + j];
         j = j + 1;
     }
@@ -418,9 +418,9 @@ fn recursiveMerge(mut arr: [i32; 100], left: i32, mid: i32, right: i32) -> i32 {
     let mut k: i32 = left;
     let mut comparisons: i32 = 0;
     
-    while i < left_size && j < right_size {
+    while (i < left_size && j < right_size) {
         comparisons = comparisons + 1;
-        if left_arr[i] <= right_arr[j] {
+        if (left_arr[i] <= right_arr[j]) {
             arr[k] = left_arr[i];
             i = i + 1;
         } else {
@@ -431,13 +431,13 @@ fn recursiveMerge(mut arr: [i32; 100], left: i32, mid: i32, right: i32) -> i32 {
     }
     
     // Copy remaining elements
-    while i < left_size {
+    while (i < left_size) {
         arr[k] = left_arr[i];
         i = i + 1;
         k = k + 1;
     }
     
-    while j < right_size {
+    while (j < right_size) {
         arr[k] = right_arr[j];
         j = j + 1;
         k = k + 1;
@@ -448,15 +448,15 @@ fn recursiveMerge(mut arr: [i32; 100], left: i32, mid: i32, right: i32) -> i32 {
 
 // Recursive binary search
 fn recursiveBinarySearch(arr: [i32; 100], left: i32, right: i32, target: i32) -> i32 {
-    if left > right {
+    if (left > right) {
         return -1; // Not found
     }
     
     let mid: i32 = left + (right - left) / 2;
     
-    if arr[mid] == target {
+    if (arr[mid] == target) {
         return mid;
-    } else if arr[mid] > target {
+    } else if (arr[mid] > target) {
         return recursiveBinarySearch(arr, left, mid - 1, target);
     } else {
         return recursiveBinarySearch(arr, mid + 1, right, target);
@@ -465,15 +465,15 @@ fn recursiveBinarySearch(arr: [i32; 100], left: i32, right: i32, target: i32) ->
 
 // Recursive quick select algorithm
 fn recursiveQuickSelect(mut arr: [i32; 100], left: i32, right: i32, k: i32) -> i32 {
-    if left == right {
+    if (left == right) {
         return arr[left];
     }
     
     let pivot_index: i32 = recursivePartition(arr, left, right);
     
-    if k == pivot_index {
+    if (k == pivot_index) {
         return arr[k];
-    } else if k < pivot_index {
+    } else if (k < pivot_index) {
         return recursiveQuickSelect(arr, left, pivot_index - 1, k);
     } else {
         return recursiveQuickSelect(arr, pivot_index + 1, right, k);
@@ -486,8 +486,8 @@ fn recursivePartition(mut arr: [i32; 100], left: i32, right: i32) -> i32 {
     let mut i: i32 = left - 1;
     let mut j: i32 = left;
     
-    while j < right {
-        if arr[j] <= pivot {
+    while (j < right) {
+        if (arr[j] <= pivot) {
             i = i + 1;
             let temp: i32 = arr[i];
             arr[i] = arr[j];
@@ -519,7 +519,7 @@ fn testRecursiveMatrixMultiplication() -> i32 {
     // Calculate sum of result matrix
     let mut sum: i32 = 0;
     let mut i: i32 = 0;
-    while i < 16 {
+    while (i < 16) {
         sum = sum + result_matrix[i];
         i = i + 1;
     }
@@ -530,7 +530,7 @@ fn testRecursiveMatrixMultiplication() -> i32 {
 // Initialize matrix with values
 fn initializeMatrix(mut matrix: [i32; 16], size: i32) {
     let mut i: i32 = 0;
-    while i < size * size {
+    while (i < size * size) {
         matrix[i] = (i % 10) + 1;
         i = i + 1;
     }
@@ -538,19 +538,19 @@ fn initializeMatrix(mut matrix: [i32; 16], size: i32) {
 
 // Recursive matrix multiplication
 fn recursiveMatrixMultiply(matrix_a: [i32; 16], matrix_b: [i32; 16], mut result: [i32; 16], size: i32) {
-    if size == 1 {
+    if (size == 1) {
         result[0] = matrix_a[0] * matrix_b[0];
         return;
     }
     
     // For simplicity, implement basic multiplication for small matrices
     let mut i: i32 = 0;
-    while i < size {
+    while (i < size) {
         let mut j: i32 = 0;
-        while j < size {
+        while (j < size) {
             result[i * size + j] = 0;
             let mut k: i32 = 0;
-            while k < size {
+            while (k < size) {
                 result[i * size + j] = result[i * size + j] + 
                     matrix_a[i * size + k] * matrix_b[k * size + j];
                 k = k + 1;
@@ -590,7 +590,7 @@ fn testRecursiveMathematicalComputations() {
 
 // Recursive GCD using Euclidean algorithm
 fn recursiveGCD(a: i32, b: i32) -> i32 {
-    if b == 0 {
+    if (b == 0) {
         return a;
     }
     return recursiveGCD(b, a % b);
@@ -598,7 +598,7 @@ fn recursiveGCD(a: i32, b: i32) -> i32 {
 
 // Recursive Fibonacci (inefficient but tests deep recursion)
 fn recursiveFibonacci(n: i32) -> i32 {
-    if n <= 1 {
+    if (n <= 1) {
         return n;
     }
     return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
@@ -606,10 +606,10 @@ fn recursiveFibonacci(n: i32) -> i32 {
 
 // Recursive combination calculation (n choose k)
 fn recursiveCombination(n: i32, k: i32) -> i32 {
-    if k == 0 || k == n {
+    if (k == 0 || k == n) {
         return 1;
     }
-    if k == 1 {
+    if (k == 1) {
         return n;
     }
     return recursiveCombination(n - 1, k - 1) + recursiveCombination(n - 1, k);
@@ -621,11 +621,11 @@ fn recursiveSumOfDivisors(n: i32) -> i32 {
 }
 
 fn recursiveSumOfDivisorsHelper(n: i32, current: i32, sum: i32) -> i32 {
-    if current > n {
+    if (current > n) {
         return sum;
     }
     
-    if n % current == 0 {
+    if (n % current == 0) {
         return recursiveSumOfDivisorsHelper(n, current + 1, sum + current);
     } else {
         return recursiveSumOfDivisorsHelper(n, current + 1, sum);
@@ -634,7 +634,7 @@ fn recursiveSumOfDivisorsHelper(n: i32, current: i32, sum: i32) -> i32 {
 
 // Recursive digit sum
 fn recursiveDigitSum(n: i32) -> i32 {
-    if n < 10 {
+    if (n < 10) {
         return n;
     }
     return (n % 10) + recursiveDigitSum(n / 10);
@@ -642,19 +642,19 @@ fn recursiveDigitSum(n: i32) -> i32 {
 
 // Additional recursive helper functions for comprehensive testing
 fn recursiveArraySum(arr: [i32; 100], index: i32, size: i32) -> i32 {
-    if index >= size {
+    if (index >= size) {
         return 0;
     }
     return arr[index] + recursiveArraySum(arr, index + 1, size);
 }
 
 fn recursiveArrayMax(arr: [i32; 100], index: i32, size: i32, current_max: i32) -> i32 {
-    if index >= size {
+    if (index >= size) {
         return current_max;
     }
     
     let new_max: i32;
-    if arr[index] > current_max {
+    if (arr[index] > current_max) {
         new_max = arr[index];
     } else {
         new_max = current_max;
@@ -664,15 +664,15 @@ fn recursiveArrayMax(arr: [i32; 100], index: i32, size: i32, current_max: i32) -
 }
 
 fn recursiveStringLength(value: i32, length: i32) -> i32 {
-    if value < 10 {
+    if (value < 10) {
         return length + 1;
     }
     return recursiveStringLength(value / 10, length + 1);
 }
 
 fn recursiveIsPalindrome(n: i32, reversed: i32, original: i32) -> i32 {
-    if n == 0 {
-        if reversed == original {
+    if (n == 0) {
+        if (reversed == original) {
             return 1; // true
         } else {
             return 0; // false

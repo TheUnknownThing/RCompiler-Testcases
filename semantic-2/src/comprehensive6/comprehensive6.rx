@@ -87,9 +87,9 @@ fn initializeTextString(mut text: [i32; 1000]) {
     let mut i: i32 = 0;
     let mut seed: i32 = 12345;
     
-    while i < 1000 {
+    while (i < 1000) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         // Generate ASCII values for printable characters (32-126)
@@ -116,7 +116,7 @@ fn initializePatternString(mut pattern: [i32; 20]) {
     pattern[2] = 67; // 'C'
     pattern[3] = 68; // 'D'
     let mut i: i32 = 4;
-    while i < 20 {
+    while (i < 20) {
         pattern[i] = 0; // Null terminator simulation
         i = i + 1;
     }
@@ -127,19 +127,19 @@ fn naiveStringSearch(text: [i32; 1000], text_len: i32, pattern: [i32; 20], patte
     let mut matches: i32 = 0;
     let mut i: i32 = 0;
     
-    while i <= text_len - pattern_len {
+    while (i <= text_len - pattern_len) {
         let mut j: i32 = 0;
         let mut match_found: bool = true;
         
-        while j < pattern_len {
-            if text[i + j] != pattern[j] {
+        while (j < pattern_len) {
+            if (text[i + j] != pattern[j]) {
                 match_found = false;
                 break;
             }
             j = j + 1;
         }
         
-        if match_found {
+        if (match_found) {
             matches = matches + 1;
         }
         
@@ -158,17 +158,17 @@ fn kmpStringSearch(text: [i32; 1000], text_len: i32, pattern: [i32; 20], pattern
     let mut i: i32 = 0; // Index for text
     let mut j: i32 = 0; // Index for pattern
     
-    while i < text_len {
-        if pattern[j] == text[i] {
+    while (i < text_len) {
+        if (pattern[j] == text[i]) {
             i = i + 1;
             j = j + 1;
         }
         
-        if j == pattern_len {
+        if (j == pattern_len) {
             matches = matches + 1;
             j = lps[j - 1];
-        } else if i < text_len && pattern[j] != text[i] {
-            if j != 0 {
+        } else if (i < text_len && pattern[j] != text[i]) {
+            if (j != 0) {
                 j = lps[j - 1];
             } else {
                 i = i + 1;
@@ -186,13 +186,13 @@ fn computeLPSArray(pattern: [i32; 20], pattern_len: i32, mut lps: [i32; 20]) {
     
     lps[0] = 0;
     
-    while i < pattern_len {
-        if pattern[i] == pattern[len] {
+    while (i < pattern_len) {
+        if (pattern[i] == pattern[len]) {
             len = len + 1;
             lps[i] = len;
             i = i + 1;
         } else {
-            if len != 0 {
+            if (len != 0) {
                 len = lps[len - 1];
             } else {
                 lps[i] = 0;
@@ -208,8 +208,8 @@ fn boyerMooreStringSearch(text: [i32; 1000], text_len: i32, pattern: [i32; 20], 
     
     // Preprocess pattern for bad character heuristic
     let mut i: i32 = 0;
-    while i < pattern_len {
-        if pattern[i] >= 0 && pattern[i] < 256 {
+    while (i < pattern_len) {
+        if (pattern[i] >= 0 && pattern[i] < 256) {
             bad_char[pattern[i]] = i;
         }
         i = i + 1;
@@ -218,29 +218,29 @@ fn boyerMooreStringSearch(text: [i32; 1000], text_len: i32, pattern: [i32; 20], 
     let mut matches: i32 = 0;
     let mut shift: i32 = 0;
     
-    while shift <= text_len - pattern_len {
+    while (shift <= text_len - pattern_len) {
         let mut j: i32 = pattern_len - 1;
         
-        while j >= 0 && pattern[j] == text[shift + j] {
+        while (j >= 0 && pattern[j] == text[shift + j]) {
             j = j - 1;
         }
         
-        if j < 0 {
+        if (j < 0) {
             matches = matches + 1;
-            if shift + pattern_len < text_len {
+            if (shift + pattern_len < text_len) {
                 shift = shift + pattern_len - bad_char[text[shift + pattern_len]];
             } else {
                 shift = shift + 1;
             }
         } else {
             let bad_char_shift: i32;
-            if text[shift + j] >= 0 && text[shift + j] < 256 {
+            if (text[shift + j] >= 0 && text[shift + j] < 256) {
                 bad_char_shift = j - bad_char[text[shift + j]];
             } else {
                 bad_char_shift = 1;
             }
             
-            if bad_char_shift > 1 {
+            if (bad_char_shift > 1) {
                 shift = shift + bad_char_shift;
             } else {
                 shift = shift + 1;
@@ -298,15 +298,15 @@ fn initializeLargeText(mut text: [i32; 2000]) {
     let mut i: i32 = 0;
     let mut seed: i32 = 54321;
     
-    while i < 2000 {
+    while (i < 2000) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         
         // Generate mostly lowercase letters with some spaces and punctuation
         let char_type: i32 = seed % 100;
-        if char_type < 70 {
+        if (char_type < 70) {
             text[i] = 97 + (seed % 26); // lowercase a-z
         } else if char_type < 85 {
             text[i] = 65 + (seed % 26); // uppercase A-Z
@@ -326,8 +326,8 @@ fn characterFrequencyAnalysis(text: [i32; 2000], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Count character frequencies
-    while i < text_len {
-        if text[i] >= 0 && text[i] < 256 {
+    while (i < text_len) {
+        if (text[i] >= 0 && text[i] < 256) {
             freq_table[text[i]] = freq_table[text[i]] + 1;
         }
         i = i + 1;
@@ -337,8 +337,8 @@ fn characterFrequencyAnalysis(text: [i32; 2000], text_len: i32) -> i32 {
     let mut max_freq: i32 = 0;
     let mut most_frequent_char: i32 = 0;
     i = 0;
-    while i < 256 {
-        if freq_table[i] > max_freq {
+    while (i < 256) {
+        if (freq_table[i] > max_freq) {
             max_freq = freq_table[i];
             most_frequent_char = i;
         }
@@ -354,8 +354,8 @@ fn textTransformationAlgorithms(mut text: [i32; 2000], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Convert to uppercase
-    while i < text_len {
-        if text[i] >= 97 && text[i] <= 122 { // lowercase a-z
+    while (i < text_len) {
+        if (text[i] >= 97 && text[i] <= 122) { // lowercase a-z
             text[i] = text[i] - 32; // Convert to uppercase
             transformations = transformations + 1;
         }
@@ -364,8 +364,8 @@ fn textTransformationAlgorithms(mut text: [i32; 2000], text_len: i32) -> i32 {
     
     // Caesar cipher transformation
     i = 0;
-    while i < text_len {
-        if text[i] >= 65 && text[i] <= 90 { // uppercase A-Z
+    while (i < text_len) {
+        if (text[i] >= 65 && text[i] <= 90) { // uppercase A-Z
             text[i] = 65 + ((text[i] - 65 + 3) % 26); // Shift by 3
             transformations = transformations + 1;
         }
@@ -374,8 +374,8 @@ fn textTransformationAlgorithms(mut text: [i32; 2000], text_len: i32) -> i32 {
     
     // ROT13 transformation
     i = 0;
-    while i < text_len {
-        if text[i] >= 65 && text[i] <= 90 { // uppercase A-Z
+    while (i < text_len) {
+        if (text[i] >= 65 && text[i] <= 90) { // uppercase A-Z
             text[i] = 65 + ((text[i] - 65 + 13) % 26); // ROT13
             transformations = transformations + 1;
         }
@@ -392,11 +392,11 @@ fn wordCountingAlgorithms(text: [i32; 2000], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Count words (sequences of non-space characters)
-    while i < text_len {
-        if text[i] == 32 || text[i] == 9 || text[i] == 10 { // space, tab, newline
+    while (i < text_len) {
+        if (text[i] == 32 || text[i] == 9 || text[i] == 10) { // space, tab, newline
             in_word = false;
         } else {
-            if !in_word {
+            if (!in_word) {
                 word_count = word_count + 1;
                 in_word = true;
             }
@@ -407,7 +407,7 @@ fn wordCountingAlgorithms(text: [i32; 2000], text_len: i32) -> i32 {
     // Count specific character patterns
     let mut pattern_count: i32 = 0;
     i = 0;
-    while i < text_len - 2 {
+    while (i < text_len - 2) {
         // Count "THE" patterns
         if (text[i] == 84 || text[i] == 116) && // T or t
            (text[i + 1] == 72 || text[i + 1] == 104) && // H or h
@@ -426,8 +426,8 @@ fn textFilteringAlgorithms(mut text: [i32; 2000], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Remove non-printable characters
-    while i < text_len {
-        if text[i] < 32 || text[i] > 126 {
+    while (i < text_len) {
+        if (text[i] < 32 || text[i] > 126) {
             text[i] = 32; // Replace with space
             filtered_chars = filtered_chars + 1;
         }
@@ -436,11 +436,11 @@ fn textFilteringAlgorithms(mut text: [i32; 2000], text_len: i32) -> i32 {
     
     // Remove consecutive spaces
     i = 0;
-    while i < text_len - 1 {
-        if text[i] == 32 && text[i + 1] == 32 {
+    while (i < text_len - 1) {
+        if (text[i] == 32 && text[i + 1] == 32) {
             // Shift remaining characters left
             let mut j: i32 = i + 1;
-            while j < text_len - 1 {
+            while (j < text_len - 1) {
                 text[j] = text[j + 1];
                 j = j + 1;
             }
@@ -491,21 +491,21 @@ fn initializeParsingText(mut text: [i32; 1000]) {
     ];
     
     let mut i: i32 = 0;
-    while i < 50 && i < 1000 {
+    while (i < 50 && i < 1000) {
         text[i] = sample_text[i];
         i = i + 1;
     }
     
     // Fill rest with generated content
     let mut seed: i32 = 99999;
-    while i < 1000 {
+    while (i < 1000) {
         seed = (seed * 1664525 + 1013904223) % 2147483647;
-        if seed < 0 {
+        if (seed < 0) {
             seed = -seed;
         }
         
         let char_type: i32 = seed % 100;
-        if char_type < 40 {
+        if (char_type < 40) {
             text[i] = 48 + (seed % 10); // digits 0-9
         } else if char_type < 50 {
             text[i] = 44; // comma
@@ -528,15 +528,15 @@ fn parseNumbersFromText(text: [i32; 1000], text_len: i32) -> i32 {
     let mut in_number: bool = false;
     let mut i: i32 = 0;
     
-    while i < text_len {
-        if text[i] >= 48 && text[i] <= 57 { // digit 0-9
-            if !in_number {
+    while (i < text_len) {
+        if (text[i] >= 48 && text[i] <= 57) { // digit 0-9
+            if (!in_number) {
                 current_number = 0;
                 in_number = true;
             }
             current_number = current_number * 10 + (text[i] - 48);
         } else {
-            if in_number {
+            if (in_number) {
                 numbers_found = numbers_found + 1;
                 in_number = false;
             }
@@ -544,7 +544,7 @@ fn parseNumbersFromText(text: [i32; 1000], text_len: i32) -> i32 {
         i = i + 1;
     }
     
-    if in_number {
+    if (in_number) {
         numbers_found = numbers_found + 1;
     }
     
@@ -558,27 +558,27 @@ fn parseCSVLikeData(text: [i32; 1000], text_len: i32) -> i32 {
     let mut in_field: bool = false;
     let mut i: i32 = 0;
     
-    while i < text_len {
-        if text[i] == 44 { // comma
-            if in_field {
+    while (i < text_len) {
+        if (text[i] == 44) { // comma
+            if (in_field) {
                 fields = fields + 1;
                 in_field = false;
             }
         } else if text[i] == 10 || text[i] == 13 { // newline or carriage return
-            if in_field {
+            if (in_field) {
                 fields = fields + 1;
                 in_field = false;
             }
             rows = rows + 1;
         } else if text[i] != 32 { // not space
-            if !in_field {
+            if (!in_field) {
                 in_field = true;
             }
         }
         i = i + 1;
     }
     
-    if in_field {
+    if (in_field) {
         fields = fields + 1;
     }
     
@@ -591,28 +591,28 @@ fn tokenizeText(text: [i32; 1000], text_len: i32) -> i32 {
     let mut current_token_type: i32 = 0; // 0: none, 1: number, 2: letter, 3: operator, 4: punctuation
     let mut i: i32 = 0;
     
-    while i < text_len {
+    while (i < text_len) {
         let new_token_type: i32;
         
-        if text[i] >= 48 && text[i] <= 57 { // digit
+        if (text[i] >= 48 && text[i] <= 57) { // digit
             new_token_type = 1;
         } else if (text[i] >= 65 && text[i] <= 90) || (text[i] >= 97 && text[i] <= 122) { // letter
             new_token_type = 2;
-        } else if text[i] == 43 || text[i] == 45 || text[i] == 42 || text[i] == 47 { // +, -, *, /
+        } else if (text[i] == 43 || text[i] == 45 || text[i] == 42 || text[i] == 47) { // +, -, *, /
             new_token_type = 3;
-        } else if text[i] == 44 || text[i] == 46 || text[i] == 59 { // comma, period, semicolon
+        } else if (text[i] == 44 || text[i] == 46 || text[i] == 59) { // comma, period, semicolon
             new_token_type = 4;
         } else {
             new_token_type = 0; // whitespace or other
         }
         
-        if new_token_type != 0 && new_token_type != current_token_type {
-            if current_token_type != 0 {
+        if (new_token_type != 0 && new_token_type != current_token_type) {
+            if (current_token_type != 0) {
                 tokens = tokens + 1;
             }
             current_token_type = new_token_type;
         } else if new_token_type == 0 {
-            if current_token_type != 0 {
+            if (current_token_type != 0) {
                 tokens = tokens + 1;
                 current_token_type = 0;
             }
@@ -621,7 +621,7 @@ fn tokenizeText(text: [i32; 1000], text_len: i32) -> i32 {
         i = i + 1;
     }
     
-    if current_token_type != 0 {
+    if (current_token_type != 0) {
         tokens = tokens + 1;
     }
     
@@ -635,18 +635,18 @@ fn parseSimpleExpressions(text: [i32; 1000], text_len: i32) -> i32 {
     let mut numbers: i32 = 0;
     let mut i: i32 = 0;
     
-    while i < text_len {
-        if text[i] >= 48 && text[i] <= 57 { // digit
+    while (i < text_len) {
+        if (text[i] >= 48 && text[i] <= 57) { // digit
             // Skip through the entire number
-            while i < text_len && text[i] >= 48 && text[i] <= 57 {
+            while (i < text_len && text[i] >= 48 && text[i] <= 57) {
                 i = i + 1;
             }
             numbers = numbers + 1;
             i = i - 1; // Adjust for loop increment
-        } else if text[i] == 43 || text[i] == 45 || text[i] == 42 || text[i] == 47 { // operators
+        } else if (text[i] == 43 || text[i] == 45 || text[i] == 42 || text[i] == 47) { // operators
             operators = operators + 1;
-        } else if text[i] == 61 { // equals sign
-            if numbers > 0 && operators > 0 {
+        } else if (text[i] == 61) { // equals sign
+            if (numbers > 0 && operators > 0) {
                 expressions = expressions + 1;
             }
             numbers = 0;
@@ -690,14 +690,14 @@ fn initializeCompressionText(mut text: [i32; 1500]) {
     let mut i: i32 = 0;
     
     // Create text with repeating patterns
-    while i < 1500 {
-        if i % 100 < 20 {
+    while (i < 1500) {
+        if (i % 100 < 20) {
             text[i] = 65; // 'A' - frequent character
-        } else if i % 100 < 40 {
+        } else if (i % 100 < 40) {
             text[i] = 66; // 'B'
-        } else if i % 100 < 60 {
+        } else if (i % 100 < 60) {
             text[i] = 67; // 'C'
-        } else if i % 100 < 80 {
+        } else if (i % 100 < 80) {
             text[i] = 32; // Space
         } else {
             text[i] = 68 + (i % 5); // D, E, F, G, H
@@ -711,18 +711,18 @@ fn runLengthEncoding(text: [i32; 1500], text_len: i32) -> i32 {
     let mut compressed_size: i32 = 0;
     let mut i: i32 = 0;
     
-    while i < text_len {
+    while (i < text_len) {
         let current_char: i32 = text[i];
         let mut count: i32 = 1;
         
         // Count consecutive occurrences
-        while i + count < text_len && text[i + count] == current_char {
+        while (i + count < text_len && text[i + count] == current_char) {
             count = count + 1;
         }
         
         // In actual RLE, we'd store char + count
         // Here we just calculate compressed size
-        if count > 3 {
+        if (count > 3) {
             compressed_size = compressed_size + 2; // char + count
         } else {
             compressed_size = compressed_size + count; // store as is
@@ -741,9 +741,9 @@ fn simpleDictionaryCompression(text: [i32; 1500], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Build frequency dictionary
-    while i < text_len {
-        if text[i] >= 0 && text[i] < 256 {
-            if dictionary[text[i]] == 0 {
+    while (i < text_len) {
+        if (text[i] >= 0 && text[i] < 256) {
+            if (dictionary[text[i]] == 0) {
                 unique_chars = unique_chars + 1;
             }
             dictionary[text[i]] = dictionary[text[i]] + 1;
@@ -753,11 +753,11 @@ fn simpleDictionaryCompression(text: [i32; 1500], text_len: i32) -> i32 {
     
     // Calculate compression ratio based on unique characters
     let bits_per_char: i32;
-    if unique_chars <= 2 {
+    if (unique_chars <= 2) {
         bits_per_char = 1;
-    } else if unique_chars <= 4 {
+    } else if (unique_chars <= 4) {
         bits_per_char = 2;
-    } else if unique_chars <= 16 {
+    } else if (unique_chars <= 16) {
         bits_per_char = 4;
     } else {
         bits_per_char = 8;
@@ -773,14 +773,14 @@ fn patternBasedCompression(text: [i32; 1500], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Look for common 2-character patterns
-    while i < text_len - 1 {
+    while (i < text_len - 1) {
         let pattern: i32 = text[i] * 256 + text[i + 1]; // Combine two chars
         let mut pattern_count: i32 = 1;
         let mut j: i32 = i + 2;
         
         // Count occurrences of this pattern
-        while j < text_len - 1 {
-            if text[j] * 256 + text[j + 1] == pattern {
+        while (j < text_len - 1) {
+            if (text[j] * 256 + text[j + 1] == pattern) {
                 pattern_count = pattern_count + 1;
                 j = j + 2;
             } else {
@@ -788,7 +788,7 @@ fn patternBasedCompression(text: [i32; 1500], text_len: i32) -> i32 {
             }
         }
         
-        if pattern_count > 2 {
+        if (pattern_count > 2) {
             patterns_found = patterns_found + 1;
             savings = savings + pattern_count; // Each pattern instance saves space
         }
@@ -805,8 +805,8 @@ fn frequencyBasedEncoding(text: [i32; 1500], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Calculate character frequencies
-    while i < text_len {
-        if text[i] >= 0 && text[i] < 256 {
+    while (i < text_len) {
+        if (text[i] >= 0 && text[i] < 256) {
             frequencies[text[i]] = frequencies[text[i]] + 1;
         }
         i = i + 1;
@@ -815,14 +815,14 @@ fn frequencyBasedEncoding(text: [i32; 1500], text_len: i32) -> i32 {
     // Calculate weighted bit length (simplified Huffman)
     let mut total_bits: i32 = 0;
     i = 0;
-    while i < 256 {
-        if frequencies[i] > 0 {
+    while (i < 256) {
+        if (frequencies[i] > 0) {
             let bit_length: i32;
-            if frequencies[i] > text_len / 2 {
+            if (frequencies[i] > text_len / 2) {
                 bit_length = 1; // Most frequent gets 1 bit
-            } else if frequencies[i] > text_len / 8 {
+            } else if (frequencies[i] > text_len / 8) {
                 bit_length = 3; // Common chars get 3 bits
-            } else if frequencies[i] > text_len / 32 {
+            } else if (frequencies[i] > text_len / 32) {
                 bit_length = 5; // Less common get 5 bits
             } else {
                 bit_length = 8; // Rare chars get 8 bits
@@ -868,7 +868,7 @@ fn initializeAdvancedTestStrings(mut text1: [i32; 800], mut text2: [i32; 800]) {
     let mut i: i32 = 0;
     
     // Create similar but not identical strings
-    while i < 400 {
+    while (i < 400) {
         text1[i] = 65 + (i % 26); // A-Z pattern
         text2[i] = 65 + ((i + 3) % 26); // Shifted pattern
         i = i + 1;
@@ -891,13 +891,13 @@ fn longestCommonSubsequence(text1: [i32; 800], text2: [i32; 800], len1: i32, len
     let mut curr_row: [i32; 201] = [0; 201];
     
     let mut i: i32 = 1;
-    while i <= len1 && i <= 200 {
+    while (i <= len1 && i <= 200) {
         let mut j: i32 = 1;
-        while j <= len2 && j <= 200 {
-            if text1[i - 1] == text2[j - 1] {
+        while (j <= len2 && j <= 200) {
+            if (text1[i - 1] == text2[j - 1]) {
                 curr_row[j] = prev_row[j - 1] + 1;
             } else {
-                if prev_row[j] > curr_row[j - 1] {
+                if (prev_row[j] > curr_row[j - 1]) {
                     curr_row[j] = prev_row[j];
                 } else {
                     curr_row[j] = curr_row[j - 1];
@@ -908,7 +908,7 @@ fn longestCommonSubsequence(text1: [i32; 800], text2: [i32; 800], len1: i32, len
         
         // Swap rows
         j = 0;
-        while j <= len2 && j <= 200 {
+        while (j <= len2 && j <= 200) {
             prev_row[j] = curr_row[j];
             curr_row[j] = 0;
             j = j + 1;
@@ -918,7 +918,7 @@ fn longestCommonSubsequence(text1: [i32; 800], text2: [i32; 800], len1: i32, len
     }
     
     let result: i32;
-    if len2 <= 200 {
+    if (len2 <= 200) {
         result = prev_row[len2];
     } else {
         result = prev_row[200];
@@ -934,13 +934,13 @@ fn calculateEditDistance(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: 
     let actual_len1: i32;
     let actual_len2: i32;
     
-    if len1 > max_len {
+    if (len1 > max_len) {
         actual_len1 = max_len;
     } else {
         actual_len1 = len1;
     }
     
-    if len2 > max_len {
+    if (len2 > max_len) {
         actual_len2 = max_len;
     } else {
         actual_len2 = len2;
@@ -951,18 +951,18 @@ fn calculateEditDistance(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: 
     
     // Initialize first row
     let mut j: i32 = 0;
-    while j <= actual_len2 {
+    while (j <= actual_len2) {
         prev_row[j] = j;
         j = j + 1;
     }
     
     let mut i: i32 = 1;
-    while i <= actual_len1 {
+    while (i <= actual_len1) {
         curr_row[0] = i;
         j = 1;
-        while j <= actual_len2 {
+        while (j <= actual_len2) {
             let cost: i32;
-            if text1[i - 1] == text2[j - 1] {
+            if (text1[i - 1] == text2[j - 1]) {
                 cost = 0;
             } else {
                 cost = 1;
@@ -973,13 +973,13 @@ fn calculateEditDistance(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: 
             let substitute_cost: i32 = prev_row[j - 1] + cost;
             
             let min_cost: i32;
-            if delete_cost < insert_cost {
+            if (delete_cost < insert_cost) {
                 min_cost = delete_cost;
             } else {
                 min_cost = insert_cost;
             }
             
-            if substitute_cost < min_cost {
+            if (substitute_cost < min_cost) {
                 curr_row[j] = substitute_cost;
             } else {
                 curr_row[j] = min_cost;
@@ -990,7 +990,7 @@ fn calculateEditDistance(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: 
         
         // Swap rows
         j = 0;
-        while j <= actual_len2 {
+        while (j <= actual_len2) {
             prev_row[j] = curr_row[j];
             j = j + 1;
         }
@@ -1007,13 +1007,13 @@ fn findLongestPalindrome(text: [i32; 800], text_len: i32) -> i32 {
     let mut i: i32 = 0;
     
     // Check for odd-length palindromes
-    while i < text_len {
+    while (i < text_len) {
         let mut left: i32 = i;
         let mut right: i32 = i;
         
-        while left >= 0 && right < text_len && text[left] == text[right] {
+        while (left >= 0 && right < text_len && text[left] == text[right]) {
             let current_length: i32 = right - left + 1;
-            if current_length > max_length {
+            if (current_length > max_length) {
                 max_length = current_length;
             }
             left = left - 1;
@@ -1025,13 +1025,13 @@ fn findLongestPalindrome(text: [i32; 800], text_len: i32) -> i32 {
     
     // Check for even-length palindromes
     i = 0;
-    while i < text_len - 1 {
+    while (i < text_len - 1) {
         let mut left: i32 = i;
         let mut right: i32 = i + 1;
         
-        while left >= 0 && right < text_len && text[left] == text[right] {
+        while (left >= 0 && right < text_len && text[left] == text[right]) {
             let current_length: i32 = right - left + 1;
-            if current_length > max_length {
+            if (current_length > max_length) {
                 max_length = current_length;
             }
             left = left - 1;
@@ -1046,7 +1046,7 @@ fn findLongestPalindrome(text: [i32; 800], text_len: i32) -> i32 {
 
 // Detect if one string is a rotation of another
 fn detectStringRotations(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: i32) -> i32 {
-    if len1 != len2 {
+    if (len1 != len2) {
         return 0; // Different lengths cannot be rotations
     }
     
@@ -1054,20 +1054,20 @@ fn detectStringRotations(text1: [i32; 800], text2: [i32; 800], len1: i32, len2: 
     let mut shift: i32 = 0;
     
     // Try all possible rotations
-    while shift < len1 && shift < 200 { // Limit for performance
+    while (shift < len1 && shift < 200) { // Limit for performance
         let mut is_rotation: bool = true;
         let mut i: i32 = 0;
         
-        while i < len1 && i < 200 {
+        while (i < len1 && i < 200) {
             let rotated_index: i32 = (i + shift) % len1;
-            if text1[i] != text2[rotated_index] {
+            if (text1[i] != text2[rotated_index]) {
                 is_rotation = false;
                 break;
             }
             i = i + 1;
         }
         
-        if is_rotation {
+        if (is_rotation) {
             rotations_found = rotations_found + 1;
         }
         
