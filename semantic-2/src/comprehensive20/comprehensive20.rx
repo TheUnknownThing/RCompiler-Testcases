@@ -1,6 +1,8 @@
 /*
 Test Package: Semantic-2
 Test Target: comprehensive20
+Author: Wenxin Zheng
+Time: 2025-08-17
 Verdict: Success
 Comment: Comprehensive test of complex control flow and finite state machine simulation
          Tests: Multi-layer FSM, Event-driven programming, Complex branching patterns,
