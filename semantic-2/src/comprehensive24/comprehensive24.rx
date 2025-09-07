@@ -87,7 +87,7 @@ fn main() {
     
     // Initialize free frame list
     let mut i: i32 = 0;
-    while i < num_physical_frames {
+    while (i < num_physical_frames) {
         free_frame_list[i] = i;
         frame_allocation_table[i] = 0; // 0 = free, 1 = allocated
         i = i + 1;
@@ -98,7 +98,7 @@ fn main() {
     let mut access_count: i32 = 0;
     let mut current_time: i32 = 0;
     
-    while access_count < access_patterns {
+    while (access_count < access_patterns) {
         current_time = current_time + 1;
         
         // Generate complex memory access patterns
@@ -114,7 +114,7 @@ fn main() {
         
         // TLB Lookup
         let tlb_hit: bool = lookup_tlb(virtual_page, &tlb_virtual_tags, &tlb_valid);
-        if tlb_hit {
+        if (tlb_hit) {
             tlb_hits = tlb_hits + 1;
         } else {
             tlb_misses = tlb_misses + 1;
@@ -126,7 +126,7 @@ fn main() {
             let mut physical_frame: i32 = -1;
             let page_table_entry: i32 = page_tables[page_dir_index][page_table_index];
             
-            if page_table_entry > 0 { // Page is mapped
+            if (page_table_entry > 0) { // Page is mapped
                 physical_frame = page_table_entry - 1; // Convert from 1-based to 0-based
                 
                 // Update page access information
@@ -140,7 +140,7 @@ fn main() {
                 // Page fault! Need to allocate a frame
                 page_faults = page_faults + 1;
                 
-                if free_frame_count > 0 {
+                if (free_frame_count > 0) {
                     // Allocate a free frame
                     physical_frame = allocate_free_frame(&mut free_frame_list, &mut free_frame_count,
                                                        &mut frame_allocation_table);
@@ -154,7 +154,7 @@ fn main() {
                     );
                 }
                 
-                if physical_frame >= 0 {
+                if (physical_frame >= 0) {
                     // Map the page to the frame
                     page_tables[page_dir_index][page_table_index] = physical_frame + 1; // 1-based
                     reverse_mapping[physical_frame] = virtual_page;
@@ -173,13 +173,13 @@ fn main() {
         }
         
         // Simulate cache access if we have a valid physical address
-        if physical_frame >= 0 {
+        if (physical_frame >= 0) {
             let physical_address: i32 = physical_frame * page_size + page_offset;
             
             // L1 Cache Access
             let l1_hit: bool = access_l1_cache(physical_address, &mut l1_cache, &mut l1_tags,
                                              &mut l1_valid, &mut l1_lru_bits, current_time);
-            if l1_hit {
+            if (l1_hit) {
                 l1_hits = l1_hits + 1;
             } else {
                 l1_misses = l1_misses + 1;
@@ -187,7 +187,7 @@ fn main() {
                 // L2 Cache Access
                 let l2_hit: bool = access_l2_cache(physical_address, &mut l2_cache, &mut l2_tags,
                                                  &mut l2_valid, &mut l2_lru_bits, current_time);
-                if l2_hit {
+                if (l2_hit) {
                     l2_hits = l2_hits + 1;
                 } else {
                     l2_misses = l2_misses + 1;
@@ -197,34 +197,34 @@ fn main() {
         }
         
         // Simulate write operations (mark pages as dirty)
-        if access_count % 4 == 0 && virtual_page < 256 {
+        if (access_count % 4 == 0 && virtual_page < 256) {
             modify_bits[virtual_page] = true;
         }
         
         // Periodic memory compaction and defragmentation
-        if access_count % 500 == 0 {
+        if (access_count % 500 == 0) {
             fragmentation_score = analyze_memory_fragmentation(&frame_allocation_table,
                                                               num_physical_frames);
-            if fragmentation_score > 30 {
+            if (fragmentation_score > 30) {
                 compact_memory(&mut page_tables, &mut reverse_mapping, &mut frame_allocation_table,
                               &mut free_frame_list, &mut free_frame_count, num_physical_frames);
             }
         }
         
         // Working set analysis
-        if access_count % 100 == 0 {
+        if (access_count % 100 == 0) {
             let working_set_size: i32 = calculate_working_set_size(&access_history, history_head,
                                                                   working_set_window);
             // Adjust working set window based on recent behavior
-            if working_set_size > 40 {
+            if (working_set_size > 40) {
                 working_set_window = working_set_window + 5;
-            } else if working_set_size < 20 && working_set_window > 10 {
+            } else if (working_set_size < 20 && working_set_window > 10) {
                 working_set_window = working_set_window - 5;
             }
         }
         
         // Adaptive cache policy adjustment
-        if access_count % 200 == 0 {
+        if (access_count % 200 == 0) {
             adjust_cache_policies(&mut l1_lru_bits, &mut l2_lru_bits, l1_hits, l1_misses,
                                  l2_hits, l2_misses);
         }
@@ -264,24 +264,24 @@ fn main() {
 fn generate_memory_access_pattern(access_num: i32, total_accesses: i32) -> i32 {
     let pattern_type: i32 = (access_num / 100) % 6;
     
-    if pattern_type == 0 {
+    if (pattern_type == 0) {
         // Sequential access pattern
         (access_num * 64) % 1048576
-    } else if pattern_type == 1 {
+    } else if (pattern_type == 1) {
         // Random access pattern
         ((access_num * 17 + 23) * 131 + 47) % 1048576
-    } else if pattern_type == 2 {
+    } else if (pattern_type == 2) {
         // Strided access pattern
         (access_num * 512) % 1048576
-    } else if pattern_type == 3 {
+    } else if (pattern_type == 3) {
         // Locality-based access pattern (80% local, 20% random)
         let base_addr: i32 = ((access_num / 50) * 8192) % 1048576;
-        if (access_num * 7) % 10 < 8 {
+        if ((access_num * 7) % 10 < 8) {
             base_addr + ((access_num * 3) % 1024)
         } else {
             ((access_num * 19 + 37) * 113) % 1048576
         }
-    } else if pattern_type == 4 {
+    } else if (pattern_type == 4) {
         // Working set pattern (concentrate on a few pages)
         let working_set_base: i32 = ((access_num / 200) * 16384) % 1048576;
         working_set_base + ((access_num * 5) % 4096)
@@ -294,8 +294,8 @@ fn generate_memory_access_pattern(access_num: i32, total_accesses: i32) -> i32 {
 // TLB lookup function
 fn lookup_tlb(virtual_page: i32, tlb_tags: &[i32; 16], tlb_valid: &[bool; 16]) -> bool {
     let mut i: i32 = 0;
-    while i < 16 {
-        if tlb_valid[i] && tlb_tags[i] == virtual_page {
+    while (i < 16) {
+        if (tlb_valid[i] && tlb_tags[i] == virtual_page) {
             return true;
         }
         i = i + 1;
@@ -312,8 +312,8 @@ fn update_tlb(virtual_page: i32, physical_frame: i32, tlb_tags: &mut [i32; 16],
     let mut min_counter: i32 = tlb_lru[0];
     
     let mut i: i32 = 1;
-    while i < 16 {
-        if tlb_lru[i] < min_counter {
+    while (i < 16) {
+        if (tlb_lru[i] < min_counter) {
             min_counter = tlb_lru[i];
             lru_index = i;
         }
@@ -327,8 +327,8 @@ fn update_tlb(virtual_page: i32, physical_frame: i32, tlb_tags: &mut [i32; 16],
     
     // Update all LRU counters
     i = 0;
-    while i < 16 {
-        if i == lru_index {
+    while (i < 16) {
+        if (i == lru_index) {
             tlb_lru[i] = 1000; // High priority
         } else {
             tlb_lru[i] = tlb_lru[i] - 1;
@@ -381,11 +381,11 @@ fn enhanced_clock_replacement(reverse_mapping: &mut [i32; 64], reference_bits: &
     let start_hand: i32 = *clock_hand;
     let mut passes: i32 = 0;
     
-    while passes < 3 { // Maximum 3 passes to avoid infinite loop
+    while (passes < 3) { // Maximum 3 passes to avoid infinite loop
         let frame: i32 = *clock_hand;
         let virtual_page: i32 = reverse_mapping[frame];
         
-        if virtual_page >= 0 && virtual_page < 256 {
+        if (virtual_page >= 0 && virtual_page < 256) {
             if !reference_bits[virtual_page] {
                 if !modify_bits[virtual_page] || passes >= 2 {
                     // Found victim: clean page or dirty page after 2 passes
@@ -415,10 +415,10 @@ fn lru_replacement(reverse_mapping: &[i32; 64], lru_counter: &[i32; 256], curren
     let mut oldest_time: i32 = current_time + 1;
     
     let mut i: i32 = 0;
-    while i < 64 {
+    while (i < 64) {
         let virtual_page: i32 = reverse_mapping[i];
-        if virtual_page >= 0 && virtual_page < 256 {
-            if lru_counter[virtual_page] < oldest_time {
+        if (virtual_page >= 0 && virtual_page < 256) {
+            if (lru_counter[virtual_page] < oldest_time) {
                 oldest_time = lru_counter[virtual_page];
                 victim_frame = i;
             }
@@ -442,10 +442,10 @@ fn working_set_replacement(reverse_mapping: &[i32; 64], access_history: &[i32; 1
     };
     
     let mut pos: i32 = start_pos;
-    while i < window_size {
-        if pos >= 0 && pos < 1000 {
+    while (i < window_size) {
+        if (pos >= 0 && pos < 1000) {
             let page: i32 = access_history[pos];
-            if page >= 0 && page < 256 {
+            if (page >= 0 && page < 256) {
                 working_set[page] = true;
             }
         }
@@ -455,9 +455,9 @@ fn working_set_replacement(reverse_mapping: &[i32; 64], access_history: &[i32; 1
     
     // Find frame with page not in working set
     i = 0;
-    while i < 64 {
+    while (i < 64) {
         let virtual_page: i32 = reverse_mapping[i];
-        if virtual_page >= 0 && virtual_page < 256 && !working_set[virtual_page] {
+        if (virtual_page >= 0 && virtual_page < 256 && !working_set[virtual_page]) {
             return i;
         }
         i = i + 1;
@@ -476,9 +476,9 @@ fn adaptive_replacement(reverse_mapping: &[i32; 64], reference_bits: &[bool; 256
     let mut best_score: i32 = -1;
     
     let mut i: i32 = 0;
-    while i < 64 {
+    while (i < 64) {
         let virtual_page: i32 = reverse_mapping[i];
-        if virtual_page >= 0 && virtual_page < 256 {
+        if (virtual_page >= 0 && virtual_page < 256) {
             let mut score: i32 = 0;
             
             // Factor 1: Age (older is better for replacement)
@@ -524,8 +524,8 @@ fn check_working_set_membership(page: i32, access_history: &[i32; 1000],
     };
     
     let mut pos: i32 = start_pos;
-    while i < window_size {
-        if pos >= 0 && pos < 1000 && access_history[pos] == page {
+    while (i < window_size) {
+        if (pos >= 0 && pos < 1000 && access_history[pos] == page) {
             return true;
         }
         pos = (pos + 1) % 1000;
@@ -542,8 +542,8 @@ fn access_l1_cache(address: i32, cache: &mut [[i32; 4]; 64], tags: &mut [[i32; 4
     
     // Check for hit
     let mut i: i32 = 0;
-    while i < 4 {
-        if valid[set_index][i] && tags[set_index][i] == tag {
+    while (i < 4) {
+        if (valid[set_index][i] && tags[set_index][i] == tag) {
             // Cache hit - update LRU
             update_cache_lru(lru_bits, set_index, i, time, 4);
             return true;
@@ -568,8 +568,8 @@ fn access_l2_cache(address: i32, cache: &mut [[i32; 8]; 128], tags: &mut [[i32; 
     
     // Check for hit
     let mut i: i32 = 0;
-    while i < 8 {
-        if valid[set_index][i] && tags[set_index][i] == tag {
+    while (i < 8) {
+        if (valid[set_index][i] && tags[set_index][i] == tag) {
             // Cache hit - update LRU
             update_cache_lru_8way(lru_bits, set_index, i, time);
             return true;
@@ -602,8 +602,8 @@ fn find_lru_way(lru_bits: &[[i32; 4]; 64], set_index: i32, ways: i32) -> i32 {
     let mut min_time: i32 = lru_bits[set_index][0];
     
     let mut i: i32 = 1;
-    while i < ways {
-        if lru_bits[set_index][i] < min_time {
+    while (i < ways) {
+        if (lru_bits[set_index][i] < min_time) {
             min_time = lru_bits[set_index][i];
             lru_way = i;
         }
@@ -619,8 +619,8 @@ fn find_lru_way_8(lru_bits: &[[i32; 8]; 128], set_index: i32) -> i32 {
     let mut min_time: i32 = lru_bits[set_index][0];
     
     let mut i: i32 = 1;
-    while i < 8 {
-        if lru_bits[set_index][i] < min_time {
+    while (i < 8) {
+        if (lru_bits[set_index][i] < min_time) {
             min_time = lru_bits[set_index][i];
             lru_way = i;
         }
@@ -638,8 +638,8 @@ fn analyze_memory_fragmentation(allocation_table: &[i32; 64], num_frames: i32) -
     let mut total_free: i32 = 0;
     
     let mut i: i32 = 0;
-    while i < num_frames {
-        if allocation_table[i] == 0 { // Free frame
+    while (i < num_frames) {
+        if (allocation_table[i] == 0) { // Free frame
             current_free_block = current_free_block + 1;
             total_free = total_free + 1;
         } else { // Allocated frame
@@ -678,8 +678,8 @@ fn compact_memory(page_tables: &mut [[i32; 16]; 16], reverse_mapping: &mut [i32;
     let mut i: i32 = 0;
     
     // Move all allocated frames to the beginning
-    while i < num_frames {
-        if allocation_table[i] == 1 { // Allocated frame
+    while (i < num_frames) {
+        if (allocation_table[i] == 1) { // Allocated frame
             if i != compacted_pos {
                 // Move frame from position i to compacted_pos
                 let virtual_page: i32 = reverse_mapping[i];
@@ -703,7 +703,7 @@ fn compact_memory(page_tables: &mut [[i32; 16]; 16], reverse_mapping: &mut [i32;
     // Update free list
     *free_count = num_frames - compacted_pos;
     i = 0;
-    while i < *free_count {
+    while (i < *free_count) {
         free_list[i] = compacted_pos + i;
         i = i + 1;
     }
@@ -723,10 +723,10 @@ fn calculate_working_set_size(access_history: &[i32; 1000], history_head: i32,
     
     let mut i: i32 = 0;
     let mut pos: i32 = start_pos;
-    while i < window_size {
-        if pos >= 0 && pos < 1000 {
+    while (i < window_size) {
+        if (pos >= 0 && pos < 1000) {
             let page: i32 = access_history[pos];
-            if page >= 0 && page < 256 && !unique_pages[page] {
+            if (page >= 0 && page < 256 && !unique_pages[page]) {
                 unique_pages[page] = true;
                 working_set_size = working_set_size + 1;
             }
@@ -757,9 +757,9 @@ fn adjust_cache_policies(l1_lru: &mut [[i32; 4]; 64], l2_lru: &mut [[i32; 8]; 12
     if l1_hit_rate < 70 {
         // Make L1 cache more conservative (age entries faster)
         let mut i: i32 = 0;
-        while i < 64 {
+        while (i < 64) {
             let mut j: i32 = 0;
-            while j < 4 {
+            while (j < 4) {
                 l1_lru[i][j] = l1_lru[i][j] - 10;
                 j = j + 1;
             }
@@ -770,9 +770,9 @@ fn adjust_cache_policies(l1_lru: &mut [[i32; 4]; 64], l2_lru: &mut [[i32; 8]; 12
     if l2_hit_rate < 60 {
         // Make L2 cache more conservative
         let mut i: i32 = 0;
-        while i < 128 {
+        while (i < 128) {
             let mut j: i32 = 0;
-            while j < 8 {
+            while (j < 8) {
                 l2_lru[i][j] = l2_lru[i][j] - 15;
                 j = j + 1;
             }

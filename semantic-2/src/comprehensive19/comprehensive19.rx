@@ -81,7 +81,7 @@ fn init_memory_pool() -> MemoryPool {
     
     // Initialize free list - link all nodes
     let mut i = 0;
-    while i < MEMORY_POOL_SIZE - 1 {
+    while (i < MEMORY_POOL_SIZE - 1) {
         pool.nodes[i].next = i + 1;
         i = i + 1;
     }
@@ -92,7 +92,7 @@ fn init_memory_pool() -> MemoryPool {
 
 // Allocate node from memory pool
 fn allocate_node(pool: &mut MemoryPool, data: i32) -> i32 {
-    if pool.free_list == NULL_INDEX {
+    if (pool.free_list == NULL_INDEX) {
         return NULL_INDEX;  // Out of memory
     }
     
@@ -108,7 +108,7 @@ fn allocate_node(pool: &mut MemoryPool, data: i32) -> i32 {
 
 // Deallocate node back to memory pool
 fn deallocate_node(pool: &mut MemoryPool, index: i32) {
-    if index == NULL_INDEX {
+    if (index == NULL_INDEX) {
         return;
     }
     
@@ -128,7 +128,7 @@ fn init_stack() -> Stack {
 
 // Push to stack
 fn stack_push(stack: &mut Stack, value: i32) -> bool {
-    if stack.top >= stack.capacity - 1 {
+    if (stack.top >= stack.capacity - 1) {
         return false;  // Stack overflow
     }
     
@@ -139,7 +139,7 @@ fn stack_push(stack: &mut Stack, value: i32) -> bool {
 
 // Pop from stack
 fn stack_pop(stack: &mut Stack) -> i32 {
-    if stack.top < 0 {
+    if (stack.top < 0) {
         return -999999;  // Stack underflow indicator
     }
     
@@ -166,7 +166,7 @@ fn init_queue() -> Queue {
 
 // Enqueue to queue
 fn queue_enqueue(queue: &mut Queue, value: i32) -> bool {
-    if queue.size >= queue.capacity {
+    if (queue.size >= queue.capacity) {
         return false;  // Queue overflow
     }
     
@@ -178,7 +178,7 @@ fn queue_enqueue(queue: &mut Queue, value: i32) -> bool {
 
 // Dequeue from queue
 fn queue_dequeue(queue: &mut Queue) -> i32 {
-    if queue.size <= 0 {
+    if (queue.size <= 0) {
         return -999999;  // Queue underflow indicator
     }
     
@@ -198,7 +198,7 @@ fn hash_function(key: i32) -> i32 {
     let mut hash = key;
     hash = hash * 31 + 17;  // Simple multiplicative hash
     hash = hash % HASH_TABLE_SIZE;
-    if hash < 0 {
+    if (hash < 0) {
         hash = hash + HASH_TABLE_SIZE;
     }
     hash
@@ -214,7 +214,7 @@ fn init_hash_table() -> HashTable {
     
     // Initialize all entries as unused
     let mut i = 0;
-    while i < MAX_NODES {
+    while (i < MAX_NODES) {
         table.entries[i].is_used = false;
         i = i + 1;
     }
@@ -224,7 +224,7 @@ fn init_hash_table() -> HashTable {
 
 // Insert into hash table
 fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
-    if table.entry_count >= MAX_NODES {
+    if (table.entry_count >= MAX_NODES) {
         return false;  // Table full
     }
     
@@ -232,7 +232,7 @@ fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
     
     // Check if key already exists
     let mut current = table.buckets[bucket_index];
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         if table.entries[current].key == key {
             table.entries[current].value = value;  // Update existing
             return true;
@@ -242,11 +242,11 @@ fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
     
     // Find free entry
     let mut entry_index = 0;
-    while entry_index < MAX_NODES && table.entries[entry_index].is_used {
+    while (entry_index < MAX_NODES && table.entries[entry_index].is_used) {
         entry_index = entry_index + 1;
     }
     
-    if entry_index >= MAX_NODES {
+    if (entry_index >= MAX_NODES) {
         return false;  // No free entries
     }
     
@@ -266,7 +266,7 @@ fn hash_table_search(table: &HashTable, key: i32) -> i32 {
     let bucket_index = hash_function(key);
     let mut current = table.buckets[bucket_index];
     
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         if table.entries[current].key == key {
             return table.entries[current].value;
         }
@@ -282,10 +282,10 @@ fn hash_table_delete(table: &mut HashTable, key: i32) -> bool {
     let mut current = table.buckets[bucket_index];
     let mut prev = NULL_INDEX;
     
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         if table.entries[current].key == key {
             // Remove from chain
-            if prev == NULL_INDEX {
+            if (prev == NULL_INDEX) {
                 table.buckets[bucket_index] = table.entries[current].next;
             } else {
                 table.entries[prev].next = table.entries[current].next;
@@ -313,12 +313,12 @@ fn init_list_manager() -> LinkedListManager {
 
 // Insert at head of specific list
 fn list_insert_head(manager: &mut LinkedListManager, pool: &mut MemoryPool, list_id: i32, data: i32) -> bool {
-    if list_id < 0 || list_id >= 10 {
+    if (list_id < 0 || list_id >= 10) {
         return false;
     }
     
     let new_node = allocate_node(pool, data);
-    if new_node == NULL_INDEX {
+    if (new_node == NULL_INDEX) {
         return false;
     }
     
@@ -331,12 +331,12 @@ fn list_insert_head(manager: &mut LinkedListManager, pool: &mut MemoryPool, list
 
 // Search in specific list
 fn list_search(manager: &LinkedListManager, pool: &MemoryPool, list_id: i32, data: i32) -> bool {
-    if list_id < 0 || list_id >= 10 {
+    if (list_id < 0 || list_id >= 10) {
         return false;
     }
     
     let mut current = manager.heads[list_id];
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         if pool.nodes[current].data == data {
             return true;
         }
@@ -348,16 +348,16 @@ fn list_search(manager: &LinkedListManager, pool: &MemoryPool, list_id: i32, dat
 
 // Delete from specific list
 fn list_delete(manager: &mut LinkedListManager, pool: &mut MemoryPool, list_id: i32, data: i32) -> bool {
-    if list_id < 0 || list_id >= 10 {
+    if (list_id < 0 || list_id >= 10) {
         return false;
     }
     
     let mut current = manager.heads[list_id];
     let mut prev = NULL_INDEX;
     
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         if pool.nodes[current].data == data {
-            if prev == NULL_INDEX {
+            if (prev == NULL_INDEX) {
                 manager.heads[list_id] = pool.nodes[current].next;
             } else {
                 pool.nodes[prev].next = pool.nodes[current].next;
@@ -376,14 +376,14 @@ fn list_delete(manager: &mut LinkedListManager, pool: &mut MemoryPool, list_id: 
 
 // Get list length
 fn list_length(manager: &LinkedListManager, pool: &MemoryPool, list_id: i32) -> i32 {
-    if list_id < 0 || list_id >= 10 {
+    if (list_id < 0 || list_id >= 10) {
         return 0;
     }
     
     let mut count = 0;
     let mut current = manager.heads[list_id];
     
-    while current != NULL_INDEX {
+    while (current != NULL_INDEX) {
         count = count + 1;
         current = pool.nodes[current].next;
     }
@@ -393,7 +393,7 @@ fn list_length(manager: &LinkedListManager, pool: &MemoryPool, list_id: i32) -> 
 
 // Complex operation: merge two sorted lists
 fn list_merge_sorted(manager: &mut LinkedListManager, pool: &mut MemoryPool, list1_id: i32, list2_id: i32, result_id: i32) -> bool {
-    if list1_id < 0 || list1_id >= 10 || list2_id < 0 || list2_id >= 10 || result_id < 0 || result_id >= 10 {
+    if (list1_id < 0 || list1_id >= 10 || list2_id < 0 || list2_id >= 10 || result_id < 0 || result_id >= 10) {
         return false;
     }
     
@@ -403,10 +403,10 @@ fn list_merge_sorted(manager: &mut LinkedListManager, pool: &mut MemoryPool, lis
     let mut result_tail = NULL_INDEX;
     
     // Merge process
-    while ptr1 != NULL_INDEX && ptr2 != NULL_INDEX {
+    while (ptr1 != NULL_INDEX && ptr2 != NULL_INDEX) {
         let next_node: i32;
         
-        if pool.nodes[ptr1].data <= pool.nodes[ptr2].data {
+        if (pool.nodes[ptr1].data <= pool.nodes[ptr2].data) {
             next_node = ptr1;
             ptr1 = pool.nodes[ptr1].next;
         } else {
@@ -416,7 +416,7 @@ fn list_merge_sorted(manager: &mut LinkedListManager, pool: &mut MemoryPool, lis
         
         pool.nodes[next_node].next = NULL_INDEX;
         
-        if manager.heads[result_id] == NULL_INDEX {
+        if (manager.heads[result_id] == NULL_INDEX) {
             manager.heads[result_id] = next_node;
             result_tail = next_node;
         } else {
@@ -427,8 +427,8 @@ fn list_merge_sorted(manager: &mut LinkedListManager, pool: &mut MemoryPool, lis
     
     // Append remaining nodes
     let remaining = if ptr1 != NULL_INDEX { ptr1 } else { ptr2 };
-    if remaining != NULL_INDEX {
-        if result_tail != NULL_INDEX {
+    if (remaining != NULL_INDEX) {
+        if (result_tail != NULL_INDEX) {
             pool.nodes[result_tail].next = remaining;
         } else {
             manager.heads[result_id] = remaining;
@@ -458,9 +458,9 @@ fn test_comprehensive_operations() {
     // Test 1: Memory pool stress test
     let mut allocated_nodes: [i32; 100] = [NULL_INDEX; 100];
     let mut i = 0;
-    while i < 100 {
+    while (i < 100) {
         allocated_nodes[i] = allocate_node(&mut memory_pool, i * 7 + 13);
-        if allocated_nodes[i] == NULL_INDEX {
+        if (allocated_nodes[i] == NULL_INDEX) {
             printInt(19901);  // Allocation failure
         }
         i = i + 1;
@@ -471,12 +471,12 @@ fn test_comprehensive_operations() {
     // Test 2: Hash table collision handling
     let mut hash_collisions = 0;
     i = 0;
-    while i < 200 {
+    while (i < 200) {
         let key = i * 127 + 1;  // Force collisions
         let value = i * i + 17;
-        if hash_table_insert(&mut hash_table, key, value) {
+        if (hash_table_insert(&mut hash_table, key, value)) {
             let retrieved = hash_table_search(&hash_table, key);
-            if retrieved != value {
+            if (retrieved != value) {
                 printInt(19902);  // Hash table error
             }
         }
@@ -487,8 +487,8 @@ fn test_comprehensive_operations() {
     
     // Test 3: Stack operations with corner cases
     i = 0;
-    while i < STACK_SIZE + 10 {  // Test overflow
-        if !stack_push(&mut stack, i * 3 + 7) {
+    while (i < STACK_SIZE + 10) {  // Test overflow
+        if (!stack_push(&mut stack, i * 3 + 7)) {
             printInt(19903);  // Stack overflow detected
             break;
         }
@@ -496,9 +496,9 @@ fn test_comprehensive_operations() {
     }
     
     let mut pop_count = 0;
-    while !stack_is_empty(&stack) {
+    while (!stack_is_empty(&stack)) {
         let value = stack_pop(&mut stack);
-        if value != -999999 {
+        if (value != -999999) {
             pop_count = pop_count + 1;
         }
     }
@@ -507,20 +507,20 @@ fn test_comprehensive_operations() {
     
     // Test 4: Queue circular operations
     i = 0;
-    while i < QUEUE_SIZE / 2 {
+    while (i < QUEUE_SIZE / 2) {
         queue_enqueue(&mut queue, i * 5 + 11);
         i = i + 1;
     }
     
     i = 0;
-    while i < QUEUE_SIZE / 4 {
+    while (i < QUEUE_SIZE / 4) {
         queue_dequeue(&mut queue);
         i = i + 1;
     }
     
     i = 0;
-    while i < QUEUE_SIZE / 2 {
-        if !queue_enqueue(&mut queue, i * 7 + 23) {
+    while (i < QUEUE_SIZE / 2) {
+        if (!queue_enqueue(&mut queue, i * 7 + 23)) {
             printInt(19904);  // Queue operation error
         }
         i = i + 1;
@@ -531,9 +531,9 @@ fn test_comprehensive_operations() {
     // Test 5: Complex linked list operations
     // Create multiple sorted lists
     i = 0;
-    while i < 5 {
+    while (i < 5) {
         let mut j = 0;
-        while j < 20 {
+        while (j < 20) {
             list_insert_head(&mut list_manager, &mut memory_pool, i, j * 2 + i);
             j = j + 1;
         }
@@ -545,10 +545,10 @@ fn test_comprehensive_operations() {
     // Search operations
     let mut search_success = 0;
     i = 0;
-    while i < 5 {
+    while (i < 5) {
         let mut j = 0;
-        while j < 20 {
-            if list_search(&list_manager, &memory_pool, i, j * 2 + i) {
+        while (j < 20) {
+            if (list_search(&list_manager, &memory_pool, i, j * 2 + i)) {
                 search_success = search_success + 1;
             }
             j = j + 1;
@@ -561,8 +561,8 @@ fn test_comprehensive_operations() {
     // Test 6: Memory fragmentation handling
     // Deallocate every other node from memory pool
     i = 0;
-    while i < 100 {
-        if i % 2 == 0 && allocated_nodes[i] != NULL_INDEX {
+    while (i < 100) {
+        if (i % 2 == 0 && allocated_nodes[i] != NULL_INDEX) {
             deallocate_node(&mut memory_pool, allocated_nodes[i]);
             allocated_nodes[i] = NULL_INDEX;
         }
@@ -574,9 +574,9 @@ fn test_comprehensive_operations() {
     // Try to allocate new nodes in fragmented pool
     let mut new_allocations = 0;
     i = 0;
-    while i < 60 {
+    while (i < 60) {
         let new_node = allocate_node(&mut memory_pool, i * 11 + 19);
-        if new_node != NULL_INDEX {
+        if (new_node != NULL_INDEX) {
             new_allocations = new_allocations + 1;
         }
         i = i + 1;
@@ -587,9 +587,9 @@ fn test_comprehensive_operations() {
     // Test 7: Hash table deletion and reinsert
     let mut deletion_count = 0;
     i = 0;
-    while i < 100 {
+    while (i < 100) {
         let key = i * 127 + 1;
-        if hash_table_delete(&mut hash_table, key) {
+        if (hash_table_delete(&mut hash_table, key)) {
             deletion_count = deletion_count + 1;
         }
         i = i + 1;
@@ -599,7 +599,7 @@ fn test_comprehensive_operations() {
     
     // Reinsert with different values
     i = 0;
-    while i < 50 {
+    while (i < 50) {
         let key = i * 127 + 1;
         let value = i * i * i + 29;
         hash_table_insert(&mut hash_table, key, value);
@@ -611,7 +611,7 @@ fn test_comprehensive_operations() {
     // Test 8: List merge operations
     // Create two sorted lists for merging
     i = 0;
-    while i < 15 {
+    while (i < 15) {
         list_insert_head(&mut list_manager, &mut memory_pool, 7, i * 4);
         list_insert_head(&mut list_manager, &mut memory_pool, 8, i * 4 + 2);
         i = i + 1;

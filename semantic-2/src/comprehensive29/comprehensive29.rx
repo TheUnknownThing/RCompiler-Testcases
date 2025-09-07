@@ -45,17 +45,17 @@ let mut halt: bool;
 
 fn init_vm() {
     let i: i32 = 0;
-    while i < REGISTER_COUNT {
+    while (i < REGISTER_COUNT) {
         registers[i] = 0;
         i = i + 1;
     }
     i = 0;
-    while i < MEMORY_SIZE {
+    while (i < MEMORY_SIZE) {
         memory[i] = 0;
         i = i + 1;
     }
     i = 0;
-    while i < STACK_SIZE {
+    while (i < STACK_SIZE) {
         stack[i] = 0;
         i = i + 1;
     }
@@ -161,25 +161,25 @@ fn load_program() {
     ];
 
     let i: i32 = 0;
-    while i < 200 {
+    while (i < 200) {
         memory[i] = program[i];
         i = i + 1;
     }
 }
 
 fn fetch_decode_execute() {
-    while halt == false {
-        if pc < 0 || pc >= MEMORY_SIZE {
+    while (halt == false) {
+        if (pc < 0 || pc >= MEMORY_SIZE) {
             halt = true;
         }
-        if halt == true {
+        if (halt == true) {
             // loop exit
         } else {
             let opcode: i32 = memory[pc];
             pc = pc + 1;
 
             // Simulating a switch statement with if-else if
-            if opcode == 0 { // HALT
+            if (opcode == 0) { // HALT
                 halt = true;
             } else if opcode == 1 { // MOV_REG
                 let r_dst: i32 = memory[pc];
@@ -196,7 +196,7 @@ fn fetch_decode_execute() {
                 let r_src: i32 = memory[pc+1];
                 let res: i32 = registers[r_dst] + registers[r_src];
                 // Simplified overflow check
-                if registers[r_dst] > 0 && registers[r_src] > 0 && res < 0 {
+                if (registers[r_dst] > 0 && registers[r_src] > 0 && res < 0) {
                     cf = true;
                 } else if registers[r_dst] < 0 && registers[r_src] < 0 && res > 0 {
                     cf = true;
@@ -211,7 +211,7 @@ fn fetch_decode_execute() {
                 let r_src: i32 = memory[pc+1];
                 let res: i32 = registers[r_dst] - registers[r_src];
                 // Simplified borrow check
-                if registers[r_dst] > 0 && registers[r_src] < 0 && res < 0 {
+                if (registers[r_dst] > 0 && registers[r_src] < 0 && res < 0) {
                     cf = true;
                 } else if registers[r_dst] < 0 && registers[r_src] > 0 && res > 0 {
                     cf = true;
@@ -230,7 +230,7 @@ fn fetch_decode_execute() {
             } else if opcode == 6 { // DIV
                 let r_dst: i32 = memory[pc];
                 let r_src: i32 = memory[pc+1];
-                if registers[r_src] != 0 {
+                if (registers[r_src] != 0) {
                     registers[r_dst] = registers[r_dst] / registers[r_src];
                 } else {
                     halt = true; // Division by zero
@@ -287,7 +287,7 @@ fn fetch_decode_execute() {
                 let r_addr: i32 = memory[pc+1];
                 let offset: i32 = memory[pc+2];
                 let addr: i32 = registers[r_addr] + offset;
-                if addr >= 0 && addr < MEMORY_SIZE {
+                if (addr >= 0 && addr < MEMORY_SIZE) {
                     registers[r_dst] = memory[addr];
                 } else {
                     halt = true;
@@ -298,7 +298,7 @@ fn fetch_decode_execute() {
                 let r_addr: i32 = memory[pc+1];
                 let offset: i32 = memory[pc+2];
                 let addr: i32 = registers[r_addr] + offset;
-                if addr >= 0 && addr < MEMORY_SIZE {
+                if (addr >= 0 && addr < MEMORY_SIZE) {
                     memory[addr] = registers[r_src];
                 } else {
                     halt = true;
@@ -307,25 +307,25 @@ fn fetch_decode_execute() {
             } else if opcode == 17 { // JMP
                 pc = memory[pc];
             } else if opcode == 18 { // JZ
-                if zf {
+                if (zf) {
                     pc = memory[pc];
                 } else {
                     pc = pc + 1;
                 }
             } else if opcode == 19 { // JNZ
-                if !zf {
+                if (!zf) {
                     pc = memory[pc];
                 } else {
                     pc = pc + 1;
                 }
             } else if opcode == 20 { // JC
-                if cf {
+                if (cf) {
                     pc = memory[pc];
                 } else {
                     pc = pc + 1;
                 }
             } else if opcode == 21 { // JNC
-                if !cf {
+                if (!cf) {
                     pc = memory[pc];
                 } else {
                     pc = pc + 1;
@@ -370,7 +370,7 @@ fn main() {
     fetch_decode_execute();
     
     // Final check to ensure halt worked
-    if halt {
+    if (halt) {
         printInt(1337);
     } else {
         printInt(9999);

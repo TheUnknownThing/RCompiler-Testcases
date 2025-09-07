@@ -99,9 +99,9 @@ impl MathEngine {
         
         // Read matrix A
         let mut i = 0;
-        while i < size {
+        while (i < size) {
             let mut j = 0;
-            while j < size {
+            while (j < size) {
                 self.matrix_a[i as usize][j as usize] = readInt();
                 j += 1;
             }
@@ -110,9 +110,9 @@ impl MathEngine {
         
         // Read matrix B
         i = 0;
-        while i < size {
+        while (i < size) {
             let mut j = 0;
-            while j < size {
+            while (j < size) {
                 self.matrix_b[i as usize][j as usize] = readInt();
                 j += 1;
             }
@@ -123,12 +123,12 @@ impl MathEngine {
     // Advanced matrix multiplication with optimization
     fn matrix_multiply(&mut self) {
         let mut i = 0;
-        while i < self.matrix_size {
+        while (i < self.matrix_size) {
             let mut j = 0;
-            while j < self.matrix_size {
+            while (j < self.matrix_size) {
                 self.matrix_result[i as usize][j as usize] = 0;
                 let mut k = 0;
-                while k < self.matrix_size {
+                while (k < self.matrix_size) {
                     self.matrix_result[i as usize][j as usize] += 
                         self.matrix_a[i as usize][k as usize] * self.matrix_b[k as usize][j as usize];
                     k += 1;
@@ -144,9 +144,9 @@ impl MathEngine {
         // Create a copy of matrix A for decomposition
         let mut lu_matrix = [[0; 100]; 100];
         let mut i = 0;
-        while i < self.matrix_size {
+        while (i < self.matrix_size) {
             let mut j = 0;
-            while j < self.matrix_size {
+            while (j < self.matrix_size) {
                 lu_matrix[i as usize][j as usize] = self.matrix_a[i as usize][j as usize];
                 j += 1;
             }
@@ -158,7 +158,7 @@ impl MathEngine {
         
         // Perform LU decomposition
         i = 0;
-        while i < self.matrix_size - 1 {
+        while (i < self.matrix_size - 1) {
             // Find pivot
             let mut max_row = i;
             let mut max_val = if lu_matrix[i as usize][i as usize] < 0 { 
@@ -174,7 +174,7 @@ impl MathEngine {
                 } else { 
                     lu_matrix[k as usize][i as usize] 
                 };
-                if abs_val > max_val {
+                if (abs_val > max_val) {
                     max_val = abs_val;
                     max_row = k;
                 }
@@ -182,7 +182,7 @@ impl MathEngine {
             }
             
             // Swap rows if necessary
-            if max_row != i {
+            if (max_row != i) {
                 let mut j = 0;
                 while j < self.matrix_size {
                     let temp = lu_matrix[i as usize][j as usize];
@@ -194,7 +194,7 @@ impl MathEngine {
             }
             
             // Check for zero pivot
-            if lu_matrix[i as usize][i as usize] == 0 {
+            if (lu_matrix[i as usize][i as usize] == 0) {
                 return 0;
             }
             
@@ -268,7 +268,7 @@ impl MathEngine {
     fn initialize_polynomial(&mut self, degree: i32) {
         self.poly_degree = degree;
         let mut i = 0;
-        while i <= degree {
+        while (i <= degree) {
             self.polynomial_coeffs[i as usize] = readInt();
             i += 1;
         }
@@ -279,7 +279,7 @@ impl MathEngine {
         let mut result = 0;
         let mut power = 1;
         let mut i = 0;
-        while i <= self.poly_degree {
+        while (i <= self.poly_degree) {
             result += self.polynomial_coeffs[i as usize] * power;
             power *= x;
             i += 1;
@@ -293,15 +293,15 @@ impl MathEngine {
         
         // Try different starting points
         let mut start = -100;
-        while start <= 100 && self.root_count < 50 {
+        while (start <= 100 && self.root_count < 50) {
             let mut x = start;
             let mut iterations = 0;
             
-            while iterations < 50 {
+            while (iterations < 50) {
                 let f_x = self.evaluate_polynomial(x);
                 let f_prime_x = self.evaluate_polynomial_derivative(x);
                 
-                if f_prime_x == 0 {
+                if (f_prime_x == 0) {
                     break; // Avoid division by zero
                 }
                 
@@ -309,28 +309,28 @@ impl MathEngine {
                 
                 // Check for convergence
                 let diff = if next_x > x { next_x - x } else { x - next_x };
-                if diff <= 1 {
+                if (diff <= 1) {
                     // Check if this is actually a root
-                    if self.evaluate_polynomial(next_x) == 0 || 
+                    if (self.evaluate_polynomial(next_x) == 0 || 
                        (if self.evaluate_polynomial(next_x) < 0 { -self.evaluate_polynomial(next_x) } 
-                        else { self.evaluate_polynomial(next_x) }) <= 5 {
+                        else { self.evaluate_polynomial(next_x) }) <= 5) {
                         // Check if we already found this root
                         let mut is_new_root = true;
                         let mut j = 0;
-                        while j < self.root_count {
+                        while (j < self.root_count) {
                             let root_diff = if self.roots[j as usize] > next_x { 
                                 self.roots[j as usize] - next_x 
                             } else { 
                                 next_x - self.roots[j as usize] 
                             };
-                            if root_diff <= 2 {
+                            if (root_diff <= 2) {
                                 is_new_root = false;
                                 break;
                             }
                             j += 1;
                         }
                         
-                        if is_new_root {
+                        if (is_new_root) {
                             self.roots[self.root_count as usize] = next_x;
                             self.root_count += 1;
                         }
@@ -351,7 +351,7 @@ impl MathEngine {
         let mut result = 0;
         let mut power = 1;
         let mut i = 1;
-        while i <= self.poly_degree {
+        while (i <= self.poly_degree) {
             result += i * self.polynomial_coeffs[i as usize] * power;
             power *= x;
             i += 1;
@@ -363,7 +363,7 @@ impl MathEngine {
     fn initialize_function_data(&mut self, points: i32) {
         self.integration_points = points;
         let mut i = 0;
-        while i < points {
+        while (i < points) {
             self.function_values[i as usize] = readInt();
             i += 1;
         }
@@ -373,7 +373,7 @@ impl MathEngine {
     fn trapezoidal_integration(&mut self, step_size: i32) -> i32 {
         let mut result = 0;
         let mut i = 0;
-        while i < self.integration_points - 1 {
+        while (i < self.integration_points - 1) {
             result += (self.function_values[i as usize] + self.function_values[(i + 1) as usize]) * step_size / 2;
             i += 1;
         }
@@ -384,7 +384,7 @@ impl MathEngine {
     fn simpson_integration(&mut self, step_size: i32) -> i32 {
         let mut result = 0;
         let mut i = 0;
-        while i < self.integration_points - 2 {
+        while (i < self.integration_points - 2) {
             result += step_size * (self.function_values[i as usize] + 
                                   4 * self.function_values[(i + 1) as usize] + 
                                   self.function_values[(i + 2) as usize]) / 3;
@@ -397,7 +397,7 @@ impl MathEngine {
     fn initialize_fft_data(&mut self, size: i32) {
         self.fft_size = size;
         let mut i = 0;
-        while i < size {
+        while (i < size) {
             self.real_part[i as usize] = readInt();
             self.imag_part[i as usize] = 0; // Initialize imaginary parts to 0
             i += 1;
@@ -411,15 +411,15 @@ impl MathEngine {
         // Bit-reversal permutation
         let mut j = 0;
         let mut i = 1;
-        while i < n {
+        while (i < n) {
             let mut bit = n / 2;
-            while j >= bit {
+            while (j >= bit) {
                 j -= bit;
                 bit /= 2;
             }
             j += bit;
             
-            if i < j {
+            if (i < j) {
                 // Swap real parts
                 let temp_real = self.real_part[i as usize];
                 self.real_part[i as usize] = self.real_part[j as usize];
@@ -435,16 +435,16 @@ impl MathEngine {
         
         // Cooley-Tukey FFT
         let mut length = 2;
-        while length <= n {
+        while (length <= n) {
             let half_length = length / 2;
             
             // Simplified twiddle factor calculation (using approximation)
             let angle_step = 6283 / length; // Approximation of 2*pi scaled
             
             i = 0;
-            while i < n {
+            while (i < n) {
                 let mut k = 0;
-                while k < half_length {
+                while (k < half_length) {
                     let angle = k * angle_step;
                     // Simplified cos and sin using Taylor series approximation
                     let cos_val = 1000 - (angle * angle) / 2000; // Scaled cos approximation
@@ -483,10 +483,10 @@ impl MathEngine {
         is_prime[1] = false;
         
         let mut i = 2;
-        while i * i <= limit {
-            if is_prime[i as usize] {
+        while (i * i <= limit) {
+            if (is_prime[i as usize]) {
                 let mut j = i * i;
-                while j <= limit {
+                while (j <= limit) {
                     is_prime[j as usize] = false;
                     j += i;
                 }
@@ -496,8 +496,8 @@ impl MathEngine {
         
         self.prime_count = 0;
         i = 2;
-        while i <= limit && self.prime_count < 1000 {
-            if is_prime[i as usize] {
+        while (i <= limit && self.prime_count < 1000) {
+            if (is_prime[i as usize]) {
                 self.primes[self.prime_count as usize] = i;
                 self.prime_count += 1;
             }
@@ -511,8 +511,8 @@ impl MathEngine {
         let mut factor_count = 0;
         let mut i = 0;
         
-        while i < self.prime_count && self.primes[i as usize] * self.primes[i as usize] <= n {
-            while n % self.primes[i as usize] == 0 {
+        while (i < self.prime_count && self.primes[i as usize] * self.primes[i as usize] <= n) {
+            while (n % self.primes[i as usize] == 0) {
                 self.factorizations[0][factor_count as usize] = self.primes[i as usize];
                 factor_count += 1;
                 n /= self.primes[i as usize];
@@ -520,7 +520,7 @@ impl MathEngine {
             i += 1;
         }
         
-        if n > 1 {
+        if (n > 1) {
             self.factorizations[0][factor_count as usize] = n;
             factor_count += 1;
         }
@@ -532,7 +532,7 @@ impl MathEngine {
     fn initialize_data_series(&mut self, length: i32) {
         self.series_length = length;
         let mut i = 0;
-        while i < length {
+        while (i < length) {
             self.data_series[i as usize] = readInt();
             i += 1;
         }
@@ -543,7 +543,7 @@ impl MathEngine {
         // Calculate mean
         let mut sum = 0;
         let mut i = 0;
-        while i < self.series_length {
+        while (i < self.series_length) {
             sum += self.data_series[i as usize];
             i += 1;
         }
@@ -556,7 +556,7 @@ impl MathEngine {
         let mut sum4 = 0;
         
         i = 0;
-        while i < self.series_length {
+        while (i < self.series_length) {
             let diff = self.data_series[i as usize] - mean;
             let diff2 = diff * diff;
             let diff3 = diff2 * diff;
@@ -577,11 +577,11 @@ impl MathEngine {
         let mut max_val = self.data_series[0];
         
         i = 1;
-        while i < self.series_length {
-            if self.data_series[i as usize] < min_val {
+        while (i < self.series_length) {
+            if (self.data_series[i as usize] < min_val) {
                 min_val = self.data_series[i as usize];
             }
-            if self.data_series[i as usize] > max_val {
+            if (self.data_series[i as usize] > max_val) {
                 max_val = self.data_series[i as usize];
             }
             i += 1;
@@ -617,7 +617,7 @@ impl MathEngine {
         self.compute_fft();
         let mut fft_magnitude = 0;
         let mut i = 0;
-        while i < self.fft_size {
+        while (i < self.fft_size) {
             let real = self.real_part[i as usize];
             let imag = self.imag_part[i as usize];
             fft_magnitude += real * real + imag * imag;
@@ -641,14 +641,14 @@ impl MathEngine {
     fn output_comprehensive_results(&self) {
         // Output computation log
         let mut i = 0;
-        while i < self.log_size {
+        while (i < self.log_size) {
             printInt(self.computation_log[i as usize]);
             i += 1;
         }
         
         // Output statistical moments
         i = 0;
-        while i < 7 {
+        while (i < 7) {
             printInt(self.moments[i as usize]);
             i += 1;
         }
@@ -659,7 +659,7 @@ impl MathEngine {
         
         // Output polynomial roots
         i = 0;
-        while i < self.root_count && i < 5 {
+        while (i < self.root_count && i < 5) {
             printInt(self.roots[i as usize]);
             i += 1;
         }
@@ -708,12 +708,12 @@ fn main() {
     let mut total_computational_work = 0;
     
     let mut iter = 0;
-    while iter < iterations {
+    while (iter < iterations) {
         // Modify data and recompute
         let modifier = (iter * 13 + 7) % 100;
         
         let mut i = 0;
-        while i < math_engine.series_length {
+        while (i < math_engine.series_length) {
             math_engine.data_series[i as usize] = (math_engine.data_series[i as usize] + modifier) % 10000;
             i += 1;
         }

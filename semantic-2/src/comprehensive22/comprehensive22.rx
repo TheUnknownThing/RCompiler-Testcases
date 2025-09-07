@@ -84,17 +84,17 @@ fn createLargeGraph(size: i32) -> i32 {
     let mut total_edges = 0;
     let mut i = 0;
     
-    while i < size {
+    while (i < size) {
         let mut j = 0;
-        while j < size {
+        while (j < size) {
             // Complex edge creation logic
-            if i != j {
+            if (i != j) {
                 let connection_probability = calculateConnectionProbability(i, j, size);
-                if connection_probability > 50 {
+                if (connection_probability > 50) {
                     total_edges += 1;
                     
                     // Simulate bidirectional edge addition
-                    if shouldAddBidirectional(i, j) {
+                    if (shouldAddBidirectional(i, j)) {
                         total_edges += 1;
                     }
                 }
@@ -113,16 +113,16 @@ fn calculateConnectionProbability(node1: i32, node2: i32, graph_size: i32) -> i3
     let graph_diameter = graph_size / 2;
     
     // Complex probability calculation
-    if distance == 1 {
+    if (distance == 1) {
         return 85; // High probability for adjacent nodes
-    } else if distance <= 3 {
+    } else if (distance <= 3) {
         return 70 - (distance * 10);
-    } else if distance <= graph_diameter {
+    } else if (distance <= graph_diameter) {
         return 60 - (distance * 5);
     } else {
         // Wrap-around connections for circular topology
         let wrap_distance = graph_size - distance;
-        if wrap_distance <= 5 {
+        if (wrap_distance <= 5) {
             return 40 - (wrap_distance * 3);
         } else {
             return 15; // Low probability for distant nodes
@@ -142,15 +142,15 @@ fn addDynamicConnections(graph_handle: i32, size: i32) -> i32 {
     let mut iteration = 0;
     
     // Simulate multiple rounds of dynamic connection addition
-    while iteration < 5 {
+    while (iteration < 5) {
         let mut i = 0;
-        while i < size {
+        while (i < size) {
             let target = findOptimalConnection(i, size, iteration);
-            if target != -1 && target != i {
+            if (target != -1 && target != i) {
                 new_connections += 1;
                 
                 // Check for triangle formation
-                if formsTriangle(i, target, size) {
+                if (formsTriangle(i, target, size)) {
                     new_connections += 2; // Bonus for triangle completion
                 }
             }
@@ -168,10 +168,10 @@ fn findOptimalConnection(node: i32, size: i32, iteration: i32) -> i32 {
     let mut best_score = -1;
     let mut candidate = 0;
     
-    while candidate < size {
-        if candidate != node {
+    while (candidate < size) {
+        if (candidate != node) {
             let score = calculateConnectionScore(node, candidate, size, iteration);
-            if score > best_score {
+            if (score > best_score) {
                 best_score = score;
                 best_target = candidate;
             }
@@ -199,11 +199,11 @@ fn calculateConnectionScore(source: i32, target: i32, size: i32, iteration: i32)
 fn calculatePatternBonus(source: i32, target: i32, size: i32) -> i32 {
     let pattern = (source + target) % 7;
     
-    if pattern == 0 {
+    if (pattern == 0) {
         return 20; // Perfect pattern match
-    } else if pattern <= 2 {
+    } else if (pattern <= 2) {
         return 15; // Good pattern match
-    } else if pattern <= 4 {
+    } else if (pattern <= 4) {
         return 10; // Moderate pattern match
     } else {
         return 5; // Weak pattern match
@@ -216,9 +216,9 @@ fn formsTriangle(node1: i32, node2: i32, size: i32) -> bool {
     let mut common_neighbors = 0;
     let mut i = 0;
     
-    while i < size {
-        if i != node1 && i != node2 {
-            if isConnected(node1, i) && isConnected(node2, i) {
+    while (i < size) {
+        if (i != node1 && i != node2) {
+            if (isConnected(node1, i) && isConnected(node2, i)) {
                 common_neighbors += 1;
             }
         }
@@ -239,10 +239,10 @@ fn calculateGraphDensity(graph_handle: i32, size: i32) -> i32 {
     let mut total_edges = 0;
     let mut i = 0;
     
-    while i < size {
+    while (i < size) {
         let mut j = i + 1;
-        while j < size {
-            if isConnected(i, j) {
+        while (j < size) {
+            if (isConnected(i, j)) {
                 total_edges += 1;
             }
             j += 1;
@@ -262,8 +262,8 @@ fn findConnectedComponents(graph_handle: i32, size: i32) -> i32 {
     let mut component_count = 0;
     let mut i = 0;
     
-    while i < size {
-        if !isVisited(visited, i) {
+    while (i < size) {
+        if (!isVisited(visited, i)) {
             component_count += 1;
             dfsExplore(i, visited, size);
         }
@@ -291,8 +291,8 @@ fn dfsExplore(start_node: i32, visited_handle: i32, size: i32) {
     markVisited(visited_handle, start_node);
     
     let mut i = 0;
-    while i < size {
-        if isConnected(start_node, i) && !isVisited(visited_handle, i) {
+    while (i < size) {
+        if (isConnected(start_node, i) && !isVisited(visited_handle, i)) {
             dfsExplore(i, visited_handle, size);
         }
         i += 1;
@@ -330,7 +330,7 @@ fn dijkstraShortestPath(source: i32, target: i32, size: i32) -> i32 {
     let mut visited = initializeVisitedArray(size);
     let mut current = source;
     
-    while current != target {
+    while (current != target) {
         markVisited(visited, current);
         
         // Update distances to neighbors
@@ -359,8 +359,8 @@ fn updateNeighborDistances(current: i32, distances_handle: i32, size: i32) {
     let current_distance = getDistance(distances_handle, current);
     let mut neighbor = 0;
     
-    while neighbor < size {
-        if isConnected(current, neighbor) {
+    while (neighbor < size) {
+        if (isConnected(current, neighbor)) {
             let edge_weight = calculateEdgeWeight(current, neighbor);
             let new_distance = current_distance + edge_weight;
             let old_distance = getDistance(distances_handle, neighbor);
@@ -405,10 +405,10 @@ fn findMinimumUnvisitedNode(distances_handle: i32, visited_handle: i32, size: i3
     let mut min_node = -1;
     let mut i = 0;
     
-    while i < size {
-        if !isVisited(visited_handle, i) {
+    while (i < size) {
+        if (!isVisited(visited_handle, i)) {
             let distance = getDistance(distances_handle, i);
-            if distance < min_distance {
+            if (distance < min_distance) {
                 min_distance = distance;
                 min_node = i;
             }
@@ -426,11 +426,11 @@ fn floydWarshallAllPairs(size: i32) -> i32 {
     
     // Floyd-Warshall triple loop
     let mut k = 0;
-    while k < size {
+    while (k < size) {
         let mut i = 0;
-        while i < size {
+        while (i < size) {
             let mut j = 0;
-            while j < size {
+            while (j < size) {
                 let direct_distance = getMatrixDistance(distance_matrix, i, j);
                 let via_k_distance = getMatrixDistance(distance_matrix, i, k) + 
                                    getMatrixDistance(distance_matrix, k, j);
@@ -447,10 +447,10 @@ fn floydWarshallAllPairs(size: i32) -> i32 {
     
     // Calculate sum of all shortest paths
     let mut i = 0;
-    while i < size {
+    while (i < size) {
         let mut j = 0;
-        while j < size {
-            if i != j {
+        while (j < size) {
+            if (i != j) {
                 total_distance += getMatrixDistance(distance_matrix, i, j);
             }
             j += 1;
@@ -493,10 +493,10 @@ fn aStarPathfinding(source: i32, target: i32, size: i32) -> i32 {
     let g_scores = initializeGScores(size, source);
     let f_scores = initializeFScores(size, source, target);
     
-    while !isOpenSetEmpty(open_set) {
+    while (!isOpenSetEmpty(open_set)) {
         let current = extractMinFromOpenSet(open_set, f_scores);
         
-        if current == target {
+        if (current == target) {
             return reconstructPath(current, size);
         }
         
@@ -552,11 +552,11 @@ fn exploreAStarNeighbors(current: i32, target: i32, open_set: i32, closed_set: i
                         g_scores: i32, f_scores: i32, size: i32) {
     let mut neighbor = 0;
     
-    while neighbor < size {
-        if isConnected(current, neighbor) && !isInClosedSet(closed_set, neighbor) {
+    while (neighbor < size) {
+        if (isConnected(current, neighbor) && !isInClosedSet(closed_set, neighbor)) {
             let tentative_g_score = getGScore(g_scores, current) + calculateEdgeWeight(current, neighbor);
             
-            if !isInOpenSet(open_set, neighbor) {
+            if (!isInOpenSet(open_set, neighbor)) {
                 addToOpenSet(open_set, neighbor);
             } else if tentative_g_score >= getGScore(g_scores, neighbor) {
                 neighbor += 1;
@@ -618,11 +618,11 @@ fn reconstructPath(target: i32, size: i32) -> i32 {
     let mut current = target;
     
     // Simulate path reconstruction
-    while current != 0 {
+    while (current != 0) {
         path_length += 1;
         current = getPreviousNode(current);
         
-        if path_length > size {
+        if (path_length > size) {
             break; // Prevent infinite loop
         }
     }

@@ -147,7 +147,7 @@ fn init_fsm() -> FSM {
     
     // Initialize state counters
     let mut i = 0;
-    while i < MAX_STATES {
+    while (i < MAX_STATES) {
         fsm.state_counters[i] = 0;
         i = i + 1;
     }
@@ -158,7 +158,7 @@ fn init_fsm() -> FSM {
 
 // Add transition to FSM
 fn add_transition(fsm: &mut FSM, from: i32, event: i32, to: i32, action: i32, condition: i32) -> bool {
-    if fsm.transition_count >= MAX_TRANSITIONS {
+    if (fsm.transition_count >= MAX_TRANSITIONS) {
         return false;
     }
     
@@ -176,7 +176,7 @@ fn add_transition(fsm: &mut FSM, from: i32, event: i32, to: i32, action: i32, co
 
 // Add event to FSM queue
 fn fsm_add_event(fsm: &mut FSM, event: i32) -> bool {
-    if fsm.queue_size >= MAX_EVENTS {
+    if (fsm.queue_size >= MAX_EVENTS) {
         return false;  // Queue full
     }
     
@@ -188,7 +188,7 @@ fn fsm_add_event(fsm: &mut FSM, event: i32) -> bool {
 
 // Get next event from FSM queue
 fn fsm_get_event(fsm: &mut FSM) -> i32 {
-    if fsm.queue_size <= 0 {
+    if (fsm.queue_size <= 0) {
         return INVALID_EVENT;
     }
     
@@ -201,48 +201,48 @@ fn fsm_get_event(fsm: &mut FSM) -> i32 {
 // Complex condition evaluator for state transitions
 fn evaluate_condition(condition: i32, current_state: i32, event: i32, context: i32) -> bool {
     // Complex branching logic for condition evaluation
-    if condition == 0 {
+    if (condition == 0) {
         return true;  // Always true
-    } else if condition == 1 {
+    } else if (condition == 1) {
         return current_state == STATE_READY;
-    } else if condition == 2 {
+    } else if (condition == 2) {
         return event >= EVENT_PROCESS && event <= EVENT_COMPLETE;
-    } else if condition == 3 {
+    } else if (condition == 3) {
         return context > 0 && context % 2 == 0;
-    } else if condition == 4 {
+    } else if (condition == 4) {
         return current_state != STATE_ERROR && event != EVENT_ERROR;
-    } else if condition == 5 {
+    } else if (condition == 5) {
         // Complex nested condition
-        if current_state == STATE_PROCESSING {
-            if event == EVENT_COMPLETE {
+        if (current_state == STATE_PROCESSING) {
+            if (event == EVENT_COMPLETE) {
                 return context > 10;
-            } else if event == EVENT_ERROR {
+            } else if (event == EVENT_ERROR) {
                 return context < 5;
             } else {
                 return context % 3 == 0;
             }
-        } else if current_state == STATE_WAITING {
+        } else if (current_state == STATE_WAITING) {
             return event == EVENT_TIMEOUT || event == EVENT_RETRY;
         } else {
             return false;
         }
-    } else if condition == 6 {
+    } else if (condition == 6) {
         // Multi-level condition with various branches
         let temp1 = current_state * 3 + event;
         let temp2 = context / 2;
         
-        if temp1 > temp2 {
-            if current_state < STATE_SUSPENDED {
+        if (temp1 > temp2) {
+            if (current_state < STATE_SUSPENDED) {
                 return event != EVENT_ABORT;
             } else {
                 return event == EVENT_RESUME || event == EVENT_RESET;
             }
         } else {
-            if temp1 % 4 == 0 {
+            if (temp1 % 4 == 0) {
                 return context > temp1;
-            } else if temp1 % 4 == 1 {
+            } else if (temp1 % 4 == 1) {
                 return context < temp1;
-            } else if temp1 % 4 == 2 {
+            } else if (temp1 % 4 == 2) {
                 return context == temp1;
             } else {
                 return context != temp1;
@@ -256,32 +256,32 @@ fn evaluate_condition(condition: i32, current_state: i32, event: i32, context: i
 
 // Execute action based on action ID
 fn execute_action(action_id: i32, fsm: &mut FSM, context: &mut i32) -> i32 {
-    if action_id == 0 {
+    if (action_id == 0) {
         return 0;  // No action
-    } else if action_id == 1 {
+    } else if (action_id == 1) {
         *context = *context + 1;
         return 1;
-    } else if action_id == 2 {
+    } else if (action_id == 2) {
         *context = *context * 2;
         return 2;
-    } else if action_id == 3 {
+    } else if (action_id == 3) {
         *context = *context - 1;
-        if *context < 0 {
+        if (*context < 0) {
             *context = 0;
         }
         return 3;
-    } else if action_id == 4 {
+    } else if (action_id == 4) {
         // Complex action with multiple operations
         let temp = *context;
         *context = (temp * 3 + 17) % 100;
         fsm.error_count = fsm.error_count + 1;
         return 4;
-    } else if action_id == 5 {
+    } else if (action_id == 5) {
         // Conditional action execution
-        if *context > 50 {
+        if (*context > 50) {
             *context = *context / 2;
             fsm_add_event(fsm, EVENT_RETRY);
-        } else if *context > 25 {
+        } else if (*context > 25) {
             *context = *context * 3;
             fsm_add_event(fsm, EVENT_PROCESS);
         } else {
@@ -289,17 +289,17 @@ fn execute_action(action_id: i32, fsm: &mut FSM, context: &mut i32) -> i32 {
             fsm_add_event(fsm, EVENT_COMPLETE);
         }
         return 5;
-    } else if action_id == 6 {
+    } else if (action_id == 6) {
         // Multi-step action with branching
         let mut i = 0;
-        while i < 5 {
-            if i % 2 == 0 {
+        while (i < 5) {
+            if (i % 2 == 0) {
                 *context = *context + i;
             } else {
                 *context = *context - i;
             }
             
-            if *context % 3 == 0 {
+            if (*context % 3 == 0) {
                 fsm_add_event(fsm, EVENT_PROCESS + i);
             }
             i = i + 1;
@@ -309,9 +309,9 @@ fn execute_action(action_id: i32, fsm: &mut FSM, context: &mut i32) -> i32 {
         // Default action with complex computation
         let mut result = action_id;
         let mut i = 0;
-        while i < action_id % 10 {
+        while (i < action_id % 10) {
             result = result * 2 + *context;
-            if result > 1000 {
+            if (result > 1000) {
                 result = result % 1000;
             }
             i = i + 1;
@@ -324,17 +324,17 @@ fn execute_action(action_id: i32, fsm: &mut FSM, context: &mut i32) -> i32 {
 // Process single FSM step
 fn fsm_step(fsm: &mut FSM, context: &mut i32) -> bool {
     let event = fsm_get_event(fsm);
-    if event == INVALID_EVENT {
+    if (event == INVALID_EVENT) {
         return false;  // No events to process
     }
     
     // Find matching transition
     let mut i = 0;
-    while i < fsm.transition_count {
+    while (i < fsm.transition_count) {
         let transition = &fsm.transitions[i];
         
-        if transition.from_state == fsm.current_state && transition.event == event {
-            if evaluate_condition(transition.condition, fsm.current_state, event, *context) {
+        if (transition.from_state == fsm.current_state && transition.event == event) {
+            if (evaluate_condition(transition.condition, fsm.current_state, event, *context)) {
                 // Execute transition
                 fsm.previous_state = fsm.current_state;
                 fsm.current_state = transition.to_state;
@@ -373,8 +373,8 @@ fn init_protocol_parser() -> ProtocolParser {
 // Parse protocol packet with complex state logic
 fn parse_packet(parser: &mut ProtocolParser, packet_type: i32, data: i32, seq: i32) -> i32 {
     // Complex parsing logic with multiple states and conditions
-    if parser.state == 0 {  // Idle
-        if packet_type == PACKET_SYN {
+    if (parser.state == 0) {  // Idle
+        if (packet_type == PACKET_SYN) {
             parser.state = 1;  // SYN received
             parser.expected_seq = seq + 1;
             return 1;  // Send SYN-ACK
@@ -382,23 +382,23 @@ fn parse_packet(parser: &mut ProtocolParser, packet_type: i32, data: i32, seq: i
             parser.error_count = parser.error_count + 1;
             return -1;  // Error
         }
-    } else if parser.state == 1 {  // SYN received
-        if packet_type == PACKET_ACK && seq == parser.expected_seq {
+    } else if (parser.state == 1) {  // SYN received
+        if (packet_type == PACKET_ACK && seq == parser.expected_seq) {
             parser.state = 2;  // Established
             parser.expected_seq = seq + 1;
             return 2;  // Connection established
-        } else if packet_type == PACKET_RST {
+        } else if (packet_type == PACKET_RST) {
             parser.state = 0;  // Reset to idle
             return 0;  // Connection reset
         } else {
             parser.error_count = parser.error_count + 1;
             return -1;  // Error
         }
-    } else if parser.state == 2 {  // Established
-        if packet_type == PACKET_DATA {
-            if seq == parser.expected_seq {
+    } else if (parser.state == 2) {  // Established
+        if (packet_type == PACKET_DATA) {
+            if (seq == parser.expected_seq) {
                 // Store data in buffer
-                if parser.buffer_pos < MAX_PROTOCOL_BUFFER {
+                if (parser.buffer_pos < MAX_PROTOCOL_BUFFER) {
                     parser.buffer[parser.buffer_pos] = data;
                     parser.buffer_pos = parser.buffer_pos + 1;
                 }
@@ -409,12 +409,12 @@ fn parse_packet(parser: &mut ProtocolParser, packet_type: i32, data: i32, seq: i
                 parser.error_count = parser.error_count + 1;
                 return 4;  // Out of order, request retransmit
             }
-        } else if packet_type == PACKET_FIN {
+        } else if (packet_type == PACKET_FIN) {
             parser.state = 3;  // Closing
             return 5;  // Send FIN-ACK
-        } else if packet_type == PACKET_PING {
+        } else if (packet_type == PACKET_PING) {
             return 6;  // Send PONG
-        } else if packet_type == PACKET_RST {
+        } else if (packet_type == PACKET_RST) {
             parser.state = 0;  // Reset to idle
             parser.buffer_pos = 0;
             return 0;  // Connection reset
@@ -422,12 +422,12 @@ fn parse_packet(parser: &mut ProtocolParser, packet_type: i32, data: i32, seq: i
             parser.error_count = parser.error_count + 1;
             return -1;  // Error
         }
-    } else if parser.state == 3 {  // Closing
-        if packet_type == PACKET_ACK {
+    } else if (parser.state == 3) {  // Closing
+        if (packet_type == PACKET_ACK) {
             parser.state = 0;  // Back to idle
             parser.buffer_pos = 0;
             return 7;  // Connection closed
-        } else if packet_type == PACKET_RST {
+        } else if (packet_type == PACKET_RST) {
             parser.state = 0;  // Reset to idle
             parser.buffer_pos = 0;
             return 0;  // Connection reset
@@ -460,7 +460,7 @@ fn init_task_scheduler() -> TaskScheduler {
 
 // Add task to scheduler
 fn add_task(scheduler: &mut TaskScheduler, priority: i32, execution_time: i32) -> i32 {
-    if scheduler.task_count >= MAX_TASKS {
+    if (scheduler.task_count >= MAX_TASKS) {
         return -1;  // No space
     }
     
@@ -477,9 +477,9 @@ fn add_task(scheduler: &mut TaskScheduler, priority: i32, execution_time: i32) -
     
     // Insert into ready queue based on priority
     let mut i = 0;
-    while i < scheduler.ready_count {
+    while (i < scheduler.ready_count) {
         let existing_task = scheduler.ready_queue[i];
-        if scheduler.tasks[existing_task].priority < priority {
+        if (scheduler.tasks[existing_task].priority < priority) {
             break;
         }
         i = i + 1;
@@ -487,7 +487,7 @@ fn add_task(scheduler: &mut TaskScheduler, priority: i32, execution_time: i32) -
     
     // Shift elements to make space
     let mut j = scheduler.ready_count;
-    while j > i {
+    while (j > i) {
         scheduler.ready_queue[j] = scheduler.ready_queue[j - 1];
         j = j - 1;
     }
@@ -504,12 +504,12 @@ fn schedule_next_task(scheduler: &mut TaskScheduler) -> i32 {
     scheduler.current_time = scheduler.current_time + 1;
     
     // Check for task completion or preemption
-    if scheduler.current_task != -1 {
+    if (scheduler.current_task != -1) {
         let current = scheduler.current_task;
         scheduler.tasks[current].remaining_time = scheduler.tasks[current].remaining_time - 1;
         scheduler.tasks[current].execution_count = scheduler.tasks[current].execution_count + 1;
         
-        if scheduler.tasks[current].remaining_time <= 0 {
+        if (scheduler.tasks[current].remaining_time <= 0) {
             // Task completed
             scheduler.tasks[current].state = 2;  // Completed
             scheduler.current_task = -1;
@@ -517,34 +517,34 @@ fn schedule_next_task(scheduler: &mut TaskScheduler) -> i32 {
             // Check for preemption based on complex logic
             let mut should_preempt = false;
             
-            if scheduler.ready_count > 0 {
+            if (scheduler.ready_count > 0) {
                 let next_task = scheduler.ready_queue[0];
                 let current_priority = scheduler.tasks[current].priority;
                 let next_priority = scheduler.tasks[next_task].priority;
                 
                 // Complex preemption logic
-                if next_priority > current_priority {
+                if (next_priority > current_priority) {
                     should_preempt = true;
-                } else if next_priority == current_priority {
+                } else if (next_priority == current_priority) {
                     // Round-robin within same priority
-                    if scheduler.tasks[current].execution_count % scheduler.time_slice == 0 {
+                    if (scheduler.tasks[current].execution_count % scheduler.time_slice == 0) {
                         should_preempt = true;
                     }
-                } else if scheduler.current_time % 50 == 0 {
+                } else if (scheduler.current_time % 50 == 0) {
                     // Periodic preemption to prevent starvation
                     should_preempt = true;
                 }
             }
             
-            if should_preempt {
+            if (should_preempt) {
                 // Move current task back to ready queue
                 scheduler.tasks[current].state = 0;  // Ready
                 
                 // Insert back into ready queue
                 let mut i = 0;
-                while i < scheduler.ready_count {
+                while (i < scheduler.ready_count) {
                     let existing_task = scheduler.ready_queue[i];
-                    if scheduler.tasks[existing_task].priority < scheduler.tasks[current].priority {
+                    if (scheduler.tasks[existing_task].priority < scheduler.tasks[current].priority) {
                         break;
                     }
                     i = i + 1;
@@ -552,7 +552,7 @@ fn schedule_next_task(scheduler: &mut TaskScheduler) -> i32 {
                 
                 // Shift and insert
                 let mut j = scheduler.ready_count;
-                while j > i {
+                while (j > i) {
                     scheduler.ready_queue[j] = scheduler.ready_queue[j - 1];
                     j = j - 1;
                 }
@@ -565,13 +565,13 @@ fn schedule_next_task(scheduler: &mut TaskScheduler) -> i32 {
     }
     
     // Select next task if no current task
-    if scheduler.current_task == -1 && scheduler.ready_count > 0 {
+    if (scheduler.current_task == -1 && scheduler.ready_count > 0) {
         scheduler.current_task = scheduler.ready_queue[0];
         scheduler.tasks[scheduler.current_task].state = 1;  // Running
         
         // Remove from ready queue
         let mut i = 0;
-        while i < scheduler.ready_count - 1 {
+        while (i < scheduler.ready_count - 1) {
             scheduler.ready_queue[i] = scheduler.ready_queue[i + 1];
             i = i + 1;
         }
@@ -583,48 +583,48 @@ fn schedule_next_task(scheduler: &mut TaskScheduler) -> i32 {
 
 // Complex control flow test with deep nesting
 fn complex_nested_control_flow(depth: i32, value: i32) -> i32 {
-    if depth <= 0 {
+    if (depth <= 0) {
         return value;
     }
     
     let mut result = value;
     
     // Complex nested branching
-    if depth % 7 == 0 {
-        if value > 100 {
-            if value % 3 == 0 {
+    if (depth % 7 == 0) {
+        if (value > 100) {
+            if (value % 3 == 0) {
                 let mut i = 0;
-                while i < depth {
-                    if i % 2 == 0 {
+                while (i < depth) {
+                    if (i % 2 == 0) {
                         result = result + i * 2;
-                        if result > 1000 {
+                        if (result > 1000) {
                             result = result % 1000;
-                            if result < 100 {
+                            if (result < 100) {
                                 result = result + 50;
                             }
                         }
                     } else {
                         result = result - i;
-                        if result < 0 {
+                        if (result < 0) {
                             result = -result;
                         }
                     }
                     i = i + 1;
                 }
-            } else if value % 3 == 1 {
+            } else if (value % 3 == 1) {
                 let mut j = depth;
-                while j > 0 {
-                    if j % 4 == 0 {
+                while (j > 0) {
+                    if (j % 4 == 0) {
                         result = result * 2;
-                    } else if j % 4 == 1 {
+                    } else if (j % 4 == 1) {
                         result = result + j;
-                    } else if j % 4 == 2 {
+                    } else if (j % 4 == 2) {
                         result = result - j;
                     } else {
                         result = result / 2;
                     }
                     
-                    if result > 500 {
+                    if (result > 500) {
                         break;
                     }
                     j = j - 1;
@@ -632,16 +632,16 @@ fn complex_nested_control_flow(depth: i32, value: i32) -> i32 {
             } else {
                 result = complex_nested_control_flow(depth - 1, result / 2);
             }
-        } else if value > 50 {
+        } else if (value > 50) {
             let mut k = 0;
-            while k < 10 {
-                if k % 3 == 0 {
+            while (k < 10) {
+                if (k % 3 == 0) {
                     result = result + k * depth;
-                } else if k % 3 == 1 {
+                } else if (k % 3 == 1) {
                     result = result - k * depth;
                 } else {
                     result = result * (k + 1);
-                    if result > 800 {
+                    if (result > 800) {
                         result = result % 800;
                     }
                 }
@@ -650,10 +650,10 @@ fn complex_nested_control_flow(depth: i32, value: i32) -> i32 {
         } else {
             result = complex_nested_control_flow(depth - 2, result + depth);
         }
-    } else if depth % 7 == 1 {
+    } else if (depth % 7 == 1) {
         // Another complex branch
         let temp = result;
-        if temp > depth * 10 {
+        if (temp > depth * 10) {
             result = complex_nested_control_flow(depth - 1, temp - depth);
         } else {
             result = complex_nested_control_flow(depth - 1, temp + depth);
@@ -685,7 +685,7 @@ fn test_complex_control_flow() {
     
     // Generate complex event sequence
     let mut i = 0;
-    while i < 100 {
+    while (i < 100) {
         let event = (i * 7 + 3) % 10;  // Generate varied events
         fsm_add_event(&mut fsm, event);
         i = i + 1;
@@ -693,8 +693,8 @@ fn test_complex_control_flow() {
     
     // Process events
     let mut processed = 0;
-    while processed < 150 {
-        if !fsm_step(&mut fsm, &mut context) {
+    while (processed < 150) {
+        if (!fsm_step(&mut fsm, &mut context)) {
             fsm_add_event(&mut fsm, EVENT_PROCESS);  // Add more events
         }
         processed = processed + 1;
@@ -710,23 +710,23 @@ fn test_complex_control_flow() {
     
     // Simulate complex protocol exchange
     i = 0;
-    while i < 200 {
+    while (i < 200) {
         let packet_type = (i % 7) + 1;
         let data = i * 13 + 7;
         let seq = i + 1;
         
         let response = parse_packet(&mut parser, packet_type, data, seq);
-        if response > 0 {
+        if (response > 0) {
             packet_responses = packet_responses + 1;
         }
         
         // Complex state-dependent logic
-        if parser.state == 2 && i % 10 == 0 {
+        if (parser.state == 2 && i % 10 == 0) {
             // Send ping occasionally
             parse_packet(&mut parser, PACKET_PING, 0, seq + 1);
         }
         
-        if parser.error_count > 5 && i % 15 == 0 {
+        if (parser.error_count > 5 && i % 15 == 0) {
             // Reset on too many errors
             parse_packet(&mut parser, PACKET_RST, 0, 0);
         }
@@ -743,7 +743,7 @@ fn test_complex_control_flow() {
     
     // Add tasks with different priorities
     i = 0;
-    while i < 50 {
+    while (i < 50) {
         let priority = (i % 4) + 1;
         let execution_time = (i * 3 + 5) % 20 + 1;
         add_task(&mut scheduler, priority, execution_time);
@@ -753,14 +753,14 @@ fn test_complex_control_flow() {
     // Run scheduler simulation
     let mut scheduling_steps = 0;
     i = 0;
-    while i < 1000 {
+    while (i < 1000) {
         let current = schedule_next_task(&mut scheduler);
-        if current != -1 {
+        if (current != -1) {
             scheduling_steps = scheduling_steps + 1;
         }
         
         // Occasionally add new tasks
-        if i % 50 == 0 && scheduler.task_count < MAX_TASKS {
+        if (i % 50 == 0 && scheduler.task_count < MAX_TASKS) {
             let priority = ((i / 50) % 4) + 1;
             let execution_time = (i / 10) % 15 + 1;
             add_task(&mut scheduler, priority, execution_time);
@@ -775,7 +775,7 @@ fn test_complex_control_flow() {
     // Test 4: Complex nested control flow
     let mut nested_results = 0;
     i = 1;
-    while i <= 20 {
+    while (i <= 20) {
         let result = complex_nested_control_flow(i, i * 17 + 3);
         nested_results = nested_results + result;
         i = i + 1;
@@ -795,24 +795,24 @@ fn test_complex_control_flow() {
     
     // Interact two FSMs
     i = 0;
-    while i < 100 {
+    while (i < 100) {
         // Process FSM 1
-        if !fsm_step(&mut fsm, &mut context) {
+        if (!fsm_step(&mut fsm, &mut context)) {
             fsm_add_event(&mut fsm, (i % 5) + EVENT_START);
         }
         
         // Process FSM 2
-        if !fsm_step(&mut fsm2, &mut context2) {
+        if (!fsm_step(&mut fsm2, &mut context2)) {
             fsm_add_event(&mut fsm2, (i % 3) + EVENT_START);
         }
         
         // Cross-interaction based on states
-        if fsm.current_state == STATE_PROCESSING && fsm2.current_state == STATE_WAITING {
+        if (fsm.current_state == STATE_PROCESSING && fsm2.current_state == STATE_WAITING) {
             fsm_add_event(&mut fsm2, EVENT_COMPLETE);
             fsm_add_event(&mut fsm, EVENT_SUSPEND);
         }
         
-        if context > 80 && context2 < 20 {
+        if (context > 80 && context2 < 20) {
             context2 = context2 + context / 4;
             context = context - 10;
         }

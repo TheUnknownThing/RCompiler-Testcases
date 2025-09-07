@@ -88,11 +88,11 @@ fn run_cache_simulation() -> i32 {
     
     // Simulate memory access patterns
     let access_pattern: i32 = 0;
-    while access_pattern < total_accesses {
+    while (access_pattern < total_accesses) {
         let address: i32 = generate_memory_address(access_pattern);
         let cache_result: i32 = simulate_cache_access(address, l1_cache, l2_cache);
         
-        if cache_result > 0 {
+        if (cache_result > 0) {
             cache_hits = cache_hits + 1;
         } else {
             cache_misses = cache_misses + 1;
@@ -117,30 +117,30 @@ fn generate_memory_address(pattern_index: i32) -> i32 {
     let base_address: i32 = 0x10000000;
     let pattern_type: i32 = pattern_index % 7;
     
-    if pattern_type == 0 {
+    if (pattern_type == 0) {
         // Sequential access pattern
         return base_address + (pattern_index * 4);
-    } else if pattern_type == 1 {
+    } else if (pattern_type == 1) {
         // Strided access pattern  
         return base_address + ((pattern_index * 64) % 8192);
-    } else if pattern_type == 2 {
+    } else if (pattern_type == 2) {
         // Random access pattern
         return base_address + (hash_function(pattern_index) % 16384);
-    } else if pattern_type == 3 {
+    } else if (pattern_type == 3) {
         // Temporal locality pattern
         let hot_set_size: i32 = 128;
         return base_address + ((pattern_index % hot_set_size) * 4);
-    } else if pattern_type == 4 {
+    } else if (pattern_type == 4) {
         // Spatial locality pattern
         let block_size: i32 = 64;
         let block_id: i32 = pattern_index / block_size;
         let offset: i32 = pattern_index % block_size;
         return base_address + (block_id * 1024) + (offset * 4);
-    } else if pattern_type == 5 {
+    } else if (pattern_type == 5) {
         // Power-of-2 stride pattern
         let stride: i32 = 1;
         let temp: i32 = pattern_index;
-        while temp > 0 {
+        while (temp > 0) {
             stride = stride * 2;
             temp = temp / 2;
         }
@@ -169,7 +169,7 @@ fn simulate_cache_access(address: i32, l1_cache: [i32; 256], l2_cache: [i32; 409
     let l1_tag: i32 = address / (get_cache_line_size() * 16);
     
     let way: i32 = 0;
-    while way < get_associativity() {
+    while (way < get_associativity()) {
         let cache_entry_base: i32 = (l1_index * get_associativity() + way) * 4;
         let stored_tag: i32 = l1_cache[cache_entry_base];
         let valid_bit: i32 = l1_cache[cache_entry_base + 1];
@@ -187,7 +187,7 @@ fn simulate_cache_access(address: i32, l1_cache: [i32; 256], l2_cache: [i32; 409
     let l2_tag: i32 = address / (get_cache_line_size() * 64);
     
     way = 0;
-    while way < 8 {
+    while (way < 8) {
         let cache_entry_base: i32 = (l2_index * 8 + way) * 4;
         let stored_tag: i32 = l2_cache[cache_entry_base];
         let valid_bit: i32 = l2_cache[cache_entry_base + 1];
@@ -239,7 +239,7 @@ fn find_lru_way_l1(l1_cache: [i32; 256], set_index: i32) -> i32 {
     let lru_way: i32 = 0;
     
     let way: i32 = 0;
-    while way < get_associativity() {
+    while (way < get_associativity()) {
         let cache_entry_base: i32 = (set_index * get_associativity() + way) * 4;
         let timestamp: i32 = l1_cache[cache_entry_base + 2];
         let valid: i32 = l1_cache[cache_entry_base + 1];
@@ -264,7 +264,7 @@ fn find_lru_way_l2(l2_cache: [i32; 4096], set_index: i32) -> i32 {
     let lru_way: i32 = 0;
     
     let way: i32 = 0;
-    while way < 8 {
+    while (way < 8) {
         let cache_entry_base: i32 = (set_index * 8 + way) * 4;
         let timestamp: i32 = l2_cache[cache_entry_base + 2];
         let valid: i32 = l2_cache[cache_entry_base + 1];
@@ -329,7 +329,7 @@ fn run_memory_manager() -> i32 {
     let failed_allocations: i32 = 0;
     let garbage_collections: i32 = 0;
     
-    while allocation_index < total_allocations {
+    while (allocation_index < total_allocations) {
         let size_index: i32 = allocation_index % 16;
         let allocation_size: i32 = allocation_sizes[size_index];
         
@@ -387,7 +387,7 @@ fn allocate_memory(heap: [i32; 16384], free_blocks: [i32; 1024], allocated_block
                   free_count: i32, allocated_count: i32, size: i32) -> i32 {
     let block_index: i32 = 0;
     
-    while block_index < free_count {
+    while (block_index < free_count) {
         let block_start: i32 = free_blocks[block_index * 2];
         let block_size: i32 = free_blocks[block_index * 2 + 1];
         
@@ -400,7 +400,7 @@ fn allocate_memory(heap: [i32; 16384], free_blocks: [i32; 1024], allocated_block
             if block_size == size {
                 // Remove entire block
                 let move_index: i32 = block_index;
-                while move_index < free_count - 1 {
+                while (move_index < free_count - 1) {
                     free_blocks[move_index * 2] = free_blocks[(move_index + 1) * 2];
                     free_blocks[move_index * 2 + 1] = free_blocks[(move_index + 1) * 2 + 1];
                     move_index = move_index + 1;
@@ -428,7 +428,7 @@ fn simulate_memory_usage(address: i32, size: i32) -> i32 {
     if usage_type == 0 {
         // Sequential write pattern
         let offset: i32 = 0;
-        while offset < size {
+        while (offset < size) {
             operations = operations + 1;
             offset = offset + 4;
         }
@@ -436,7 +436,7 @@ fn simulate_memory_usage(address: i32, size: i32) -> i32 {
         // Random access pattern
         let accesses: i32 = size / 8;
         let access_count: i32 = 0;
-        while access_count < accesses {
+        while (access_count < accesses) {
             let random_offset: i32 = hash_function(access_count + address) % size;
             operations = operations + 1;
             access_count = access_count + 1;
@@ -445,7 +445,7 @@ fn simulate_memory_usage(address: i32, size: i32) -> i32 {
         // Stride pattern
         let stride: i32 = 16;
         let offset: i32 = 0;
-        while offset < size {
+        while (offset < size) {
             operations = operations + 1;
             offset = offset + stride;
         }
@@ -453,7 +453,7 @@ fn simulate_memory_usage(address: i32, size: i32) -> i32 {
         // Hot/cold pattern
         let hot_region: i32 = size / 4;
         let access_count: i32 = 0;
-        while access_count < hot_region {
+        while (access_count < hot_region) {
             operations = operations + 1;
             access_count = access_count + 1;
         }
@@ -471,14 +471,14 @@ fn simulate_complex_memory_pattern(base_address: i32, size: i32) -> i32 {
     let pattern_phases: i32 = 4;
     let phase: i32 = 0;
     
-    while phase < pattern_phases {
+    while (phase < pattern_phases) {
         let phase_size: i32 = size / pattern_phases;
         let phase_start: i32 = base_address + (phase * phase_size);
         
         if phase % 2 == 0 {
             // Forward traversal
             let offset: i32 = 0;
-            while offset < phase_size {
+            while (offset < phase_size) {
                 operations = operations + 1;
                 // Simulate cache-friendly access
                 if offset % 64 == 0 {
@@ -489,7 +489,7 @@ fn simulate_complex_memory_pattern(base_address: i32, size: i32) -> i32 {
         } else {
             // Backward traversal
             let offset: i32 = phase_size - 4;
-            while offset >= 0 {
+            while (offset >= 0) {
                 operations = operations + 1;
                 // Simulate cache-unfriendly access
                 if offset % 128 == 0 {
@@ -519,7 +519,7 @@ fn compute_complex_function(input: i32) -> i32 {
     let result: i32 = input;
     let iteration: i32 = 0;
     
-    while iteration < 10 {
+    while (iteration < 10) {
         result = (result * 17 + 31) % 65537;
         result = result ^ (result >> 8);
         iteration = iteration + 1;
@@ -540,7 +540,7 @@ fn run_garbage_collection(heap: [i32; 16384], free_blocks: [i32; 1024], allocate
     
     // Sweep unreachable blocks
     let block_index: i32 = 0;
-    while block_index < allocated_count {
+    while (block_index < allocated_count) {
         if !reachable_blocks[block_index] {
             let block_start: i32 = allocated_blocks[block_index * 2];
             let block_size: i32 = allocated_blocks[block_index * 2 + 1];
@@ -566,7 +566,7 @@ fn mark_reachable_blocks(allocated_blocks: [i32; 1024], allocated_count: i32, re
     let reachable_count: i32 = 0;
     let block_index: i32 = 0;
     
-    while block_index < allocated_count {
+    while (block_index < allocated_count) {
         let block_start: i32 = allocated_blocks[block_index * 2];
         let block_size: i32 = allocated_blocks[block_index * 2 + 1];
         
@@ -614,9 +614,9 @@ fn coalesce_free_blocks(free_blocks: [i32; 1024], block_count: i32) -> i32 {
     
     // Sort free blocks by address (simplified bubble sort)
     let i: i32 = 0;
-    while i < block_count - 1 {
+    while (i < block_count - 1) {
         let j: i32 = 0;
-        while j < block_count - 1 - i {
+        while (j < block_count - 1 - i) {
             let addr1: i32 = free_blocks[j * 2];
             let addr2: i32 = free_blocks[(j + 1) * 2];
             
