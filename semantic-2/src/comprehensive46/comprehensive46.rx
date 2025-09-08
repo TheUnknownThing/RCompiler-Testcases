@@ -62,7 +62,7 @@ fn main() {
         let b: i32 = 2 * vec_dot(&oc, &ray.dir);
         let c: i32 = vec_dot(&oc, &oc) - (sphere.radius * sphere.radius) / scale;
         let discriminant: i32 = b * b - 4 * a * c / scale;
-        if discriminant < 0 {
+        if (discriminant < 0) {
             return -1;
         }
         // Simplified to return nearest intersection
@@ -72,10 +72,10 @@ fn main() {
     // Hidden Error: `isqrt` is defined after it is first used in `intersect`.
     // A simple, single-pass compiler would fail here.
     fn isqrt(n: i32) -> i32 {
-        if n < 0 { return 0; }
+        if (n < 0) { return 0; }
         let mut x: i32 = n;
         let mut y: i32 = (x + 1) / 2;
-        while y < x {
+        while (y < x) {
             x = y;
             y = (x + n / x) / 2;
         }
@@ -87,9 +87,9 @@ fn main() {
     let width: i32 = 64;
     let height: i32 = 64;
     let mut y: i32 = 0;
-    while y < height {
+    while (y < height) {
         let mut x: i32 = 0;
-        while x < width {
+        while (x < width) {
             let ray_dir: Vec3 = Vec3 {
                 x: (x - width / 2) * scale / width,
                 y: (y - height / 2) * scale / height,
@@ -100,9 +100,9 @@ fn main() {
             let mut min_dist: i32 = 10000 * scale;
             let mut hit_color: Vec3 = Vec3 { x: 20, y: 20, z: 40 }; // Background color
             let mut s: i32 = 0;
-            while s < 4 {
+            while (s < 4) {
                 let dist: i32 = intersect(&ray, &spheres[s]);
-                if dist > 0 && dist < min_dist {
+                if (dist > 0 && dist < min_dist) {
                     min_dist = dist;
                     hit_color = spheres[s].color;
                 }
@@ -116,9 +116,9 @@ fn main() {
 
     let mut checksum: i32 = 0;
     y = 0;
-    while y < height {
+    while (y < height) {
         let mut x: i32 = 0;
-        while x < width {
+        while (x < width) {
             checksum = checksum + screen[x][y] * (x + y * width);
             x = x + 1;
         }

@@ -98,7 +98,7 @@ fn load_program(vm: &mut VM) {
     prog[i] = PUSH; i = i + 1;
     prog[i] = 1; i = i + 1;
     let mut j: i32 = 0;
-    while j < 10 {
+    while (j < 10) {
         prog[i] = ADD; i = i + 1;
         prog[i] = PUSH; i = i + 1;
         prog[i] = vm.stack[vm.sp]; i = i + 1;
@@ -150,67 +150,67 @@ fn load_program(vm: &mut VM) {
 
 fn execute(vm: &mut VM) {
     let mut running: bool = true;
-    while running {
+    while (running) {
         let op: i32 = fetch(vm);
-        if op == HALT {
+        if (op == HALT) {
             running = false;
-        } else if op == PUSH {
+        } else if (op == PUSH) {
             let val: i32 = fetch(vm);
             push(vm, val);
-        } else if op == POP {
+        } else if (op == POP) {
             pop(vm);
-        } else if op == ADD {
+        } else if (op == ADD) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
             push(vm, a + b);
-        } else if op == SUB {
+        } else if (op == SUB) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
             push(vm, a - b);
-        } else if op == MUL {
+        } else if (op == MUL) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
             push(vm, a * b);
-        } else if op == DIV {
+        } else if (op == DIV) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
-            if b != 0 {
+            if (b != 0) {
                 push(vm, a / b);
             } else {
                 printInt(-1);
                 running = false;
             }
-        } else if op == EQ {
+        } else if (op == EQ) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
-            push(vm, if a == b { 1 } else { 0 });
-        } else if op == LT {
+            push(vm, if (a == b) { 1 } else { 0 });
+        } else if (op == LT) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
-            push(vm, if a < b { 1 } else { 0 });
-        } else if op == GT {
+            push(vm, if (a < b) { 1 } else { 0 });
+        } else if (op == GT) {
             let b: i32 = pop(vm);
             let a: i32 = pop(vm);
-            push(vm, if a > b { 1 } else { 0 });
-        } else if op == JMP {
+            push(vm, if (a > b) { 1 } else { 0 });
+        } else if (op == JMP) {
             vm.pc = fetch(vm);
-        } else if op == JZ {
+        } else if (op == JZ) {
             let addr: i32 = fetch(vm);
-            if pop(vm) == 0 {
+            if (pop(vm) == 0) {
                 vm.pc = addr;
             }
-        } else if op == JNZ {
+        } else if (op == JNZ) {
             let addr: i32 = fetch(vm);
-            if pop(vm) != 0 {
+            if (pop(vm) != 0) {
                 vm.pc = addr;
             }
-        } else if op == CALL {
+        } else if (op == CALL) {
             let addr: i32 = fetch(vm);
             push(vm, vm.pc);
             vm.pc = addr;
-        } else if op == RET {
+        } else if (op == RET) {
             vm.pc = pop(vm);
-        } else if op == PRINT {
+        } else if (op == PRINT) {
             printInt(vm.stack[vm.sp]);
         } else {
             printInt(-2);
@@ -248,12 +248,12 @@ fn deep_recursive_test(vm: &mut VM, depth: i32) {
 
 fn complex_stack_manipulation(vm: &mut VM) {
     let mut i: i32 = 0;
-    while i < 20 {
+    while (i < 20) {
         push(vm, i);
         i = i + 1;
     }
     i = 0;
-    while i < 10 {
+    while (i < 10) {
         let a: i32 = pop(vm);
         let b: i32 = pop(vm);
         push(vm, a + b);
@@ -325,7 +325,7 @@ fn run_fibonacci_in_vm(vm: &mut VM, n: i32) {
 fn error_case_test(vm: VM) {
     let mut local_vm: VM = vm;
     local_vm.sp = local_vm.sp + 10;
-    if local_vm.sp > STACK_SIZE {
+    if (local_vm.sp > STACK_SIZE) {
         printInt(-100);
     }
     local_vm.sp = -10;

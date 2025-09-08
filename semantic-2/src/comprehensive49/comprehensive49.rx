@@ -30,7 +30,7 @@ fn main() {
     let mut memory: i32[1024];
     let mut i: i32;
     i = 0;
-    while i < 1024 {
+    while (i < 1024) {
         memory[i] = 0;
         i = i + 1;
     }
@@ -68,10 +68,10 @@ fn main() {
 
     let mut j: i32;
     j = 0;
-    while j < 10 {
+    while (j < 10) {
         let mut temp_ptr: i32;
         temp_ptr = allocate(memory, 10);
-        if temp_ptr == -1 {
+        if (temp_ptr == -1) {
             // This part of the code has a logic error.
             // The variable `alloc_ptr_invalid` is declared but never used.
             // A different variable `alloc_ptr4` is deallocated instead, which might be a bug.
@@ -93,15 +93,15 @@ fn allocate(memory: i32[], size: i32) -> i32 {
     let mut best_fit_size: i32;
     best_fit_size = 1025; // Larger than any possible block
 
-    while current_ptr != -1 {
+    while (current_ptr != -1) {
         let is_free: i32;
         is_free = memory[current_ptr];
         let block_size: i32;
         block_size = memory[current_ptr + 1];
 
-        if is_free == 1 {
-            if block_size >= size {
-                if block_size < best_fit_size {
+        if (is_free == 1) {
+            if (block_size >= size) {
+                if (block_size < best_fit_size) {
                     best_fit_size = block_size;
                     best_fit_ptr = current_ptr;
                 }
@@ -110,13 +110,13 @@ fn allocate(memory: i32[], size: i32) -> i32 {
         current_ptr = memory[current_ptr + 3];
     }
 
-    if best_fit_ptr != -1 {
+    if (best_fit_ptr != -1) {
         let block_size: i32;
         block_size = memory[best_fit_ptr + 1];
         let remaining_size: i32;
         remaining_size = block_size - size - 4;
 
-        if remaining_size > 8 {
+        if (remaining_size > 8) {
             // Split the block
             memory[best_fit_ptr + 1] = size;
             memory[best_fit_ptr] = 0; // Mark as allocated
@@ -130,7 +130,7 @@ fn allocate(memory: i32[], size: i32) -> i32 {
 
             let original_next_ptr: i32;
             original_next_ptr = memory[best_fit_ptr + 3];
-            if original_next_ptr != -1 {
+            if (original_next_ptr != -1) {
                 memory[original_next_ptr + 2] = new_block_ptr;
             }
             memory[best_fit_ptr + 3] = new_block_ptr;
@@ -145,7 +145,7 @@ fn allocate(memory: i32[], size: i32) -> i32 {
 }
 
 fn deallocate(memory: i32[], ptr: i32) {
-    if ptr < 4 {
+    if (ptr < 4) {
         return;
     }
     let block_ptr: i32;
@@ -155,15 +155,15 @@ fn deallocate(memory: i32[], ptr: i32) {
     // Try to merge with next block
     let next_block_ptr: i32;
     next_block_ptr = memory[block_ptr + 3];
-    if next_block_ptr != -1 {
-        if memory[next_block_ptr] == 1 {
+    if (next_block_ptr != -1) {
+        if (memory[next_block_ptr] == 1) {
             let next_block_size: i32;
             next_block_size = memory[next_block_ptr + 1];
             memory[block_ptr + 1] = memory[block_ptr + 1] + next_block_size + 4;
             let next_next_ptr: i32;
             next_next_ptr = memory[next_block_ptr + 3];
             memory[block_ptr + 3] = next_next_ptr;
-            if next_next_ptr != -1 {
+            if (next_next_ptr != -1) {
                 memory[next_next_ptr + 2] = block_ptr;
             }
         }
@@ -172,15 +172,15 @@ fn deallocate(memory: i32[], ptr: i32) {
     // Try to merge with prev block
     let prev_block_ptr: i32;
     prev_block_ptr = memory[block_ptr + 2];
-    if prev_block_ptr != -1 {
-        if memory[prev_block_ptr] == 1 {
+    if (prev_block_ptr != -1) {
+        if (memory[prev_block_ptr] == 1) {
             let current_block_size: i32;
             current_block_size = memory[block_ptr + 1];
             memory[prev_block_ptr + 1] = memory[prev_block_ptr + 1] + current_block_size + 4;
             let next_ptr: i32;
             next_ptr = memory[block_ptr + 3];
             memory[prev_block_ptr + 3] = next_ptr;
-            if next_ptr != -1 {
+            if (next_ptr != -1) {
                 memory[next_ptr + 2] = prev_block_ptr;
             }
         }
@@ -197,13 +197,13 @@ fn print_memory_state(memory: i32[]) {
     let mut num_fragments: i32;
     num_fragments = 0;
 
-    while current_ptr != -1 {
+    while (current_ptr != -1) {
         let is_free: i32;
         is_free = memory[current_ptr];
         let block_size: i32;
         block_size = memory[current_ptr + 1];
 
-        if is_free == 1 {
+        if (is_free == 1) {
             total_free = total_free + block_size;
             num_fragments = num_fragments + 1;
         } else {
@@ -217,10 +217,10 @@ fn print_memory_state(memory: i32[]) {
 }
 
 fn deep_recursive_check(memory: i32[], depth: i32, ptr: i32) -> i32 {
-    if depth <= 0 {
+    if (depth <= 0) {
         return 1;
     }
-    if ptr == -1 {
+    if (ptr == -1) {
         return 0;
     }
 
@@ -229,7 +229,7 @@ fn deep_recursive_check(memory: i32[], depth: i32, ptr: i32) -> i32 {
     let block_size: i32;
     block_size = memory[ptr + 1];
 
-    if block_size > 100 {
+    if (block_size > 100) {
         score = score + deep_recursive_check(memory, depth - 1, memory[ptr + 3]);
     } else {
         score = score + deep_recursive_check(memory, depth - 1, memory[ptr + 2]);
@@ -242,11 +242,11 @@ fn another_utility_function(memory: i32[], start_ptr: i32) -> i32 {
     p = start_ptr;
     let mut count: i32;
     count = 0;
-    while p != -1 {
-        if memory[p] == 0 { // if allocated
+    while (p != -1) {
+        if (memory[p] == 0) { // if allocated
             let mut i: i32;
             i = 0;
-            while i < memory[p + 1] {
+            while (i < memory[p + 1]) {
                 // A meaningless but complex calculation
                 count = count + memory[p + 4 + i] * (i % 3 - 1);
                 i = i + 1;
@@ -262,7 +262,7 @@ fn complex_memory_scan(memory: i32[]) -> i32 {
     result = 0;
     let mut i: i32;
     i = 0;
-    while i < 5 {
+    while (i < 5) {
         result = result + another_utility_function(memory, i * 10);
         i = i + 1;
     }

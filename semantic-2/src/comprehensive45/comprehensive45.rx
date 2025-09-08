@@ -31,8 +31,8 @@ fn main() {
 
     fn generate_input(mut data: &mut [i32; 512]) {
         let mut i: i32 = 0;
-        while i < 512 {
-            if i % 20 < 10 {
+        while (i < 512) {
+            if (i % 20 < 10) {
                 data[i] = (i % 10) + 65; // 'A' through 'J'
             } else {
                 data[i] = (i * 17 % 15) + 97; // 'a' through 'o'
@@ -41,12 +41,12 @@ fn main() {
         }
         // Create some long repeating patterns
         i = 100;
-        while i < 120 {
+        while (i < 120) {
             data[i] = data[i - 20];
             i = i + 1;
         }
         i = 300;
-        while i < 330 {
+        while (i < 330) {
             data[i] = data[i - 30];
             i = i + 1;
         }
@@ -58,22 +58,22 @@ fn main() {
         let max_lookahead: i32 = 18;
 
         let mut i: i32 = current_pos - 1;
-        while i >= search_buffer_start {
+        while (i >= search_buffer_start) {
             let mut current_match_len: i32 = 0;
-            while current_pos + current_match_len < 512 &&
+            while (current_pos + current_match_len < 512 &&
                   current_match_len < max_lookahead &&
-                  data[i + current_match_len] == data[current_pos + current_match_len] {
+                  data[i + current_match_len] == data[current_pos + current_match_len]) {
                 current_match_len = current_match_len + 1;
             }
 
-            if current_match_len > best_match_len {
+            if (current_match_len > best_match_len) {
                 best_match_len = current_match_len;
                 best_match_offset = current_pos - i;
             }
             i = i - 1;
         }
 
-        if best_match_len >= 3 {
+        if (best_match_len >= 3) {
             return (best_match_offset * 1000) + best_match_len;
         }
         return 0;
@@ -84,9 +84,9 @@ fn main() {
     let mut current_pos: i32 = 0;
     let window_size: i32 = 128;
 
-    while current_pos < 512 {
+    while (current_pos < 512) {
         let search_buffer_start: i32;
-        if current_pos > window_size {
+        if (current_pos > window_size) {
             search_buffer_start = current_pos - window_size;
         } else {
             search_buffer_start = 0;
@@ -94,7 +94,7 @@ fn main() {
 
         let match_result: i32 = find_longest_match(&input_data, current_pos, search_buffer_start);
 
-        if match_result > 0 {
+        if (match_result > 0) {
             let offset: i32 = match_result / 1000;
             let len: i32 = match_result % 1000;
 
@@ -108,7 +108,7 @@ fn main() {
         } else {
             // Hidden Error: `literal_value` is defined inside an `if` block
             // but used outside of it, which should cause a scope error.
-            if compressed_len < 510 {
+            if (compressed_len < 510) {
                  let literal_value: i32 = input_data[current_pos];
                  compressed_data[compressed_len] = 0; // Type 0: literal
                  compressed_len = compressed_len + 1;
@@ -122,7 +122,7 @@ fn main() {
 
     let mut checksum: i32 = 0;
     let mut i: i32 = 0;
-    while i < compressed_len {
+    while (i < compressed_len) {
         checksum = checksum + compressed_data[i] * (i + 1);
         i = i + 1;
     }
