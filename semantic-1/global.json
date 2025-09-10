@@ -4460,7 +4460,7 @@
     "input": ["src/misc65/misc65.in", "visible"],
     "output": ["src/misc65/misc65.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4470,7 +4470,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Fast Walsh-Hadamard Transform with subset sum convolution with recursive parameter type mismatch error"
+      "comment": "Fast Walsh-Hadamard Transform with subset sum convolution with recursion"
     }
   }
 
