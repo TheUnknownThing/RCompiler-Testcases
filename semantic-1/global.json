@@ -260,7 +260,7 @@
     "input": ["src/return13/return13.in", "visible"],
     "output": ["src/return13/return13.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -270,7 +270,7 @@
     "metainfo": {
       "caseauthor": "Ruitian Wang",
       "lastmodified": "2025-08-27",
-      "comment": "Return statement in expression context without semicolon"
+      "comment": "Valid return statement in expression context"
     }
   },
   {
