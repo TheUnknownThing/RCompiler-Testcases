@@ -4271,7 +4271,7 @@
     "input": ["src/expr36/expr36.in", "visible"],
     "output": ["src/expr36/expr36.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -4281,7 +4281,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "Complex expression error: Missing semicolon after statement - disjoint set with path compression, union by rank, and Kruskal's algorithm simulation"
+      "comment": "Disjoint set with path compression, union by rank, and Kruskal's algorithm simulation"
     }
   },
   {
