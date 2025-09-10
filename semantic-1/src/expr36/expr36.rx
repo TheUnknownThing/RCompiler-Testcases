@@ -3,8 +3,8 @@ Test Package: Semantic-1
 Test Target: expr
 Author: Wenxin Zheng
 Time: 2025-08-08
-Verdict: Fail
-Comment: Complex expression error: Missing semicolon after statement - disjoint set with path compression, union by rank, and Kruskal's algorithm simulation
+Verdict: Success
+Comment: Disjoint set with path compression, union by rank, and Kruskal's algorithm simulation
 */
 
 struct DisjointSetNode {
