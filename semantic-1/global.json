@@ -4472,6 +4472,195 @@
       "lastmodified": "2025-08-08",
       "comment": "Fast Walsh-Hadamard Transform with subset sum convolution with recursion"
     }
+  },
+  {
+    "name": "autoref1",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref1/autoref1.rx", "visible"],
+    "input": ["src/autoref1/autoref1.in", "visible"],
+    "output": ["src/autoref1/autoref1.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Auto referencing: calling method requiring &self on value"
+    }
+  },
+  {
+    "name": "autoref2",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref2/autoref2.rx", "visible"],
+    "input": ["src/autoref2/autoref2.in", "visible"],
+    "output": ["src/autoref2/autoref2.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Auto referencing: calling method requiring &mut self on mutable value"
+    }
+  },
+  {
+    "name": "autoref3",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref3/autoref3.rx", "visible"],
+    "input": ["src/autoref3/autoref3.in", "visible"],
+    "output": ["src/autoref3/autoref3.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Auto dereferencing: accessing field through reference"
+    }
+  },
+  {
+    "name": "autoref4",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref4/autoref4.rx", "visible"],
+    "input": ["src/autoref4/autoref4.in", "visible"],
+    "output": ["src/autoref4/autoref4.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Auto deref then re-ref: calling method on reference"
+    }
+  },
+  {
+    "name": "autoref5",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref5/autoref5.rx", "visible"],
+    "input": ["src/autoref5/autoref5.in", "visible"],
+    "output": ["src/autoref5/autoref5.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Auto deref for array indexing: using [] on array reference"
+    }
+  },
+  {
+    "name": "autoref6",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref6/autoref6.rx", "visible"],
+    "input": ["src/autoref6/autoref6.in", "visible"],
+    "output": ["src/autoref6/autoref6.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Complex auto ref/deref: nested struct field access through reference"
+    }
+  },
+  {
+    "name": "autoref7",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref7/autoref7.rx", "visible"],
+    "input": ["src/autoref7/autoref7.in", "visible"],
+    "output": ["src/autoref7/autoref7.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Invalid auto ref: cannot convert immutable reference to mutable reference"
+    }
+  },
+  {
+    "name": "autoref8",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref8/autoref8.rx", "visible"],
+    "input": ["src/autoref8/autoref8.in", "visible"],
+    "output": ["src/autoref8/autoref8.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": -1,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Invalid auto ref: cannot convert immutable value to mutable reference"
+    }
+  },
+  {
+    "name": "autoref9",
+    "name_visible": true,
+    "active": true,
+    "source": ["src/autoref9/autoref9.rx", "visible"],
+    "input": ["src/autoref9/autoref9.in", "visible"],
+    "output": ["src/autoref9/autoref9.out", "visible"],
+    "exitcode": 0,
+    "compileexitcode": 0,
+    "compiletimelimit": 15,
+    "compilememorylimit": 256,
+    "runtimelimit": -1,
+    "runtimememorylimit": 256,
+    "cmp": ["compileexitcode"],
+    "provide": ["compilestderr", "compileexitcode"],
+    "metainfo": {
+      "caseauthor": "Ruitian Wang",
+      "lastmodified": "2025-09-25",
+      "comment": "Mixed auto ref/deref: multiple method calls with different self types"
+    }
   }
 
 ]
