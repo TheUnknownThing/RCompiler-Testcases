@@ -25,7 +25,7 @@ Branch optimization in conditional matrix operations
 // - Branch optimization in conditional matrix operations
 
 fn main() {
-    printInt(1700); // Test start marker
+    printlnInt(1700); // Test start marker
     
     // Initialize and test basic matrix operations
     performBasicMatrixOperations();
@@ -42,13 +42,13 @@ fn main() {
     // Test edge cases and boundary conditions
     testMatrixEdgeCases();
     
-    printInt(1799); // Test end marker
+    printlnInt(1799); // Test end marker
     exit(0);
 }
 
 // Basic matrix operations testing
 fn performBasicMatrixOperations() {
-    printInt(1701); // Basic operations start
+    printlnInt(1701); // Basic operations start
     
     // Initialize test matrices - using 1D arrays to simulate 2D matrices
     // Matrix A: 20x20, Matrix B: 20x20, Result: 20x20
@@ -61,35 +61,35 @@ fn performBasicMatrixOperations() {
     initializeMatrices(matrix_a, matrix_b, matrix_size);
     
     // Test 1: Matrix addition
-    printInt(1702); // Matrix addition marker
+    printlnInt(1702); // Matrix addition marker
     matrixAddition(matrix_a, matrix_b, result_matrix, matrix_size);
     let addition_sum: i32 = calculateMatrixSum(result_matrix, matrix_size);
-    printInt(addition_sum);
+    printlnInt(addition_sum);
     
     // Test 2: Matrix subtraction
-    printInt(1703); // Matrix subtraction marker
+    printlnInt(1703); // Matrix subtraction marker
     matrixSubtraction(matrix_a, matrix_b, result_matrix, matrix_size);
     let subtraction_sum: i32 = calculateMatrixSum(result_matrix, matrix_size);
-    printInt(subtraction_sum);
+    printlnInt(subtraction_sum);
     
     // Test 3: Matrix multiplication
-    printInt(1704); // Matrix multiplication marker
+    printlnInt(1704); // Matrix multiplication marker
     matrixMultiplication(matrix_a, matrix_b, result_matrix, matrix_size);
     let multiplication_sum: i32 = calculateMatrixSum(result_matrix, matrix_size);
-    printInt(multiplication_sum);
+    printlnInt(multiplication_sum);
     
     // Test 4: Matrix transpose
-    printInt(1705); // Matrix transpose marker
+    printlnInt(1705); // Matrix transpose marker
     matrixTranspose(matrix_a, result_matrix, matrix_size);
     let transpose_sum: i32 = calculateMatrixSum(result_matrix, matrix_size);
-    printInt(transpose_sum);
+    printlnInt(transpose_sum);
     
     // Test 5: Matrix determinant (for smaller matrices)
-    printInt(1706); // Matrix determinant marker
+    printlnInt(1706); // Matrix determinant marker
     let mut small_matrix: [i32; 16] = [0; 16]; // 4x4 matrix
     initializeSmallMatrix(small_matrix);
     let determinant: i32 = calculateDeterminant4x4(small_matrix);
-    printInt(determinant);
+    printlnInt(determinant);
 }
 
 // Initialize matrices with specific patterns for testing
@@ -299,10 +299,10 @@ fn calculateDeterminant3x3(matrix: [i32; 9]) -> i32 {
 
 // Advanced matrix algorithms
 fn performAdvancedMatrixAlgorithms() {
-    printInt(1710); // Advanced algorithms start
+    printlnInt(1710); // Advanced algorithms start
     
     // Test 1: Matrix power calculation
-    printInt(1711); // Matrix power marker
+    printlnInt(1711); // Matrix power marker
     let mut base_matrix: [i32; 100] = [0; 100]; // 10x10 matrix
     let matrix_size: i32 = 10;
     initializeMatrixForPower(base_matrix, matrix_size);
@@ -310,27 +310,27 @@ fn performAdvancedMatrixAlgorithms() {
     let mut power_result: [i32; 100] = [0; 100];
     matrixPower(base_matrix, power_result, matrix_size, 3);
     let power_sum: i32 = calculateMatrixSum100(power_result, matrix_size);
-    printInt(power_sum);
+    printlnInt(power_sum);
     
     // Test 2: Matrix rotation operations
-    printInt(1712); // Matrix rotation marker
+    printlnInt(1712); // Matrix rotation marker
     let mut rotation_matrix: [i32; 64] = [0; 64]; // 8x8 matrix
     initializeRotationMatrix(rotation_matrix);
     
     rotateMatrix90Degrees(rotation_matrix, 8);
     let rotation_sum: i32 = calculateMatrixSum64(rotation_matrix);
-    printInt(rotation_sum);
+    printlnInt(rotation_sum);
     
     // Test 3: Matrix diagonal operations
-    printInt(1713); // Matrix diagonal marker
+    printlnInt(1713); // Matrix diagonal marker
     let diagonal_sum: i32 = calculateDiagonalSums(base_matrix, matrix_size);
-    printInt(diagonal_sum);
+    printlnInt(diagonal_sum);
     
     // Test 4: Matrix trace and norm calculations
-    printInt(1714); // Matrix trace marker
+    printlnInt(1714); // Matrix trace marker
     let trace: i32 = calculateMatrixTrace(base_matrix, matrix_size);
     let norm: i32 = calculateMatrixNorm(base_matrix, matrix_size);
-    printInt(trace + norm);
+    printlnInt(trace + norm);
 }
 
 // Initialize matrix for power calculation
@@ -546,7 +546,7 @@ fn absValue(value: i32) -> i32 {
 
 // Sparse matrix operations
 fn performSparseMatrixOperations() {
-    printInt(1720); // Sparse matrix start
+    printlnInt(1720); // Sparse matrix start
     
     // Sparse matrix representation: [row, col, value] triplets
     // Using coordinate (COO) format for simplicity
@@ -557,10 +557,10 @@ fn performSparseMatrixOperations() {
     
     // Create sparse matrix with random non-zero elements
     sparse_count = createSparseMatrix(sparse_rows, sparse_cols, sparse_values);
-    printInt(sparse_count);
+    printlnInt(sparse_count);
     
     // Test 1: Sparse matrix addition
-    printInt(1721); // Sparse addition marker
+    printlnInt(1721); // Sparse addition marker
     let mut sparse2_rows: [i32; 200] = [0; 200];
     let mut sparse2_cols: [i32; 200] = [0; 200];
     let mut sparse2_values: [i32; 200] = [0; 200];
@@ -574,10 +574,10 @@ fn performSparseMatrixOperations() {
         sparse2_rows, sparse2_cols, sparse2_values, sparse2_count,
         result_rows, result_cols, result_values
     );
-    printInt(result_count);
+    printlnInt(result_count);
     
     // Test 2: Sparse matrix transpose
-    printInt(1722); // Sparse transpose marker
+    printlnInt(1722); // Sparse transpose marker
     let mut transpose_rows: [i32; 200] = [0; 200];
     let mut transpose_cols: [i32; 200] = [0; 200];
     let mut transpose_values: [i32; 200] = [0; 200];
@@ -585,15 +585,15 @@ fn performSparseMatrixOperations() {
                          transpose_rows, transpose_cols, transpose_values);
     
     let transpose_sum: i32 = calculateSparseSum(transpose_values, sparse_count);
-    printInt(transpose_sum);
+    printlnInt(transpose_sum);
     
     // Test 3: Sparse matrix multiplication
-    printInt(1723); // Sparse multiplication marker
+    printlnInt(1723); // Sparse multiplication marker
     let mult_result: i32 = sparseMatrixMultiplication(
         sparse_rows, sparse_cols, sparse_values, sparse_count,
         transpose_rows, transpose_cols, transpose_values, sparse_count
     );
-    printInt(mult_result);
+    printlnInt(mult_result);
 }
 
 // Create first sparse matrix
@@ -807,18 +807,18 @@ fn sparseMatrixMultiplication(
 
 // Matrix performance benchmarks
 fn performMatrixPerformanceBenchmarks() {
-    printInt(1730); // Performance benchmark start
+    printlnInt(1730); // Performance benchmark start
     
     // Benchmark 1: Large matrix operations
-    printInt(1731); // Large matrix benchmark
+    printlnInt(1731); // Large matrix benchmark
     performLargeMatrixBenchmark();
     
     // Benchmark 2: Repeated operations
-    printInt(1732); // Repeated operations benchmark
+    printlnInt(1732); // Repeated operations benchmark
     performRepeatedOperationsBenchmark();
     
     // Benchmark 3: Memory access patterns
-    printInt(1733); // Memory access patterns benchmark
+    printlnInt(1733); // Memory access patterns benchmark
     performMemoryAccessBenchmark();
 }
 
@@ -844,7 +844,7 @@ fn performLargeMatrixBenchmark() {
     }
     
     let result_sum: i32 = calculateMatrixSum625(large_result, large_size);
-    printInt(result_sum);
+    printlnInt(result_sum);
 }
 
 // Initialize large matrices
@@ -923,7 +923,7 @@ fn performRepeatedOperationsBenchmark() {
     }
     
     let final_sum: i32 = calculateMatrixSum144(test_matrix, size);
-    printInt(final_sum);
+    printlnInt(final_sum);
 }
 
 // Matrix transpose for 12x12
@@ -977,7 +977,7 @@ fn performMemoryAccessBenchmark() {
     let diagonal_sum: i32 = testDiagonalAccess(access_matrix, size);
     let random_sum: i32 = testRandomAccess(access_matrix, size);
     
-    printInt(row_major_sum + col_major_sum + diagonal_sum + random_sum);
+    printlnInt(row_major_sum + col_major_sum + diagonal_sum + random_sum);
 }
 
 // Test row-major access pattern
@@ -1053,7 +1053,7 @@ fn testRandomAccess(matrix: [i32; 256], size: i32) -> i32 {
 
 // Test edge cases and boundary conditions
 fn testMatrixEdgeCases() {
-    printInt(1740); // Edge cases start
+    printlnInt(1740); // Edge cases start
     
     // Test 1: 1x1 matrix operations
     testSingleElementMatrix();
@@ -1067,7 +1067,7 @@ fn testMatrixEdgeCases() {
     // Test 4: Overflow and underflow conditions
     testOverflowConditions();
     
-    printInt(1749); // Edge cases end
+    printlnInt(1749); // Edge cases end
 }
 
 // Test single element matrix
@@ -1077,15 +1077,15 @@ fn testSingleElementMatrix() {
     
     // Addition
     result_matrix[0] = single_matrix[0] + single_matrix[0];
-    printInt(result_matrix[0]);
+    printlnInt(result_matrix[0]);
     
     // Multiplication
     result_matrix[0] = single_matrix[0] * single_matrix[0];
-    printInt(result_matrix[0]);
+    printlnInt(result_matrix[0]);
     
     // Transpose (should be same)
     result_matrix[0] = single_matrix[0];
-    printInt(result_matrix[0]);
+    printlnInt(result_matrix[0]);
 }
 
 // Test minimal matrices
@@ -1101,11 +1101,11 @@ fn testMinimalMatrices() {
     result2x2[3] = matrix2x2[3]; // [1,1] -> [1,1]
     
     let transpose_sum: i32 = result2x2[0] + result2x2[1] + result2x2[2] + result2x2[3];
-    printInt(transpose_sum);
+    printlnInt(transpose_sum);
     
     // 2x2 determinant
     let det2x2: i32 = matrix2x2[0] * matrix2x2[3] - matrix2x2[1] * matrix2x2[2];
-    printInt(det2x2);
+    printlnInt(det2x2);
 }
 
 // Test boundary value matrices
@@ -1128,17 +1128,17 @@ fn testBoundaryValueMatrices() {
         sum = sum + large_value_matrix[i as usize];
         i = i + 1;
     }
-    printInt(sum);
+    printlnInt(sum);
     
     // Matrix with all zeros
     let mut zero_matrix: [i32; 16] = [0; 16];
     let zero_sum: i32 = calculateMatrixSum16(zero_matrix);
-    printInt(zero_sum);
+    printlnInt(zero_sum);
     
     // Matrix with all ones
     let mut ones_matrix: [i32; 16] = [1; 16];
     let ones_sum: i32 = calculateMatrixSum16(ones_matrix);
-    printInt(ones_sum);
+    printlnInt(ones_sum);
 }
 
 // Calculate sum for 4x4 matrix
@@ -1174,5 +1174,5 @@ fn testOverflowConditions() {
                           (overflow_result[1] % 100000) + 
                           (overflow_result[2] % 100000) + 
                           (overflow_result[3] % 100000);
-    printInt(safe_result);
+    printlnInt(safe_result);
 }

@@ -116,7 +116,7 @@ impl StringProcessor {
         self.text_length = length;
         let mut i: i32 = 0;
         while (i < length) {
-            self.text[i as usize] = readInt();
+            self.text[i as usize] = getInt();
             i += 1;
         }
         
@@ -137,7 +137,7 @@ impl StringProcessor {
         
         let mut i: i32 = 0;
         while (i < length) {
-            self.patterns[pattern_index as usize][i as usize] = readInt();
+            self.patterns[pattern_index as usize][i as usize] = getInt();
             i += 1;
         }
         
@@ -520,13 +520,13 @@ impl StringProcessor {
         
         let mut i: i32 = 0;
         while (i < str1_len) {
-            str1[i as usize] = readInt();
+            str1[i as usize] = getInt();
             i += 1;
         }
         
         i = 0;
         while (i < str2_len) {
-            str2[i as usize] = readInt();
+            str2[i as usize] = getInt();
             i += 1;
         }
         
@@ -641,34 +641,34 @@ impl StringProcessor {
     // Output comprehensive results
     fn output_results(&self) {
         // Text statistics
-        printInt(self.text_length);
-        printInt(self.word_count);
-        printInt(self.sentence_count);
-        printInt(self.paragraph_count);
-        printInt(self.unique_chars);
+        printlnInt(self.text_length);
+        printlnInt(self.word_count);
+        printlnInt(self.sentence_count);
+        printlnInt(self.paragraph_count);
+        printlnInt(self.unique_chars);
         
         // Pattern matching results
         let mut i: i32 = 0;
         while (i < self.pattern_count) {
-            printInt(self.match_counts[i as usize]);
+            printlnInt(self.match_counts[i as usize]);
             i += 1;
         }
         
         // Algorithm performance metrics
-        printInt(self.comparison_count);
-        printInt(self.hash_collisions);
+        printlnInt(self.comparison_count);
+        printlnInt(self.hash_collisions);
         
         // Analysis results
         i = 0;
         while (i < 7) {
-            printInt(self.algorithm_times[i as usize]);
+            printlnInt(self.algorithm_times[i as usize]);
             i += 1;
         }
         
         // Suffix array sample (first 10 entries)
         i = 0;
         while (i < 10 && i < self.text_length) {
-            printInt(self.suffix_array[i as usize]);
+            printlnInt(self.suffix_array[i as usize]);
             i += 1;
         }
         
@@ -676,7 +676,7 @@ impl StringProcessor {
         let pattern_complexity: i32 = self.comparison_count / (self.pattern_count + 1);
         let text_complexity: i32 = (self.unique_chars * self.word_count) / 100;
         let final_score: i32 = pattern_complexity + text_complexity + self.algorithm_times[3];
-        printInt(final_score);
+        printlnInt(final_score);
     }
 }
 
@@ -704,7 +704,7 @@ impl RegexMatcher {
         self.pattern_length = length;
         let mut i: i32 = 0;
         while (i < length) {
-            self.pattern[i as usize] = readInt();
+            self.pattern[i as usize] = getInt();
             i += 1;
         }
         
@@ -784,14 +784,14 @@ fn main() {
     let mut processor: StringProcessor = StringProcessor::new();
     
     // Read text
-    let text_length: i32 = readInt();
+    let text_length: i32 = getInt();
     processor.initialize_text(text_length);
     
     // Read patterns
-    let pattern_count: i32 = readInt();
+    let pattern_count: i32 = getInt();
     let mut i: i32 = 0;
     while (i < pattern_count) {
-        let pattern_length: i32 = readInt();
+        let pattern_length: i32 = getInt();
         processor.add_pattern(pattern_length);
         i += 1;
     }
@@ -800,24 +800,24 @@ fn main() {
     processor.perform_comprehensive_analysis();
     
     // Edit distance computation
-    let str1_len: i32 = readInt();
-    let str2_len: i32 = readInt();
+    let str1_len: i32 = getInt();
+    let str2_len: i32 = getInt();
     let edit_distance: i32 = processor.compute_edit_distance(str1_len, str2_len);
-    printInt(edit_distance);
+    printlnInt(edit_distance);
     
     // Regular expression matching
     let mut regex_matcher: RegexMatcher = RegexMatcher::new();
-    let regex_pattern_length: i32 = readInt();
+    let regex_pattern_length: i32 = getInt();
     regex_matcher.compile_pattern(regex_pattern_length);
     
     let regex_result: bool = regex_matcher.match_text(&processor.text, processor.text_length);
-    printInt(if (regex_result) { 1 } else { 0 });
+    printlnInt(if (regex_result) { 1 } else { 0 });
     
     // Output all results
     processor.output_results();
     
     // Advanced string transformations and analysis
-    let transformation_iterations: i32 = readInt();
+    let transformation_iterations: i32 = getInt();
     let mut total_transformations: i32 = 0;
     
     i = 0;
@@ -842,10 +842,10 @@ fn main() {
         i += 1;
     }
     
-    printInt(total_transformations);
+    printlnInt(total_transformations);
     
     // Final comprehensive metric
     let final_complexity: i32 = (processor.comparison_count + total_transformations) * processor.unique_chars / 100;
-    printInt(final_complexity);
+    printlnInt(final_complexity);
     exit(0);
 }

@@ -29,7 +29,7 @@ Array access pattern optimization for sparse data structures
 // - Array access pattern optimization for sparse data structures
 
 fn main() {
-    printInt(42);
+    printlnInt(42);
     
     // Virtual Memory System Configuration
     let page_size: i32 = 4096;
@@ -250,14 +250,14 @@ fn main() {
                                                                num_physical_frames);
     
     // Output comprehensive results
-    printInt(page_fault_rate);
-    printInt(l1_hit_rate);
-    printInt(l2_hit_rate);
-    printInt(tlb_hit_rate);
-    printInt(memory_utilization);
-    printInt(avg_memory_access_time);
-    printInt(final_fragmentation);
-    printInt(working_set_window);
+    printlnInt(page_fault_rate);
+    printlnInt(l1_hit_rate);
+    printlnInt(l2_hit_rate);
+    printlnInt(tlb_hit_rate);
+    printlnInt(memory_utilization);
+    printlnInt(avg_memory_access_time);
+    printlnInt(final_fragmentation);
+    printlnInt(working_set_window);
 }
 
 // Generate complex memory access patterns for testing

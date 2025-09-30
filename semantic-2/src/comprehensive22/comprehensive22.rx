@@ -28,7 +28,7 @@ Loop optimization in graph traversal contexts
 
 fn main() {
     // Performance test marker - start
-    printInt(22000);
+    printlnInt(22000);
     
     // Test 1: Complex graph construction and manipulation
     // Tests memory allocation patterns and pointer optimization
@@ -51,30 +51,30 @@ fn main() {
     performTopologicalSorting();
     
     // Performance test marker - end
-    printInt(22999);
+    printlnInt(22999);
 }
 
 // Test 1: Complex Graph Construction and Manipulation
 // Tests compiler's ability to optimize complex data structure operations
 fn performGraphConstruction() {
-    printInt(22001); // Start graph construction test
+    printlnInt(22001); // Start graph construction test
     
     // Initialize adjacency matrix for a large graph
     let mut graph = createLargeGraph(100);
     
     // Perform graph modifications
     let connections = addDynamicConnections(graph, 100);
-    printInt(connections);
+    printlnInt(connections);
     
     // Test graph density calculations
     let density = calculateGraphDensity(graph, 100);
-    printInt(density);
+    printlnInt(density);
     
     // Test graph component analysis
     let components = findConnectedComponents(graph, 100);
-    printInt(components);
+    printlnInt(components);
     
-    printInt(22002); // End graph construction test
+    printlnInt(22002); // End graph construction test
 }
 
 // Create a large graph with complex connection patterns
@@ -307,21 +307,21 @@ fn markVisited(visited_handle: i32, node: i32) {
 
 // Test 2: Advanced Shortest Path Algorithms
 fn performShortestPathAlgorithms() {
-    printInt(22003); // Start shortest path test
+    printlnInt(22003); // Start shortest path test
     
     // Test Dijkstra's algorithm implementation
     let shortest_path_1 = dijkstraShortestPath(0, 99, 100);
-    printInt(shortest_path_1);
+    printlnInt(shortest_path_1);
     
     // Test Floyd-Warshall all-pairs shortest paths
     let all_pairs_sum = floydWarshallAllPairs(100);
-    printInt(all_pairs_sum);
+    printlnInt(all_pairs_sum);
     
     // Test A* pathfinding with heuristics
     let astar_path = aStarPathfinding(0, 99, 100);
-    printInt(astar_path);
+    printlnInt(astar_path);
     
-    printInt(22004); // End shortest path test
+    printlnInt(22004); // End shortest path test
 }
 
 // Dijkstra's shortest path algorithm
@@ -641,21 +641,21 @@ fn getPreviousNode(node: i32) -> i32 {
 
 // Test 3: Network Flow and Maximum Matching
 fn performNetworkFlowAlgorithms() {
-    printInt(22005); // Start network flow test
+    printlnInt(22005); // Start network flow test
     
     // Test maximum flow algorithm
     let max_flow = fordFulkersonMaxFlow(0, 99, 100);
-    printInt(max_flow);
+    printlnInt(max_flow);
     
     // Test minimum cut calculation
     let min_cut = calculateMinimumCut(0, 99, 100);
-    printInt(min_cut);
+    printlnInt(min_cut);
     
     // Test bipartite matching
     let max_matching = bipartiteMaxMatching(50, 50);
-    printInt(max_matching);
+    printlnInt(max_matching);
     
-    printInt(22006); // End network flow test
+    printlnInt(22006); // End network flow test
 }
 
 // Ford-Fulkerson maximum flow algorithm
@@ -972,21 +972,21 @@ fn setMatching(matching: i32, right_node: i32, left_node: i32) {
 
 // Test 4: Graph Coloring and Constraint Satisfaction
 fn performGraphColoringAlgorithms() {
-    printInt(22007); // Start graph coloring test
+    printlnInt(22007); // Start graph coloring test
     
     // Test graph coloring with backtracking
     let colors_used = graphColoringBacktrack(100, 4);
-    printInt(colors_used);
+    printlnInt(colors_used);
     
     // Test constraint satisfaction
     let constraints_satisfied = constraintSatisfaction(100);
-    printInt(constraints_satisfied);
+    printlnInt(constraints_satisfied);
     
     // Test independent set finding
     let max_independent_set = findMaximumIndependentSet(100);
-    printInt(max_independent_set);
+    printlnInt(max_independent_set);
     
-    printInt(22008); // End graph coloring test
+    printlnInt(22008); // End graph coloring test
 }
 
 // Graph coloring with backtracking
@@ -1293,25 +1293,25 @@ fn maxInt(a: i32, b: i32) -> i32 {
 
 // Test 5: Topological Sorting and Dependency Resolution
 fn performTopologicalSorting() {
-    printInt(22009); // Start topological sorting test
+    printlnInt(22009); // Start topological sorting test
     
     // Test topological sort using DFS
     let topo_order = topologicalSortDFS(100);
-    printInt(topo_order);
+    printlnInt(topo_order);
     
     // Test dependency resolution
     let resolved_dependencies = resolveDependencies(100);
-    printInt(resolved_dependencies);
+    printlnInt(resolved_dependencies);
     
     // Test cycle detection
     let has_cycle = detectCycle(100);
     if has_cycle {
-        printInt(1);
+        printlnInt(1);
     } else {
-        printInt(0);
+        printlnInt(0);
     }
     
-    printInt(22010); // End topological sorting test
+    printlnInt(22010); // End topological sorting test
 }
 
 // Topological sort using DFS

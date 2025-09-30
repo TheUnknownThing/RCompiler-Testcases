@@ -29,7 +29,7 @@ Loop optimization for iterative agreement protocols
 // - Loop optimization for iterative agreement protocols
 
 fn main() {
-    printInt(42);
+    printlnInt(42);
     
     // Initialize distributed system with 100 nodes
     let node_count: i32 = 100;
@@ -158,14 +158,14 @@ fn main() {
                                                    &node_commit_indices, node_count);
     
     // Output comprehensive results
-    printInt(final_leader);
-    printInt(total_committed);
-    printInt(network_efficiency);
-    printInt(system_hash);
-    printInt(leader_changes);
-    printInt(failed_elections);
-    printInt(total_messages);
-    printInt(consensus_rounds);
+    printlnInt(final_leader);
+    printlnInt(total_committed);
+    printlnInt(network_efficiency);
+    printlnInt(system_hash);
+    printlnInt(leader_changes);
+    printlnInt(failed_elections);
+    printlnInt(total_messages);
+    printlnInt(consensus_rounds);
 }
 
 // Simulate dynamic network conditions with partitions and healing

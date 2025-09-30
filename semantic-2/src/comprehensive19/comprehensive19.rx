@@ -444,7 +444,7 @@ fn list_merge_sorted(manager: &mut LinkedListManager, pool: &mut MemoryPool, lis
 
 // Test comprehensive data structure operations
 fn test_comprehensive_operations() {
-    printInt(19001);  // Test start marker
+    printlnInt(19001);  // Test start marker
     
     // Initialize all data structures
     let mut memory_pool = init_memory_pool();
@@ -453,7 +453,7 @@ fn test_comprehensive_operations() {
     let mut queue = init_queue();
     let mut list_manager = init_list_manager();
     
-    printInt(19002);  // Initialization complete
+    printlnInt(19002);  // Initialization complete
     
     // Test 1: Memory pool stress test
     let mut allocated_nodes: [i32; 100] = [NULL_INDEX; 100];
@@ -461,12 +461,12 @@ fn test_comprehensive_operations() {
     while (i < 100) {
         allocated_nodes[i as usize] = allocate_node(&mut memory_pool, i * 7 + 13);
         if (allocated_nodes[i as usize] == NULL_INDEX) {
-            printInt(19901);  // Allocation failure
+            printlnInt(19901);  // Allocation failure
         }
         i = i + 1;
     }
     
-    printInt(memory_pool.allocated_count);  // Should be 100
+    printlnInt(memory_pool.allocated_count);  // Should be 100
     
     // Test 2: Hash table collision handling
     let mut hash_collisions = 0;
@@ -477,19 +477,19 @@ fn test_comprehensive_operations() {
         if (hash_table_insert(&mut hash_table, key, value)) {
             let retrieved = hash_table_search(&hash_table, key);
             if (retrieved != value) {
-                printInt(19902);  // Hash table error
+                printlnInt(19902);  // Hash table error
             }
         }
         i = i + 1;
     }
     
-    printInt(hash_table.entry_count);  // Hash table size
+    printlnInt(hash_table.entry_count);  // Hash table size
     
     // Test 3: Stack operations with corner cases
     i = 0;
     while (i < STACK_SIZE + 10) {  // Test overflow
         if (!stack_push(&mut stack, i * 3 + 7)) {
-            printInt(19903);  // Stack overflow detected
+            printlnInt(19903);  // Stack overflow detected
             break;
         }
         i = i + 1;
@@ -503,7 +503,7 @@ fn test_comprehensive_operations() {
         }
     }
     
-    printInt(pop_count);  // Should equal number of pushes
+    printlnInt(pop_count);  // Should equal number of pushes
     
     // Test 4: Queue circular operations
     i = 0;
@@ -521,12 +521,12 @@ fn test_comprehensive_operations() {
     i = 0;
     while (i < QUEUE_SIZE / 2) {
         if (!queue_enqueue(&mut queue, i * 7 + 23)) {
-            printInt(19904);  // Queue operation error
+            printlnInt(19904);  // Queue operation error
         }
         i = i + 1;
     }
     
-    printInt(queue.size);  // Current queue size
+    printlnInt(queue.size);  // Current queue size
     
     // Test 5: Complex linked list operations
     // Create multiple sorted lists
@@ -540,7 +540,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(list_manager.total_nodes);  // Total nodes in all lists
+    printlnInt(list_manager.total_nodes);  // Total nodes in all lists
     
     // Search operations
     let mut search_success = 0;
@@ -556,7 +556,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(search_success);  // Should be 100
+    printlnInt(search_success);  // Should be 100
     
     // Test 6: Memory fragmentation handling
     // Deallocate every other node from memory pool
@@ -569,7 +569,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(memory_pool.allocated_count);  // Should be 50
+    printlnInt(memory_pool.allocated_count);  // Should be 50
     
     // Try to allocate new nodes in fragmented pool
     let mut new_allocations = 0;
@@ -582,7 +582,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(new_allocations);  // Should be 50 (free slots)
+    printlnInt(new_allocations);  // Should be 50 (free slots)
     
     // Test 7: Hash table deletion and reinsert
     let mut deletion_count = 0;
@@ -595,7 +595,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(deletion_count);  // Successful deletions
+    printlnInt(deletion_count);  // Successful deletions
     
     // Reinsert with different values
     i = 0;
@@ -606,7 +606,7 @@ fn test_comprehensive_operations() {
         i = i + 1;
     }
     
-    printInt(hash_table.entry_count);  // Final hash table size
+    printlnInt(hash_table.entry_count);  // Final hash table size
     
     // Test 8: List merge operations
     // Create two sorted lists for merging
@@ -620,14 +620,14 @@ fn test_comprehensive_operations() {
     let list7_len = list_length(&list_manager, &memory_pool, 7);
     let list8_len = list_length(&list_manager, &memory_pool, 8);
     
-    printInt(list7_len + list8_len);  // Combined length before merge
+    printlnInt(list7_len + list8_len);  // Combined length before merge
     
     list_merge_sorted(&mut list_manager, &mut memory_pool, 7, 8, 9);
     
     let merged_len = list_length(&list_manager, &memory_pool, 9);
-    printInt(merged_len);  // Length after merge
+    printlnInt(merged_len);  // Length after merge
     
-    printInt(19999);  // Test end marker
+    printlnInt(19999);  // Test end marker
 }
 
 fn main() {

@@ -25,7 +25,7 @@ Edge case handling in memory management scenarios
 // - Edge case handling in memory management scenarios
 
 fn main() {
-    printInt(1800); // Test start marker
+    printlnInt(1800); // Test start marker
     
     // Initialize and test memory pool management
     performMemoryPoolOperations();
@@ -42,12 +42,12 @@ fn main() {
     // Test edge cases and stress scenarios
     testMemoryEdgeCases();
     
-    printInt(1899); // Test end marker
+    printlnInt(1899); // Test end marker
 }
 
 // Memory pool management with different allocation strategies
 fn performMemoryPoolOperations() {
-    printInt(1801); // Memory pool start
+    printlnInt(1801); // Memory pool start
     
     // Simulate a memory pool with metadata
     // Layout: [size, status, next_free_index, prev_free_index, ...data...]
@@ -63,7 +63,7 @@ fn performMemoryPoolOperations() {
     free_list_head = 0;
     
     // Test 1: Sequential allocation of various sizes
-    printInt(1802); // Sequential allocation marker
+    printlnInt(1802); // Sequential allocation marker
     let mut alloc_size: i32 = 8;
     while (alloc_size <= 64 && allocated_count < 100) {
         let allocated_block: i32 = allocateBlock(memory_pool, free_list_head, alloc_size);
@@ -74,10 +74,10 @@ fn performMemoryPoolOperations() {
         }
         alloc_size = alloc_size + 8;
     }
-    printInt(allocated_count);
+    printlnInt(allocated_count);
     
     // Test 2: Random deallocation pattern
-    printInt(1803); // Random deallocation marker
+    printlnInt(1803); // Random deallocation marker
     let mut deallocated_count: i32 = 0;
     let mut i: i32 = 0;
     while (i < allocated_count) {
@@ -90,15 +90,15 @@ fn performMemoryPoolOperations() {
         }
         i = i + 1;
     }
-    printInt(deallocated_count);
+    printlnInt(deallocated_count);
     
     // Test 3: Coalescing free blocks
-    printInt(1804); // Coalescing marker
+    printlnInt(1804); // Coalescing marker
     let coalesced_count: i32 = coalesceAdjacentBlocks(memory_pool, pool_size);
-    printInt(coalesced_count);
+    printlnInt(coalesced_count);
     
     // Test 4: First-fit allocation after fragmentation
-    printInt(1805); // Post-fragmentation allocation marker
+    printlnInt(1805); // Post-fragmentation allocation marker
     let mut realloc_count: i32 = 0;
     let mut test_size: i32 = 16;
     while (test_size <= 48 && realloc_count < 20) {
@@ -109,12 +109,12 @@ fn performMemoryPoolOperations() {
         }
         test_size = test_size + 4;
     }
-    printInt(realloc_count);
+    printlnInt(realloc_count);
     
     // Test 5: Memory utilization analysis
-    printInt(1806); // Utilization analysis marker
+    printlnInt(1806); // Utilization analysis marker
     let utilization_stats: i32 = analyzeMemoryUtilization(memory_pool, pool_size);
-    printInt(utilization_stats);
+    printlnInt(utilization_stats);
 }
 
 // Initialize memory pool with initial free block
@@ -288,7 +288,7 @@ fn analyzeMemoryUtilization(memory_pool: [i32; 2000], pool_size: i32) -> i32 {
 
 // Buddy allocation system simulation
 fn performBuddyAllocationTest() {
-    printInt(1810); // Buddy allocation start
+    printlnInt(1810); // Buddy allocation start
     
     // Buddy allocator simulation using binary tree structure
     // Tree nodes represent memory blocks of different sizes
@@ -301,7 +301,7 @@ fn performBuddyAllocationTest() {
     initializeBuddySystem(buddy_tree, tree_depth);
     
     // Test 1: Allocate blocks of various sizes
-    printInt(1811); // Buddy allocation marker
+    printlnInt(1811); // Buddy allocation marker
     let mut size: i32 = 1;
     while (size <= 64 && allocation_count < 100) {
         let allocated_node: i32 = buddyAllocate(buddy_tree, tree_depth, size);
@@ -311,10 +311,10 @@ fn performBuddyAllocationTest() {
         }
         size = size * 2; // Power of 2 sizes
     }
-    printInt(allocation_count);
+    printlnInt(allocation_count);
     
     // Test 2: Deallocate some blocks
-    printInt(1812); // Buddy deallocation marker
+    printlnInt(1812); // Buddy deallocation marker
     let mut deallocated: i32 = 0;
     let mut i: i32 = 0;
     while (i < allocation_count) {
@@ -325,10 +325,10 @@ fn performBuddyAllocationTest() {
         }
         i = i + 1;
     }
-    printInt(deallocated);
+    printlnInt(deallocated);
     
     // Test 3: Attempt reallocation after coalescing
-    printInt(1813); // Buddy reallocation marker
+    printlnInt(1813); // Buddy reallocation marker
     let mut reallocated: i32 = 0;
     size = 8;
     while (size <= 32 && reallocated < 10) {
@@ -338,12 +338,12 @@ fn performBuddyAllocationTest() {
         }
         size = size + 8;
     }
-    printInt(reallocated);
+    printlnInt(reallocated);
     
     // Test 4: Fragmentation analysis
-    printInt(1814); // Buddy fragmentation marker
+    printlnInt(1814); // Buddy fragmentation marker
     let fragmentation_score: i32 = analyzeBuddyFragmentation(buddy_tree, tree_depth);
-    printInt(fragmentation_score);
+    printlnInt(fragmentation_score);
 }
 
 // Initialize buddy system tree
@@ -501,7 +501,7 @@ fn analyzeBuddyFragmentation(buddy_tree: [i32; 512], depth: i32) -> i32 {
 
 // Garbage collection simulation
 fn performGarbageCollectionTest() {
-    printInt(1820); // GC test start
+    printlnInt(1820); // GC test start
     
     // Simulate objects with references
     let mut object_pool: [i32; 1000] = [0; 1000];
@@ -515,24 +515,24 @@ fn performGarbageCollectionTest() {
     initializeObjectGraph(object_pool, object_refs, root_set, object_count, root_count);
     
     // Test 1: Mark phase of garbage collection
-    printInt(1821); // Mark phase marker
+    printlnInt(1821); // Mark phase marker
     let marked_objects: i32 = performMarkPhase(object_pool, object_refs, root_set, gc_marks, root_count);
-    printInt(marked_objects);
+    printlnInt(marked_objects);
     
     // Test 2: Sweep phase of garbage collection
-    printInt(1822); // Sweep phase marker
+    printlnInt(1822); // Sweep phase marker
     let collected_objects: i32 = performSweepPhase(object_pool, gc_marks, object_count);
-    printInt(collected_objects);
+    printlnInt(collected_objects);
     
     // Test 3: Compaction phase
-    printInt(1823); // Compaction marker
+    printlnInt(1823); // Compaction marker
     let compacted_size: i32 = performCompactionPhase(object_pool, object_refs, object_count);
-    printInt(compacted_size);
+    printlnInt(compacted_size);
     
     // Test 4: Reference counting simulation
-    printInt(1824); // Reference counting marker
+    printlnInt(1824); // Reference counting marker
     let ref_count_result: i32 = simulateReferenceCounting(object_pool, object_refs, object_count);
-    printInt(ref_count_result);
+    printlnInt(ref_count_result);
 }
 
 // Initialize object graph for GC testing
@@ -777,7 +777,7 @@ fn decrementReferencedObjects(mut object_pool: [i32; 1000], object_start: i32) {
 
 // Memory fragmentation and compaction testing
 fn performFragmentationTest() {
-    printInt(1830); // Fragmentation test start
+    printlnInt(1830); // Fragmentation test start
     
     // Create a heavily fragmented memory scenario
     let mut fragmented_memory: [i32; 1000] = [0; 1000];
@@ -787,28 +787,28 @@ fn performFragmentationTest() {
     let mut allocated_count: i32 = 0;
     
     // Test 1: Create fragmentation pattern
-    printInt(1831); // Create fragmentation marker
+    printlnInt(1831); // Create fragmentation marker
     createFragmentationPattern(fragmented_memory, free_list, allocated_list, free_count, allocated_count);
     
     // Test 2: Measure fragmentation
-    printInt(1832); // Measure fragmentation marker
+    printlnInt(1832); // Measure fragmentation marker
     let fragmentation_score: i32 = measureFragmentation(fragmented_memory, 1000);
-    printInt(fragmentation_score);
+    printlnInt(fragmentation_score);
     
     // Test 3: Attempt allocation in fragmented memory
-    printInt(1833); // Fragmented allocation marker
+    printlnInt(1833); // Fragmented allocation marker
     let successful_allocs: i32 = attemptFragmentedAllocations(fragmented_memory, 1000);
-    printInt(successful_allocs);
+    printlnInt(successful_allocs);
     
     // Test 4: Perform memory compaction
-    printInt(1834); // Compaction marker
+    printlnInt(1834); // Compaction marker
     let compaction_result: i32 = performMemoryCompaction(fragmented_memory, 1000);
-    printInt(compaction_result);
+    printlnInt(compaction_result);
     
     // Test 5: Measure fragmentation after compaction
-    printInt(1835); // Post-compaction fragmentation marker
+    printlnInt(1835); // Post-compaction fragmentation marker
     let post_compaction_score: i32 = measureFragmentation(fragmented_memory, 1000);
-    printInt(post_compaction_score);
+    printlnInt(post_compaction_score);
 }
 
 // Create a specific fragmentation pattern
@@ -989,7 +989,7 @@ fn performMemoryCompaction(mut memory: [i32; 1000], size: i32) -> i32 {
 
 // Test edge cases and stress scenarios
 fn testMemoryEdgeCases() {
-    printInt(1840); // Edge cases start
+    printlnInt(1840); // Edge cases start
     
     // Test 1: Zero-size allocations
     testZeroSizeAllocations();
@@ -1006,44 +1006,44 @@ fn testMemoryEdgeCases() {
     // Test 5: Memory corruption detection
     testMemoryCorruption();
     
-    printInt(1849); // Edge cases end
+    printlnInt(1849); // Edge cases end
 }
 
 // Test zero-size allocation handling
 fn testZeroSizeAllocations() {
-    printInt(1841); // Zero-size test marker
+    printlnInt(1841); // Zero-size test marker
     
     let mut test_memory: [i32; 100] = [0; 100];
     initializeMemoryPool100(test_memory);
     
     // Attempt zero-size allocation
     let zero_alloc: i32 = allocateBlock100(test_memory, 0, 0);
-    printInt(zero_alloc); // Should fail (-1)
+    printlnInt(zero_alloc); // Should fail (-1)
     
     // Attempt negative size allocation
     let negative_alloc: i32 = allocateBlock100(test_memory, 0, -5);
-    printInt(negative_alloc); // Should fail (-1)
+    printlnInt(negative_alloc); // Should fail (-1)
 }
 
 // Test maximum size allocations
 fn testMaxSizeAllocations() {
-    printInt(1842); // Max size test marker
+    printlnInt(1842); // Max size test marker
     
     let mut test_memory: [i32; 100] = [0; 100];
     initializeMemoryPool100(test_memory);
     
     // Attempt allocation larger than available memory
     let huge_alloc: i32 = allocateBlock100(test_memory, 0, 200);
-    printInt(huge_alloc); // Should fail (-1)
+    printlnInt(huge_alloc); // Should fail (-1)
     
     // Attempt allocation exactly at limit
     let limit_alloc: i32 = allocateBlock100(test_memory, 0, 96);
-    printInt(limit_alloc); // Should succeed (0)
+    printlnInt(limit_alloc); // Should succeed (0)
 }
 
 // Test allocation failure scenarios
 fn testAllocationFailures() {
-    printInt(1843); // Allocation failure marker
+    printlnInt(1843); // Allocation failure marker
     
     let mut test_memory: [i32; 50] = [0; 50];
     initializeMemoryPool50(test_memory);
@@ -1063,38 +1063,38 @@ fn testAllocationFailures() {
         size = size + 2;
     }
     
-    printInt(alloc_count);
+    printlnInt(alloc_count);
     
     // Try one more allocation (should fail)
     let final_alloc: i32 = allocateBlock50(test_memory, 0, 4);
-    printInt(final_alloc); // Should be -1
+    printlnInt(final_alloc); // Should be -1
 }
 
 // Test double free detection
 fn testDoubleFreeDetection() {
-    printInt(1844); // Double free marker
+    printlnInt(1844); // Double free marker
     
     let mut test_memory: [i32; 100] = [0; 100];
     initializeMemoryPool100(test_memory);
     
     // Allocate a block
     let allocated_block: i32 = allocateBlock100(test_memory, 0, 16);
-    printInt(allocated_block);
+    printlnInt(allocated_block);
     
     // Free it once
     deallocateBlock100(test_memory, allocated_block);
     let status_after_first_free: i32 = test_memory[allocated_block as usize + 1];
-    printInt(status_after_first_free); // Should be 0 (free)
+    printlnInt(status_after_first_free); // Should be 0 (free)
     
     // Try to free it again (double free)
     deallocateBlock100(test_memory, allocated_block);
     let status_after_double_free: i32 = test_memory[allocated_block as usize + 1];
-    printInt(status_after_double_free); // Should still be 0, but this is a bug
+    printlnInt(status_after_double_free); // Should still be 0, but this is a bug
 }
 
 // Test memory corruption detection
 fn testMemoryCorruption() {
-    printInt(1845); // Corruption test marker
+    printlnInt(1845); // Corruption test marker
     
     let mut test_memory: [i32; 200] = [0; 200];
     initializeMemoryPool200(test_memory);
@@ -1111,11 +1111,11 @@ fn testMemoryCorruption() {
     
     // Try to detect corruption
     let corruption_detected: i32 = detectMemoryCorruption(test_memory, 200);
-    printInt(corruption_detected);
+    printlnInt(corruption_detected);
     
     // Verify other blocks are still valid
     let validation_result: i32 = validateMemoryIntegrity(test_memory, 200);
-    printInt(validation_result);
+    printlnInt(validation_result);
 }
 
 // Helper functions for edge case testing

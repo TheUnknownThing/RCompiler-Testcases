@@ -668,7 +668,7 @@ fn complex_nested_control_flow(depth: i32, value: i32) -> i32 {
 
 // Main test function
 fn test_complex_control_flow() {
-    printInt(20001);  // Test start marker
+    printlnInt(20001);  // Test start marker
     
     // Test 1: FSM with complex transitions
     let mut fsm = init_fsm();
@@ -700,9 +700,9 @@ fn test_complex_control_flow() {
         processed = processed + 1;
     }
     
-    printInt(fsm.total_transitions);
-    printInt(fsm.error_count);
-    printInt(context);
+    printlnInt(fsm.total_transitions);
+    printlnInt(fsm.error_count);
+    printlnInt(context);
     
     // Test 2: Protocol parser simulation
     let mut parser = init_protocol_parser();
@@ -734,9 +734,9 @@ fn test_complex_control_flow() {
         i = i + 1;
     }
     
-    printInt(parser.packet_count);
-    printInt(parser.error_count);
-    printInt(packet_responses);
+    printlnInt(parser.packet_count);
+    printlnInt(parser.error_count);
+    printlnInt(packet_responses);
     
     // Test 3: Task scheduler simulation
     let mut scheduler = init_task_scheduler();
@@ -769,8 +769,8 @@ fn test_complex_control_flow() {
         i = i + 1;
     }
     
-    printInt(scheduling_steps);
-    printInt(scheduler.task_count);
+    printlnInt(scheduling_steps);
+    printlnInt(scheduler.task_count);
     
     // Test 4: Complex nested control flow
     let mut nested_results = 0;
@@ -781,7 +781,7 @@ fn test_complex_control_flow() {
         i = i + 1;
     }
     
-    printInt(nested_results % 100000);
+    printlnInt(nested_results % 100000);
     
     // Test 5: Multiple interacting state machines
     let mut fsm2 = init_fsm();
@@ -820,10 +820,10 @@ fn test_complex_control_flow() {
         i = i + 1;
     }
     
-    printInt(fsm2.total_transitions);
-    printInt(context2);
+    printlnInt(fsm2.total_transitions);
+    printlnInt(context2);
     
-    printInt(20999);  // Test end marker
+    printlnInt(20999);  // Test end marker
 }
 
 fn main() {

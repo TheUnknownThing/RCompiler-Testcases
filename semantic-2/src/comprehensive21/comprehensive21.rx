@@ -587,7 +587,7 @@ fn is_sorted(data: &[i32; MAX_ARRAY_SIZE], size: i32) -> bool {
 
 // Main performance testing function
 fn test_large_scale_performance() {
-    printInt(21001);  // Test start marker
+    printlnInt(21001);  // Test start marker
     
     // Test 1: Sorting algorithm performance comparison
     let test_sizes = [100, 500, 1000, 2000];
@@ -595,7 +595,7 @@ fn test_large_scale_performance() {
     
     while (size_idx < 4) {
         let size = test_sizes[size_idx as usize];
-        printInt(21000 + size_idx * 100 + 10);  // Size marker
+        printlnInt(21000 + size_idx * 100 + 10);  // Size marker
         
         // Test different data patterns
         let mut pattern = 0;
@@ -609,7 +609,7 @@ fn test_large_scale_performance() {
             bubble_sort(&mut working_data, size, &mut bubble_counter);
             
             if (!is_sorted(&working_data, size)) {
-                printInt(21901);  // Sorting error
+                printlnInt(21901);  // Sorting error
             }
             
             // Test quick sort
@@ -618,7 +618,7 @@ fn test_large_scale_performance() {
             quick_sort(&mut working_data, size, &mut quick_counter);
             
             if (!is_sorted(&working_data, size)) {
-                printInt(21902);  // Sorting error
+                printlnInt(21902);  // Sorting error
             }
             
             // Test merge sort
@@ -627,13 +627,13 @@ fn test_large_scale_performance() {
             merge_sort(&mut working_data, size, &mut merge_counter);
             
             if (!is_sorted(&working_data, size)) {
-                printInt(21903);  // Sorting error
+                printlnInt(21903);  // Sorting error
             }
             
             // Print performance comparison
-            printInt(bubble_counter.comparisons / 100);
-            printInt(quick_counter.comparisons / 100);
-            printInt(merge_counter.comparisons / 100);
+            printlnInt(bubble_counter.comparisons / 100);
+            printlnInt(quick_counter.comparisons / 100);
+            printlnInt(merge_counter.comparisons / 100);
             
             pattern = pattern + 1;
         }
@@ -674,9 +674,9 @@ fn test_large_scale_performance() {
         i = i + 1;
     }
     
-    printInt(search_hits);
-    printInt(linear_ops / 1000);
-    printInt(binary_ops / 1000);
+    printlnInt(search_hits);
+    printlnInt(linear_ops / 1000);
+    printlnInt(binary_ops / 1000);
     
     // Test 3: Statistical computations
     let stats_data = init_dataset_pattern(1, 3000);
@@ -686,9 +686,9 @@ fn test_large_scale_performance() {
     copy_array(&stats_data.data, &mut median_data, 3000);
     let median = compute_median(&mut median_data, 3000);
     
-    printInt(stats_data.mean);
-    printInt(variance / 1000);
-    printInt(median);
+    printlnInt(stats_data.mean);
+    printlnInt(variance / 1000);
+    printlnInt(median);
     
     // Test 4: Matrix operations
     let matrix_a = init_matrix(50, 50, 1);
@@ -711,7 +711,7 @@ fn test_large_scale_performance() {
             }
             i = i + 1;
         }
-        printInt(matrix_sum / 10000);
+        printlnInt(matrix_sum / 10000);
     }
     
     // Test 5: Memory access pattern analysis
@@ -746,10 +746,10 @@ fn test_large_scale_performance() {
         i = i + 1;
     }
     
-    printInt(sequential_sum / 1000);
-    printInt(random_sum / 1000);
-    printInt(strided_sum / 100);
-    printInt(access_counter.memory_accesses / 1000);
+    printlnInt(sequential_sum / 1000);
+    printlnInt(random_sum / 1000);
+    printlnInt(strided_sum / 100);
+    printlnInt(access_counter.memory_accesses / 1000);
     
     // Test 6: Corner cases and extreme scenarios
     
@@ -757,7 +757,7 @@ fn test_large_scale_performance() {
     let mut same_data = [42; MAX_ARRAY_SIZE];
     let mut same_counter = init_performance_counter();
     quick_sort(&mut same_data, 1000, &mut same_counter);
-    printInt(same_counter.comparisons / 100);
+    printlnInt(same_counter.comparisons / 100);
     
     // Test with two distinct elements alternating
     let mut alternating_data = [0; MAX_ARRAY_SIZE];
@@ -769,16 +769,16 @@ fn test_large_scale_performance() {
     
     let mut alt_counter = init_performance_counter();
     merge_sort(&mut alternating_data, 1000, &mut alt_counter);
-    printInt(alt_counter.comparisons / 100);
+    printlnInt(alt_counter.comparisons / 100);
     
     // Test with single element
     let mut single_data = [0; MAX_ARRAY_SIZE];
     single_data[0] = 123;
     let mut single_counter = init_performance_counter();
     heap_sort(&mut single_data, 1, &mut single_counter);
-    printInt(single_data[0]);
+    printlnInt(single_data[0]);
     
-    printInt(21999);  // Test end marker
+    printlnInt(21999);  // Test end marker
 }
 
 fn main() {
