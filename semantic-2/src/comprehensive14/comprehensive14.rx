@@ -25,7 +25,7 @@ Details:
 // 6. Database-like operations with indexing and querying
 
 // Node structure for various data structures
-#[derive(Copy, Clone)]
+
 struct Node {
     value: i32,
     key: i32,

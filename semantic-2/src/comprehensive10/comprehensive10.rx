@@ -37,7 +37,7 @@ fn pm_rand_update(x: i32) -> i32 {
 // 5. Minimum spanning tree using Kruskal's algorithm
 
 // Edge structure for graph representation
-#[derive(Copy, Clone)]
+
 struct Edge {
     from: i32,
     to: i32,
