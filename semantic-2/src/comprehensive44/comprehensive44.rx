@@ -131,7 +131,7 @@ fn main() {
         // Hidden Error: `total_energy` is declared as immutable but is modified
         // inside the loop. This should cause a mutability error.
         if (time_step % 20 == 0) {
-            let total_energy: i32 = 0;
+            let mut total_energy: i32 = 0;
             let mut j: i32 = 0;
             while (j < 32) {
                 total_energy = total_energy + agents[j as usize].energy;

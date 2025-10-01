@@ -69,7 +69,7 @@ fn main() {
 
     // Hidden Error: This function is declared to take an immutable program array,
     // but it tries to modify it. This should cause a mutability conflict error.
-    fn self_modify_code(mut prog: &[i32; 256], pc: i32) {
+    fn self_modify_code(mut prog: &mut [i32; 256], pc: i32) {
         if (pc > 10 && prog[pc as usize-1] == 15) { // If previous instruction was DUP
             prog[pc as usize] = 2; // Change next instruction to POP
         }
@@ -82,7 +82,7 @@ fn main() {
         pc = pc + 1;
 
         // This call introduces the hidden error.
-        self_modify_code(&program, pc);
+        self_modify_code(&mut program, pc);
 
         if (instruction == 1) { // PUSH
             let value: i32 = program[pc as usize];
@@ -158,4 +158,5 @@ fn main() {
             halt = true;
         }
     }
+    exit(0);
 }
