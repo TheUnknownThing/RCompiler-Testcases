@@ -30,7 +30,7 @@ fn main() {
     // Total number of blocks in the heap (heap_size / block_size)
     let total_blocks: i32 = 1024 / 16; // 64
 
-    fn init_heap(mut heap: &mut [i32; 1024], mut free_list_head: &mut i32) {
+    fn init_heap(heap: &mut [i32; 1024], free_list_head: &mut i32) {
         let heap_size: i32 = 1024;
         let block_size: i32 = 16;
         let num_blocks: i32 = heap_size / block_size;
@@ -44,7 +44,7 @@ fn main() {
         *free_list_head = 0;
     }
 
-    fn alloc(mut heap: &mut [i32; 1024], mut free_list_head: &mut i32) -> i32 {
+    fn alloc(heap: &mut [i32; 1024], free_list_head: &mut i32) -> i32 {
         if (*free_list_head == -1) {
             return -1; // Out of memory
         }
@@ -54,7 +54,7 @@ fn main() {
         return block_addr;
     }
 
-    fn free(mut heap: &mut [i32; 1024], mut free_list_head: &mut i32, addr: i32) {
+    fn free(heap: &mut [i32; 1024], free_list_head: &mut i32, addr: i32) {
         heap[addr as usize] = *free_list_head;
         *free_list_head = addr;
     }

@@ -48,7 +48,7 @@ fn main() {
     let num_agents: i32 = 32;
     let world_size: i32 = 64;
 
-    fn init_world(mut world: &mut [[i32; 64]; 64], mut agents: &mut [Agent; 32]) {
+    fn init_world(world: &mut [[i32; 64]; 64], agents: &mut [Agent; 32]) {
         let mut i: i32 = 0;
         while (i < 64) {
             let mut j: i32 = 0;
@@ -92,7 +92,7 @@ fn main() {
         return best_x * 1000 + best_y;
     }
 
-    fn update_agent(mut agent: &mut Agent, mut world: &mut [[i32; 64]; 64]) {
+    fn update_agent(agent: &mut Agent, world: &mut [[i32; 64]; 64]) {
         if (agent.energy <= 0) {
             return;
         }
