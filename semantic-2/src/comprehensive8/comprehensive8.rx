@@ -50,6 +50,7 @@ fn main() {
     
     // Performance test marker - end
     printlnInt(1899);
+    exit(0);
 }
 
 // Test 1: Classic Dynamic Programming Problems

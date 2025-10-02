@@ -50,6 +50,7 @@ fn main() {
     
     // Performance test marker - end
     printlnInt(1799);
+    exit(0);
 }
 
 // Test 1: Graph Traversal Algorithms
