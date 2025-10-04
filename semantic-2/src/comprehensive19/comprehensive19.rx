@@ -99,7 +99,7 @@ fn allocate_node(pool: &mut MemoryPool, data: i32) -> i32 {
         return NULL_INDEX; // Out of memory
     }
 
-    let allocated_index = pool.free_list;
+    let allocated_index: i32 = pool.free_list;
     pool.free_list = pool.nodes[allocated_index as usize].next;
 
     pool.nodes[allocated_index as usize].data = data;
@@ -146,7 +146,7 @@ fn stack_pop(stack: &mut Stack) -> i32 {
         return -999999; // Stack underflow indicator
     }
 
-    let value = stack.data[(stack.top) as usize];
+    let value: i32 = stack.data[(stack.top) as usize];
     stack.top = stack.top - 1;
     value
 }
@@ -185,7 +185,7 @@ fn queue_dequeue(queue: &mut Queue) -> i32 {
         return -999999; // Queue underflow indicator
     }
 
-    let value = queue.data[(queue.front) as usize];
+    let value: i32 = queue.data[(queue.front) as usize];
     queue.front = (queue.front + 1) % queue.capacity;
     queue.size = queue.size - 1;
     value
@@ -236,7 +236,7 @@ fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
         return false; // Table full
     }
 
-    let bucket_index = hash_function(key);
+    let bucket_index: i32 = hash_function(key);
 
     // Check if key already exists
     let mut current = table.buckets[bucket_index as usize];
@@ -271,7 +271,7 @@ fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
 
 // Search in hash table
 fn hash_table_search(table: &HashTable, key: i32) -> i32 {
-    let bucket_index = hash_function(key);
+    let bucket_index: i32 = hash_function(key);
     let mut current = table.buckets[bucket_index as usize];
 
     while (current != NULL_INDEX) {
@@ -286,7 +286,7 @@ fn hash_table_search(table: &HashTable, key: i32) -> i32 {
 
 // Delete from hash table
 fn hash_table_delete(table: &mut HashTable, key: i32) -> bool {
-    let bucket_index = hash_function(key);
+    let bucket_index: i32 = hash_function(key);
     let mut current = table.buckets[bucket_index as usize];
     let mut prev = NULL_INDEX;
 
@@ -330,7 +330,7 @@ fn list_insert_head(
         return false;
     }
 
-    let new_node = allocate_node(pool, data);
+    let new_node: i32 = allocate_node(pool, data);
     if (new_node == NULL_INDEX) {
         return false;
     }
@@ -504,7 +504,7 @@ fn test_comprehensive_operations() {
         let key: i32 = i * 127 + 1; // Force collisions
         let value: i32 = i * i + 17;
         if (hash_table_insert(&mut hash_table, key, value)) {
-            let retrieved = hash_table_search(&hash_table, key);
+            let retrieved: i32 = hash_table_search(&hash_table, key);
             if (retrieved != value) {
                 printlnInt(19902); // Hash table error
             }
