@@ -1236,7 +1236,6 @@ fn performHashTableTest(initial_size: i32) {
                         &mut collision_count,
                         hash_entry_count,
                     );
->>>>>>> 7a615e5d0f3357c89837ba9f104ecdb0cccfb3c4
                 }
                 i = i + 1;
             }

@@ -325,8 +325,8 @@ fn performModularExponentiation() -> i32 {
     while (base <= 10) {
         let mut exponent: i32 = 1;
         while (exponent <= 20) {
-            let mut modulus = 97; // Use prime modulus
-            let mod_result = modularPower(base, exponent, modulus);
+            let mut modulus: i32 = 97; // Use prime modulus
+            let mod_result: i32 = modularPower(base, exponent, modulus);
             result_sum = (result_sum + mod_result) % 10000;
 
             exponent += 1;
@@ -520,8 +520,8 @@ fn multiplyMatrices(a: &[i32; 625], b: &[i32; 625], result: &mut [i32; 625], siz
     }
 
     // Blocked matrix multiplication for better cache performance
-    let block_size = 5;
-    let mut i_block = 0;
+    let block_size: usize = 5;
+    let mut i_block: usize = 0;
 
     while (i_block < size) {
         let mut j_block: usize = 0;
@@ -805,8 +805,8 @@ fn gaussianElimination(matrix: &mut [i32; 30], size: usize) {
         i = k + 1;
         while (i < size) {
             if (matrix[k * (size + 1) + k] != 0) {
-                let factor = matrix[i * (size + 1) + k] / matrix[k * (size + 1) + k];
-                let mut j = k;
+                let factor: i32 = matrix[i * (size + 1) + k] / matrix[k * (size + 1) + k];
+                let mut j: usize = k;
                 while (j <= size) {
                     matrix[i * (size + 1) + j] -= factor * matrix[k * (size + 1) + j];
                     j += 1;
@@ -976,9 +976,9 @@ fn calculateCombinations(max_n: i32) -> i32 {
 
 // Calculate C(n,r) = n! / (r! * (n-r)!) using optimized method
 fn combination(n: i32, r: i32) -> i32 {
-    let actual_r = if (r > n - r) { n - r } else { r };
-    let mut result = 1;
-    let mut i = 0;
+    let actual_r: i32 = if (r > n - r) { n - r } else { r };
+    let mut result: i32 = 1;
+    let mut i: i32 = 0;
 
     while (i < actual_r) {
         result = result * (n - i) / (i + 1);
@@ -1099,8 +1099,8 @@ fn modularInverse(a: i32, m: i32) -> i32 {
 
 // Perform multiple modular inverse calculations
 fn performModularInverse() -> i32 {
-    let mut inverse_sum = 0;
-    let modulus = 97; // Prime modulus
+    let mut inverse_sum: i32 = 0;
+    let modulus: i32 = 97; // Prime modulus
 
     let mut a: i32 = 2;
     while (a < modulus) {
@@ -1233,9 +1233,9 @@ fn sdbmHash(data: [i32; 100], size: usize) -> i32 {
 
 // FNV-1a hash function (simplified)
 fn fnvHash(data: [i32; 100], size: usize) -> i32 {
-    let fnv_prime = 16777619;
-    let mut hash = 2166136261u32; // FNV offset basis
-    let mut i = 0;
+    let fnv_prime: u32 = 16777619;
+    let mut hash: u32 = 2166136261u32; // FNV offset basis
+    let mut i: usize = 0;
 
     while (i < size) {
         hash ^= data[i] as u32;

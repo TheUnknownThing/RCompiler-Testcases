@@ -240,7 +240,6 @@ fn hash_table_insert(table: &mut HashTable, key: i32, value: i32) -> bool {
     }
 
     let bucket_index: i32 = hash_function(key);
-    let bucket_index: i32 = hash_function(key);
 
     // Check if key already exists
     let mut current: i32 = table.buckets[bucket_index as usize];
