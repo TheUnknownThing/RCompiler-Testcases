@@ -368,7 +368,7 @@ impl AVLTree {
     }
     
     fn inorder_traversal(&self, root: i32, result: &mut [i32; 1000], index: &mut i32) {
-        if root != -1 && *index < 1000 {
+        if (root != -1 && *index < 1000) {
             self.inorder_traversal(self.nodes[root as usize].left, result, index);
             result[*index as usize] = self.nodes[root as usize].value;
             *index += 1;
