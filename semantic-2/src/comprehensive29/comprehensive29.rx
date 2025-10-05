@@ -176,7 +176,7 @@ fn fetch_decode_execute(
     halt: &mut bool,
 ) {
     while ((*halt) == false) {
-        if (((*pc) < 0 || (*pc) >= MEMORY_SIZE)) {
+        if ((*pc) < 0 || (*pc) >= MEMORY_SIZE) {
             *halt = true;
         }
         if ((*halt) == true) {
@@ -203,9 +203,9 @@ fn fetch_decode_execute(
                 let r_src: i32 = memory[*pc as usize + 1];
                 let res: i32 = registers[r_dst as usize] + registers[r_src as usize];
                 // Simplified overflow check
-                if ((registers[r_dst as usize] > 0 && registers[r_src as usize] > 0 && res < 0)) {
+                if (registers[r_dst as usize] > 0 && registers[r_src as usize] > 0 && res < 0) {
                     *cf = true;
-                } else if ((registers[r_dst as usize] < 0 && registers[r_src as usize] < 0 && res > 0)) {
+                } else if (registers[r_dst as usize] < 0 && registers[r_src as usize] < 0 && res > 0) {
                     *cf = true;
                 } else {
                     *cf = false;
@@ -237,7 +237,7 @@ fn fetch_decode_execute(
             } else if (opcode == 6) { // DIV
                 let r_dst: i32 = memory[*pc as usize];
                 let r_src: i32 = memory[*pc as usize + 1];
-                if ((registers[r_src as usize] != 0)) {
+                if (registers[r_src as usize] != 0) {
                     registers[r_dst as usize] = registers[r_dst as usize] / registers[r_src as usize];
                 } else {
                     *halt = true; // Division by zero
