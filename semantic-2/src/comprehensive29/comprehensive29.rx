@@ -86,7 +86,7 @@ fn load_program(memory: &mut [i32; 2048]) {
         2, 2, 1,        // MOV R2, 1  (b = 1)
         1, 4, 0,        // MOV R4, R0 (counter = n)
         25, 4, 1,       // CMP R4, 1
-        18, 36, 0,      // JZ fib_iter_end (if (n <= 1, jump to end))
+        18, 36, 0,      // JZ fib_iter_end (if n <= 1, jump to end)
 
         // Loop start (pc=21)
         1, 3, 1,        // MOV R3, R1 (temp = a)
@@ -131,7 +131,7 @@ fn load_program(memory: &mut [i32; 2048]) {
         15, 0, 1, 4,    // LOAD R0, [SP+4] (arg is at sp+4*word_size, simplified here)
         
         25, 0, 2,       // CMP R0, 2
-        20, 108, 0,     // JC fib_base_case (if (n < 2))
+        20, 108, 0,     // JC fib_base_case (if n < 2)
 
         // Recursive step
         4, 0, 1, 0,     // SUB R0, 1 (n-1)
@@ -176,7 +176,7 @@ fn fetch_decode_execute(
     halt: &mut bool,
 ) {
     while ((*halt) == false) {
-        if (((*pc) < 0 || (*pc) >= MEMORY_SIZE)) {
+        if ((*pc) < 0 || (*pc) >= MEMORY_SIZE) {
             *halt = true;
         }
         if ((*halt) == true) {
@@ -203,9 +203,9 @@ fn fetch_decode_execute(
                 let r_src: i32 = memory[*pc as usize + 1];
                 let res: i32 = registers[r_dst as usize] + registers[r_src as usize];
                 // Simplified overflow check
-                if ((registers[r_dst as usize] > 0 && registers[r_src as usize] > 0 && res < 0)) {
+                if (registers[r_dst as usize] > 0 && registers[r_src as usize] > 0 && res < 0) {
                     *cf = true;
-                } else if ((registers[r_dst as usize] < 0 && registers[r_src as usize] < 0 && res > 0)) {
+                } else if (registers[r_dst as usize] < 0 && registers[r_src as usize] < 0 && res > 0) {
                     *cf = true;
                 } else {
                     *cf = false;
@@ -218,9 +218,9 @@ fn fetch_decode_execute(
                 let r_src: i32 = memory[*pc as usize + 1];
                 let res: i32 = registers[r_dst as usize] - registers[r_src as usize];
                 // Simplified borrow check
-                if ((registers[r_dst as usize] > 0 && registers[r_src as usize] < 0 && res < 0)) {
+                if (registers[r_dst as usize] > 0 && registers[r_src as usize] < 0 && res < 0) {
                     *cf = true;
-                } else if ((registers[r_dst as usize] < 0 && registers[r_src as usize] > 0 && res > 0)) {
+                } else if (registers[r_dst as usize] < 0 && registers[r_src as usize] > 0 && res > 0) {
                     *cf = true;
                 } else {
                     *cf = false;
@@ -237,7 +237,7 @@ fn fetch_decode_execute(
             } else if (opcode == 6) { // DIV
                 let r_dst: i32 = memory[*pc as usize];
                 let r_src: i32 = memory[*pc as usize + 1];
-                if ((registers[r_src as usize] != 0)) {
+                if (registers[r_src as usize] != 0) {
                     registers[r_dst as usize] = registers[r_dst as usize] / registers[r_src as usize];
                 } else {
                     *halt = true; // Division by zero
@@ -294,7 +294,7 @@ fn fetch_decode_execute(
                 let r_addr: i32 = memory[*pc as usize + 1];
                 let offset: i32 = memory[*pc as usize + 2];
                 let addr: i32 = registers[r_addr as usize] + offset;
-                if ((addr >= 0 && addr < MEMORY_SIZE)) {
+                if (addr >= 0 && addr < MEMORY_SIZE) {
                     registers[r_dst as usize] = memory[addr as usize];
                 } else {
                     *halt = true;
@@ -305,7 +305,7 @@ fn fetch_decode_execute(
                 let r_addr: i32 = memory[*pc as usize + 1];
                 let offset: i32 = memory[*pc as usize + 2];
                 let addr: i32 = registers[r_addr as usize] + offset;
-                if ((addr >= 0 && addr < MEMORY_SIZE)) {
+                if (addr >= 0 && addr < MEMORY_SIZE) {
                     memory[addr as usize] = registers[r_src as usize];
                 } else {
                     *halt = true;
@@ -314,25 +314,25 @@ fn fetch_decode_execute(
             } else if (opcode == 17) { // JMP
                 *pc = memory[*pc as usize];
             } else if (opcode == 18) { // JZ
-                if ((*zf)) {
+                if (*zf) {
                     *pc = memory[*pc as usize];
                 } else {
                     *pc = (*pc) + 1;
                 }
             } else if (opcode == 19) { // JNZ
-                if ((!*zf)) {
+                if (!*zf) {
                     *pc = memory[*pc as usize];
                 } else {
                     *pc = (*pc) + 1;
                 }
             } else if (opcode == 20) { // JC
-                if ((*cf)) {
+                if (*cf) {
                     *pc = memory[*pc as usize];
                 } else {
                     *pc = (*pc) + 1;
                 }
             } else if (opcode == 21) { // JNC
-                if ((!*cf)) {
+                if (!*cf) {
                     *pc = memory[*pc as usize];
                 } else {
                     *pc = (*pc) + 1;
