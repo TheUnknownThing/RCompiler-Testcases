@@ -89,7 +89,6 @@ fn main() {
     }
 
     printlnInt(9999);
-
     exit(0);
 }
 
