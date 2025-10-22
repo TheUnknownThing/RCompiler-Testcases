@@ -12,10 +12,11 @@ with open("semantic-2.sql", "w") as f:
         "USE compiler;\n"
     )
 
-# Get phase_id from config (default to 1 for semantic-1)
 phase_id = 2
+cnt = 0
 
 for case in file_lists:
+    cnt += 1
     case_name = case.get("name", "")
 
     # Extract case name from path
@@ -43,8 +44,8 @@ for case in file_lists:
     try: 
         with open("semantic-2.sql", "a") as f:
             f.write(
-                f'INSERT INTO TestCases (test_case_disp_name, problem_phase, source_code_base64, compile_result) '
-                f'VALUES ("{case_name}", {phase_id}, "{base64_code}", {compile_result});\n'
+                f'INSERT INTO TestCases (test_case_id, test_case_disp_name, problem_phase, source_code_base64, compile_result) '
+                f'VALUES ({cnt}, "{case_name}", {phase_id}, "{base64_code}", {compile_result});\n'
             )
     except Exception as e:
         print(f"Error writing SQL for {case}: {e}")
