@@ -13,7 +13,7 @@ with open("semantic-2.sql", "w") as f:
     )
 
 phase_id = 2
-cnt = 0
+cnt = 222
 
 for case in file_lists:
     cnt += 1
