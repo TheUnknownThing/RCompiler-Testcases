@@ -44,7 +44,7 @@ for case in file_lists:
     try: 
         with open("semantic-2.sql", "a") as f:
             f.write(
-                f'INSERT INTO TestCases (test_case_id, test_case_disp_name, problem_phase, source_code_base64, compile_result) '
+                f'INSERT INTO TestCases (test_case_id, test_case_disp_name, problem_phase, source_code_base64, verdict) '
                 f'VALUES ({cnt}, "{case_name}", {phase_id}, "{base64_code}", {compile_result});\n'
             )
     except Exception as e:
