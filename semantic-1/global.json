@@ -1100,7 +1100,7 @@
     "input": ["src/basic5/basic5.in", "visible"],
     "output": ["src/basic5/basic5.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1110,7 +1110,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, incomplete trait implementation - missing empty method"
+      "comment": "basic test"
     }
   },
   {
@@ -1205,7 +1205,7 @@
     "input": ["src/basic10/basic10.in", "visible"],
     "output": ["src/basic10/basic10.out", "visible"],
     "exitcode": 0,
-    "compileexitcode": -1,
+    "compileexitcode": 0,
     "compiletimelimit": 15,
     "compilememorylimit": 256,
     "runtimelimit": -1,
@@ -1215,7 +1215,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, incomplete trait implementation - missing size method"
+      "comment": "basic test"
     }
   },
   {
@@ -1257,7 +1257,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, multiple errors - return type mismatch, incomplete trait, static type error"
+      "comment": "basic test, multiple errors - return type mismatch, static type error"
     }
   },
   {
@@ -1320,7 +1320,7 @@
     "metainfo": {
       "caseauthor": "Wenxin Zheng",
       "lastmodified": "2025-08-08",
-      "comment": "basic test, incomplete trait implementation and array bounds error"
+      "comment": "basic test, array bounds error"
     }
   },
   {
